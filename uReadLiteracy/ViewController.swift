@@ -20,6 +20,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+      
+     
+        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough"){
+            return
+        }
+ 
+ 
+        let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as? WalkthroughViewController {
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
+    }
 
 }
 
