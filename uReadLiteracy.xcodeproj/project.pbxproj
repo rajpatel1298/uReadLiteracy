@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
 		CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */; };
 		CD1DCA621FF4A2D200FCDDB5 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA611FF4A2D200FCDDB5 /* WalkthroughViewController.swift */; };
@@ -17,6 +18,7 @@
 		CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E1E15205C5CF500AC2D1A /* LearnCell.swift */; };
 		CD6462BA1FF33A88007AF08A /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6462B91FF33A88007AF08A /* Tutorial.storyboard */; };
 		CD704F4E2019A1B700E1E4F8 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */; };
+		CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */; };
 		CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6528E1FA0F5B700835624 /* AppDelegate.swift */; };
 		CDA652911FA0F5B700835624 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA652901FA0F5B700835624 /* ViewController.swift */; };
 		CDA652941FA0F5B700835624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA652921FA0F5B700835624 /* Main.storyboard */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		CD1DCA611FF4A2D200FCDDB5 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +44,7 @@
 		CD3E1E15205C5CF500AC2D1A /* LearnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnCell.swift; sourceTree = "<group>"; };
 		CD6462B91FF33A88007AF08A /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
+		CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		CDA6528B1FA0F5B700835624 /* uReadLiteracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uReadLiteracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA6528E1FA0F5B700835624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDA652901FA0F5B700835624 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */,
 				CD3E1E13205C5AC200AC2D1A /* LearnViewController.swift */,
 				CD3E1E15205C5CF500AC2D1A /* LearnCell.swift */,
+				CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */,
+				CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */,
 			);
 			path = uReadLiteracy;
 			sourceTree = "<group>";
@@ -218,12 +224,14 @@
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
+				CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */,
 				CD1DCA621FF4A2D200FCDDB5 /* WalkthroughViewController.swift in Sources */,
 				CD704F4E2019A1B700E1E4F8 /* BrowseViewController.swift in Sources */,
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,
 				CDA652911FA0F5B700835624 /* ViewController.swift in Sources */,
 				CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */,
+				CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */,
 				CDDD7F011FF19A67009FA71D /* ExploreViewController.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
 				CDA652971FA0F5B700835624 /* uReadLiteracy.xcdatamodeld in Sources */,

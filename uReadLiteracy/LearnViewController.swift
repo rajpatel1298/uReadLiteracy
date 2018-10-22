@@ -16,6 +16,9 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var analyzeButton: UIButton!
     var helpList = [String]()
     var loginLoadingIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    var sendHelpWord: String!
+    var sendHelpFlag: String!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,7 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.loginLoadingIndicator.hidesWhenStopped = true
         self.loginLoadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(loginLoadingIndicator)
-        analyzeButton.addTarget(self, action: #selector(analyzeWords), for: .touchUpInside)
+        //analyzeButton.addTarget(self, action: #selector(analyzeWords), for: .touchUpInside)
     
         // Do any additional setup after loading the view.
     }
@@ -54,6 +57,12 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let learnCell = tableView.cellForRow(at: indexPath) as? LearnCell
+        sendHelpWord = learnCell?.wordLabel.text
+        print("Set help word as : \(sendHelpWord) ...")
+    }
+    
     func isVowel(letter: Character) -> Bool{
         if(letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u"){
             return true
@@ -61,12 +70,13 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return false
     }
     
-    func analyzeWords(){
+    func analyzeWords(helpWord: String!) -> [Int] {
         self.loginLoadingIndicator.startAnimating()
         var endHelp = 0
         var begHelp = 0
         var blends = 0
         var multi = 0
+        var retArr = [0, 0, 0, 0]   //indexes correspond to endings, beginnings, blends, and multisyllabic
         
         let beginnings = ["bl", "br", "ch", "ci", "cl", "cr", "dis", "dr", "dw", "ex", "fl", "fr", "gl", "gr", "in","kn", "ph", "pl", "pr", "psy", "re", "sc", "sh", "shr", "sk", "sl","sm", "sn", "sp", "spr", "st", "str", "sw", "th", "thr", "tr", "tw", "un", "wh", "wr","eigh"]
         
@@ -74,98 +84,80 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //calculate number of difficult ending words
         for end in endings {
-            for word in helpList {
                 let currEnd = end;
-                if(word.hasSuffix(currEnd) == true){
+                if(helpWord.hasSuffix(currEnd) == true){
                     endHelp = endHelp + 1
                 }
-            }
         }
+        retArr[0] = endHelp
         
         //calculate number of difficult beginning words
         for beg in beginnings{
-            for word in helpList {
                 let currBeg = beg
-                if(word.hasPrefix(currBeg) == true){
+                if(helpWord.hasPrefix(currBeg) == true){
                     begHelp = begHelp + 1
                 }
-            }
         }
+        retArr[1] = begHelp
+        
         
         //calculate word blends
         var counter = 0;
-        
-        for string in helpList {
         //   string = string.lowercased()
-            for char in string.enumerated() {
-                if ((counter == 1) && (isVowel(letter: char.element) || (char.element == "y" || char.element == "w"))){
-                    blends += 1
-                    counter = 0
-                } else if(isVowel(letter: char.element)){
-                    counter += 1
-                } else {
-                    counter = 0
-                }
+        for char in helpWord.enumerated() {
+            if ((counter == 1) && (isVowel(letter: char.element) || (char.element == "y" || char.element == "w"))){
+                blends += 1
+                counter = 0
+            } else if(isVowel(letter: char.element)){
+                counter += 1
+            } else {
+                counter = 0
             }
         }
+        retArr[2] = blends
         
         //calculate multisyllabic words
         counter = 0
-        for string2 in helpList {
-            for char in string2.enumerated() {
-                
-                if counter == 1 && isVowel(letter: char.element) {
-                    multi += 1
-                    counter = 0
-                }
-                else if (counter == 1 && !isVowel(letter: char.element)) {
-                    //continue
-                }
-                else if (counter == 0 && isVowel(letter: char.element)){
-                    counter = 1
-                }
-                else {
-                    //do nothing
-                }
+        
+        for char in helpWord.enumerated() {
+            if counter == 1 && isVowel(letter: char.element) {
+                multi += 1
+                counter = 0
+            }
+            else if (counter == 1 && !isVowel(letter: char.element)) {
+                //continue
+            }
+            else if (counter == 0 && isVowel(letter: char.element)){
+                counter = 1
+            }
+            else {
+                //do nothing
             }
         }
-        
-        //compare whichever is the highest and the display the corresponding page with youtube links
-        var words = [endHelp, begHelp, blends, multi]
-        words.sort()
-        
-        if(words[0] == endHelp){
-            //display endHelp video pages
-        }
-        else if(words[0] == begHelp) {
-            //display begHelp video pages
-        }
-        else if(words[0] == multi){
-            //display multi
-        }
-        else {
-            //display blends 
-        }
-        
+        retArr[3] = multi
+       
         self.loginLoadingIndicator.stopAnimating()
+        return retArr
+        /*
         
         if let url = URL(string: "https://www.youtube.com/watch?v=N5Qu7Qlf_eI"){
             let safariController = SFSafariViewController(url: url)
             present(safariController, animated: true, completion: nil)
         }
+ 
+        */
         
     }
     
     
-    
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showVideoSegue" {
+            let destinationController = segue.destination as! DynamicVideoViewController
+            destinationController.helpWord = sendHelpWord
+            destinationController.helpFlag = analyzeWords(helpWord: sendHelpWord)
+        }
     }
-    */
-
 }

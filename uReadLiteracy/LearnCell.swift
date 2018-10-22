@@ -11,7 +11,7 @@ import UIKit
 class LearnCell: UITableViewCell {
     
     @IBOutlet var wordLabel: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +22,5 @@ class LearnCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

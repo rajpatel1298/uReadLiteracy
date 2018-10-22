@@ -88,7 +88,6 @@ class BrowseViewController: UIViewController, WKUIDelegate{
                 print("first \(str)")
                 UIPasteboard.general.string = str
                 completion(flag)
-
             } else {
                 print("it is not casting")
             }
