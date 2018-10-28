@@ -8,5 +8,6 @@ target 'uReadLiteracy' do
   use_frameworks!
 
   # Pods for uReadLiteracy
-  pod "YouTube-Player-iOS-Helper", "~> 0.1"
+  pod 'SwiftSoup'
+  pod "youtube-ios-player-helper", "~> 0.1.4"
 end

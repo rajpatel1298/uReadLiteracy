@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A5A21801B7E00FFDC82 /* ParentWebPage.swift */; };
+		1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A5C2180209B00FFDC82 /* ChildWebPage.swift */; };
+		1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A6A2181619200FFDC82 /* AllowedPage.swift */; };
+		1CDB3F2A217ECDF600BEC04C /* NewBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB3F29217ECDF600BEC04C /* NewBrowserViewController.swift */; };
+		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
 		CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */; };
@@ -33,6 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		198A7836A988EE4B2985A501 /* Pods-uReadLiteracy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uReadLiteracy.release.xcconfig"; path = "Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy.release.xcconfig"; sourceTree = "<group>"; };
+		1C513A5A21801B7E00FFDC82 /* ParentWebPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWebPage.swift; sourceTree = "<group>"; };
+		1C513A5C2180209B00FFDC82 /* ChildWebPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildWebPage.swift; sourceTree = "<group>"; };
+		1C513A6A2181619200FFDC82 /* AllowedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedPage.swift; sourceTree = "<group>"; };
+		1CDB3F29217ECDF600BEC04C /* NewBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBrowserViewController.swift; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +68,8 @@
 		CDDD7F021FF19B55009FA71D /* bookTurn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bookTurn.gif; sourceTree = "<group>"; };
 		CDDD7F041FF1A64C009FA71D /* getHelp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = getHelp.gif; sourceTree = "<group>"; };
 		CDDD7F061FF1A65F009FA71D /* GetHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHelpViewController.swift; sourceTree = "<group>"; };
+		E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uReadLiteracy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F628D77213D203437BD9BC13 /* Pods-uReadLiteracy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uReadLiteracy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +77,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C513A5921801B6100FFDC82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C513A5A21801B7E00FFDC82 /* ParentWebPage.swift */,
+				1C513A5C2180209B00FFDC82 /* ChildWebPage.swift */,
+				1C513A6A2181619200FFDC82 /* AllowedPage.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1CDB3F29217ECDF600BEC04C /* NewBrowserViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4AE814D28480DC2CECE2D693 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F628D77213D203437BD9BC13 /* Pods-uReadLiteracy.debug.xcconfig */,
+				198A7836A988EE4B2985A501 /* Pods-uReadLiteracy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CD1DCA6B1FF4ACE300FCDDB5 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +137,8 @@
 			children = (
 				CDA6528D1FA0F5B700835624 /* uReadLiteracy */,
 				CDA6528C1FA0F5B700835624 /* Products */,
+				4AE814D28480DC2CECE2D693 /* Pods */,
+				EF7EF7D627ADB23342CBCA90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +153,8 @@
 		CDA6528D1FA0F5B700835624 /* uReadLiteracy */ = {
 			isa = PBXGroup;
 			children = (
+				1C513A5921801B6100FFDC82 /* Model */,
+				1CDB3F28217ECDDB00BEC04C /* Controller */,
 				CD1DCA6B1FF4ACE300FCDDB5 /* Gifs */,
 				CD6462B81FF33A55007AF08A /* Storyboards */,
 				CDDD7EFF1FF19A3E009FA71D /* Tutorial Files */,
@@ -142,6 +186,14 @@
 			name = "Tutorial Files";
 			sourceTree = "<group>";
 		};
+		EF7EF7D627ADB23342CBCA90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDA652A01FA0F5B700835624 /* Build configuration list for PBXNativeTarget "uReadLiteracy" */;
 			buildPhases = (
+				A50F51A8874EAB19EC840418 /* [CP] Check Pods Manifest.lock */,
 				CDA652871FA0F5B700835624 /* Sources */,
 				CDA652881FA0F5B700835624 /* Frameworks */,
 				CDA652891FA0F5B700835624 /* Resources */,
+				83AD81AE0E5B6ABC7FA73B22 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,6 +270,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		83AD81AE0E5B6ABC7FA73B22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A50F51A8874EAB19EC840418 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-uReadLiteracy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CDA652871FA0F5B700835624 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -224,13 +319,17 @@
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
+				1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */,
+				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
 				CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */,
 				CD1DCA621FF4A2D200FCDDB5 /* WalkthroughViewController.swift in Sources */,
+				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
 				CD704F4E2019A1B700E1E4F8 /* BrowseViewController.swift in Sources */,
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,
 				CDA652911FA0F5B700835624 /* ViewController.swift in Sources */,
 				CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */,
+				1CDB3F2A217ECDF600BEC04C /* NewBrowserViewController.swift in Sources */,
 				CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */,
 				CDDD7F011FF19A67009FA71D /* ExploreViewController.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
@@ -355,6 +454,7 @@
 		};
 		CDA652A11FA0F5B700835624 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F628D77213D203437BD9BC13 /* Pods-uReadLiteracy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EHF5WYNYGX;
@@ -369,6 +469,7 @@
 		};
 		CDA652A21FA0F5B700835624 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 198A7836A988EE4B2985A501 /* Pods-uReadLiteracy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EHF5WYNYGX;
