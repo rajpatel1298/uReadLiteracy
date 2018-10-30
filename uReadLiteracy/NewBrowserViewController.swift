@@ -12,6 +12,7 @@ import SwiftSoup
 class NewBrowserViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var textview: UITextView!
+    private var childWebPageForSegue:ChildWebPage!
     
     let parentWebPage = ParentWebPage(urlString: "http://www.manythings.org/voa/stories/")
 
@@ -33,47 +34,19 @@ class NewBrowserViewController: UIViewController,UITextViewDelegate {
         let childWebPage = ChildWebPage(urlString: myURL.absoluteString, parentUrlString: parentWebPage.getUrlAsString())
         if(AllowedPage.check(url: childWebPage.urlString)){
             DispatchQueue.main.async {
-                textView.attributedText = nil
-                self.textview.attributedText = childWebPage.getAttributedTextFromURL()
-                
-                let str = childWebPage.getHtmlString()!
-                
-                if(str == nil){
-                    return
-                }
-                
-                
-                do {
-            
-                    
-                    let doc: Document = try SwiftSoup.parse(str)
-                    for link in try doc.select("a"){
-                        if(try link.text().count < 4){
-                            continue
-                        }
-                        if(try link.text().suffix(4).lowercased() == ".mp3"){
-                            print()
-                        }
-                        print(try link.text())
-                    }
-                } catch let error {
-                    print("Error: \(error)")
-                }
+                self.childWebPageForSegue = childWebPage
+                self.performSegue(withIdentifier: "BrowserToBrowserWithPlayerSegue", sender: self)
             }
         }
         return false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? BrowserWithPlayerViewController{
+            destination.childWebPage = childWebPageForSegue
+        }
     }
-    */
+    
 
 }
 

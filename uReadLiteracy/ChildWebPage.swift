@@ -10,6 +10,7 @@ import Foundation
 
 class ChildWebPage: ParentWebPage{
     private let parentUrlString:String
+    var htmlString:String?
     
     init(urlString: String,parentUrlString:String) {
         self.parentUrlString = parentUrlString
@@ -17,6 +18,8 @@ class ChildWebPage: ParentWebPage{
         fixURLIfNeeded()
         
     }
+    
+    
     
     private func fixURLIfNeeded(){
         if(urlString.contains("applewebdata://")){

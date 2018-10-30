@@ -54,32 +54,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "uReadLiteracy/NewBrowserViewController.swift"
-            timestampString = "562305457.3195651"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "textView(_:shouldInteractWith:in:interaction:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "uReadLiteracy/NewBrowserViewController.swift"
-            timestampString = "562305457.319975"
+            filePath = "uReadLiteracy/BrowserWithPlayerViewController.swift"
+            timestampString = "562570025.6431969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "textView(_:shouldInteractWith:in:interaction:)"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "getMp3LinkIfExist()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
