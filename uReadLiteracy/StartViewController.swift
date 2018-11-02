@@ -10,7 +10,7 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    @IBOutlet weak var continueLabel: UILabel!
+    @IBOutlet weak var continueLabel: UILabel! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
