@@ -142,17 +142,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dSg-nl-CPr">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Z2M-ih-fjC" firstAttribute="leading" secondItem="UJM-Qp-hx6" secondAttribute="leadingMargin" id="79j-2x-Dbl"/>
                             <constraint firstItem="Z2M-ih-fjC" firstAttribute="top" secondItem="u95-Ml-1cY" secondAttribute="bottom" id="EoF-RU-2Tt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Z2M-ih-fjC" secondAttribute="trailing" id="Hof-CB-Cie"/>
+                            <constraint firstItem="dSg-nl-CPr" firstAttribute="centerY" secondItem="UJM-Qp-hx6" secondAttribute="centerY" id="fYH-xF-Z0S"/>
                             <constraint firstItem="YK9-2b-PjR" firstAttribute="top" secondItem="Z2M-ih-fjC" secondAttribute="bottom" id="lFF-Kw-hi5"/>
+                            <constraint firstItem="dSg-nl-CPr" firstAttribute="centerX" secondItem="UJM-Qp-hx6" secondAttribute="centerX" id="xhU-X3-VWc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l2q-T7-M6o"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="dSg-nl-CPr" id="VJY-wV-vzP"/>
                         <outlet property="textview" destination="Z2M-ih-fjC" id="c08-gV-4fM"/>
                         <segue destination="v52-OJ-ccV" kind="show" identifier="BrowserToBrowserWithPlayerSegue" id="dsR-Zc-CYi"/>
                     </connections>

@@ -12,14 +12,31 @@ import SwiftSoup
 class NewBrowserViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var textview: UITextView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     private var childWebPageForSegue:ChildWebPage!
     
+    
+    
     let parentWebPage = ParentWebPage(urlString: "http://www.manythings.org/voa/stories/")
+    
+    private var uicontroller:BrowserUIController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        uicontroller = BrowserUIController(viewcontroller: self)
+        uicontroller.updateUiState(newUIState: .Loading)
         textview.attributedText = parentWebPage.getAttributedTextFromURL()
         textview.delegate = self
+        uicontroller.updateUiState(newUIState: .Success)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        uicontroller.updateUiState(newUIState: .Success)
     }
     
     func textView(_ textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
@@ -33,6 +50,8 @@ class NewBrowserViewController: UIViewController,UITextViewDelegate {
         
         let childWebPage = ChildWebPage(urlString: myURL.absoluteString, parentUrlString: parentWebPage.getUrlAsString())
         if(AllowedPage.check(url: childWebPage.urlString)){
+            uicontroller.updateUiState(newUIState: .Loading)
+            
             DispatchQueue.main.async {
                 self.childWebPageForSegue = childWebPage
                 self.performSegue(withIdentifier: "BrowserToBrowserWithPlayerSegue", sender: self)
