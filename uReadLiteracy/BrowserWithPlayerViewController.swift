@@ -18,6 +18,8 @@ class BrowserWithPlayerViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textview: UITextView!
     @IBOutlet weak var audioView: UIView!
     
+    @IBOutlet weak var playerBackground: UIImageView!
+    
     var childWebPage:ChildWebPage!
     var audioPlayer:AudioPlayer!
     
@@ -120,11 +122,21 @@ class BrowserWithPlayerViewController: UIViewController, UITextViewDelegate {
         switch(subject.getState()){
         case .Play:
             audioPlayer.pause()
-            playPauseBtn.setImage(#imageLiteral(resourceName: "play.png"), for: .normal)
+            
+            let image = #imageLiteral(resourceName: "play.png")
+            let tintedImage = image.withRenderingMode(.alwaysTemplate)
+            playPauseBtn.setImage(tintedImage, for: .normal)
+            playPauseBtn.tintColor = .white
             subject.setState(state: .Pause)
             break
         case .Pause:
-            playPauseBtn.setImage(#imageLiteral(resourceName: "pause.png"), for: .normal)
+            
+            let image = #imageLiteral(resourceName: "pause.png")
+            let tintedImage = image.withRenderingMode(.alwaysTemplate)
+            playPauseBtn.setImage(tintedImage, for: .normal)
+            playPauseBtn.tintColor = .white
+            
+          //  playPauseBtn.setImage(#imageLiteral(resourceName: "pause.png"), for: .normal)
             audioPlayer.play()
             subject.setState(state: .Play)
             break

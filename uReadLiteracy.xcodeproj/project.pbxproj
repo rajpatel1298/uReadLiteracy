@@ -18,10 +18,10 @@
 		1C4C67EB218D3CAB00D5383D /* BrowserWithPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67EA218D3CAB00D5383D /* BrowserWithPlayerController.swift */; };
 		1C4C67EE218D3E6C00D5383D /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67ED218D3E6C00D5383D /* State.swift */; };
 		1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67EF218D400500D5383D /* HelpFunctionError.swift */; };
+		1C4C67F6218D529900D5383D /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C67F5218D529900D5383D /* pause.png */; };
 		1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A5A21801B7E00FFDC82 /* ParentWebPage.swift */; };
 		1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A5C2180209B00FFDC82 /* ChildWebPage.swift */; };
 		1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A6A2181619200FFDC82 /* AllowedPage.swift */; };
-		1C513A962186639300FFDC82 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C513A942186639200FFDC82 /* pause.png */; };
 		1C513A992186644100FFDC82 /* BrowserWithPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A982186644100FFDC82 /* BrowserWithPlayerViewController.swift */; };
 		1C513A9B21866C8D00FFDC82 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A9A21866C8D00FFDC82 /* AudioPlayer.swift */; };
 		1C513A9E21866DE700FFDC82 /* AudioSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A9D21866DE700FFDC82 /* AudioSubject.swift */; };
@@ -69,10 +69,10 @@
 		1C4C67EA218D3CAB00D5383D /* BrowserWithPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWithPlayerController.swift; sourceTree = "<group>"; };
 		1C4C67ED218D3E6C00D5383D /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		1C4C67EF218D400500D5383D /* HelpFunctionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpFunctionError.swift; sourceTree = "<group>"; };
+		1C4C67F5218D529900D5383D /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		1C513A5A21801B7E00FFDC82 /* ParentWebPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWebPage.swift; sourceTree = "<group>"; };
 		1C513A5C2180209B00FFDC82 /* ChildWebPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildWebPage.swift; sourceTree = "<group>"; };
 		1C513A6A2181619200FFDC82 /* AllowedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedPage.swift; sourceTree = "<group>"; };
-		1C513A942186639200FFDC82 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		1C513A982186644100FFDC82 /* BrowserWithPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWithPlayerViewController.swift; sourceTree = "<group>"; };
 		1C513A9A21866C8D00FFDC82 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		1C513A9D21866DE700FFDC82 /* AudioSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSubject.swift; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 				CD1DCA6B1FF4ACE300FCDDB5 /* Gifs */,
 				1C4C67D5218BF2CB00D5383D /* wave.png */,
 				1C4C67D1218A95F500D5383D /* library.jpg */,
-				1C513A942186639200FFDC82 /* pause.png */,
 				1C513AA421869E3F00FFDC82 /* play.png */,
+				1C4C67F5218D529900D5383D /* pause.png */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -403,7 +403,7 @@
 			files = (
 				CD1DCA661FF4ACCD00FCDDB5 /* progress.gif in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
-				1C513A962186639300FFDC82 /* pause.png in Resources */,
+				1C4C67F6218D529900D5383D /* pause.png in Resources */,
 				1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
 				CDA6529C1FA0F5B700835624 /* LaunchScreen.storyboard in Resources */,

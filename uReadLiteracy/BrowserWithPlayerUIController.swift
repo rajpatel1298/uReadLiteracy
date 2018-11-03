@@ -10,14 +10,17 @@ import Foundation
 import UIKit
 
 class BrowserWithPlayerUIController{
-    private let viewcontroller:UIViewController
+    private let viewcontroller:BrowserWithPlayerViewController
+    private let playerBackground:UIImageView
     
     private var onlyOneWordAlert:InfoAlert!
     private var cannotUseHelpFunctionAlert:ReportAlert!
     
-    init(viewcontroller:UIViewController){
+    init(viewcontroller:BrowserWithPlayerViewController){
         self.viewcontroller = viewcontroller
+        self.playerBackground = viewcontroller.playerBackground
         setupAlert()
+        roundPlayerBackground()
     }
     
     func showOnlyOneWordAlert(){
@@ -26,6 +29,12 @@ class BrowserWithPlayerUIController{
     
     func showCannotUseHelpFunctionAlert(){
         cannotUseHelpFunctionAlert.show()
+    }
+    
+    private func roundPlayerBackground(){
+        playerBackground.layer.cornerRadius = 10
+        playerBackground.layer.masksToBounds = false
+        playerBackground.clipsToBounds = true
     }
     
     private func setupAlert(){

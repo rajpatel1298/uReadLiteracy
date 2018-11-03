@@ -264,6 +264,7 @@
                         <outlet property="audioSlider" destination="uxB-DC-txb" id="U5o-U9-iYP"/>
                         <outlet property="audioView" destination="1QY-yA-uzO" id="9L1-0g-wz7"/>
                         <outlet property="playPauseBtn" destination="A7m-Ip-ZDv" id="Vkj-UE-40r"/>
+                        <outlet property="playerBackground" destination="vaT-BJ-6mi" id="Hic-TT-Tcm"/>
                         <outlet property="textview" destination="OQG-SV-hxM" id="5VV-q9-0LI"/>
                         <segue destination="UTH-gp-trm" kind="show" identifier="BrowserToDictionaryWebViewController" id="nOt-sK-6qc"/>
                     </connections>
