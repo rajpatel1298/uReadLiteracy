@@ -11,4 +11,5 @@ import Foundation
 protocol AudioObserver{
     var subject:AudioSubject? {get set}
     func update()
+    func setSubject(subject:AudioSubject)
 }

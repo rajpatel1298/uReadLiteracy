@@ -16,15 +16,19 @@ class AudioPlayer:AudioObserver{
     
     private var isPlaying = false
     
-    init(subject: AudioSubject, url:URL){
-        let playerItem: AVPlayerItem = AVPlayerItem(url: url)
+    private let playerItem: AVPlayerItem
+    
+    init(url:URL){
+        playerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
         player.volume = 1.0
-        self.subject = subject
-        subject.setFullTime(fullTime: playerItem.asset.duration)
         
         player.automaticallyWaitsToMinimizeStalling = true
+    }
     
+    func setSubject(subject: AudioSubject) {
+        self.subject = subject
+        subject.setFullTime(fullTime: playerItem.asset.duration)
     }
     
     @objc func updateTimer() {
@@ -50,7 +54,10 @@ class AudioPlayer:AudioObserver{
     
     func pause() {
         player.pause()
-        timer.invalidate()
+        if(timer != nil){
+            timer.invalidate()
+        }
+        
         isPlaying = false
     }
 }

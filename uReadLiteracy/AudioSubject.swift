@@ -65,8 +65,9 @@ class AudioSubject{
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
-    func attach(observer:AudioObserver){
+    func attach( observer: AudioObserver){
         observers.append(observer)
+        observer.setSubject(subject: self)
     }
     
     func notifyObservers(currentTime:CMTime){

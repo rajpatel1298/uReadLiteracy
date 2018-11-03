@@ -14,6 +14,7 @@ class AudioSlider:UISlider,AudioObserver{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.isContinuous = false
     }
     
     func setSubject(subject: AudioSubject){

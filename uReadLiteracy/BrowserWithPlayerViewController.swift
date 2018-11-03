@@ -8,56 +8,97 @@
 
 import UIKit
 import SwiftSoup
+import WebKit
 
-class BrowserWithPlayerViewController: UIViewController {
+class BrowserWithPlayerViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var playPauseBtn: UIButton!
-    
     @IBOutlet weak var audioSlider: AudioSlider!
-    
     @IBOutlet weak var audioLabel: AudioTimeLabel!
-    
     @IBOutlet weak var textview: UITextView!
-    
     @IBOutlet weak var audioView: UIView!
-    
-    
     
     var childWebPage:ChildWebPage!
     var audioPlayer:AudioPlayer!
     
     //Observer Patern
-    let subject = AudioSubject()
+    private let subject = AudioSubject()
+    private var uiController:BrowserWithPlayerUIController!
+    private var controller:BrowserWithPlayerController!
+    private var urlForDictionarySegue:URL!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        uiController = BrowserWithPlayerUIController(viewcontroller: self)
+        controller = BrowserWithPlayerController(viewcontroller: self)
+        setupHelpFunctionInMenuBar()
     }
+    
+    private func setupHelpFunctionInMenuBar(){
+        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
+        UIMenuController.shared.menuItems = [helpItem]
+        UIMenuController.shared.update()
+        UIMenuController.shared.setMenuVisible(true, animated: true)
+    }
+    
+    func helpFunction(){
+        controller.helpFunction { [weak self] (state) in
+            switch(state){
+            case .Success(let url):
+                let url = url as! URL
+                
+                urlForDictionarySegue = url
+                performSegue(withIdentifier: "BrowserToDictionaryWebViewController", sender: self)
+                
+                break
+            case .Failure(let helpFunctionError):
+                let helpFunctionError = helpFunctionError as! HelpFunctionError
+                
+                switch(helpFunctionError){
+                case .MoreThanOneWord:
+                    uiController.showOnlyOneWordAlert()
+                    break
+                case .UnknownError:
+                    break
+                }
+
+                break
+            }
+        }
+    }
+    
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupTextView()
         
-        textview.attributedText = nil
-        textview.attributedText = childWebPage.getAttributedTextFromURL()
         
         let mp3Link = getMp3LinkIfExist()
         if(mp3Link == nil){
-            return
+            playPauseBtn.isEnabled = false
+        }
+        else{
+            playPauseBtn.isEnabled = true
+            audioPlayer = AudioPlayer(url: URL(string: mp3Link!)!)
+            setupObservers()
         }
         
-        let url = URL(string: mp3Link!)
-        audioPlayer = AudioPlayer(subject: subject, url: url!)
-        
-        audioLabel.setSubject(subject: subject)
-        audioSlider.setSubject(subject: subject)
-        
+    }
+    
+    private func setupTextView(){
+        textview.attributedText = nil
+        textview.attributedText = childWebPage.getAttributedTextFromURL()
+    }
+    
+    private func setupObservers(){
         subject.attach(observer: audioLabel)
         subject.attach(observer: audioSlider)
-        
         subject.attach(observer: audioPlayer)
-        
         subject.setState(state: .Pause)
-        
-        audioSlider.isContinuous = false
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
@@ -68,13 +109,6 @@ class BrowserWithPlayerViewController: UIViewController {
             self.audioPlayer.play()
             self.subject.setState(state: .Play)
         }
-    }
-    
-    
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -116,8 +150,6 @@ class BrowserWithPlayerViewController: UIViewController {
                         }
                     }
                 }
-                
-                
             }
         } catch let error {
             print("Error: \(error)")
@@ -126,15 +158,11 @@ class BrowserWithPlayerViewController: UIViewController {
         return nil
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? DictionaryWebViewController{
+            destination.url = urlForDictionarySegue
+        }
     }
-    */
+    
 
 }

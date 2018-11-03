@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4A2-Tr-Hqi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tij-jv-Rkq">
-                                <rect key="frame" x="26" y="592" width="323" height="35"/>
+                                <rect key="frame" x="26" y="588" width="323" height="39"/>
                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bna-S2-Wki">
-                                <rect key="frame" x="66" y="25" width="62.5" height="40"/>
+                                <rect key="frame" x="66" y="25" width="60.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PnO-OH-6BH"/>
                                 </constraints>
@@ -62,8 +62,8 @@
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="1" height="-1"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTi-O6-VcD">
-                                <rect key="frame" x="16" y="232" width="343" height="83"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTi-O6-VcD">
+                                <rect key="frame" x="26" y="242" width="310" height="83"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wave.png" translatesAutoresizingMaskIntoConstraints="NO" id="DeM-r1-oMm">
                                         <rect key="frame" x="40" y="10" width="63.5" height="63"/>
@@ -72,8 +72,8 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-aB-EOL">
-                                        <rect key="frame" x="103.5" y="15.5" width="186" height="52.5"/>
-                                        <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="45"/>
+                                        <rect key="frame" x="103.5" y="15.5" width="166.5" height="52"/>
+                                        <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -89,7 +89,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uread is a reading app for ...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ne-qY-9ND">
-                                <rect key="frame" x="26" y="315" width="343" height="23.5"/>
+                                <rect key="frame" x="26" y="325" width="343" height="26"/>
                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -104,13 +104,14 @@
                             <constraint firstItem="rTi-O6-VcD" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:8" id="Iei-8W-DZJ"/>
                             <constraint firstItem="3Ne-qY-9ND" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="10" id="Tzn-bH-YuX"/>
                             <constraint firstItem="kDI-bm-6RW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b1r-kw-cEk"/>
-                            <constraint firstItem="rTi-O6-VcD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-60" id="cRY-vD-iHq"/>
+                            <constraint firstItem="rTi-O6-VcD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="cRY-vD-iHq"/>
                             <constraint firstItem="pgc-Mk-YTo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="dMQ-2q-ILV"/>
                             <constraint firstItem="Bna-S2-Wki" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="epA-KI-7uw"/>
                             <constraint firstItem="3Ne-qY-9ND" firstAttribute="top" secondItem="rTi-O6-VcD" secondAttribute="bottom" id="fPJ-e4-cYT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kDI-bm-6RW" secondAttribute="trailing" id="l4b-IW-O4D"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Tij-jv-Rkq" secondAttribute="bottom" constant="40" id="lFS-SY-r0s"/>
                             <constraint firstItem="Bna-S2-Wki" firstAttribute="leading" secondItem="pgc-Mk-YTo" secondAttribute="trailing" constant="10" id="odO-X3-ZUl"/>
+                            <constraint firstItem="rTi-O6-VcD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="qyy-tK-P0N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tij-jv-Rkq" secondAttribute="trailing" constant="10" id="woM-PL-A5H"/>
                         </constraints>
                     </view>
@@ -158,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DyF-fp-rB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-418" y="1110"/>
+            <point key="canvasLocation" x="-1086" y="1308"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hnx-48-If3">
@@ -174,7 +175,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmb-4G-e68" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1250" y="1110"/>
+            <point key="canvasLocation" x="-1918" y="1308"/>
         </scene>
         <!--Browser With Player View Controller-->
         <scene sceneID="bVL-XW-4kI">
@@ -188,7 +189,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-SV-hxM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-SV-hxM">
                                 <rect key="frame" x="26" y="140.5" width="323" height="516.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -264,11 +265,49 @@
                         <outlet property="audioView" destination="1QY-yA-uzO" id="9L1-0g-wz7"/>
                         <outlet property="playPauseBtn" destination="A7m-Ip-ZDv" id="Vkj-UE-40r"/>
                         <outlet property="textview" destination="OQG-SV-hxM" id="5VV-q9-0LI"/>
+                        <segue destination="UTH-gp-trm" kind="show" identifier="BrowserToDictionaryWebViewController" id="nOt-sK-6qc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QT-rY-GXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="1110"/>
+            <point key="canvasLocation" x="-134" y="1308"/>
+        </scene>
+        <!--Dictionary Web View Controller-->
+        <scene sceneID="sQn-PE-Yys">
+            <objects>
+                <viewController id="UTH-gp-trm" customClass="DictionaryWebViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yvj-rT-BYc"/>
+                        <viewControllerLayoutGuide type="bottom" id="YJw-Cm-nWD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oU5-qg-R57">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Zy-tN-wzp">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1Zy-tN-wzp" firstAttribute="leading" secondItem="oU5-qg-R57" secondAttribute="leadingMargin" id="8gB-pk-1EL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Zy-tN-wzp" secondAttribute="trailing" id="FlT-nn-jA2"/>
+                            <constraint firstItem="1Zy-tN-wzp" firstAttribute="top" secondItem="yvj-rT-BYc" secondAttribute="bottom" id="WfL-5C-7AX"/>
+                            <constraint firstItem="YJw-Cm-nWD" firstAttribute="top" secondItem="1Zy-tN-wzp" secondAttribute="bottom" id="kcv-RK-tYZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webview" destination="1Zy-tN-wzp" id="yhv-1r-8PL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="znD-rd-a8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="778" y="1307"/>
         </scene>
         <!--Explore View Controller-->
         <scene sceneID="dDw-fz-1XH">
@@ -599,7 +638,7 @@
         <!--Profile-->
         <scene sceneID="l9i-J6-PM4">
             <objects>
-                <viewController id="eQJ-o5-cXX" sceneMemberID="viewController">
+                <viewController id="eQJ-o5-cXX" customClass="ProfileViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yfU-8I-KGx"/>
                         <viewControllerLayoutGuide type="bottom" id="cnr-Qs-CES"/>
@@ -643,14 +682,14 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.80294102430343628" green="0.83983570337295532" blue="0.81502050161361694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.97783153553299496" green="0.97783153553299496" blue="0.97783153553299496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="kln-0t-0cM" firstAttribute="top" secondItem="2jc-qM-bRn" secondAttribute="top" constant="18" id="SJM-O2-VHU"/>
                                     <constraint firstAttribute="bottom" secondItem="kln-0t-0cM" secondAttribute="bottom" constant="15" id="apl-CX-OV8"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.84843069309999997" green="0.8455678821" blue="0.84852796789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2jc-qM-bRn" firstAttribute="top" secondItem="vbz-e1-XFA" secondAttribute="bottom" constant="36" id="0id-gQ-3gp"/>
                             <constraint firstItem="vbz-e1-XFA" firstAttribute="leading" secondItem="FRl-M5-0Wj" secondAttribute="leadingMargin" constant="84" id="FFx-7m-HWV"/>
@@ -663,6 +702,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="0eN-SS-FiS"/>
+                    <connections>
+                        <outlet property="articlesReadLabel" destination="XLL-qa-7ZH" id="JAd-KR-GWq"/>
+                        <outlet property="favoriteTopicLabel" destination="6Mo-Q5-KOg" id="8Es-aL-5ca"/>
+                        <outlet property="infoView" destination="2jc-qM-bRn" id="SOc-et-uea"/>
+                        <outlet property="numOfLoginLabel" destination="9Vq-qr-ir6" id="UOv-ai-Nc1"/>
+                        <outlet property="profileIV" destination="vbz-e1-XFA" id="ce1-AI-gHe"/>
+                        <outlet property="timeSpentLabel" destination="8VY-ZI-EN0" id="VHP-cW-eJe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8d-Lv-m8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
