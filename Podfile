@@ -10,4 +10,7 @@ target 'uReadLiteracy' do
   # Pods for uReadLiteracy
   pod 'SwiftSoup'
   pod "youtube-ios-player-helper", "~> 0.1.4"
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 end

@@ -14,7 +14,6 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showWalkthroughIfFirstTime()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,15 +27,18 @@ class StartViewController: UIViewController {
         }, completion: nil)
     }
     
-    private func showWalkthroughIfFirstTime(){
+    @IBAction func continueBtnPressed(_ sender: Any) {
         if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough"){
-            return
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
+            self.show(vc, sender: self)
         }
-        
-        let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
-        if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as? WalkthroughViewController {
-            present(walkthroughViewController, animated: true, completion: nil)
+        else{
+            performSegue(withIdentifier: "StartToFirstTimeSegue", sender: self)
         }
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
+        self.show(vc, sender: self)
     }
 
 }

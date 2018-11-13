@@ -22,21 +22,30 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var timeSpentLabel: UILabel!
     
+    @IBOutlet weak var welcomeLabel: UILabel!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         roundProfileIV()
         roundInfoView()
+        loadUserInfo()
     }
     
-    func roundProfileIV(){
+    private func loadUserInfo(){
+        let user = CoreDataHelper.sharedInstance.getUser()
+        profileIV.image = UIImage(data: user.image as! Data)
+        welcomeLabel.text = "Welcome \(user.nickname!)"
+        
+    }
+    
+    private func roundProfileIV(){
         profileIV.layer.cornerRadius = profileIV.frame.width/2
         profileIV.layer.masksToBounds = false
         profileIV.clipsToBounds = true
     }
     
-    func roundInfoView(){
+    private func roundInfoView(){
         infoView.layer.cornerRadius = 10
         infoView.layer.masksToBounds = false
         infoView.clipsToBounds = true

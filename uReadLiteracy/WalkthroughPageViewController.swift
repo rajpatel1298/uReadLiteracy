@@ -55,7 +55,7 @@ class WalkthroughPageViewController: UIPageViewController, UIPageViewControllerD
             return nil
         }
         //Create a new view controller and pass suitable data
-        let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
+        let storyboard = UIStoryboard(name: "First Time", bundle: nil)
         if let pageContentViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughContentViewController") as? WalkthroughContentViewController {
             pageContentViewController.imageFile = pageImages[index]
             pageContentViewController.heading = pageHeadings[index]

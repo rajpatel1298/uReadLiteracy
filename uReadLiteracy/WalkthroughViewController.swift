@@ -22,7 +22,13 @@ class WalkthroughViewController: UIViewController, WalkthroughPageViewController
     
     @IBAction func skipButtonTapped(sender: UIButton){
         UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
-        dismiss(animated: true, completion: nil)
+        goToNextViewController()
+    }
+    
+    func goToNextViewController(){
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
+        self.show(vc, sender: self)
     }
     
     @IBAction func nextButtonTapped(sender: UIButton){
@@ -33,7 +39,7 @@ class WalkthroughViewController: UIViewController, WalkthroughPageViewController
             
             case 4:
                 UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
-                dismiss(animated: true, completion: nil)
+                goToNextViewController()
             default:
                 break
         }
