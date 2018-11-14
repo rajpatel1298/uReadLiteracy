@@ -9,86 +9,83 @@
 import UIKit
 import WebKit
 
-class DynamicVideoViewController: UIViewController {
+class DynamicVideoViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
-    var helpWord: String!
-    var helpFlag: [Int]!
-    var finalFlag: String!
+    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var helpLabel: UILabel!
+    
+    var helpWord: HelpWord!
+    var videoUrlRequests = [URLRequest]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Received this from learn view controller \(helpWord)...")
-        print(helpFlag)
-        var sortedFlags = helpFlag.sorted()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadHelpLabel()
+        loadVideoUrlRequests()
         
-        if(sortedFlags[0] == helpFlag[0]){
-            finalFlag = "endings"
-        }
-        else if(sortedFlags[0] == helpFlag[1]){
-            finalFlag = "beginnings"
-        }
-        else if(sortedFlags[0] == helpFlag[2]){
-            finalFlag = "blends"
-        }
-        else {
-            finalFlag = "multisyllabic"
-        }
-        
-        loadVideos()
-        
-        
-        // Do any additional setup after loading the view.
+        tableview.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return videoUrlRequests.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableview.dequeueReusableCell(withIdentifier: "DynamicVideoTableViewCell") as! DynamicVideoTableViewCell
+        cell.webview.scrollView.isScrollEnabled = false
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell = cell as! DynamicVideoTableViewCell
+        cell.webview.load(videoUrlRequests[indexPath.row])
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func loadHelpLabel(){
+        var string = "The word: \(helpWord.word!) might be difficult because of:\n"
+        
+        if(helpWord.beginningDifficult){
+            string.append("- Its beginning\n")
+        }
+        if(helpWord.endingDifficult){
+            string.append("- Its ending\n")
+        }
+        if(helpWord.blendDifficult){
+            string.append("- It has a blend\n")
+        }
+        if(helpWord.blendDifficult){
+            string.append("- It is multisyllabic\n")
+        }
+        
+        string.append("\nWatch these videos to learn more.")
+        
+        helpLabel.text = string
     }
     
-    func loadVideos(){
-        //Add constraints to all views!
-        
-        let videoOne = WKWebView(frame: CGRect(x: 0, y: 150, width: self.view.frame.width, height: 300), configuration: WKWebViewConfiguration())
-        self.view.addSubview(videoOne)
-        
-        
-        let helpText = UILabel(frame: CGRect(x: 0, y: 60, width: self.view.frame.width, height: 20))
-        self.view.addSubview(helpText)
-    
-        if finalFlag == "endings" {
-            helpText.text = "The word: \(helpWord!) is difficult because of its ending. Watch these videos to learn more about endings"
-            let url = URL(string: "https://www.youtube.com/watch?v=WGERKJYjkQI")
-            let request = URLRequest(url: url!)
-            videoOne.load(request)
-        }
-        else if finalFlag == "beginnings" {
-            helpText.text = "The word: \(helpWord!) is difficult because of its beginning. Watch these videos to learn more about beginnings"
+    func loadVideoUrlRequests(){
+        if(helpWord.beginningDifficult){
             let url = URL(string: "https://www.youtube.com/watch?v=WGERKJYjkQI") //no beginning video yet
             let request = URLRequest(url: url!)
-            videoOne.load(request)
+            videoUrlRequests.append(request)
         }
-        else if finalFlag == "blends" {
-            helpText.text = "The word: \(helpWord!) is difficult because it has a blend. Watch these videos to learn more about blends"
+        if(helpWord.endingDifficult){
+            let url = URL(string: "https://www.youtube.com/watch?v=WGERKJYjkQI")
+            let request = URLRequest(url: url!)
+            videoUrlRequests.append(request)
+        }
+        if(helpWord.blendDifficult){
             let url = URL(string: "https://www.youtube.com/watch?v=k-n_LHGseNk")
             let request = URLRequest(url: url!)
-            videoOne.load(request)
+            videoUrlRequests.append(request)
         }
-        else {
-            helpText.text = "The word: \(helpWord!) is difficult because it multisyllabic. Watch these videos to learn more about multisyllabic words"
+        if(helpWord.blendDifficult){
             let url = URL(string: "https://www.youtube.com/watch?v=vNR2xyrZVv0")
             let request = URLRequest(url: url!)
-            videoOne.load(request)
+            videoUrlRequests.append(request)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

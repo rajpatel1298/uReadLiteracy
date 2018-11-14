@@ -20,6 +20,8 @@ class BrowserWithPlayerViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var playerBackground: UIImageView!
     
+    
+    
     var childWebPage:ChildWebPage!
     var audioPlayer:AudioPlayer!
     

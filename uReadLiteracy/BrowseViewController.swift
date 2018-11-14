@@ -13,7 +13,6 @@ import WebKit
 class BrowseViewController: UIViewController, WKUIDelegate{
     
     var webView: WKWebView!
-    var helpWords = [String]()
     let helpItem = UIMenuItem.init(title: "Help", action: #selector(getHelp))
    /*
     override func loadView() {
@@ -64,8 +63,8 @@ class BrowseViewController: UIViewController, WKUIDelegate{
                     let safariController = SFSafariViewController(url: url)
                     self.present(safariController, animated: true, completion: nil)
                     print(UIPasteboard.general.string! + ":before")
-                    self.helpWords.append(str!)
-                    print(self.helpWords)
+                    
+                    CoreDataHelper.sharedInstance.saveHelpWord(word: str!)
                 }
             }
             else {
@@ -110,7 +109,7 @@ class BrowseViewController: UIViewController, WKUIDelegate{
         // Pass the selected object to the new view controller.
         if segue.identifier == "learnSegue" {
             let destinationController = segue.destination as! LearnViewController
-            destinationController.helpList = helpWords
+           
         }
     }
  

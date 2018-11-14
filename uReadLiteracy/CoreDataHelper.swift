@@ -41,6 +41,47 @@ class CoreDataHelper{
         }
     }
     
+    func saveHelpWord(word:String){
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWord", in: managedContext)!
+        
+        let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
+        
+        let beginningDifficult = HelpWordHelper.sharedInstance.beginningDifficult(word: word)
+        let endingDifficult = HelpWordHelper.sharedInstance.endingDifficult(word: word)
+        let blendDifficult = HelpWordHelper.sharedInstance.blendDifficult(word: word)
+        let multisyllabicDifficult = HelpWordHelper.sharedInstance.multisyllabicDifficult(word: word)
+        
+        wordObject.setValue(word, forKeyPath: "word")
+        wordObject.setValue(beginningDifficult, forKeyPath: "beginningDifficult")
+        wordObject.setValue(endingDifficult, forKeyPath: "endingDifficult")
+        wordObject.setValue(blendDifficult, forKeyPath: "blendDifficult")
+        wordObject.setValue(multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveUnsavedChanges(){
+        let managedContext = appDelegate.persistentContainer.viewContext
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func getWordList()->[HelpWord]{
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let wordFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "HelpWord")
+        
+        let words = try! managedContext.fetch(wordFetch)
+        return words as! [HelpWord]
+    }
+    
     /*func saveLoginInfo(email:String,password:String){
         let managedContext = appDelegate.persistentContainer.viewContext
         let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
