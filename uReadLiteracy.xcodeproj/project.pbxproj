@@ -355,6 +355,7 @@
 		CDA6528D1FA0F5B700835624 /* uReadLiteracy */ = {
 			isa = PBXGroup;
 			children = (
+				CDA6528E1FA0F5B700835624 /* AppDelegate.swift */,
 				1C513A8F218662A700FFDC82 /* Resource */,
 				1C513A5921801B6100FFDC82 /* Model */,
 				1C513AA3218675FA00FFDC82 /* View */,
@@ -362,7 +363,6 @@
 				CD6462B81FF33A55007AF08A /* Storyboards */,
 				1C9C7757219A8C1B002ADA76 /* Helper */,
 				CDDD7EFF1FF19A3E009FA71D /* Tutorial Files */,
-				CDA6528E1FA0F5B700835624 /* AppDelegate.swift */,
 				CDDD7EFD1FF19937009FA71D /* Swift+Gif.swift */,
 				CDA6529D1FA0F5B700835624 /* Info.plist */,
 				CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */,
