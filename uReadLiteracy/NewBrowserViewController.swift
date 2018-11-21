@@ -16,8 +16,8 @@ class NewBrowserViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
-    private var childWebPageForSegue:ChildWebPage!
-    
+    //private var childWebPageForSegue:ChildWebPage!
+    private var urlSegue:URL!
     
     
     let parentWebPage = ParentWebPage(urlString: "http://www.manythings.org/voa/stories/")
@@ -48,21 +48,18 @@ class NewBrowserViewController: UIViewController,UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldInteractWith myURL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         
+        //self.childWebPageForSegue = childWebPage
+        
+        
         let childWebPage = ChildWebPage(urlString: myURL.absoluteString, parentUrlString: parentWebPage.getUrlAsString())
-        if(AllowedPage.check(url: childWebPage.urlString)){
-            uicontroller.updateUiState(newUIState: .Loading)
-            
-            DispatchQueue.main.async {
-                self.childWebPageForSegue = childWebPage
-                self.performSegue(withIdentifier: "BrowserToBrowserWithPlayerSegue", sender: self)
-            }
-        }
+        self.urlSegue = childWebPage.getURL()
+        self.performSegue(withIdentifier: "BrowserToBrowserWebViewSegue", sender: self)
         return false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? BrowserWithPlayerViewController{
-            destination.childWebPage = childWebPageForSegue
+        if let destination = segue.destination as? BrowserWebViewController{
+            destination.url = urlSegue
         }
     }
     

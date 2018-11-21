@@ -16,10 +16,11 @@ class ChildWebPage: ParentWebPage{
         self.parentUrlString = parentUrlString
         super.init(urlString: urlString)
         fixURLIfNeeded()
-        
     }
     
-    
+    func getURL()->URL{
+        return URL(string: urlString)!
+    }
     
     private func fixURLIfNeeded(){
         if(urlString.contains("applewebdata://")){

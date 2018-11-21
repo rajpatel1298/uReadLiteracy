@@ -173,7 +173,7 @@ class BrowserWithPlayerViewController: UIViewController, UITextViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DictionaryWebViewController{
+        if let destination = segue.destination as? BrowserWebViewController{
             destination.url = urlForDictionarySegue
         }
     }

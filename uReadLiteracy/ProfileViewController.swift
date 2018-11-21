@@ -12,6 +12,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileIV: UIImageView!
     
+    @IBOutlet weak var backgroundProfileIV: UIImageView!
+    
     @IBOutlet weak var infoView: UIView!
     
     @IBOutlet weak var numOfLoginLabel: UILabel!
@@ -28,6 +30,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         roundProfileIV()
+        roundBackgroundProfileIV()
+        animateBackgroundProfileIV()
         roundInfoView()
         loadUserInfo()
     }
@@ -35,6 +39,7 @@ class ProfileViewController: UIViewController {
     private func loadUserInfo(){
         let user = CoreDataHelper.sharedInstance.getUser()
         profileIV.image = UIImage(data: user.image as! Data)
+        backgroundProfileIV.image = UIImage(data: user.image as! Data)
         welcomeLabel.text = "Welcome \(user.nickname!)"
         
     }
@@ -44,6 +49,27 @@ class ProfileViewController: UIViewController {
         profileIV.layer.masksToBounds = false
         profileIV.clipsToBounds = true
     }
+    
+    private func roundBackgroundProfileIV(){
+        backgroundProfileIV.layer.cornerRadius = backgroundProfileIV.frame.width/2
+        backgroundProfileIV.layer.masksToBounds = false
+        backgroundProfileIV.clipsToBounds = true
+    }
+    
+    private func animateBackgroundProfileIV(){
+        
+        DispatchQueue.main.async {
+            self.backgroundProfileIV.alpha = 0.3
+            
+            UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse,.repeat], animations: {
+                self.backgroundProfileIV.alpha = 0.1
+            }, completion: nil)
+        }
+        
+        
+    }
+    
+    
     
     private func roundInfoView(){
         infoView.layer.cornerRadius = 10

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */; };
 		1C4C67DE218C004A00D5383D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67DD218C004A00D5383D /* ProfileViewController.swift */; };
-		1C4C67E0218CFA7500D5383D /* DictionaryWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67DF218CFA7500D5383D /* DictionaryWebViewController.swift */; };
+		1C4C67E0218CFA7500D5383D /* BrowserWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67DF218CFA7500D5383D /* BrowserWebViewController.swift */; };
 		1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67E1218D27EE00D5383D /* InfoAlert.swift */; };
 		1C4C67E6218D294C00D5383D /* BrowserWithPlayerUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67E5218D294C00D5383D /* BrowserWithPlayerUIController.swift */; };
 		1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67E8218D321F00D5383D /* ReportAlert.swift */; };
@@ -63,7 +63,7 @@
 		198A7836A988EE4B2985A501 /* Pods-uReadLiteracy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uReadLiteracy.release.xcconfig"; path = "Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy.release.xcconfig"; sourceTree = "<group>"; };
 		1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FSNokioBold.otf; sourceTree = "<group>"; };
 		1C4C67DD218C004A00D5383D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		1C4C67DF218CFA7500D5383D /* DictionaryWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWebViewController.swift; sourceTree = "<group>"; };
+		1C4C67DF218CFA7500D5383D /* BrowserWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWebViewController.swift; sourceTree = "<group>"; };
 		1C4C67E1218D27EE00D5383D /* InfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlert.swift; sourceTree = "<group>"; };
 		1C4C67E5218D294C00D5383D /* BrowserWithPlayerUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWithPlayerUIController.swift; sourceTree = "<group>"; };
 		1C4C67E8218D321F00D5383D /* ReportAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlert.swift; sourceTree = "<group>"; };
@@ -128,13 +128,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C28737521A4D4DF00B790A4 /* Abandoned */ = {
+			isa = PBXGroup;
+			children = (
+				1C4C67E4218D292700D5383D /* Browser With Audio Player */,
+			);
+			name = Abandoned;
+			sourceTree = "<group>";
+		};
 		1C4C67D7218BF91D00D5383D /* Browser */ = {
 			isa = PBXGroup;
 			children = (
 				1C4C67F9218E5DC500D5383D /* BrowserUIController.swift */,
 				1CDB3F29217ECDF600BEC04C /* NewBrowserViewController.swift */,
-				1C4C67E4218D292700D5383D /* Browser With Audio Player */,
-				1C4C67E3218D291600D5383D /* Dictionary */,
+				1C4C67DF218CFA7500D5383D /* BrowserWebViewController.swift */,
 			);
 			name = Browser;
 			sourceTree = "<group>";
@@ -161,14 +168,6 @@
 				1C4C67DD218C004A00D5383D /* ProfileViewController.swift */,
 			);
 			name = "Profile Page";
-			sourceTree = "<group>";
-		};
-		1C4C67E3218D291600D5383D /* Dictionary */ = {
-			isa = PBXGroup;
-			children = (
-				1C4C67DF218CFA7500D5383D /* DictionaryWebViewController.swift */,
-			);
-			name = Dictionary;
 			sourceTree = "<group>";
 		};
 		1C4C67E4218D292700D5383D /* Browser With Audio Player */ = {
@@ -364,6 +363,7 @@
 				1C9C7757219A8C1B002ADA76 /* Helper */,
 				CDDD7EFF1FF19A3E009FA71D /* Tutorial Files */,
 				CDDD7EFD1FF19937009FA71D /* Swift+Gif.swift */,
+				1C28737521A4D4DF00B790A4 /* Abandoned */,
 				CDA6529D1FA0F5B700835624 /* Info.plist */,
 				CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */,
 				CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */,
@@ -531,7 +531,7 @@
 				CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */,
 				1C9C775F219BC602002ADA76 /* HelpWordHelper.swift in Sources */,
 				1C513A992186644100FFDC82 /* BrowserWithPlayerViewController.swift in Sources */,
-				1C4C67E0218CFA7500D5383D /* DictionaryWebViewController.swift in Sources */,
+				1C4C67E0218CFA7500D5383D /* BrowserWebViewController.swift in Sources */,
 				1C4C67EE218D3E6C00D5383D /* State.swift in Sources */,
 				1C4C67E6218D294C00D5383D /* BrowserWithPlayerUIController.swift in Sources */,
 				1C513A9B21866C8D00FFDC82 /* AudioPlayer.swift in Sources */,
