@@ -14,7 +14,7 @@ class DynamicVideoViewController: UIViewController, UITableViewDelegate,UITableV
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var helpLabel: UILabel!
     
-    var helpWord: HelpWord!
+    var helpWord: HelpWordModel!
     var videoUrlRequests = [URLRequest]()
     
     override func viewDidLoad() {
@@ -45,43 +45,26 @@ class DynamicVideoViewController: UIViewController, UITableViewDelegate,UITableV
     }
 
     func loadHelpLabel(){
-        var string = "The word: \(helpWord.word!) might be difficult because of:\n"
-        
-        if(helpWord.beginningDifficult){
-            string.append("- Its beginning\n")
-        }
-        if(helpWord.endingDifficult){
-            string.append("- Its ending\n")
-        }
-        if(helpWord.blendDifficult){
-            string.append("- It has a blend\n")
-        }
-        if(helpWord.blendDifficult){
-            string.append("- It is multisyllabic\n")
-        }
-        
-        string.append("\nWatch these videos to learn more.")
-        
-        helpLabel.text = string
+        helpLabel.text = helpWord.getDescription()
     }
     
     func loadVideoUrlRequests(){
-        if(helpWord.beginningDifficult){
+        if(helpWord.isBeginningDifficult()){
             let url = URL(string: "https://www.youtube.com/watch?v=WGERKJYjkQI") //no beginning video yet
             let request = URLRequest(url: url!)
             videoUrlRequests.append(request)
         }
-        if(helpWord.endingDifficult){
+        if(helpWord.isEndingDifficult()){
             let url = URL(string: "https://www.youtube.com/watch?v=WGERKJYjkQI")
             let request = URLRequest(url: url!)
             videoUrlRequests.append(request)
         }
-        if(helpWord.blendDifficult){
+        if(helpWord.isBlendDifficult()){
             let url = URL(string: "https://www.youtube.com/watch?v=k-n_LHGseNk")
             let request = URLRequest(url: url!)
             videoUrlRequests.append(request)
         }
-        if(helpWord.blendDifficult){
+        if(helpWord.isMultisyllabicDifficult()){
             let url = URL(string: "https://www.youtube.com/watch?v=vNR2xyrZVv0")
             let request = URLRequest(url: url!)
             videoUrlRequests.append(request)

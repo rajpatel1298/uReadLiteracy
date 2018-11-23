@@ -37,10 +37,10 @@ class ProfileViewController: UIViewController {
     }
     
     private func loadUserInfo(){
-        let user = CoreDataHelper.sharedInstance.getUser()
-        profileIV.image = UIImage(data: user.image as! Data)
-        backgroundProfileIV.image = UIImage(data: user.image as! Data)
-        welcomeLabel.text = "Welcome \(user.nickname!)"
+        let user = UserModel()
+        profileIV.image = user.getImage()
+        backgroundProfileIV.image = user.getImage()
+        welcomeLabel.text = "Welcome \(user.getNickname())"
         
     }
     

@@ -17,9 +17,9 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableview: UITableView!
     
-    var helpList = [HelpWord]()
+    var helpList = [HelpWordModel]()
     var loginLoadingIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
-    var sendHelpWord: HelpWord!
+    var sendHelpWord: HelpWordModel!
     
 
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func getHelpWords(){
-        helpList = CoreDataHelper.sharedInstance.getWordList()
+        helpList = HelpWordModel.getWordList()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +54,7 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cellIdentifier = "learnCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LearnCell
         
-        cell.wordLabel.text = helpList[indexPath.row].word!
+        cell.wordLabel.text = helpList[indexPath.row].getWord()
         
         return cell
     }

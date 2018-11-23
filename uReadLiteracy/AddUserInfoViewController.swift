@@ -89,11 +89,13 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
     @IBAction func continueBtnPressed(_ sender: Any) {
         
         if(allInfoIsFilled()){
+            let user = UserModel()
+            
             if(imageSelected){
-                CoreDataHelper.sharedInstance.saveUserFirstTimeInfo(image: userIV.image!, nickname: nicknameTF.text!)
+                user.save(image: userIV.image!, nickname: nicknameTF.text!)
             }
             else{
-                CoreDataHelper.sharedInstance.saveUserFirstTimeInfo(image: #imageLiteral(resourceName: "profile"), nickname: nicknameTF.text!)
+                user.save(image: #imageLiteral(resourceName: "profile"), nickname: nicknameTF.text!)
             }
         }
         

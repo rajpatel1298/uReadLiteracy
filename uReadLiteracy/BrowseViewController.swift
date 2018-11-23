@@ -9,109 +9,99 @@
 import UIKit
 import SafariServices
 import WebKit
+import SwiftSoup
 
-class BrowseViewController: UIViewController, WKUIDelegate{
+class BrowseViewController: UIViewController, WKNavigationDelegate{
     
-    var webView: WKWebView!
-    let helpItem = UIMenuItem.init(title: "Help", action: #selector(getHelp))
-   /*
-    override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        let rect = CGRect.init(x: 0, y: -10, width: 100, height: 100)
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        
-        webView.uiDelegate = self
-        view = webView
-        
-    }
-    */
+    
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var previousPageBarBtn: UIBarButtonItem!
+    
+    var urlSegue:URL!
+    let mainUrl = "http://www.manythings.org/voa/stories/"
+    
+    var uiController:BrowserUIController!
+    var controller:BrowserController!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        webView = WKWebView(frame: CGRect( x: 0, y: 60, width: self.view.frame.width, height: self.view.frame.height - 60 ), configuration: WKWebViewConfiguration() )
-        webView.uiDelegate = self;
-        self.view.addSubview(webView)
-      
+        uiController = BrowserUIController(viewcontroller: self)
+        controller = BrowserController(webView: webView, url: mainUrl)
+        
+        webView.navigationDelegate = self
+        setupHelpFunctionInMenuBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        previousPageBarBtn.isEnabled = false
+        loadMainPage()
+    }
+    
+    func loadMainPage(){
+        let url = URL(string: mainUrl)
+        let request = URLRequest(url: url!)
+        webView.load(request)
+    }
+    
+    @IBAction func previousBtnPressed(_ sender: Any) {
+        webView.goBack()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if(webView.canGoBack){
+            previousPageBarBtn.isEnabled = true
+        }
+        else{
+            previousPageBarBtn.isEnabled = false
+        }
+        
+        let url = webView.url?.absoluteString
+        
+        if(controller.articleURL(url: url!)){
+            print(webView.title)
+        }
+    }
+    
+    
+    private func setupHelpFunctionInMenuBar(){
+        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
         UIMenuController.shared.menuItems = [helpItem]
         UIMenuController.shared.update()
         UIMenuController.shared.setMenuVisible(true, animated: true)
-        
-        let url = URL(string: "http://www.manythings.org/voa/stories/")
-        let request = URLRequest(url: url!)
-        webView.load(request)
-        if let str = UIPasteboard.general.string {
-            print(str + " found in pasteboard")
+    }
+    
+    func helpFunction(){
+        controller.helpFunction { [weak self] (state,word) in
+            switch(state){
+            case .Success(let url):
+                HelpWordModel(word: word!).save()
+                
+                self!.urlSegue = url as! URL
+                self!.performSegue(withIdentifier: "BrowserToDictionaryWebViewSegue", sender: self)
+                break
+            case .Failure(let helpFunctionError):
+                let helpFunctionError = helpFunctionError as! HelpFunctionError
+                
+                switch(helpFunctionError){
+                case .MoreThanOneWord:
+                    self!.uiController.showOnlyOneWordAlert()
+                    break
+                case .UnknownError:
+                    break
+                }
+                
+                break
+            }
         }
     }
    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func getHelp(){
-       
-        updatePasteboard { (success) in
-            if success {
-                print(UIPasteboard.general.string!)
-                print(UIPasteboard.general.strings!)
-                var str = UIPasteboard.general.string
-                str = str?.trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                if let url = URL(string: "http://www.dictionary.com/browse/\(str ?? "hello")?s=t"){
-                    let safariController = SFSafariViewController(url: url)
-                    self.present(safariController, animated: true, completion: nil)
-                    print(UIPasteboard.general.string! + ":before")
-                    
-                    CoreDataHelper.sharedInstance.saveHelpWord(word: str!)
-                }
-            }
-            else {
-                print("failure")
-            }
-        }
-        
-      //print(UIPasteboard.general.string! + ":before")
-        // print(UIPasteboard.general.strings!) //copies string to the pasteboard and prints
-    }
-    
-    func updatePasteboard(completion: @escaping (Bool) -> ()){
-        var flag = true
-        
-       
-        webView.evaluateJavaScript("window.getSelection().toString()", completionHandler: {
-            (html: Any?, error: Error?) in
-            print(html!)
-            if let str = html as? String {
-                print("first \(str)")
-                UIPasteboard.general.string = str
-                completion(flag)
-            } else {
-                print("it is not casting")
-            }
-            
-            
-        })
- 
-       
-        if(UIPasteboard.general.string == nil){
-            flag = false
-        }
-        //completion(flag)
-    }
-    
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "learnSegue" {
-            let destinationController = segue.destination as! LearnViewController
-           
+        if let destination = segue.destination as? DictionaryWebViewController{
+            destination.url = urlSegue
         }
     }
- 
-
 }

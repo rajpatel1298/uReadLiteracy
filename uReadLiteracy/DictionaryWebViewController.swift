@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class BrowserWebViewController: UIViewController {
+class DictionaryWebViewController: UIViewController {
     
     @IBOutlet weak var webview: WKWebView!
     
