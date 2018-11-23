@@ -4,6 +4,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="readCount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="HelpWord" representedClassName="HelpWord" syncable="YES" codeGenerationType="class">
         <attribute name="beginningDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -26,6 +27,6 @@
     <elements>
         <element name="HelpWord" positionX="-63" positionY="54" width="128" height="30"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="Article" positionX="-63" positionY="54" width="128" height="90"/>
+        <element name="Article" positionX="-63" positionY="54" width="128" height="105"/>
     </elements>
 </model>

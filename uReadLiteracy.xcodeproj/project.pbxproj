@@ -13,6 +13,7 @@
 		1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28737D21A5ABFF00B790A4 /* DictionaryWebViewController.swift */; };
 		1C28738021A7B42B00B790A4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28737F21A7B42B00B790A4 /* UserModel.swift */; };
 		1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738121A7B77A00B790A4 /* HelpWordModel.swift */; };
+		1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738321A7CC0500B790A4 /* ArticleModel.swift */; };
 		1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */; };
 		1C4C67DE218C004A00D5383D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67DD218C004A00D5383D /* ProfileViewController.swift */; };
 		1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67E1218D27EE00D5383D /* InfoAlert.swift */; };
@@ -61,6 +62,7 @@
 		1C28737D21A5ABFF00B790A4 /* DictionaryWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryWebViewController.swift; sourceTree = "<group>"; };
 		1C28737F21A7B42B00B790A4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		1C28738121A7B77A00B790A4 /* HelpWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpWordModel.swift; sourceTree = "<group>"; };
+		1C28738321A7CC0500B790A4 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FSNokioBold.otf; sourceTree = "<group>"; };
 		1C4C67DD218C004A00D5383D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1C4C67E1218D27EE00D5383D /* InfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlert.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				1C4C67EF218D400500D5383D /* HelpFunctionError.swift */,
 				1C28737F21A7B42B00B790A4 /* UserModel.swift */,
 				1C28738121A7B77A00B790A4 /* HelpWordModel.swift */,
+				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
+				1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */,
 				1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */,
 				CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */,
 				CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */,

@@ -22,6 +22,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate{
     
     var uiController:BrowserUIController!
     var controller:BrowserController!
+    
+    var currentArticle:ArticleModel?
 
     
     override func viewDidLoad() {
@@ -60,7 +62,12 @@ class BrowseViewController: UIViewController, WKNavigationDelegate{
         let url = webView.url?.absoluteString
         
         if(controller.articleURL(url: url!)){
-            print(webView.title)
+            currentArticle = ArticleModel(name: webView.title!, url: url!)
+            currentArticle?.incrementReadCount()
+            currentArticle?.startRecordingTime()
+        }
+        else{
+            currentArticle?.stopRecordingTime()
         }
     }
     

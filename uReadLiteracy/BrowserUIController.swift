@@ -19,7 +19,6 @@ class BrowserUIController{
     init(viewcontroller:BrowseViewController){
         self.viewcontroller = viewcontroller
         setupAlert()
-        setupWebView()
     }
     
     func showOnlyOneWordAlert(){
@@ -28,11 +27,6 @@ class BrowserUIController{
     
     func showCannotUseHelpFunctionAlert(){
         cannotUseHelpFunctionAlert.show()
-    }
-    
-    private func setupWebView(){
-        viewcontroller.webView = WKWebView(frame: CGRect( x: 0, y: 60, width: viewcontroller.view.frame.width, height: viewcontroller.view.frame.height - 60 ), configuration: WKWebViewConfiguration() )
-        viewcontroller.view.addSubview(viewcontroller.webView)
     }
     
     
