@@ -9,21 +9,25 @@
 import Foundation
 import CoreData
 
-class ArticleModel{
-    private var name:String
+public class ArticleModel{
+    var name:String
     private var readCount:Double
     
     // 1 unit = 1 second
-    private var timeSpent:Double
+    private var totalTimeSpent:Double
+    private var currentTimeSpent = 0.0
+    
     private let url:String
     
     private var timer = Timer()
     
     init(name:String,readCount:Double,timeSpent:Double,url:String){
+        
         self.name = name
         self.readCount = readCount
-        self.timeSpent = timeSpent
+        self.totalTimeSpent = timeSpent
         self.url = url
+        
         
         fixNameParsing()
     }
@@ -36,14 +40,18 @@ class ArticleModel{
         
         if(model == nil){
             self.readCount = 0
-            self.timeSpent = 0
+            self.totalTimeSpent = 0
         }
         else{
             self.readCount = (model?.readCount)!
-            self.timeSpent = (model?.timeSpent)!
+            self.totalTimeSpent = (model?.totalTimeSpent)!
         }
         
         fixNameParsing()
+    }
+    
+    func getName()->String{
+        return name
     }
     
     private func fixNameParsing(){
@@ -55,7 +63,8 @@ class ArticleModel{
     }
     
     @objc func updateTimeSpent() {
-        timeSpent = timeSpent + 1
+        totalTimeSpent = totalTimeSpent + 1
+        currentTimeSpent = currentTimeSpent + 1
     }
     
     func stopRecordingTime(){
@@ -67,10 +76,14 @@ class ArticleModel{
         save()
     }
     
+    func timeReadThisTime()->Double{
+        return currentTimeSpent
+    }
+    
     func save(){
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         
-        let model:Article? = ArticleModel.find(url: url)
+        let model:Article? = ArticleModel.findCoreDataModel(url: url)
         
         if(model == nil){
             let articleEntity = NSEntityDescription.entity(forEntityName: "Article", in: managedContext)!
@@ -78,12 +91,12 @@ class ArticleModel{
             
             articleObject.setValue(name, forKeyPath: "name")
             articleObject.setValue(readCount, forKeyPath: "readCount")
-            articleObject.setValue(timeSpent, forKeyPath: "timeSpent")
+            articleObject.setValue(totalTimeSpent, forKeyPath: "timeSpent")
             articleObject.setValue(url, forKeyPath: "url")
         }
         else{
             model?.name = name
-            model?.timeSpent = timeSpent
+            model?.timeSpent = totalTimeSpent
             model?.readCount = readCount
         }
         
@@ -94,7 +107,7 @@ class ArticleModel{
         }
     }
     
-    static func find(url:String)->ArticleModel?{
+    private static func find(url:String)->ArticleModel?{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Article")
         
@@ -109,7 +122,7 @@ class ArticleModel{
         return nil
     }
     
-    static func find(url:String)->Article?{
+    private static func findCoreDataModel(url:String)->Article?{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Article")
         
@@ -122,5 +135,28 @@ class ArticleModel{
         }
         
         return nil
+    }
+    
+    func equal(article:ArticleModel)->Bool{
+        if(article.url == self.url){
+            return true
+        }
+        return false
+    }
+    
+    static func getUrls(articles:[ArticleModel])->[String]{
+        var arr = [String]()
+        for article in articles{
+            arr.append(article.url)
+        }
+        return arr
+    }
+    
+    static func getArticles(from:[String])->[ArticleModel]{
+        var arr = [ArticleModel]()
+        for url in from{
+            arr.append(ArticleModel.find(url: url)!)
+        }
+        return arr
     }
 }

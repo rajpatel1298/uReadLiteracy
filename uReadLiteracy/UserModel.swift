@@ -18,10 +18,13 @@ class UserModel{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         let userFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         let users = try! managedContext.fetch(userFetch)
-        let onlyUser = users.first as! User
         
-        image = UIImage(data: onlyUser.image as! Data)
-        nickname = onlyUser.nickname
+        if(users.count > 0){
+            let onlyUser = users.first as! User
+            
+            image = UIImage(data: onlyUser.image as! Data)
+            nickname = onlyUser.nickname
+        }
     }
     
     func save(image:UIImage, nickname: String){

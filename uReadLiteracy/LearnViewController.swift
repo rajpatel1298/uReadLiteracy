@@ -11,11 +11,10 @@ import SafariServices
 
 class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet var learnTableView: UITableView!
-    @IBOutlet var closeButton: UIButton!
-    @IBOutlet var analyzeButton: UIButton!
-    
     @IBOutlet weak var tableview: UITableView!
+    
+    @IBOutlet weak var noResultView: UIView!
+    
     
     var helpList = [HelpWordModel]()
     var loginLoadingIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
@@ -39,8 +38,22 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getHelpWords()
-        tableview.reloadData()
+        
+        if(helpList.count == 0){
+            noResultView.isHidden = false
+            tableview.isHidden = true
+        }
+        else{
+            noResultView.isHidden = true
+            tableview.isHidden = false
+            tableview.reloadData()
+        }
+        
     }
+    
+    @IBAction func goToBrowserBtnPressed(_ sender: Any) {
+    }
+    
     
     func getHelpWords(){
         helpList = HelpWordModel.getWordList()

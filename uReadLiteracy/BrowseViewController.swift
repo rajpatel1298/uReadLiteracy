@@ -65,11 +65,17 @@ class BrowseViewController: UIViewController, WKNavigationDelegate{
             currentArticle = ArticleModel(name: webView.title!, url: url!)
             currentArticle?.incrementReadCount()
             currentArticle?.startRecordingTime()
+            //DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
         }
         else{
             currentArticle?.stopRecordingTime()
+            if(currentArticle != nil){
+                DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
+            }
         }
+        
     }
+
     
     
     private func setupHelpFunctionInMenuBar(){
