@@ -26,14 +26,89 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     
+    @IBOutlet weak var loadingView: UIView!
+    
+    @IBOutlet weak var iconView: UIView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         roundProfileIV()
         roundBackgroundProfileIV()
         animateBackgroundProfileIV()
-        roundInfoView()
+        //roundInfoView()
         loadUserInfo()
+        
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let center = CGPoint(x: view.frame.width - iconView.frame.midX, y: iconView.frame.midY)
+        
+        let percent = 99
+        
+        let loading = LoadingCircle(position: center,radius: iconView.frame.width/2 - 10, percent: percent)
+        
+        let pulsingLayer = CAShapeLayer()
+        pulsingLayer.path = loading.path
+        pulsingLayer.fillColor = UIColor.red.cgColor
+        pulsingLayer.opacity = 0.5
+        pulsingLayer.position = center
+        
+        view.layer.addSublayer(pulsingLayer)
+        
+        /*let trackPath = CAShapeLayer()
+        trackPath.path = loading.path
+        trackPath.strokeColor = UIColor.init(red: 255, green: 255, blue: 255, alpha: 1).cgColor
+        trackPath.fillColor = UIColor.white.cgColor
+        trackPath.lineCap = kCALineCapRound
+        trackPath.lineWidth = 10
+        trackPath.position = center
+        view.layer.addSublayer(trackPath)*/
+        
+        let pulsingAnimation = CABasicAnimation(keyPath: "transform.scale")
+        pulsingAnimation.fromValue = 1.3
+        pulsingAnimation.toValue = 1.4
+        
+        pulsingAnimation.duration = 1
+    
+        pulsingAnimation.autoreverses = true
+        pulsingAnimation.repeatCount = .infinity
+        
+        pulsingLayer.add(pulsingAnimation, forKey: "pulsingAnimation")
+        
+        
+        view.layer.addSublayer(loading)
+        loading.animate()
+        
+        
+        
+        //loading.addColorAnimation()
+        
+        let percentLabel = UILabel(frame: .zero)
+        
+        percentLabel.frame = CGRect(x: center.x - iconView.frame.width/8, y: iconView.frame.minY, width: iconView.frame.width, height: iconView.frame.height)
+        
+        percentLabel.text = "\(percent)%"
+        view.addSubview(percentLabel)
+        
+        /*UIView.animate(withDuration: 1, animations: {
+            loading.strokeColor = UIColor.init(red: 255, green: 153, blue: 0, alpha: 1).cgColor
+            
+        }) { (_) in
+            
+            if(percent > 35){
+                UIView.animate(withDuration: 1, animations: {
+                    loading.strokeColor = UIColor.init(red: 255, green: 204, blue: 0, alpha: 1).cgColor
+                }, completion: { (_) in
+                    if(percent > 75){
+                        UIView.animate(withDuration: 1, animations: {
+                            loading.strokeColor = UIColor.init(red: 102, green: 255, blue: 51, alpha: 1).cgColor
+                        })
+                    }
+                })
+            }
+        }*/
     }
     
     private func loadUserInfo(){
