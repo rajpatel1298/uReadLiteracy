@@ -11,9 +11,9 @@ import UIKit
 
 class LoadingCircleColors{
 
-    private var redRGB:[CGFloat] = [255,141,84]
-    private var orangeRGB:[CGFloat] = [255,217,84]
-    private var yellowRGB:[CGFloat] = [255,255,0]
+    private var redRGB:[CGFloat] = [255,0,0]
+    private var orangeRGB:[CGFloat] = [255,153,0]
+    private var yellowRGB:[CGFloat] = [255,204,0]
     private var lightGreenRGB:[CGFloat] = [157,255,0]
     private var greenRGB:[CGFloat] = [95,255,0]
     
@@ -24,7 +24,7 @@ class LoadingCircleColors{
     private func getRedToOrangeColor(numberOfColor:Int) -> [CGColor]{
         var totalColors = [CGColor]()
         for x in 0...numberOfColor{
-            let color = UIColor.init(red: redRGB[0]/255, green: (redRGB[1] + CGFloat(x)*abs(orangeRGB[1]-redRGB[1])/CGFloat(numberOfColor))/255, blue: redRGB[2]/255, alpha: 1).cgColor
+            let color = UIColor.init(red: redRGB[0]/255, green: (redRGB[1] + CGFloat(x)*abs(orangeRGB[1]-redRGB[1])/CGFloat(numberOfColor))/255, blue: 0, alpha: 1).cgColor
             
             totalColors.append(color)
         }

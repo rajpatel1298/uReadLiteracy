@@ -11,11 +11,13 @@ import UIKit
 
 class LoadingCircle:CAShapeLayer{
     private var percent:Int!
-    private let loadingDuration = 1
+    private let loadingDuration:Int
+    private let numberOfColor:Int
     
-    
-    init(position:CGPoint,radius:CGFloat,percent:Int){
+    init(position:CGPoint,radius:CGFloat,percent:Int,loadingDuration:Int, numberOfColor: Int){
         self.percent = percent
+        self.loadingDuration = loadingDuration
+        self.numberOfColor = numberOfColor
         super.init()
         
         let circularPath = UIBezierPath(arcCenter: .zero, radius: radius, startAngle: -CGFloat.pi/2, endAngle:-CGFloat.pi/2 + 2 * CGFloat.pi, clockwise: true)
@@ -30,6 +32,8 @@ class LoadingCircle:CAShapeLayer{
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.loadingDuration = 1
+        self.numberOfColor = 360
         super.init(coder: aDecoder)
     }
     

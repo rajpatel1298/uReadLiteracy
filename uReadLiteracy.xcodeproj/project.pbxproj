@@ -33,6 +33,7 @@
 		1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A5C2180209B00FFDC82 /* ChildWebPage.swift */; };
 		1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A6A2181619200FFDC82 /* AllowedPage.swift */; };
 		1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */; };
+		1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */; };
 		1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */; };
 		1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */; };
 		1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7E21AA49D100FF296E /* GoalType.swift */; };
@@ -96,6 +97,7 @@
 		1C513A5C2180209B00FFDC82 /* ChildWebPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildWebPage.swift; sourceTree = "<group>"; };
 		1C513A6A2181619200FFDC82 /* AllowedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowedPage.swift; sourceTree = "<group>"; };
 		1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircleColors.swift; sourceTree = "<group>"; };
+		1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressCircle.swift; sourceTree = "<group>"; };
 		1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalCell.swift; sourceTree = "<group>"; };
 		1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalViewController.swift; sourceTree = "<group>"; };
 		1C870F7E21AA49D100FF296E /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				1C9C775B219A962C002ADA76 /* Tableview Cells */,
 				1C870F8821B2D9E700FF296E /* LoadingCircle.swift */,
 				1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */,
+				1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
 				1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* UserModel.swift in Sources */,
+				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
 				1C9C77562194BFBF002ADA76 /* CoreDataHelper.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
