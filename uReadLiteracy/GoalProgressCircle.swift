@@ -13,11 +13,14 @@ class GoalProgressCircle{
     private var loadingCircle:LoadingCircle!
     private let view:UIView
     private let pulsingLayer = CAShapeLayer()
-    private let center:CGPoint
+    private var center:CGPoint!
     private let percent:Int
     private var width:CGFloat!
     private let loadingDuration = 3
     private let numberOfColor = 360
+    
+    private var percentLabel:CountingLabel!
+    private let trackPath = CAShapeLayer()
     
     init(percent:Int, center:CGPoint,width:CGFloat, view:UIView){
         self.center = center
@@ -27,14 +30,61 @@ class GoalProgressCircle{
         
         setupLoadingCircle()
         setupPulseLayer()
+        setupTrackPath()
         
+        view.layer.addSublayer(trackPath)
         view.layer.addSublayer(pulsingLayer)
         view.layer.addSublayer(loadingCircle)
+        
+        
+        percentLabel = CountingLabel(percent: percent, loadingDuration: loadingDuration, frame: CGRect(x: center.x - width/2 , y: center.y - width/2 + 10, width: width, height: width))
+         
+        percentLabel.text = "0%"
+        percentLabel.textAlignment = .center
+        percentLabel.backgroundColor = UIColor.clear
+        percentLabel.baselineAdjustment = .alignCenters
+        percentLabel.font = UIFont(name: "DIN-Bold", size: 30)
+
+        view.addSubview(percentLabel)
+        view.bringSubview(toFront: percentLabel)
+        
+        
+        
+        
     }
     
     func animate(){
         addPulseAnimation()
         loadingCircle.animate()
+        percentLabel.animate()
+        
+        addTrackPathAnimation()
+    }
+    
+    func reset(center:CGPoint){
+        pulsingLayer.removeFromSuperlayer()
+        loadingCircle.removeFromSuperlayer()
+        trackPath.removeFromSuperlayer()
+        self.center = center
+        setupLoadingCircle()
+        setupPulseLayer()
+        setupTrackPath()
+        view.layer.addSublayer(pulsingLayer)
+        view.layer.addSublayer(loadingCircle)
+        
+        percentLabel.frame = CGRect(x: center.x - width/2 , y: center.y - width/2 + 10, width: width, height: width)
+        view.bringSubview(toFront: percentLabel)
+    }
+    
+    private func addTrackPathAnimation(){
+        let trackPathColorAnimation = CAKeyframeAnimation(keyPath: "strokeColor")
+        trackPathColorAnimation.values = LoadingCircleColors.sharedInstance.getColorGroup(percent: percent, numberOfColorChange: numberOfColor)
+        trackPathColorAnimation.duration = CFTimeInterval(loadingDuration)
+        trackPathColorAnimation.keyTimes = (0 ... numberOfColor).map { NSNumber(value: CFTimeInterval($0) / CFTimeInterval(numberOfColor)) }
+        trackPathColorAnimation.isRemovedOnCompletion = false
+        trackPathColorAnimation.fillMode = kCAFillModeForwards
+        
+        trackPath.add(trackPathColorAnimation, forKey: nil)
     }
     
     private func addPulseAnimation(){
@@ -65,19 +115,18 @@ class GoalProgressCircle{
     
     private func setupPulseLayer(){
         pulsingLayer.path = loadingCircle.path
-        pulsingLayer.fillColor = UIColor.red.cgColor
+        pulsingLayer.fillColor = UIColor.clear.cgColor
         pulsingLayer.opacity = 0.5
         pulsingLayer.position = center
     }
     
-    private func addTrackPath(){
-        /*let trackPath = CAShapeLayer()
-         trackPath.path = loading.path
-         trackPath.strokeColor = UIColor.init(red: 255, green: 255, blue: 255, alpha: 1).cgColor
-         trackPath.fillColor = UIColor.white.cgColor
-         trackPath.lineCap = kCALineCapRound
-         trackPath.lineWidth = 10
-         trackPath.position = center
-         view.layer.addSublayer(trackPath)*/
+    private func setupTrackPath(){
+        trackPath.path = loadingCircle.path
+        trackPath.fillColor = UIColor.red.cgColor
+        trackPath.lineCap = kCALineCapRound
+        trackPath.lineWidth = 10
+        trackPath.position = center
+        trackPath.opacity = 0.5
+        view.layer.addSublayer(trackPath)
     }
 }

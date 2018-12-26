@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var iconView: UIView!
     
+    var circle:GoalProgressCircle!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,22 +39,31 @@ class ProfileViewController: UIViewController {
         animateBackgroundProfileIV()
         //roundInfoView()
         loadUserInfo()
-        
-        
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         let center = CGPoint(x: view.frame.width - iconView.frame.midX, y: iconView.frame.midY)
         
-        let circle = GoalProgressCircle(percent: 99, center: center, width: iconView.frame.width*90/100, view: view)
+        if circle == nil{
+            circle = GoalProgressCircle(percent: 99, center: center, width: iconView.frame.width*80/100, view: view)
+        }
+        else{
+            circle.reset(center: center)
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         circle.animate()
-        
-        let percentLabel = UILabel(frame: .zero)
-        
-        percentLabel.frame = CGRect(x: center.x - iconView.frame.width/8, y: iconView.frame.minY, width: iconView.frame.width, height: iconView.frame.height)
-        
-        percentLabel.text = "\(99)%"
-        view.addSubview(percentLabel)
     }
     
     private func loadUserInfo(){
