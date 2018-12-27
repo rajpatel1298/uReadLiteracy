@@ -41,6 +41,8 @@
 		1C769CEF21D348AD00034EB3 /* DIN-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE621D3489F00034EB3 /* DIN-Medium.ttf */; };
 		1C769CF021D348AF00034EB3 /* DIN-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE721D3489F00034EB3 /* DIN-Regular.ttf */; };
 		1C769CF121D348B200034EB3 /* DIN-RegularAlternate.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE921D3489F00034EB3 /* DIN-RegularAlternate.ttf */; };
+		1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CF221D4352300034EB3 /* BouncingLabel.swift */; };
+		1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */; };
 		1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */; };
 		1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */; };
 		1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7E21AA49D100FF296E /* GoalType.swift */; };
@@ -112,6 +114,8 @@
 		1C769CE921D3489F00034EB3 /* DIN-RegularAlternate.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-RegularAlternate.ttf"; sourceTree = "<group>"; };
 		1C769CEA21D348A000034EB3 /* DIN-BlackAlternate.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BlackAlternate.ttf"; sourceTree = "<group>"; };
 		1C769CEB21D348A000034EB3 /* DIN-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Light.ttf"; sourceTree = "<group>"; };
+		1C769CF221D4352300034EB3 /* BouncingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingLabel.swift; sourceTree = "<group>"; };
+		1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRectangle.swift; sourceTree = "<group>"; };
 		1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalCell.swift; sourceTree = "<group>"; };
 		1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalViewController.swift; sourceTree = "<group>"; };
 		1C870F7E21AA49D100FF296E /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 				1C769CE221D336E300034EB3 /* Goal Progress */,
 				1C4C67E7218D321300D5383D /* Alert */,
 				1C9C775B219A962C002ADA76 /* Tableview Cells */,
+				1C769CF221D4352300034EB3 /* BouncingLabel.swift */,
+				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -594,10 +600,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
+				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
 				1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */,
 				1C28737A21A5093400B790A4 /* BrowserUIController.swift in Sources */,
+				1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */,
 				1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */,
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,

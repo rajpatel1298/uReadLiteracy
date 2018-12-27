@@ -9,7 +9,7 @@
 import Foundation
 
 public enum DailyGoalType:String{
-    case ReadXStories = "ReadXArticles"
+    case ReadXArticles = "ReadXArticles"
     case ReadXMinutes = "ReadXMinutes"
 }
 

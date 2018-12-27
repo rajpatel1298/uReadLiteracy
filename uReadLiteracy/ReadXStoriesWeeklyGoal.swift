@@ -14,10 +14,10 @@ class ReadXStoriesWeeklyGoal:DailyGoalModel{
     init(numOfStories:Int, date: Date) {
         self.numOfStories = numOfStories
         if(numOfStories == 1){
-            super.init(name: "Read 1 Story Weekly", date: date, type: .ReadXStories)
+            super.init(name: "Read 1 Story Weekly", date: date, type: .ReadXArticles)
         }
         else{
-            super.init(name: "Read \(numOfStories) Stories Weekly", date: date, type: .ReadXStories)
+            super.init(name: "Read \(numOfStories) Stories Weekly", date: date, type: .ReadXArticles)
         }
         
         

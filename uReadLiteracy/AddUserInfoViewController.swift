@@ -14,18 +14,21 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
     
     @IBOutlet weak var userIV: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var nicknameTF: UITextField!
+    @IBOutlet weak var userImageOutsideView: UIView!
+    
+    @IBOutlet weak var nextBtn: UIButton!
     
     private var noNickanmeAlert:InfoAlert!
     private var imageSelected = false
-    
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         noNickanmeAlert = InfoAlert(viewcontroller: self, title: "Please Add Your Nickname", message: "")
+        
+        nextBtn.layer.cornerRadius = 5
+        nextBtn.layer.masksToBounds = false
+        nextBtn.clipsToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +41,12 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         }
         
         stopLoading()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let rec = AnimatedRectangle(topLeft: CGPoint(x: userIV.frame.origin.x, y: userIV.frame.origin.y), view: userImageOutsideView, width: userIV.frame.width, height: userIV.frame.height)
+        rec.animate()
     }
     
     func animateUserIV(){
@@ -78,9 +87,9 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         
         imageSelected = true
         
-        userIV.layer.cornerRadius = userIV.frame.width/2
+        /*userIV.layer.cornerRadius = userIV.frame.width/2
         userIV.layer.masksToBounds = false
-        userIV.clipsToBounds = true
+        userIV.clipsToBounds = true*/
         userIV.alpha = 1
         
         stopLoading()
