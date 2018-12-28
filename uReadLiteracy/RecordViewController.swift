@@ -2,8 +2,6 @@
 //  RecordViewController.swift
 //  uReadLiteracy
 //
-//  Created by Raj Patel on 8/12/18.
-//  Copyright © 2018 AdaptConsulting. All rights reserved.
 //
 
 import UIKit
@@ -16,17 +14,36 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var numberOfRecords: Int = 0
+    var recordsList:[String] = []
+    var currentRecording: String = "";
 
+    
     @IBOutlet weak var buttonLabel: UIButton!
     @IBOutlet weak var myTableView: UITableView!
+    
     @IBAction func record(_ sender: Any) {
         //Check if we have an active recorder
         if audioRecorder == nil {
             numberOfRecords += 1
-            let filename = getDirectory().appendingPathComponent("\(numberOfRecords).m4a")
             
+            let alert = UIAlertController(title: "New Recording", message: "Enter a name for your recording",
+                                          preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.text = "New Recording Name"
+            }
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                let textField = alert!.textFields![0]
+                self.currentRecording = textField.text!
+            }))
+            
+            self.present(alert,animated:true,completion:nil)
+            
+            let filename = getDirectory().appendingPathComponent("\(currentRecording).m4a")
+        
             let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
             
+           //  recordsList.append(currentRecording)
             //Start audio recording
             do {
                 audioRecorder = try AVAudioRecorder(url: filename, settings: settings)
@@ -45,6 +62,10 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
             audioRecorder = nil
             
             UserDefaults.standard.set(numberOfRecords, forKey: "myNumber")
+            UserDefaults.standard.set(currentRecording, forKey: "myRecording")
+            
+            recordsList.append(currentRecording)
+            print("Added \(currentRecording) at index: \(String(describing: recordsList.firstIndex(of: currentRecording) ?? nil))")
             myTableView.reloadData()
             
             buttonLabel.setTitle("Start Recording", for: .normal)
@@ -88,24 +109,25 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
 
     //setting up table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRecords
+        return recordsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = String(indexPath.row + 1)
+        cell.textLabel?.text = recordsList[indexPath.row]
         return cell
     }
     
     //listen to the selected row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let path = getDirectory().appendingPathComponent("\(indexPath.row + 1).m4a")
+        let path = getDirectory().appendingPathComponent("\(recordsList[indexPath.row]).m4a")
+        print("trying to play : \(recordsList[indexPath.row]).m4a")
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: path)
             audioPlayer.play()
         }
         catch {
-            
+            print("Playback failed")
         }
     }
     
