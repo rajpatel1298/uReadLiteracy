@@ -39,7 +39,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var goal2View: UIView!
     @IBOutlet weak var goal3View: UIView!
     
-    var userProgressCircle:GoalProgressCircle!
+    @IBOutlet weak var addNewGoalBtn: UIButton!
+    
+    
+    //var userProgressCircle:GoalProgressCircle!
     var goal1ProgressCircle:GoalProgressCircle!
     var goal2ProgressCircle:GoalProgressCircle!
     var goal3ProgressCircle:GoalProgressCircle!
@@ -52,6 +55,7 @@ class ProfileViewController: UIViewController {
         roundBackgroundProfileIV()
         animateBackgroundProfileIV()
         //roundInfoView()
+        roundAddNewGoalBtn()
         loadUserInfo()
         
         setupTestGoals()
@@ -60,9 +64,13 @@ class ProfileViewController: UIViewController {
         setupUserProgressCircle()
     }
     
+    @IBAction func addNewGoalBtnPressed(_ sender: Any) {
+    }
+    
+    
     private func setupUserProgressCircle(){
         let center = CGPoint(x: view.frame.width - iconView.frame.midX, y: iconView.frame.midY)
-        userProgressCircle = GoalProgressCircle(percent: 99, center: center, width: iconView.frame.width*1.2, view: view)
+        //userProgressCircle = GoalProgressCircle(percent: 99, center: center, width: iconView.frame.width*1.2, view: view)
     }
     
     private func setupDailyGoalsProgressCircle(){
@@ -98,7 +106,7 @@ class ProfileViewController: UIViewController {
         
         let center = CGPoint(x: view.frame.width - iconView.frame.midX, y: iconView.frame.midY)
         
-        userProgressCircle.reset(center: center)
+        //userProgressCircle.reset(center: center)
         resetDailyGoalsProgressCircleCenter()
         
     }
@@ -117,7 +125,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        userProgressCircle.animate()
+        //userProgressCircle.animate()
         goal1ProgressCircle.animate()
         goal2ProgressCircle.animate()
         goal3ProgressCircle.animate()
@@ -141,6 +149,12 @@ class ProfileViewController: UIViewController {
         backgroundProfileIV.layer.cornerRadius = 10
         backgroundProfileIV.layer.masksToBounds = false
         backgroundProfileIV.clipsToBounds = true
+    }
+    
+    private func roundAddNewGoalBtn(){
+        addNewGoalBtn.layer.cornerRadius = 10
+        addNewGoalBtn.layer.masksToBounds = false
+        addNewGoalBtn.clipsToBounds = true
     }
     
     private func animateBackgroundProfileIV(){
