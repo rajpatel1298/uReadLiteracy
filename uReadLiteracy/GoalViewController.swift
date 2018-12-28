@@ -15,6 +15,9 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var selectedGoal:GoalModel!
     
+    @IBOutlet weak var nogoalIV: UIImageView!
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section){
@@ -100,11 +103,47 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if(dailyGoals.count == 0){
-            let alert = ChoosingGoalAlert(viewcontroller: self, title: "You Have No Reading Goals Currently", message: "Please Choose Your Goals", completionHandler: {
+            /*let alert = ChoosingGoalAlert(viewcontroller: self, title: "You Have No Reading Goals Currently", message: "Please Choose Your Goals", completionHandler: {
                 self.performSegue(withIdentifier: "GoalToChoosingGoalSegue", sender: self)
             })
-            alert.show()
+            alert.show()*/
         }
+        
+        /*let replicatorLayer = CAReplicatorLayer()
+        replicatorLayer.frame = view.frame
+        
+        replicatorLayer.instanceCount = 360
+        replicatorLayer.instanceDelay = CFTimeInterval(4 / 360.0)
+        replicatorLayer.preservesDepth = false
+        replicatorLayer.instanceColor = UIColor.red.cgColor
+        
+        replicatorLayer.instanceRedOffset = 0.0
+        replicatorLayer.instanceGreenOffset = -0.5
+        replicatorLayer.instanceBlueOffset = -0.5
+        replicatorLayer.instanceAlphaOffset = 0.0
+        
+        let angle = Float(Double.pi * 2.0) / 360
+        replicatorLayer.instanceTransform = CATransform3DMakeRotation(CGFloat(angle), 0.0, 0.0, 1.0)
+        
+        
+        
+        let instanceLayer = CALayer()
+        let layerWidth: CGFloat = 10
+        let midX = view.frame.midX - layerWidth / 2.0
+        instanceLayer.frame = CGRect(x: midX , y: view.frame.midY + 100, width: layerWidth, height: layerWidth)
+        instanceLayer.backgroundColor = UIColor.blue.cgColor
+        replicatorLayer.addSublayer(instanceLayer)
+        
+        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeAnimation.fromValue = 1.0
+        fadeAnimation.toValue = 0.0
+        fadeAnimation.duration = 4
+        fadeAnimation.repeatCount = Float.greatestFiniteMagnitude
+        
+        instanceLayer.opacity = 0.0
+        instanceLayer.add(fadeAnimation, forKey: "FadeAnimation")
+        
+        view.layer.addSublayer(replicatorLayer)*/
         
     }
     

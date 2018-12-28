@@ -35,7 +35,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tij-jv-Rkq">
-                                <rect key="frame" x="26" y="601" width="323" height="26"/>
+                                <rect key="frame" x="26" y="603.5" width="323" height="23.5"/>
                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bna-S2-Wki">
-                                <rect key="frame" x="66" y="25" width="60.5" height="40"/>
+                                <rect key="frame" x="66" y="25" width="62.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PnO-OH-6BH"/>
                                 </constraints>
@@ -61,7 +61,7 @@
                                 <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTi-O6-VcD">
-                                <rect key="frame" x="26" y="242" width="286.5" height="83"/>
+                                <rect key="frame" x="26" y="242" width="285.5" height="83"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wave.png" translatesAutoresizingMaskIntoConstraints="NO" id="DeM-r1-oMm">
                                         <rect key="frame" x="40" y="21.5" width="40" height="40"/>
@@ -71,7 +71,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-aB-EOL">
-                                        <rect key="frame" x="80" y="15.5" width="166.5" height="52"/>
+                                        <rect key="frame" x="80" y="18" width="165.5" height="47"/>
                                         <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uread is a reading app for ...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ne-qY-9ND">
-                                <rect key="frame" x="26" y="325" width="343" height="26"/>
+                                <rect key="frame" x="26" y="325" width="343" height="23.5"/>
                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -503,25 +503,129 @@
                                     <outlet property="delegate" destination="qez-kt-Azv" id="T6l-y8-awc"/>
                                 </connections>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0Iw-Uw-Mus">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5iO-f4-FSA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Sfe-Gu-hlL">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="277"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nogoal" translatesAutoresizingMaskIntoConstraints="NO" id="o8V-6y-lmi">
+                                                <rect key="frame" x="112.5" y="127" width="150" height="150"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="o8V-6y-lmi" secondAttribute="height" multiplier="1:1" id="UzQ-xX-8Km"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="o8V-6y-lmi" secondAttribute="bottom" id="8yU-oh-04x"/>
+                                            <constraint firstItem="o8V-6y-lmi" firstAttribute="width" secondItem="5iO-f4-FSA" secondAttribute="width" multiplier="2:5" id="G46-Wm-LiY"/>
+                                            <constraint firstItem="o8V-6y-lmi" firstAttribute="centerX" secondItem="5iO-f4-FSA" secondAttribute="centerX" id="eG9-EJ-8wf"/>
+                                            <constraint firstAttribute="bottom" secondItem="Sfe-Gu-hlL" secondAttribute="bottom" id="kSU-Ef-2LO"/>
+                                            <constraint firstItem="Sfe-Gu-hlL" firstAttribute="leading" secondItem="5iO-f4-FSA" secondAttribute="leading" id="shf-iR-5Zb"/>
+                                            <constraint firstItem="Sfe-Gu-hlL" firstAttribute="top" secondItem="5iO-f4-FSA" secondAttribute="top" id="uvu-aG-tDn"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sfe-Gu-hlL" secondAttribute="trailing" id="w9v-R7-dTv"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OlU-c3-1IP">
+                                        <rect key="frame" x="0.0" y="277" width="375" height="277"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-jp-Kgx">
+                                                <rect key="frame" x="20" y="192" width="335" height="45"/>
+                                                <color key="backgroundColor" red="1" green="0.61960784310000006" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="k6h-aw-2Yd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                                                <state key="normal" title="Add New Goal">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-De-7t2">
+                                                <rect key="frame" x="20" y="40" width="335" height="112"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUG-IK-SK6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="56"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh No!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gz-9O-077">
+                                                                <rect key="frame" x="0.0" y="-2.5" width="335" height="58.5"/>
+                                                                <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="45"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="4gz-9O-077" secondAttribute="trailing" id="gbS-nc-PNt"/>
+                                                            <constraint firstAttribute="bottom" secondItem="4gz-9O-077" secondAttribute="bottom" id="hS1-Aj-xBz"/>
+                                                            <constraint firstItem="4gz-9O-077" firstAttribute="leading" secondItem="LUG-IK-SK6" secondAttribute="leading" id="mpB-6x-OJJ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NzL-vC-34k">
+                                                        <rect key="frame" x="0.0" y="56" width="335" height="56"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This list does not have any goals" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTu-EM-5zS">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="26"/>
+                                                                <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="FTu-EM-5zS" secondAttribute="trailing" id="ScE-bB-Ime"/>
+                                                            <constraint firstItem="FTu-EM-5zS" firstAttribute="top" secondItem="NzL-vC-34k" secondAttribute="top" id="dMc-C8-a5i"/>
+                                                            <constraint firstItem="FTu-EM-5zS" firstAttribute="leading" secondItem="NzL-vC-34k" secondAttribute="leading" id="jSS-p2-XgH"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ScW-jp-Kgx" secondAttribute="bottom" constant="40" id="0ix-S4-f2Q"/>
+                                            <constraint firstItem="3cn-De-7t2" firstAttribute="top" secondItem="OlU-c3-1IP" secondAttribute="top" constant="40" id="4UX-TH-uCx"/>
+                                            <constraint firstItem="3cn-De-7t2" firstAttribute="leading" secondItem="OlU-c3-1IP" secondAttribute="leading" constant="20" id="7Ig-A3-MgG"/>
+                                            <constraint firstItem="ScW-jp-Kgx" firstAttribute="top" secondItem="3cn-De-7t2" secondAttribute="bottom" constant="40" id="M5F-a5-Ncr"/>
+                                            <constraint firstItem="ScW-jp-Kgx" firstAttribute="leading" secondItem="OlU-c3-1IP" secondAttribute="leading" constant="20" id="Wbm-t2-v1U"/>
+                                            <constraint firstAttribute="trailing" secondItem="ScW-jp-Kgx" secondAttribute="trailing" constant="20" id="nGS-hb-MFG"/>
+                                            <constraint firstAttribute="trailing" secondItem="3cn-De-7t2" secondAttribute="trailing" constant="20" id="zVg-sL-M4W"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Lh0-J9-t1j" firstAttribute="leading" secondItem="kyQ-P8-i79" secondAttribute="leadingMargin" id="KYc-zR-mzM"/>
+                            <constraint firstItem="0Iw-Uw-Mus" firstAttribute="leading" secondItem="kyQ-P8-i79" secondAttribute="leading" id="OOz-wd-FIW"/>
+                            <constraint firstItem="0Iw-Uw-Mus" firstAttribute="top" secondItem="6t2-cB-s6w" secondAttribute="bottom" id="Rpd-Im-h9M"/>
                             <constraint firstItem="Lh0-J9-t1j" firstAttribute="top" secondItem="6t2-cB-s6w" secondAttribute="bottom" id="Tcp-6z-svK"/>
                             <constraint firstItem="xMe-IQ-qM2" firstAttribute="top" secondItem="Lh0-J9-t1j" secondAttribute="bottom" id="fs0-39-5k1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lh0-J9-t1j" secondAttribute="trailing" id="ujx-p5-FE1"/>
+                            <constraint firstAttribute="trailing" secondItem="0Iw-Uw-Mus" secondAttribute="trailing" id="vv8-lT-WOR"/>
+                            <constraint firstItem="xMe-IQ-qM2" firstAttribute="top" secondItem="0Iw-Uw-Mus" secondAttribute="bottom" id="zOG-0K-ELz"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Lh0-J9-t1j"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Goal" image="goal" id="YOr-Q7-HWT"/>
                     <navigationItem key="navigationItem" id="Jiy-tO-tmY"/>
                     <connections>
+                        <outlet property="nogoalIV" destination="o8V-6y-lmi" id="ksk-M1-C5Y"/>
                         <outlet property="tableview" destination="Lh0-J9-t1j" id="GFL-Ed-Ww8"/>
-                        <segue destination="PTJ-cV-5MB" kind="show" identifier="GoalToChoosingGoalSegue" id="6eM-VW-p3n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maR-bV-jwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4301.6000000000004" y="2091.904047976012"/>
+            <point key="canvasLocation" x="4056.8000000000002" y="-676.01199400299856"/>
         </scene>
         <!--Choose ? Goal-->
         <scene sceneID="Ih9-pk-4Mw">
@@ -567,7 +671,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faI-TZ-lQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4302" y="2850"/>
+            <point key="canvasLocation" x="4057" y="-1531"/>
         </scene>
         <!--Goal List View Controller-->
         <scene sceneID="6EU-2z-w80">
@@ -650,7 +754,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWJ-wE-CeA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5141.6000000000004" y="2091.904047976012"/>
+            <point key="canvasLocation" x="4953" y="-1529"/>
         </scene>
         <!--Goals-->
         <scene sceneID="cac-KD-TWp">
@@ -668,7 +772,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrr-k3-uS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3497" y="2092"/>
+            <point key="canvasLocation" x="3100" y="-676"/>
         </scene>
         <!--Learn More-->
         <scene sceneID="hDk-Ga-bSf">
@@ -1087,7 +1191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8d-Lv-m8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2200.8000000000002" y="-844.22788605697156"/>
+            <point key="canvasLocation" x="3100" y="-1530"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="khh-va-fu2">
@@ -1112,6 +1216,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="1300" height="1300"/>
         <image name="book" width="25" height="25"/>
         <image name="goal" width="25" height="25"/>
         <image name="imageView:w1u-sO-pPQ:image" width="300" height="300">
@@ -7250,6 +7355,7 @@ AAAAAFkAAAAAAAAAAAAAAAAABZrRA
         <image name="internet" width="25" height="25"/>
         <image name="library2" width="1697" height="1131"/>
         <image name="microphone" width="25" height="25"/>
+        <image name="nogoal" width="512" height="512"/>
         <image name="profile" width="25" height="25"/>
         <image name="teacher" width="25" height="25"/>
         <image name="uReadLoginBook" width="1000" height="780"/>

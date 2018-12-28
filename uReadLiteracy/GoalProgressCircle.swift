@@ -16,7 +16,7 @@ class GoalProgressCircle{
     private var center:CGPoint!
     private let percent:Int
     private var width:CGFloat!
-    private let loadingDuration = 3
+    private let loadingDuration:Double = 1
     private let numberOfColor = 360
     
     private var percentLabel:CountingLabel!
@@ -47,10 +47,6 @@ class GoalProgressCircle{
 
         view.addSubview(percentLabel)
         view.bringSubview(toFront: percentLabel)
-        
-        
-        
-        
     }
     
     func animate(){

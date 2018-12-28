@@ -11,10 +11,10 @@ import UIKit
 
 class LoadingCircle:CAShapeLayer{
     private var percent:Int!
-    private let loadingDuration:Int
+    private let loadingDuration:Double
     private let numberOfColor:Int
     
-    init(position:CGPoint,radius:CGFloat,percent:Int,loadingDuration:Int, numberOfColor: Int){
+    init(position:CGPoint,radius:CGFloat,percent:Int,loadingDuration:Double, numberOfColor: Int){
         self.percent = percent
         self.loadingDuration = loadingDuration
         self.numberOfColor = numberOfColor
