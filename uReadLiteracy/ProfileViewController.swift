@@ -30,7 +30,21 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var iconView: UIView!
     
-    var circle:GoalProgressCircle!
+    
+    @IBOutlet weak var goal1: UILabel!
+    @IBOutlet weak var goal2: UILabel!
+    @IBOutlet weak var goal3: UILabel!
+    
+    @IBOutlet weak var goal1View: UIView!
+    @IBOutlet weak var goal2View: UIView!
+    @IBOutlet weak var goal3View: UIView!
+    
+    var userProgressCircle:GoalProgressCircle!
+    var goal1ProgressCircle:GoalProgressCircle!
+    var goal2ProgressCircle:GoalProgressCircle!
+    var goal3ProgressCircle:GoalProgressCircle!
+    
+    var goals = [GoalModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,18 +53,54 @@ class ProfileViewController: UIViewController {
         animateBackgroundProfileIV()
         //roundInfoView()
         loadUserInfo()
+        
+        setupTestGoals()
+        
+        setupDailyGoalsProgressCircle()
+        setupUserProgressCircle()
+    }
+    
+    private func setupUserProgressCircle(){
+        let center = CGPoint(x: view.frame.width - iconView.frame.midX, y: iconView.frame.midY)
+        userProgressCircle = GoalProgressCircle(percent: 99, center: center, width: iconView.frame.width*1.2, view: view)
+    }
+    
+    private func setupDailyGoalsProgressCircle(){
+        let center1 = CGPoint(x: goal1View.bounds.width - (goal1View.bounds.width/5)/2, y: goal1View.bounds.height/2)
+        goal1ProgressCircle = GoalProgressCircle(percent: Int(goals[0].progress), center: center1, width: goal1View.bounds.width/5, view: goal1View)
+        
+        let center2 = CGPoint(x: goal2View.bounds.width - (goal2View.bounds.width/5)/2, y: goal2View.bounds.height/2)
+        goal2ProgressCircle = GoalProgressCircle(percent: Int(goals[1].progress), center: center2, width: goal2View.bounds.width/5, view: goal2View)
+        
+        let center3 = CGPoint(x: goal3View.bounds.width - (goal3View.bounds.width/5)/2, y: goal3View.bounds.height/2)
+        goal3ProgressCircle = GoalProgressCircle(percent: Int(goals[2].progress), center: center3, width: goal3View.bounds.width/5, view: goal3View)
+    }
+    
+    private func resetDailyGoalsProgressCircleCenter(){
+        let center1 = CGPoint(x: goal1View.bounds.width - (goal1View.bounds.width/5)/2, y: goal1View.bounds.height/2)
+        goal1ProgressCircle.reset(center: center1)
+        
+        let center2 = CGPoint(x: goal2View.bounds.width - (goal2View.bounds.width/5)/2, y: goal2View.bounds.height/2)
+        goal2ProgressCircle.reset(center: center2)
+        
+        let center3 = CGPoint(x: goal3View.bounds.width - (goal3View.bounds.width/5)/2, y: goal3View.bounds.height/2)
+        goal3ProgressCircle.reset(center: center3)
+    }
+    
+    private func setupTestGoals(){
+        goals.append(GoalModel(name: "Test Goal 1: Test Goal", progress: 24, date: Date()))
+        goals.append(GoalModel(name: "Test Goal 2: Test Goal Lalalallla", progress: 44, date: Date()))
+        goals.append(GoalModel(name: "Test Goal 3: Test Goal Lalalallla", progress: 64, date: Date()))
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         let center = CGPoint(x: view.frame.width - iconView.frame.midX, y: iconView.frame.midY)
         
-        if circle == nil{
-            circle = GoalProgressCircle(percent: 99, center: center, width: iconView.frame.width*80/100, view: view)
-        }
-        else{
-            circle.reset(center: center)
-        }
+        userProgressCircle.reset(center: center)
+        resetDailyGoalsProgressCircleCenter()
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -59,11 +109,18 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        goal1.text = goals[0].getDescription()
+        goal2.text = goals[1].getDescription()
+        goal3.text = goals[2].getDescription()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        circle.animate()
+        userProgressCircle.animate()
+        goal1ProgressCircle.animate()
+        goal2ProgressCircle.animate()
+        goal3ProgressCircle.animate()
     }
     
     private func loadUserInfo(){
@@ -75,13 +132,13 @@ class ProfileViewController: UIViewController {
     }
     
     private func roundProfileIV(){
-        profileIV.layer.cornerRadius = profileIV.frame.width/2
+        profileIV.layer.cornerRadius = 10
         profileIV.layer.masksToBounds = false
         profileIV.clipsToBounds = true
     }
     
     private func roundBackgroundProfileIV(){
-        backgroundProfileIV.layer.cornerRadius = backgroundProfileIV.frame.width/2
+        backgroundProfileIV.layer.cornerRadius = 10
         backgroundProfileIV.layer.masksToBounds = false
         backgroundProfileIV.clipsToBounds = true
     }
