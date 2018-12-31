@@ -70,7 +70,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate{
         else{
             currentArticle?.stopRecordingTime()
             if(currentArticle != nil){
-                DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
+                //DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
             }
         }
         

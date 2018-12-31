@@ -10,12 +10,16 @@ import UIKit
 
 class GoalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var dailyGoals = [DailyGoalModel]()
-    var ongoingGoals = ["LOL"]
+    var dailyGoals: [GoalModel]!
+    var ongoingGoals: [GoalModel]!
     
     var selectedGoal:GoalModel!
     
     @IBOutlet weak var nogoalIV: UIImageView!
+    
+    @IBOutlet weak var noGoalStackView: UIStackView!
+    
+    @IBOutlet weak var addNewGoalBarBtn: UIBarButtonItem!
     
     
     
@@ -96,18 +100,30 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getDailyGoals()
+        updateDailyGoalsList()
+        updateOngoingGoalsList()
+        
         tableview.reloadData()
+        
+        if(dailyGoals.count == 0 && ongoingGoals.count == 0){
+            noGoalStackView.isHidden = false
+            tableview.isHidden = true
+            addNewGoalBarBtn.title = ""
+            /*let alert = ChoosingGoalAlert(viewcontroller: self, title: "You Have No Reading Goals Currently", message: "Please Choose Your Goals", completionHandler: {
+             self.performSegue(withIdentifier: "GoalToChoosingGoalSegue", sender: self)
+             })
+             alert.show()*/
+        }
+        else{
+            noGoalStackView.isHidden = true
+            tableview.isHidden = false
+            addNewGoalBarBtn.title = "Add New Goal"
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if(dailyGoals.count == 0){
-            /*let alert = ChoosingGoalAlert(viewcontroller: self, title: "You Have No Reading Goals Currently", message: "Please Choose Your Goals", completionHandler: {
-                self.performSegue(withIdentifier: "GoalToChoosingGoalSegue", sender: self)
-            })
-            alert.show()*/
-        }
+        
         
         /*let replicatorLayer = CAReplicatorLayer()
         replicatorLayer.frame = view.frame
@@ -147,8 +163,11 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    func getDailyGoals(){
-        dailyGoals = DailyGoalModel.getModels()
+    func updateDailyGoalsList(){
+        dailyGoals = GoalManager.getDailyGoals()
+    }
+    func updateOngoingGoalsList(){
+        ongoingGoals = GoalManager.getOngoingGoals()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

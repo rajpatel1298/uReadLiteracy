@@ -10,14 +10,40 @@ import UIKit
 
 class ChooseGoalViewController: UITableViewController {
 
-    var dailyGoals = ["Read 10 Articles","Read for 30 minutes"]
+    var dailyGoals = [GoalModel]()
     var ongoingGoals = ["Read 50 Articles", "Read for 2 hours"]
     
     var goal:GoalType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "library (1)"))
+        tableView.backgroundView?.alpha = 0.05
+        
         tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if goal == GoalType.Daily{
+            navigationItem.title = "Chose Daily Goal"
+        }
+        else{
+            navigationItem.title = "Chose Going Goal"
+        }
+        getGoals()
+    }
+    
+    func getGoals(){
+        if goal == GoalType.Daily{
+            let read10Articles = ReadXArticlesGoalModel(name: "Read 10 Articles", date: Date(), goalType: goal, numberOfArticles: 10)
+            let readFor30Minutes = ReadXMinutesGoalModel(name: "Read for 30 minutes", date: Date(), goalType: goal, minutes: 30)
+            dailyGoals = [GoalModel]()
+            dailyGoals.append(read10Articles)
+            dailyGoals.append(readFor30Minutes)
+        }
+        
+        
     }
 
     // MARK: - Table view data source
@@ -38,10 +64,11 @@ class ChooseGoalViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseGoalCell", for: indexPath) as! ChooseGoalCell
+        cell.backgroundColor = UIColor.clear
 
         switch(goal!){
         case .Daily:
-            cell.nameLabel.text = dailyGoals[indexPath.row]
+            cell.nameLabel.text = dailyGoals[indexPath.row].getDescription()
         case .Ongoing:
             cell.nameLabel.text = ongoingGoals[indexPath.row]
         }
@@ -54,24 +81,28 @@ class ChooseGoalViewController: UITableViewController {
             DispatchQueue.main.async {
                 switch(self.goal!){
                 case .Daily:
-                    let model = DailyGoalModel(name: "\(self.dailyGoals[indexPath.row])", date: Date(),type:DailyGoalType.ReadXMinutes)
-                    model.save()
+                    self.dailyGoals[indexPath.row].save()
+                    
+                    
+                    /*let model = DailyGoalModel(name: "\(self.dailyGoals[indexPath.row])", date: Date(),type:DailyGoalType.ReadXMinutes)
+                    model.save()*/
                     break
                 case .Ongoing:
+                    
                     break
                 }
             }
         }
         
-        var message = "You choose "
+        var message = ""
         
         switch(goal!){
         case .Daily:
             alert.setTitle(title: "Daily Goal Confirm")
-            message.append("\(dailyGoals[indexPath.row]) ?")
+            message.append("\(dailyGoals[indexPath.row].getDescription()) has been added to your goal list!")
         case .Ongoing:
             alert.setTitle(title: "Ongoing Goal Confirm")
-            message.append("\(ongoingGoals[indexPath.row]) ?")
+            message.append("\(ongoingGoals[indexPath.row]) has been added to your goal list!")
         }
         
         alert.setMessage(message: message)

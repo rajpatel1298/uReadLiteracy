@@ -6,19 +6,27 @@
         <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="DailyGoal" representedClassName="DailyGoal" syncable="YES" codeGenerationType="class">
-        <attribute name="articlesUrls" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
-        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="progress" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" attributeType="String" customClassName="DailyGoalType" syncable="YES"/>
-    </entity>
     <entity name="HelpWord" representedClassName="HelpWord" syncable="YES" codeGenerationType="class">
         <attribute name="beginningDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="blendDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="endingDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="multisyllabicDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="word" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ReadXArticles" representedClassName="ReadXArticles" syncable="YES" codeGenerationType="class">
+        <attribute name="articles" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="goalType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfArticles" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="progress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="ReadXMinutes" representedClassName="ReadXMinutes" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="goalType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="progress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,8 +41,9 @@
     </entity>
     <elements>
         <element name="Article" positionX="-63" positionY="54" width="128" height="105"/>
-        <element name="DailyGoal" positionX="-54" positionY="63" width="128" height="120"/>
         <element name="HelpWord" positionX="-63" positionY="54" width="128" height="30"/>
+        <element name="ReadXArticles" positionX="-54" positionY="63" width="128" height="135"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="ReadXMinutes" positionX="-54" positionY="72" width="128" height="120"/>
     </elements>
 </model>
