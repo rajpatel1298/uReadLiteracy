@@ -15,62 +15,47 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var selectedGoal:GoalModel!
     
+    // No Goal Stackview
     @IBOutlet weak var nogoalIV: UIImageView!
-    
     @IBOutlet weak var noGoalStackView: UIStackView!
-    
     @IBOutlet weak var addNewGoalBarBtn: UIBarButtonItem!
     
     
+    @IBOutlet weak var addNewGoalBtn: UIButton!
+    
+    
+    @IBOutlet weak var dailyTabButton: UIButton!
+    @IBOutlet weak var ongoingTabButton: UIButton!
+    @IBOutlet weak var tableview: UITableView!
+    
+    var selectedGoalType:GoalType = GoalType.Daily
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch(section){
-        case 0:
+        if selectedGoalType == GoalType.Daily{
             return dailyGoals.count
-        case 1:
-            return 0
-        default:
-            return 0
+        }
+        else{
+            return ongoingGoals.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "GoalTableViewCell") as! GoalTableViewCell
-        if(indexPath.section == 0){
+        if selectedGoalType == GoalType.Daily{
             let goal = dailyGoals[indexPath.row]
-            cell.goalSubLabel.text = goal.getDescription()
+            cell.goalSubLabel.text = goal.getDescriptionWithProgress()
+        }
+        else{
+            let goal = ongoingGoals[indexPath.row]
+            cell.goalSubLabel.text = goal.getDescriptionWithProgress()
         }
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let  headerCell = tableView.dequeueReusableCell(withIdentifier: "GoalHeaderCell") as! GoalHeaderCell
-        
-        switch (section) {
-        case 0:
-            headerCell.nameLabel.text = "Daily Goals"
-            break
-        case 1:
-            headerCell.nameLabel.text = "Ongoing Goals"
-            break
-        default:
-            headerCell.nameLabel.text = "Other"
-            break
-        }
-        return headerCell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 45
+        return 60
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
     
     /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section) {
@@ -87,15 +72,16 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     }*/
     
     
+    @IBAction func dailyTabBtnPressed(_ sender: Any) {
+        selectedGoalType = .Daily
+        refreshTableView()
+        refreshGoalTabUI()
+    }
     
-    @IBOutlet weak var tableview: UITableView!
-    
-    private var goals = [String]()
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    @IBAction func ongoingTabBtnPressed(_ sender: Any) {
+        selectedGoalType = .Ongoing
+        refreshTableView()
+        refreshGoalTabUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,63 +90,57 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
         updateOngoingGoalsList()
         
         tableview.reloadData()
+        selectedGoalType = .Daily
+        refreshGoalTabUI()
+        refreshTableView()
         
-        if(dailyGoals.count == 0 && ongoingGoals.count == 0){
-            noGoalStackView.isHidden = false
-            tableview.isHidden = true
-            addNewGoalBarBtn.title = ""
-            /*let alert = ChoosingGoalAlert(viewcontroller: self, title: "You Have No Reading Goals Currently", message: "Please Choose Your Goals", completionHandler: {
-             self.performSegue(withIdentifier: "GoalToChoosingGoalSegue", sender: self)
-             })
-             alert.show()*/
+    }
+    
+    func showNoGoalStackView(){
+        noGoalStackView.isHidden = false
+        tableview.isHidden = true
+        addNewGoalBarBtn.title = ""
+    }
+    
+    func hideNoGoalStackView(){
+        noGoalStackView.isHidden = true
+        tableview.isHidden = false
+        addNewGoalBarBtn.title = "Add New Goal"
+    }
+    
+    func refreshTableView(){
+        tableview.reloadData()
+        if selectedGoalType == GoalType.Daily{
+            if dailyGoals.count == 0{
+                showNoGoalStackView()
+            }
+            else{
+                hideNoGoalStackView()
+            }
         }
         else{
-            noGoalStackView.isHidden = true
-            tableview.isHidden = false
-            addNewGoalBarBtn.title = "Add New Goal"
+            if ongoingGoals.count == 0{
+                showNoGoalStackView()
+            }
+            else{
+                hideNoGoalStackView()
+            }
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dailyTabButton.layer.cornerRadius = 5
+        dailyTabButton.clipsToBounds = true
+        dailyTabButton.layer.masksToBounds = false
         
+        ongoingTabButton.layer.cornerRadius = 5
+        ongoingTabButton.clipsToBounds = true
+        ongoingTabButton.layer.masksToBounds = false
         
-        /*let replicatorLayer = CAReplicatorLayer()
-        replicatorLayer.frame = view.frame
-        
-        replicatorLayer.instanceCount = 360
-        replicatorLayer.instanceDelay = CFTimeInterval(4 / 360.0)
-        replicatorLayer.preservesDepth = false
-        replicatorLayer.instanceColor = UIColor.red.cgColor
-        
-        replicatorLayer.instanceRedOffset = 0.0
-        replicatorLayer.instanceGreenOffset = -0.5
-        replicatorLayer.instanceBlueOffset = -0.5
-        replicatorLayer.instanceAlphaOffset = 0.0
-        
-        let angle = Float(Double.pi * 2.0) / 360
-        replicatorLayer.instanceTransform = CATransform3DMakeRotation(CGFloat(angle), 0.0, 0.0, 1.0)
-        
-        
-        
-        let instanceLayer = CALayer()
-        let layerWidth: CGFloat = 10
-        let midX = view.frame.midX - layerWidth / 2.0
-        instanceLayer.frame = CGRect(x: midX , y: view.frame.midY + 100, width: layerWidth, height: layerWidth)
-        instanceLayer.backgroundColor = UIColor.blue.cgColor
-        replicatorLayer.addSublayer(instanceLayer)
-        
-        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
-        fadeAnimation.fromValue = 1.0
-        fadeAnimation.toValue = 0.0
-        fadeAnimation.duration = 4
-        fadeAnimation.repeatCount = Float.greatestFiniteMagnitude
-        
-        instanceLayer.opacity = 0.0
-        instanceLayer.add(fadeAnimation, forKey: "FadeAnimation")
-        
-        view.layer.addSublayer(replicatorLayer)*/
-        
+        addNewGoalBtn.layer.cornerRadius = 5
+        addNewGoalBtn.clipsToBounds = true
+        addNewGoalBtn.layer.masksToBounds = false
     }
     
     func updateDailyGoalsList(){
@@ -168,6 +148,33 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func updateOngoingGoalsList(){
         ongoingGoals = GoalManager.getOngoingGoals()
+    }
+    
+    func refreshGoalTabUI(){
+        var onBtn:UIButton!
+        var offBtn:UIButton!
+        
+        if selectedGoalType == GoalType.Daily{
+            onBtn = dailyTabButton
+            offBtn = ongoingTabButton
+        }
+        else{
+            offBtn = dailyTabButton
+            onBtn = ongoingTabButton
+        }
+        
+        let blue = UIColor.init(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+        
+        offBtn.setTitleColor(blue, for: .normal)
+        offBtn.setTitleColor(UIColor.white, for: .selected)
+        offBtn.backgroundColor = UIColor.white
+        offBtn.layer.borderColor = blue.cgColor
+        offBtn.layer.borderWidth = 1
+        
+        onBtn.setTitleColor(UIColor.white, for: .normal)
+        onBtn.setTitleColor(blue, for: .selected)
+        onBtn.backgroundColor = blue
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

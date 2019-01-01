@@ -10,24 +10,28 @@ import Foundation
 import CoreData
 
 class ReadXMinutesGoalModel:GoalModel{
-    var minutes:Int!
+    var totalMinutes:Int!
     var goalType:GoalType!
+    var minutesRead:Int!
     
-    init(name:String,date:Date, goalType:GoalType,minutes:Int){
+    init(name:String,date:Date, goalType:GoalType,totalMinutes:Int){
         self.goalType = goalType
-        self.minutes = minutes
+        self.totalMinutes = totalMinutes
+        minutesRead = 0
         super.init(name: name,date:date)
     }
     
-    init(name:String,progress:Int,date:Date,goalType:GoalType, minutes:Int){
+    init(name:String,progress:Int,date:Date,goalType:GoalType, totalMinutes:Int, minutesRead:Int){
         self.goalType = goalType
-        self.minutes = minutes
+        self.totalMinutes = totalMinutes
+        self.minutesRead = minutesRead
         super.init(name: name, progress: progress,date:date)
     }
     
     init(model:ReadXMinutes){
         super.init(name: model.name!, progress: Int(model.progress), date: model.date! as Date)
-        self.minutes = Int(model.minutes)
+        self.totalMinutes = Int(model.totalMinutes)
+        self.minutesRead = Int(model.minutesRead)
         self.goalType = GoalType(rawValue: model.goalType!)
     }
     
@@ -44,10 +48,11 @@ class ReadXMinutesGoalModel:GoalModel{
             object.setValue(progress, forKeyPath: "progress")
             object.setValue(goalType.rawValue, forKeyPath: "goalType")
             object.setValue(date, forKeyPath: "date")
-            object.setValue(minutes, forKeyPath: "minutes")
+            object.setValue(totalMinutes, forKeyPath: "totalMinutes")
+            object.setValue(minutesRead, forKeyPath: "minutesRead")
         }
         else{
-            model?.minutes = self.minutes
+            model?.minutesRead = self.minutesRead
             model?.progress = self.progress
         }
         
@@ -68,7 +73,10 @@ class ReadXMinutesGoalModel:GoalModel{
         let goals = ReadXMinutesGoalModel.getModels()
         
         for goal in goals{
-            if(goal.name == name && goal.date == date){
+            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date, to: Date())
+            
+            
+            if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
                 return goal
             }
         }
@@ -94,6 +102,9 @@ class ReadXMinutesGoalModel:GoalModel{
     
     func updateGoals(){
         fatalError("Not implemented")
-        
+    }
+    
+    override func getDescriptionWithProgress() -> String {
+        return  "\(name): \(totalMinutes - minutesRead) minute(s) left"
     }
 }

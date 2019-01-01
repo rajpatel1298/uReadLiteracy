@@ -27,7 +27,10 @@ class GoalModel{
     
     func getDescription()->String{
         return  "\(name)"
-        //return  "\(name): \(Int(progress))%"
+    }
+    
+    func getDescriptionWithProgress()->String{
+        return  "\(name): \(Int(progress))%"
     }
     
     func save(){

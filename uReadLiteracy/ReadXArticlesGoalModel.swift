@@ -80,7 +80,10 @@ class ReadXArticlesGoalModel:GoalModel{
         let goals = ReadXArticlesGoalModel.getModels()
         
         for goal in goals{
-            if(goal.name == name && goal.date == date){
+            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date, to: Date())
+            
+            
+            if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
                 return goal
             }
         }
@@ -123,7 +126,9 @@ class ReadXArticlesGoalModel:GoalModel{
             }
             
         }
-        
-        
+    }
+    
+    override func getDescriptionWithProgress() -> String {
+        return  "\(name): \(articles.count)/\(Int(numberOfArticles))"
     }
 }

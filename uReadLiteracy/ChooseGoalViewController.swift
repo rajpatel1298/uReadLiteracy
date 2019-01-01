@@ -11,7 +11,7 @@ import UIKit
 class ChooseGoalViewController: UITableViewController {
 
     var dailyGoals = [GoalModel]()
-    var ongoingGoals = ["Read 50 Articles", "Read for 2 hours"]
+    var ongoingGoals = [GoalModel]()
     
     var goal:GoalType!
     
@@ -36,14 +36,33 @@ class ChooseGoalViewController: UITableViewController {
     
     func getGoals(){
         if goal == GoalType.Daily{
-            let read10Articles = ReadXArticlesGoalModel(name: "Read 10 Articles", date: Date(), goalType: goal, numberOfArticles: 10)
-            let readFor30Minutes = ReadXMinutesGoalModel(name: "Read for 30 minutes", date: Date(), goalType: goal, minutes: 30)
             dailyGoals = [GoalModel]()
-            dailyGoals.append(read10Articles)
-            dailyGoals.append(readFor30Minutes)
+            
+            if ReadXArticlesGoalModel.find(name: "Read 10 Articles", date: Date(), goalType: goal) == nil{
+                let read10Articles = ReadXArticlesGoalModel(name: "Read 10 Articles", date: Date(), goalType: goal, numberOfArticles: 10)
+                dailyGoals.append(read10Articles)
+            }
+            if ReadXMinutesGoalModel.find(name: "Read for 30 minutes", date: Date(), goalType: goal) == nil{
+                let readFor30Minutes = ReadXMinutesGoalModel(name: "Read for 30 minutes", date: Date(), goalType: goal, totalMinutes: 30)
+                
+                dailyGoals.append(readFor30Minutes)
+            }
         }
         
-        
+        if goal == GoalType.Ongoing{
+            ongoingGoals = [GoalModel]()
+            
+            if ReadXArticlesGoalModel.find(name: "Read 50 Articles", date: Date(), goalType: goal) == nil{
+                let read50Articles = ReadXArticlesGoalModel(name: "Read 50 Articles", date: Date(), goalType: goal, numberOfArticles: 50)
+                ongoingGoals.append(read50Articles)
+            }
+            
+            if ReadXMinutesGoalModel.find(name: "Read for 2 hours", date: Date(), goalType: goal) == nil{
+                let readFor120Minutes = ReadXMinutesGoalModel(name: "Read for 2 hours", date: Date(), goalType: goal, totalMinutes: 120)
+                
+                ongoingGoals.append(readFor120Minutes)
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -70,7 +89,7 @@ class ChooseGoalViewController: UITableViewController {
         case .Daily:
             cell.nameLabel.text = dailyGoals[indexPath.row].getDescription()
         case .Ongoing:
-            cell.nameLabel.text = ongoingGoals[indexPath.row]
+            cell.nameLabel.text = ongoingGoals[indexPath.row].getDescription()
         }
         
         return cell
@@ -82,15 +101,13 @@ class ChooseGoalViewController: UITableViewController {
                 switch(self.goal!){
                 case .Daily:
                     self.dailyGoals[indexPath.row].save()
-                    
-                    
-                    /*let model = DailyGoalModel(name: "\(self.dailyGoals[indexPath.row])", date: Date(),type:DailyGoalType.ReadXMinutes)
-                    model.save()*/
                     break
                 case .Ongoing:
-                    
+                    self.ongoingGoals[indexPath.row].save()
                     break
                 }
+  
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
         
@@ -106,7 +123,6 @@ class ChooseGoalViewController: UITableViewController {
         }
         
         alert.setMessage(message: message)
-        
         alert.show()
     }
 
