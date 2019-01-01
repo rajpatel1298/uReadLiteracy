@@ -52,8 +52,8 @@ class ReadXMinutesGoalModel:GoalModel{
             object.setValue(minutesRead, forKeyPath: "minutesRead")
         }
         else{
-            model?.minutesRead = self.minutesRead
-            model?.progress = self.progress
+            model?.minutesRead = Int16(self.minutesRead)
+            model?.progress = Int16(self.progress)
         }
         
         do {
@@ -63,17 +63,17 @@ class ReadXMinutesGoalModel:GoalModel{
         }
     }
     
-    func find(name:String,date:Date)->ReadXMinutesGoalModel?{
-        let model:ReadXMinutesGoalModel? = ReadXMinutesGoalModel.find(name: name, date: date, goalType: goalType)
+    func find(name:String,date:Date)->ReadXMinutes?{
+        let model = ReadXMinutesGoalModel.find(name: name, date: date, goalType: goalType)
         
         return model
     }
     
-    static func find(name:String,date:Date, goalType:GoalType)->ReadXMinutesGoalModel?{
-        let goals = ReadXMinutesGoalModel.getModels()
+    static func find(name:String,date:Date, goalType:GoalType)->ReadXMinutes?{
+        let goals:[ReadXMinutes] = ReadXMinutesGoalModel.getModels()
         
         for goal in goals{
-            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date, to: Date())
+            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
             
             
             if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
@@ -100,8 +100,12 @@ class ReadXMinutesGoalModel:GoalModel{
          return arr
     }
     
-    func updateGoals(){
-        fatalError("Not implemented")
+    static func getModels()->[ReadXMinutes]{
+        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutes")
+        
+        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutes]
+        return goals
     }
     
     override func getDescriptionWithProgress() -> String {

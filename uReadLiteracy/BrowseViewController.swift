@@ -11,7 +11,7 @@ import SafariServices
 import WebKit
 import SwiftSoup
 
-class BrowseViewController: UIViewController, WKNavigationDelegate{
+class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate{
     
     
     @IBOutlet weak var webView: WKWebView!
@@ -33,12 +33,33 @@ class BrowseViewController: UIViewController, WKNavigationDelegate{
         
         webView.navigationDelegate = self
         setupHelpFunctionInMenuBar()
+        
+        webView.scrollView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         previousPageBarBtn.isEnabled = false
         loadMainPage()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        /*print("max offset: \(scrollView.contentSize.height - scrollView.bounds.height)" )
+        print("current offset: \(scrollView.contentOffset.y)")*/
+        
+        let maxOffset = scrollView.contentSize.height - scrollView.bounds.height + scrollView.contentInset.bottom
+        let currentOffset = scrollView.contentOffset.y
+        
+        if currentOffset >= maxOffset*90/100{
+            let url = webView.url?.absoluteString
+            if(controller.isCurrentURLAnArticle(url: url!)){
+                if(currentArticle != nil){
+                    currentArticle?.stopRecordingTime()
+                    GoalManager.updateGoals(article: currentArticle!)
+                }
+            }
+        }
+        
     }
     
     func loadMainPage(){
@@ -61,20 +82,15 @@ class BrowseViewController: UIViewController, WKNavigationDelegate{
         
         let url = webView.url?.absoluteString
         
-        if(controller.articleURL(url: url!)){
+        if(controller.isCurrentURLAnArticle(url: url!)){
             currentArticle = ArticleModel(name: webView.title!, url: url!)
             currentArticle?.incrementReadCount()
             currentArticle?.startRecordingTime()
             //DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
         }
-        else{
-            currentArticle?.stopRecordingTime()
-            if(currentArticle != nil){
-                //DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
-            }
-        }
-        
     }
+    
+    
 
     
     

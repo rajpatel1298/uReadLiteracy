@@ -11,8 +11,8 @@ import CoreData
 
 class GoalManager{
     static func getDailyGoals()->[GoalModel]{
-        let readXArticlesGoals = ReadXArticlesGoalModel.getModels()
-        let readXMinutesGoals = ReadXMinutesGoalModel.getModels()
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
         
         var dailyGoals = [GoalModel]()
         
@@ -32,8 +32,8 @@ class GoalManager{
     }
     
     static func getOngoingGoals()->[GoalModel]{
-        let readXArticlesGoals = ReadXArticlesGoalModel.getModels()
-        let readXMinutesGoals = ReadXMinutesGoalModel.getModels()
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
         
         var dailyGoals = [GoalModel]()
         
@@ -50,5 +50,32 @@ class GoalManager{
         }
         
         return dailyGoals
+    }
+    
+    static func updateGoals(article:ArticleModel){
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
+        
+        for goal in readXArticlesGoals{
+            var articleExist = false
+            for articleItem in goal.articles{
+                if articleItem.equal(article: article){
+                    articleExist = true
+                }
+            }
+            
+            if !articleExist{
+                goal.articles.append(article)
+                goal.save()
+            }
+        }
+        
+        for goal in readXMinutesGoals{
+            goal.minutesRead = goal.minutesRead + article.timeReadThisTimeInMinutes()
+            if(goal.minutesRead > goal.totalMinutes){
+                goal.minutesRead = goal.totalMinutes
+            }
+            goal.save()
+        }
     }
 }

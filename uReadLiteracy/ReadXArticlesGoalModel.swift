@@ -12,7 +12,12 @@ import CoreData
 class ReadXArticlesGoalModel:GoalModel{
     
     
-    var articles = [ArticleModel]()
+    var articles:[ArticleModel] = [ArticleModel](){
+        didSet{
+            progress = Int(Float(articles.count/numberOfArticles)*100)
+        }
+    }
+    
     var numberOfArticles:Int!
     var goalType:GoalType!
     
@@ -45,8 +50,7 @@ class ReadXArticlesGoalModel:GoalModel{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         
         let model = find(name: name, date: date)
-        
-        
+    
         let entity = NSEntityDescription.entity(forEntityName: "ReadXArticles", in: managedContext)!
 
         if(model == nil){
@@ -59,8 +63,8 @@ class ReadXArticlesGoalModel:GoalModel{
             object.setValue(ArticleModel.getUrls(articles: articles), forKeyPath: "articles")
         }
         else{
-            model?.articles = self.articles
-            model?.progress = self.progress
+            model?.articles = ArticleModel.getUrls(articles: self.articles) as NSObject
+            model?.progress = Int16(self.progress)
         }
         
         do {
@@ -70,17 +74,18 @@ class ReadXArticlesGoalModel:GoalModel{
         }
     }
     
-    func find(name:String,date:Date)->ReadXArticlesGoalModel?{
-        let model:ReadXArticlesGoalModel? = ReadXArticlesGoalModel.find(name: name, date: date, goalType: goalType)
+    func find(name:String,date:Date)->ReadXArticles?{
+        let model = ReadXArticlesGoalModel.find(name: name, date: date, goalType: goalType)
         
         return model
     }
     
-    static func find(name:String,date:Date, goalType:GoalType)->ReadXArticlesGoalModel?{
-        let goals = ReadXArticlesGoalModel.getModels()
+    static func find(name:String,date:Date, goalType:GoalType)->ReadXArticles?{
+        let goals:[ReadXArticles] = ReadXArticlesGoalModel.getModels()
         
         for goal in goals{
-            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date, to: Date())
+            
+            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
             
             
             if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
@@ -93,10 +98,7 @@ class ReadXArticlesGoalModel:GoalModel{
     
     
     static func getModels()->[ReadXArticlesGoalModel]{
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticles")
-        
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticles]
+        let goals:[ReadXArticles] = ReadXArticlesGoalModel.getModels()
         
         var arr = [ReadXArticlesGoalModel]()
         
@@ -107,25 +109,12 @@ class ReadXArticlesGoalModel:GoalModel{
         return arr
     }
     
-    static func updateGoals(articleUpdate:ArticleModel){
-        let goals = ReadXArticlesGoalModel.getModels()
+    static func getModels()->[ReadXArticles]{
+        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticles")
         
-        for goal in goals{
-            var articleExist = false
-            for item in goal.articles{
-                if(item.equal(article: articleUpdate)){
-                    articleExist = true
-                    break
-                }
-            }
-            
-            if(!articleExist){
-                goal.articles.append(articleUpdate)
-                goal.progress = goal.progress + 1
-                goal.save()
-            }
-            
-        }
+        let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticles]
+        return goals
     }
     
     override func getDescriptionWithProgress() -> String {

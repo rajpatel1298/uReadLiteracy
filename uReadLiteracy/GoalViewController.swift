@@ -56,7 +56,6 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 60
     }
     
-    
     /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section) {
         case 0:

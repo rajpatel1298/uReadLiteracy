@@ -76,8 +76,8 @@ public class ArticleModel{
         save()
     }
     
-    func timeReadThisTime()->Double{
-        return currentTimeSpent
+    func timeReadThisTimeInMinutes()->Int{
+        return Int(currentTimeSpent/60)
     }
     
     func save(){
