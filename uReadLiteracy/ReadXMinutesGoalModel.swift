@@ -53,7 +53,7 @@ class ReadXMinutesGoalModel:GoalModel{
         }
         else{
             model?.minutesRead = Int16(self.minutesRead)
-            model?.progress = Int16(self.progress)
+            model?.progress = Int16(Float(self.minutesRead/self.totalMinutes)*100)
         }
         
         do {

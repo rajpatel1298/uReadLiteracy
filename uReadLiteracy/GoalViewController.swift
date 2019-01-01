@@ -41,15 +41,31 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "GoalTableViewCell") as! GoalTableViewCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let  cell = cell as! GoalTableViewCell
         if selectedGoalType == GoalType.Daily{
             let goal = dailyGoals[indexPath.row]
             cell.goalSubLabel.text = goal.getDescriptionWithProgress()
+            if goal.isCompleted(){
+                cell.goalFinishIV.isHidden = false
+            }
+            else{
+                cell.goalFinishIV.isHidden = true
+            }
         }
         else{
             let goal = ongoingGoals[indexPath.row]
             cell.goalSubLabel.text = goal.getDescriptionWithProgress()
+            if goal.isCompleted(){
+                cell.goalFinishIV.isHidden = false
+            }
+            else{
+                cell.goalFinishIV.isHidden = true
+            }
         }
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -143,10 +159,10 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func updateDailyGoalsList(){
-        dailyGoals = GoalManager.getDailyGoals()
+        dailyGoals = GoalManager.shared.getDailyGoals()
     }
     func updateOngoingGoalsList(){
-        ongoingGoals = GoalManager.getOngoingGoals()
+        ongoingGoals = GoalManager.shared.getOngoingGoals()
     }
     
     func refreshGoalTabUI(){

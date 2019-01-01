@@ -55,7 +55,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             if(controller.isCurrentURLAnArticle(url: url!)){
                 if(currentArticle != nil){
                     currentArticle?.stopRecordingTime()
-                    GoalManager.updateGoals(article: currentArticle!)
+                    GoalManager.shared.updateGoals(article: currentArticle!)
                 }
             }
         }

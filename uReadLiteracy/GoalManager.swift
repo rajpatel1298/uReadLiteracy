@@ -10,7 +10,10 @@ import Foundation
 import CoreData
 
 class GoalManager{
-    static func getDailyGoals()->[GoalModel]{
+    static var shared = GoalManager()
+    private var lastTimeUpdated = Date()
+    
+    func getDailyGoals()->[GoalModel]{
         let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
         let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
         
@@ -31,7 +34,7 @@ class GoalManager{
         return dailyGoals
     }
     
-    static func getOngoingGoals()->[GoalModel]{
+    func getOngoingGoals()->[GoalModel]{
         let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
         let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
         
@@ -52,7 +55,14 @@ class GoalManager{
         return dailyGoals
     }
     
-    static func updateGoals(article:ArticleModel){
+    func updateGoals(article:ArticleModel){
+        let components = Calendar.current.dateComponents([.day,.hour,.minute], from: lastTimeUpdated, to: Date())
+        
+        
+        if(components.day! == 0 && components.hour! == 0 && components.minute! < 2){
+            return
+        }
+        
         let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
         let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
         
@@ -77,5 +87,7 @@ class GoalManager{
             }
             goal.save()
         }
+        
+        lastTimeUpdated = Date()
     }
 }

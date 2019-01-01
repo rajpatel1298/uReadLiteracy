@@ -488,16 +488,26 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="W9g-Em-qPp">
+                                                            <rect key="frame" x="142" y="0.0" width="59.5" height="59.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="W9g-Em-qPp" secondAttribute="height" multiplier="1:1" id="3Xl-pT-XTb"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="W9g-Em-qPp" secondAttribute="bottom" id="0v7-fY-bF5"/>
                                                         <constraint firstAttribute="bottom" secondItem="l64-is-Wsq" secondAttribute="bottom" id="76O-Cd-F3E"/>
                                                         <constraint firstItem="l64-is-Wsq" firstAttribute="leading" secondItem="yGN-Qd-PmY" secondAttribute="leading" constant="10" id="H1x-Kx-iIM"/>
                                                         <constraint firstAttribute="trailing" secondItem="l64-is-Wsq" secondAttribute="trailing" constant="20" id="UkV-S8-grX"/>
+                                                        <constraint firstItem="W9g-Em-qPp" firstAttribute="centerX" secondItem="yGN-Qd-PmY" secondAttribute="centerX" id="aRP-1m-C7x"/>
+                                                        <constraint firstItem="W9g-Em-qPp" firstAttribute="top" secondItem="yGN-Qd-PmY" secondAttribute="top" id="eGK-X1-6ny"/>
                                                         <constraint firstItem="l64-is-Wsq" firstAttribute="top" secondItem="yGN-Qd-PmY" secondAttribute="top" id="qDP-cS-4fV"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
+                                                    <outlet property="goalFinishIV" destination="W9g-Em-qPp" id="X8X-06-bcG"/>
                                                     <outlet property="goalSubLabel" destination="l64-is-Wsq" id="ia7-U2-dDc"/>
                                                 </connections>
                                             </tableViewCell>
@@ -1363,6 +1373,7 @@
         <image name="background1" width="612" height="408"/>
         <image name="background2" width="852" height="480"/>
         <image name="book" width="25" height="25"/>
+        <image name="checkmark" width="512" height="512"/>
         <image name="goal" width="25" height="25"/>
         <image name="imageView:w1u-sO-pPQ:image" width="300" height="300">
             <mutableData key="keyedArchiveRepresentation">

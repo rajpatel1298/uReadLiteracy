@@ -41,4 +41,8 @@ class GoalModel{
             model.save()
         }
     }
+    
+    func isCompleted()->Bool{
+        return progress == 100
+    }
 }
