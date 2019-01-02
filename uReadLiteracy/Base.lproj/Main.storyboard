@@ -1183,7 +1183,7 @@
                                         <rect key="frame" x="8" y="8" width="95" height="95"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="vbz-e1-XFA" firstAttribute="top" secondItem="cKr-DR-6Yh" secondAttribute="top" constant="8" id="DQP-NN-hZQ"/>
                                     <constraint firstItem="vbz-e1-XFA" firstAttribute="leading" secondItem="cKr-DR-6Yh" secondAttribute="leading" constant="8" id="Px2-he-V6H"/>
@@ -1199,7 +1199,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yiw-Xe-gP2">
                                 <rect key="frame" x="26" y="335" width="323" height="263"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdt-55-9vH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Goals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdt-55-9vH">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="DR7-Vj-u1X"/>
@@ -1276,7 +1276,6 @@
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="addNewGoalBtnPressed:" destination="eQJ-o5-cXX" eventType="touchUpInside" id="iC6-PD-UzE"/>
                                                             <segue destination="4u0-aE-SB7" kind="show" id="5MX-gp-fl8"/>
                                                         </connections>
                                                     </button>
@@ -7511,6 +7510,6 @@ AAAAAFkAAAAAAAAAAAAAAAAABZrRA
         <image name="wave.png" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2gq-LY-ehX"/>
+        <segue reference="5MX-gp-fl8"/>
     </inferredMetricsTieBreakers>
 </document>

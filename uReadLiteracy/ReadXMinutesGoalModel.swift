@@ -53,7 +53,13 @@ class ReadXMinutesGoalModel:GoalModel{
         }
         else{
             model?.minutesRead = Int16(self.minutesRead)
-            model?.progress = Int16(Float(self.minutesRead/self.totalMinutes)*100)
+            
+            var progress = Int(Float(self.minutesRead/self.totalMinutes)*100)
+            if progress == 99{
+                progress = 100
+            }
+
+            model?.progress = Int16(progress)
         }
         
         do {

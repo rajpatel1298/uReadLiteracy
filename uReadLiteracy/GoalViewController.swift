@@ -18,7 +18,6 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     // No Goal Stackview
     @IBOutlet weak var nogoalIV: UIImageView!
     @IBOutlet weak var noGoalStackView: UIStackView!
-    @IBOutlet weak var addNewGoalBarBtn: UIBarButtonItem!
     
     
     @IBOutlet weak var addNewGoalBtn: UIButton!
@@ -113,14 +112,11 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func showNoGoalStackView(){
         noGoalStackView.isHidden = false
-        tableview.isHidden = true
-        addNewGoalBarBtn.title = ""
-    }
+        tableview.isHidden = true    }
     
     func hideNoGoalStackView(){
         noGoalStackView.isHidden = true
         tableview.isHidden = false
-        addNewGoalBarBtn.title = "Add New Goal"
     }
     
     func refreshTableView(){

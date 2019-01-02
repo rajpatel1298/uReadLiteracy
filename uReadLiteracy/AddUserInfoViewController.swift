@@ -49,7 +49,13 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         rec.animate()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        userIV.layer.removeAllAnimations()
+    }
+    
     func animateUserIV(){
+        self.userIV.alpha = 1
         UIView.animate(withDuration: 0.5, delay: 0.1, options: [.autoreverse,.repeat], animations: {
             self.userIV.alpha = 0.5
         }, completion: nil)
@@ -104,7 +110,7 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
                 user.save(image: userIV.image!, nickname: nicknameTF.text!)
             }
             else{
-                user.save(image: #imageLiteral(resourceName: "profile"), nickname: nicknameTF.text!)
+                user.save(image: #imageLiteral(resourceName: "emptyProfilePic"), nickname: nicknameTF.text!)
             }
         }
         
