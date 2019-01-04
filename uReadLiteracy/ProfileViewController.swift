@@ -35,63 +35,24 @@ class ProfileViewController: UIViewController {
     var goal3ProgressCircle:GoalProgressCircle!
     
     var currentGoals = [GoalModel]()
-    var goalViews: [UIView]!
-    var goalCircles = [GoalProgressCircle]()
-    var goalLabels:[UILabel]!
+    
+    
+    
+    
+    var uiController:ProfileUIController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        goalViews = [goal1View,goal2View,goal3View]
-        goalLabels = [goal1,goal2,goal3]
-        
-        roundProfileIV()
-        roundBackgroundProfileIV()
-        animateBackgroundProfileIV()
-        //roundInfoView()
-        roundAddNewGoalBtn()
+        uiController = ProfileUIController(vc: self)
         loadUserInfo()
     }
-
     
-    private func setupDailyGoalsProgressCircle(){
-        if currentGoals.count == 0{
-            return
-        }
-        
-        goalCircles.removeAll()
-        
-        let centers = getDailyGoalsCircleCenters()
-        for x in 0...currentGoals.count-1{
-            goalCircles.append(GoalProgressCircle(percent: Int(currentGoals[x].progress), center: centers[x], width: goalViews[x].bounds.width/5, view: goalViews[x]))
-        }
-    }
-    
-    private func getDailyGoalsCircleCenters()->[CGPoint]{
-        let center1 = CGPoint(x: goal1View.bounds.width - (goal1View.bounds.width/5)/2, y: goal1View.bounds.height/2)
-        let center2 = CGPoint(x: goal2View.bounds.width - (goal2View.bounds.width/5)/2, y: goal2View.bounds.height/2)
-        let center3 = CGPoint(x: goal3View.bounds.width - (goal3View.bounds.width/5)/2, y: goal3View.bounds.height/2)
-        return [center1,center2,center3]
-    }
-    
-    private func resetDailyGoalsProgressCircleCenter(){
-        if currentGoals.count == 0{
-            return
-        }
-        
-        let centers = getDailyGoalsCircleCenters()
-        for x in 0...currentGoals.count-1{
-            goalCircles[x].reset(center: centers[x])
-        }
-    }
-    
-    private func setGoalLabelTexts(){
-        if currentGoals.count == 0{
-            return
-        }
-        
-        for x in 0...currentGoals.count-1{
-            goalLabels[x].text = currentGoals[x].getDescription()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupCurrentGoals()
+        uiController.setupDailyGoalsProgressCircle()
+        uiController.setGoalLabelTexts()
+        uiController.hideGoalsThatDoesNotExist()
     }
     
     private func setupCurrentGoals(){
@@ -120,54 +81,14 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func hideGoalsThatDoesNotExist(){
-        for goal in goalViews{
-            goal.isHidden = false
-        }
-        
-        if currentGoals.count == 0{
-            goal1.text = "There is no goal right now"
-            goal2.text = ""
-            goal3.text = ""
-        }
-        else if currentGoals.count == 1{
-            for x in 1...2{
-                goalLabels[x].text = ""
-            }
-        }
-        else if currentGoals.count == 2{
-            for x in 2...2{
-                goalLabels[x].text = ""
-            }
-        }
-    }
-    
-    private func animateGoalProgressCircles(){
-        if currentGoals.count == 0{
-            return
-        }
-        
-        for x in 0...currentGoals.count-1{
-            goalCircles[x].animate()
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupCurrentGoals()
-        setupDailyGoalsProgressCircle()
-        setGoalLabelTexts()
-        hideGoalsThatDoesNotExist()
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        resetDailyGoalsProgressCircleCenter()
+        uiController.resetDailyGoalsProgressCircleCenter()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateGoalProgressCircles()
+        uiController.animateGoalProgressCircles()
     }
     
     private func loadUserInfo(){
@@ -177,36 +98,7 @@ class ProfileViewController: UIViewController {
         welcomeLabel.text = "Welcome \(user.getNickname())"
     }
     
-    private func roundProfileIV(){
-        profileIV.layer.cornerRadius = 10
-        profileIV.layer.masksToBounds = false
-        profileIV.clipsToBounds = true
-    }
     
-    private func roundBackgroundProfileIV(){
-        backgroundProfileIV.layer.cornerRadius = 10
-        backgroundProfileIV.layer.masksToBounds = false
-        backgroundProfileIV.clipsToBounds = true
-    }
-    
-    private func roundAddNewGoalBtn(){
-        addNewGoalBtn.layer.cornerRadius = 10
-        addNewGoalBtn.layer.masksToBounds = false
-        addNewGoalBtn.clipsToBounds = true
-    }
-    
-    private func animateBackgroundProfileIV(){
-        
-        DispatchQueue.main.async {
-            self.backgroundProfileIV.alpha = 0.3
-            
-            UIView.animate(withDuration: 1, delay: 0, options: [.autoreverse,.repeat], animations: {
-                self.backgroundProfileIV.alpha = 0.1
-            }, completion: nil)
-        }
-        
-        
-    }
     
 
     /*
