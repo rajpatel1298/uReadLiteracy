@@ -35,26 +35,28 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                 let textField = alert!.textFields![0]
                 self.currentRecording = textField.text!
+                
+                let filename = self.getDirectory().appendingPathComponent("\(self.currentRecording).m4a")
+                
+                let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+                
+                //  recordsList.append(currentRecording)
+                //Start audio recording
+                do {
+                    self.audioRecorder = try AVAudioRecorder(url: filename, settings: settings)
+                    self.audioRecorder.delegate = self
+                    self.audioRecorder.record()
+                    
+                    self.buttonLabel.setTitle("Stop Recording", for: .normal)
+                }
+                catch {
+                    self.displayAlert(title: "Error", message: "Recording failed")
+                }
             }))
             
             self.present(alert,animated:true,completion:nil)
             
-            let filename = getDirectory().appendingPathComponent("\(currentRecording).m4a")
-        
-            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
             
-           //  recordsList.append(currentRecording)
-            //Start audio recording
-            do {
-                audioRecorder = try AVAudioRecorder(url: filename, settings: settings)
-                audioRecorder.delegate = self
-                audioRecorder.record()
-                
-                buttonLabel.setTitle("Stop Recording", for: .normal)
-            }
-            catch {
-                displayAlert(title: "Error", message: "Recording failed")
-            }
         }
         else {
             //stopping audio recording
