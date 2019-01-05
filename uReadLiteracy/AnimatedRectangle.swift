@@ -9,10 +9,21 @@
 import Foundation
 import UIKit
 
-class AnimatedRectangle{
-    let layer = CAShapeLayer()
+class AnimatedRectangle:CAShapeLayer{
     
-    init(topLeft:CGPoint, view:UIView, width:CGFloat,height:CGFloat){
+    init(topLeft:CGPoint, width:CGFloat,height:CGFloat){
+        super.init()
+        resetPath(topLeft: topLeft, width: width, height: height)
+        
+        
+        // Set up the appearance of the shape layer
+        self.strokeEnd = 0
+        self.lineWidth = 5
+        self.strokeColor = UIColor.black.cgColor
+        self.fillColor = UIColor.clear.cgColor
+    }
+    
+    func resetPath(topLeft:CGPoint, width:CGFloat,height:CGFloat){
         let path = UIBezierPath()
         path.move(to: topLeft)
         path.addLine(to: CGPoint(x: topLeft.x, y: topLeft.y))
@@ -23,16 +34,11 @@ class AnimatedRectangle{
         
         path.close()
         
-        
-        layer.path = path.cgPath
-        
-        // Set up the appearance of the shape layer
-        layer.strokeEnd = 0
-        layer.lineWidth = 5
-        layer.strokeColor = UIColor.black.cgColor
-        layer.fillColor = UIColor.clear.cgColor
-        
-        view.layer.addSublayer(layer)
+        self.path = path.cgPath
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     func animate(){
@@ -45,6 +51,6 @@ class AnimatedRectangle{
         animation.fillMode = kCAFillModeForwards
         
         // And finally add the linear animation to the shape!
-        layer.add(animation, forKey: "line")
+        self.add(animation, forKey: "line")
     }
 }

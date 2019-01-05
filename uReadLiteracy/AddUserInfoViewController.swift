@@ -21,6 +21,7 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
     
     private var noNickanmeAlert:InfoAlert!
     private var imageSelected = false
+    private var animatedRectangle:AnimatedRectangle!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         nextBtn.layer.cornerRadius = 5
         nextBtn.layer.masksToBounds = false
         nextBtn.clipsToBounds = true
+        
+        animatedRectangle = AnimatedRectangle(topLeft: CGPoint(x: userIV.frame.origin.x, y: userIV.frame.origin.y), width: userIV.frame.width, height: userIV.frame.height)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +48,15 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let rec = AnimatedRectangle(topLeft: CGPoint(x: userIV.frame.origin.x, y: userIV.frame.origin.y), view: userImageOutsideView, width: userIV.frame.width, height: userIV.frame.height)
-        rec.animate()
+        animatedRectangle.animate()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        animatedRectangle.removeFromSuperlayer()
+        animatedRectangle.resetPath(topLeft: CGPoint(x: userIV.frame.origin.x, y: userIV.frame.origin.y), width: userIV.frame.width, height: userIV.frame.height)
+        userImageOutsideView.layer.addSublayer(animatedRectangle)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

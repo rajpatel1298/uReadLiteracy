@@ -36,6 +36,7 @@
 		1C61170821D8AF5E0086903E /* GoalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61170721D8AF5E0086903E /* GoalManager.swift */; };
 		1C61170B21D8B2E00086903E /* ReadXMinutesGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61170A21D8B2E00086903E /* ReadXMinutesGoalModel.swift */; };
 		1C643B2021DCAAF200671432 /* ProfileUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B1F21DCAAF200671432 /* ProfileUIController.swift */; };
+		1C643B2321E1636800671432 /* ComprehensionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B2221E1636800671432 /* ComprehensionPopup.swift */; };
 		1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */; };
 		1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */; };
 		1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE321D336FC00034EB3 /* CountingLabel.swift */; };
@@ -111,6 +112,7 @@
 		1C61170721D8AF5E0086903E /* GoalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalManager.swift; sourceTree = "<group>"; };
 		1C61170A21D8B2E00086903E /* ReadXMinutesGoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadXMinutesGoalModel.swift; sourceTree = "<group>"; };
 		1C643B1F21DCAAF200671432 /* ProfileUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUIController.swift; sourceTree = "<group>"; };
+		1C643B2221E1636800671432 /* ComprehensionPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionPopup.swift; sourceTree = "<group>"; };
 		1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircleColors.swift; sourceTree = "<group>"; };
 		1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressCircle.swift; sourceTree = "<group>"; };
 		1C769CE321D336FC00034EB3 /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				1C9C775B219A962C002ADA76 /* Tableview Cells */,
 				1C769CF221D4352300034EB3 /* BouncingLabel.swift */,
 				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
+				1C643B2221E1636800671432 /* ComprehensionPopup.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
+				1C643B2321E1636800671432 /* ComprehensionPopup.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
 				1C61170421D85FBC0086903E /* ReadXArticlesGoalModel.swift in Sources */,
 				1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */,
