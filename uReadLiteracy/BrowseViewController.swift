@@ -24,7 +24,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     var controller:BrowserController!
     
     var currentArticle:ArticleModel?
-
+    
+    private let popupManager = ComprehensionPopupManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,21 +38,27 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         webView.scrollView.delegate = self
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         previousPageBarBtn.isEnabled = false
         loadMainPage()
     }
     
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         /*print("max offset: \(scrollView.contentSize.height - scrollView.bounds.height)" )
         print("current offset: \(scrollView.contentOffset.y)")*/
         
         let maxOffset = scrollView.contentSize.height - scrollView.bounds.height + scrollView.contentInset.bottom
-        let currentOffset = scrollView.contentOffset.y
+        let currentYOffset = scrollView.contentOffset.y
+        let url = webView.url?.absoluteString
         
-        if currentOffset >= maxOffset*90/100{
-            let url = webView.url?.absoluteString
+        if currentYOffset >= maxOffset*90/100 && maxOffset > 0{
             if(controller.isCurrentURLAnArticle(url: url!)){
                 if(currentArticle != nil){
                     currentArticle?.stopRecordingTime()
@@ -60,7 +67,29 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             }
         }
         
+        if popupManager.shouldShowPopup(currentYOffset: currentYOffset){
+            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: currentYOffset), animated: true)
+            
+            let popup = ComprehensionPopup(frame: view.frame)
+            
+            popup.setupClosure(onAccept: { (answer) in
+                print("answer for now: \(answer)")
+            }, onSkip: {
+                DispatchQueue.main.async {
+                    //self.popup.removeFromSuperview() does not work :(
+                    for subview in self.view.subviews{
+                        if subview is ComprehensionPopup{
+                            subview.removeFromSuperview()
+                        }
+                    }
+                }
+            })
+            
+            view.addSubview(popup)
+        }
+        
     }
+
     
     func loadMainPage(){
         let url = URL(string: mainUrl)
@@ -87,7 +116,20 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             currentArticle?.incrementReadCount()
             currentArticle?.startRecordingTime()
             //DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
+            
+            updatePopupManager()
         }
+        
+        else{
+            popupManager.reset()
+        }
+    }
+    
+    private func updatePopupManager(){
+        let maxOffset = webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom
+        
+        popupManager.setMaxYOffset(value: maxOffset)
+        popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: maxOffset/2)])
     }
     
     

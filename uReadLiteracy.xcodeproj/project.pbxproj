@@ -37,6 +37,28 @@
 		1C61170B21D8B2E00086903E /* ReadXMinutesGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61170A21D8B2E00086903E /* ReadXMinutesGoalModel.swift */; };
 		1C643B2021DCAAF200671432 /* ProfileUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B1F21DCAAF200671432 /* ProfileUIController.swift */; };
 		1C643B2321E1636800671432 /* ComprehensionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B2221E1636800671432 /* ComprehensionPopup.swift */; };
+		1C643B3821E32FC900671432 /* NokioSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B3221E32FBB00671432 /* NokioSans-Bold.ttf */; };
+		1C643B3921E32FC900671432 /* NokioSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2D21E32FB500671432 /* NokioSans-BoldItalic.ttf */; };
+		1C643B3A21E32FC900671432 /* NokioSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B3321E32FBD00671432 /* NokioSans-ExtraLight.ttf */; };
+		1C643B3B21E32FC900671432 /* NokioSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B3621E32FC100671432 /* NokioSans-ExtraLightItalic.ttf */; };
+		1C643B3C21E32FC900671432 /* NokioSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2521E32FAE00671432 /* NokioSans-Light.ttf */; };
+		1C643B3D21E32FC900671432 /* NokioSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2E21E32FB600671432 /* NokioSans-LightItalic.ttf */; };
+		1C643B3E21E32FC900671432 /* NokioSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B3021E32FB900671432 /* NokioSans-Medium.ttf */; };
+		1C643B3F21E32FC900671432 /* NokioSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B3121E32FBA00671432 /* NokioSans-MediumItalic.ttf */; };
+		1C643B4021E32FC900671432 /* NokioSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2721E32FB000671432 /* NokioSans-Regular.ttf */; };
+		1C643B4121E32FC900671432 /* NokioSans-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B3521E32FBF00671432 /* NokioSans-RegularItalic.ttf */; };
+		1C643B4221E32FC900671432 /* NokioSansAlt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2F21E32FB800671432 /* NokioSansAlt-Bold.ttf */; };
+		1C643B4321E32FC900671432 /* NokioSansAlt-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B3721E32FC100671432 /* NokioSansAlt-BoldItalic.ttf */; };
+		1C643B4421E32FC900671432 /* NokioSansAlt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2B21E32FB200671432 /* NokioSansAlt-ExtraLight.ttf */; };
+		1C643B4521E32FC900671432 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B3421E32FBE00671432 /* NokioSansAlt-ExtraLightItalic.ttf */; };
+		1C643B4621E32FC900671432 /* NokioSansAlt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2621E32FAE00671432 /* NokioSansAlt-Light.ttf */; };
+		1C643B4721E32FC900671432 /* NokioSansAlt-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2C21E32FB300671432 /* NokioSansAlt-LightItalic.ttf */; };
+		1C643B4821E32FC900671432 /* NokioSansAlt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2921E32FB000671432 /* NokioSansAlt-Medium.ttf */; };
+		1C643B4921E32FC900671432 /* NokioSansAlt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2821E32FB000671432 /* NokioSansAlt-MediumItalic.ttf */; };
+		1C643B4A21E32FC900671432 /* NokioSansAlt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2A21E32FB100671432 /* NokioSansAlt-Regular.ttf */; };
+		1C643B4B21E32FC900671432 /* NokioSansAlt-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2421E32FAD00671432 /* NokioSansAlt-RegularItalic.ttf */; };
+		1C643B4D21E6D69E00671432 /* ComprehensionPopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B4C21E6D69E00671432 /* ComprehensionPopupManager.swift */; };
+		1C643B4F21E6D7D100671432 /* ComprehensionPopupShowPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B4E21E6D7D100671432 /* ComprehensionPopupShowPoint.swift */; };
 		1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */; };
 		1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */; };
 		1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE321D336FC00034EB3 /* CountingLabel.swift */; };
@@ -113,6 +135,28 @@
 		1C61170A21D8B2E00086903E /* ReadXMinutesGoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadXMinutesGoalModel.swift; sourceTree = "<group>"; };
 		1C643B1F21DCAAF200671432 /* ProfileUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUIController.swift; sourceTree = "<group>"; };
 		1C643B2221E1636800671432 /* ComprehensionPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionPopup.swift; sourceTree = "<group>"; };
+		1C643B2421E32FAD00671432 /* NokioSansAlt-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-RegularItalic.ttf"; sourceTree = "<group>"; };
+		1C643B2521E32FAE00671432 /* NokioSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-Light.ttf"; sourceTree = "<group>"; };
+		1C643B2621E32FAE00671432 /* NokioSansAlt-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-Light.ttf"; sourceTree = "<group>"; };
+		1C643B2721E32FB000671432 /* NokioSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-Regular.ttf"; sourceTree = "<group>"; };
+		1C643B2821E32FB000671432 /* NokioSansAlt-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1C643B2921E32FB000671432 /* NokioSansAlt-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-Medium.ttf"; sourceTree = "<group>"; };
+		1C643B2A21E32FB100671432 /* NokioSansAlt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-Regular.ttf"; sourceTree = "<group>"; };
+		1C643B2B21E32FB200671432 /* NokioSansAlt-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-ExtraLight.ttf"; sourceTree = "<group>"; };
+		1C643B2C21E32FB300671432 /* NokioSansAlt-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-LightItalic.ttf"; sourceTree = "<group>"; };
+		1C643B2D21E32FB500671432 /* NokioSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1C643B2E21E32FB600671432 /* NokioSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		1C643B2F21E32FB800671432 /* NokioSansAlt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-Bold.ttf"; sourceTree = "<group>"; };
+		1C643B3021E32FB900671432 /* NokioSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-Medium.ttf"; sourceTree = "<group>"; };
+		1C643B3121E32FBA00671432 /* NokioSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1C643B3221E32FBB00671432 /* NokioSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-Bold.ttf"; sourceTree = "<group>"; };
+		1C643B3321E32FBD00671432 /* NokioSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		1C643B3421E32FBE00671432 /* NokioSansAlt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		1C643B3521E32FBF00671432 /* NokioSans-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-RegularItalic.ttf"; sourceTree = "<group>"; };
+		1C643B3621E32FC100671432 /* NokioSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		1C643B3721E32FC100671432 /* NokioSansAlt-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1C643B4C21E6D69E00671432 /* ComprehensionPopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupManager.swift; sourceTree = "<group>"; };
+		1C643B4E21E6D7D100671432 /* ComprehensionPopupShowPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupShowPoint.swift; sourceTree = "<group>"; };
 		1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircleColors.swift; sourceTree = "<group>"; };
 		1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressCircle.swift; sourceTree = "<group>"; };
 		1C769CE321D336FC00034EB3 /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
@@ -333,6 +377,26 @@
 		1C769CE521D3488100034EB3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				1C643B3221E32FBB00671432 /* NokioSans-Bold.ttf */,
+				1C643B2D21E32FB500671432 /* NokioSans-BoldItalic.ttf */,
+				1C643B3321E32FBD00671432 /* NokioSans-ExtraLight.ttf */,
+				1C643B3621E32FC100671432 /* NokioSans-ExtraLightItalic.ttf */,
+				1C643B2521E32FAE00671432 /* NokioSans-Light.ttf */,
+				1C643B2E21E32FB600671432 /* NokioSans-LightItalic.ttf */,
+				1C643B3021E32FB900671432 /* NokioSans-Medium.ttf */,
+				1C643B3121E32FBA00671432 /* NokioSans-MediumItalic.ttf */,
+				1C643B2721E32FB000671432 /* NokioSans-Regular.ttf */,
+				1C643B3521E32FBF00671432 /* NokioSans-RegularItalic.ttf */,
+				1C643B2F21E32FB800671432 /* NokioSansAlt-Bold.ttf */,
+				1C643B3721E32FC100671432 /* NokioSansAlt-BoldItalic.ttf */,
+				1C643B2B21E32FB200671432 /* NokioSansAlt-ExtraLight.ttf */,
+				1C643B3421E32FBE00671432 /* NokioSansAlt-ExtraLightItalic.ttf */,
+				1C643B2621E32FAE00671432 /* NokioSansAlt-Light.ttf */,
+				1C643B2C21E32FB300671432 /* NokioSansAlt-LightItalic.ttf */,
+				1C643B2921E32FB000671432 /* NokioSansAlt-Medium.ttf */,
+				1C643B2821E32FB000671432 /* NokioSansAlt-MediumItalic.ttf */,
+				1C643B2A21E32FB100671432 /* NokioSansAlt-Regular.ttf */,
+				1C643B2421E32FAD00671432 /* NokioSansAlt-RegularItalic.ttf */,
 				1C769CEA21D348A000034EB3 /* DIN-BlackAlternate.ttf */,
 				1C769CE821D3489F00034EB3 /* DIN-Bold.ttf */,
 				1C769CEB21D348A000034EB3 /* DIN-Light.ttf */,
@@ -347,6 +411,8 @@
 			isa = PBXGroup;
 			children = (
 				1C9C77552194BFBF002ADA76 /* CoreDataHelper.swift */,
+				1C643B4C21E6D69E00671432 /* ComprehensionPopupManager.swift */,
+				1C643B4E21E6D7D100671432 /* ComprehensionPopupShowPoint.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -532,21 +598,41 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C643B3D21E32FC900671432 /* NokioSans-LightItalic.ttf in Resources */,
 				CD1DCA661FF4ACCD00FCDDB5 /* progress.gif in Resources */,
+				1C643B3B21E32FC900671432 /* NokioSans-ExtraLightItalic.ttf in Resources */,
 				1C769CED21D348A700034EB3 /* DIN-Bold.ttf in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
 				1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */,
+				1C643B4121E32FC900671432 /* NokioSans-RegularItalic.ttf in Resources */,
+				1C643B4721E32FC900671432 /* NokioSansAlt-LightItalic.ttf in Resources */,
+				1C643B4B21E32FC900671432 /* NokioSansAlt-RegularItalic.ttf in Resources */,
 				1C769CEC21D348A300034EB3 /* DIN-BlackAlternate.ttf in Resources */,
+				1C643B4421E32FC900671432 /* NokioSansAlt-ExtraLight.ttf in Resources */,
 				1C769CF021D348AF00034EB3 /* DIN-Regular.ttf in Resources */,
+				1C643B3F21E32FC900671432 /* NokioSans-MediumItalic.ttf in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
 				CDA6529C1FA0F5B700835624 /* LaunchScreen.storyboard in Resources */,
+				1C643B4621E32FC900671432 /* NokioSansAlt-Light.ttf in Resources */,
 				CDDD7F051FF1A64C009FA71D /* getHelp.gif in Resources */,
+				1C643B3821E32FC900671432 /* NokioSans-Bold.ttf in Resources */,
+				1C643B4821E32FC900671432 /* NokioSansAlt-Medium.ttf in Resources */,
+				1C643B3A21E32FC900671432 /* NokioSans-ExtraLight.ttf in Resources */,
+				1C643B4521E32FC900671432 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
 				1C769CEF21D348AD00034EB3 /* DIN-Medium.ttf in Resources */,
 				CDA652991FA0F5B700835624 /* Assets.xcassets in Resources */,
 				1C769CEE21D348AA00034EB3 /* DIN-Light.ttf in Resources */,
+				1C643B4021E32FC900671432 /* NokioSans-Regular.ttf in Resources */,
 				CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */,
+				1C643B4A21E32FC900671432 /* NokioSansAlt-Regular.ttf in Resources */,
 				CD1DCA681FF4ACD300FCDDB5 /* learnMore.gif in Resources */,
+				1C643B4221E32FC900671432 /* NokioSansAlt-Bold.ttf in Resources */,
+				1C643B4921E32FC900671432 /* NokioSansAlt-MediumItalic.ttf in Resources */,
 				1C769CF121D348B200034EB3 /* DIN-RegularAlternate.ttf in Resources */,
+				1C643B3E21E32FC900671432 /* NokioSans-Medium.ttf in Resources */,
+				1C643B4321E32FC900671432 /* NokioSansAlt-BoldItalic.ttf in Resources */,
+				1C643B3921E32FC900671432 /* NokioSans-BoldItalic.ttf in Resources */,
+				1C643B3C21E32FC900671432 /* NokioSans-Light.ttf in Resources */,
 				1C4C67FC218E64B300D5383D /* GoogleService-Info.plist in Resources */,
 				CDA652941FA0F5B700835624 /* Main.storyboard in Resources */,
 			);
@@ -623,6 +709,7 @@
 				1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* UIState.swift in Sources */,
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
+				1C643B4D21E6D69E00671432 /* ComprehensionPopupManager.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
 				1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* UserModel.swift in Sources */,
@@ -646,6 +733,7 @@
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,
 				1C28738D21A8B07500B790A4 /* GoalListViewController.swift in Sources */,
 				1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */,
+				1C643B4F21E6D7D100671432 /* ComprehensionPopupShowPoint.swift in Sources */,
 				1C61170821D8AF5E0086903E /* GoalManager.swift in Sources */,
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
 				1C61170B21D8B2E00086903E /* ReadXMinutesGoalModel.swift in Sources */,
