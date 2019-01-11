@@ -15,8 +15,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     var audioPlayer: AVAudioPlayer!
     var numberOfRecords: Int = 0
     var recordsList:[String] = []
-    var currentRecording: String = "";
-
+    var currentRecording: String = ""
     
     @IBOutlet weak var buttonLabel: UIButton!
     @IBOutlet weak var myTableView: UITableView!
@@ -67,6 +66,8 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
             UserDefaults.standard.set(currentRecording, forKey: "myRecording")
             
             recordsList.append(currentRecording)
+            
+            Recordings.sharedInstance.recordingsList.append(currentRecording)
             print("Added \(currentRecording) at index: \(String(describing: recordsList.firstIndex(of: currentRecording) ?? nil))")
             myTableView.reloadData()
             
@@ -111,19 +112,19 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
 
     //setting up table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recordsList.count
+        return Recordings.sharedInstance.recordingsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = recordsList[indexPath.row]
+        cell.textLabel?.text = Recordings.sharedInstance.recordingsList[indexPath.row]
         return cell
     }
     
     //listen to the selected row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let path = getDirectory().appendingPathComponent("\(recordsList[indexPath.row]).m4a")
-        print("trying to play : \(recordsList[indexPath.row]).m4a")
+        let path = getDirectory().appendingPathComponent("\(Recordings.sharedInstance.recordingsList[indexPath.row]).m4a")
+        print("trying to play : \(Recordings.sharedInstance.recordingsList[indexPath.row]).m4a")
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: path)
             audioPlayer.play()

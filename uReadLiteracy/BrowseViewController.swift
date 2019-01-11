@@ -10,12 +10,19 @@ import UIKit
 import SafariServices
 import WebKit
 import SwiftSoup
+import AVFoundation
 
-class BrowseViewController: UIViewController, WKNavigationDelegate{
+class BrowseViewController: UIViewController, WKNavigationDelegate, AVAudioRecorderDelegate {
     
     
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var previousPageBarBtn: UIBarButtonItem!
+    @IBOutlet weak var recordBarBtn: UIBarButtonItem!
+    
+    var recordingSession: AVAudioSession!
+    var audioRecorder: AVAudioRecorder!
+    var currentRecording: String = ""
+    
     
     var urlSegue:URL!
     let mainUrl = "http://www.manythings.org/voa/stories/"
@@ -33,6 +40,16 @@ class BrowseViewController: UIViewController, WKNavigationDelegate{
         
         webView.navigationDelegate = self
         setupHelpFunctionInMenuBar()
+        
+        //set up audio session
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        AVAudioSession.sharedInstance().requestRecordPermission { (hasPermission) in
+            if hasPermission {
+                print("Microphone permission granted")
+            }
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,5 +133,69 @@ class BrowseViewController: UIViewController, WKNavigationDelegate{
         if let destination = segue.destination as? DictionaryWebViewController{
             destination.url = urlSegue
         }
+    }
+    
+    @IBAction func record(_ sender: Any) {
+        //Check if we have an active recorder
+        if audioRecorder == nil {
+           
+            let alert = UIAlertController(title: "New Recording", message: "Enter a name for your recording",
+                                          preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.text = "New Recording Name"
+            }
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                let textField = alert!.textFields![0]
+                self.currentRecording = textField.text!
+                
+                let filename = self.getDirectory().appendingPathComponent("\(self.currentRecording).m4a")
+                
+                let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+                
+                //  recordsList.append(currentRecording)
+                //Start audio recording
+                do {
+                    self.audioRecorder = try AVAudioRecorder(url: filename, settings: settings)
+                    self.audioRecorder.delegate = self
+                    self.audioRecorder.record()
+                    
+                    self.recordBarBtn.title = "Stop Recording"
+                }
+                catch {
+                    self.displayAlert(title: "Error", message: "Recording failed")
+                }
+            }))
+            
+            self.present(alert,animated:true,completion:nil)
+            
+            
+        }
+        else {
+            //stopping audio recording
+            audioRecorder.stop()
+            audioRecorder = nil
+            
+            UserDefaults.standard.set(currentRecording, forKey: "myRecording")
+            
+            Recordings.sharedInstance.recordingsList.append(currentRecording)
+            print("Added \(currentRecording) at index: \(String(describing: Recordings.sharedInstance.recordingsList.firstIndex(of: currentRecording) ?? nil))")
+        
+            recordBarBtn.title = "Record"
+        }
+    }
+    
+    //function that displays an alert
+    func displayAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    //function that gets path to directory
+    func getDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = paths[0]
+        return documentDirectory
     }
 }

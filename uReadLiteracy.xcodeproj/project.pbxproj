@@ -76,6 +76,7 @@
 		CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */ = {isa = PBXBuildFile; fileRef = CDDD7F021FF19B55009FA71D /* bookTurn.gif */; };
 		CDDD7F051FF1A64C009FA71D /* getHelp.gif in Resources */ = {isa = PBXBuildFile; fileRef = CDDD7F041FF1A64C009FA71D /* getHelp.gif */; };
 		CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDD7F061FF1A65F009FA71D /* GetHelpViewController.swift */; };
+		CDED752621E7D69C00E9E135 /* Recordings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDED752521E7D69C00E9E135 /* Recordings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +151,7 @@
 		CDDD7F021FF19B55009FA71D /* bookTurn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bookTurn.gif; sourceTree = "<group>"; };
 		CDDD7F041FF1A64C009FA71D /* getHelp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = getHelp.gif; sourceTree = "<group>"; };
 		CDDD7F061FF1A65F009FA71D /* GetHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHelpViewController.swift; sourceTree = "<group>"; };
+		CDED752521E7D69C00E9E135 /* Recordings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recordings.swift; sourceTree = "<group>"; };
 		E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uReadLiteracy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F628D77213D203437BD9BC13 /* Pods-uReadLiteracy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uReadLiteracy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,6 +276,7 @@
 				1C28739021AA12A500B790A4 /* GoalModel.swift */,
 				1C28738E21AA129300B790A4 /* DailyGoalModel.swift */,
 				1C870F8621AB965000FF296E /* ReadXStoriesWeeklyGoal.swift */,
+				CDED752521E7D69C00E9E135 /* Recordings.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
 				1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */,
+				CDED752621E7D69C00E9E135 /* Recordings.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* UIState.swift in Sources */,
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
