@@ -19,6 +19,8 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var nogoalIV: UIImageView!
     @IBOutlet weak var noGoalStackView: UIStackView!
     
+    @IBOutlet weak var goalOptionStackView: UIStackView!
+    
     
     @IBOutlet weak var addNewGoalBtn: UIButton!
     
@@ -108,6 +110,7 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshGoalTabUI()
         refreshTableView()
         
+        TutorialBarViewController.currentController = self
     }
     
     func showNoGoalStackView(){

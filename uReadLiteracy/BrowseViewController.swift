@@ -36,6 +36,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         setupHelpFunctionInMenuBar()
         
         webView.scrollView.delegate = self
+        
+        
     }
     
     override func viewDidLayoutSubviews() {

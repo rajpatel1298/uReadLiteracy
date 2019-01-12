@@ -59,6 +59,13 @@
 		1C643B4B21E32FC900671432 /* NokioSansAlt-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B2421E32FAD00671432 /* NokioSansAlt-RegularItalic.ttf */; };
 		1C643B4D21E6D69E00671432 /* ComprehensionPopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B4C21E6D69E00671432 /* ComprehensionPopupManager.swift */; };
 		1C643B4F21E6D7D100671432 /* ComprehensionPopupShowPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B4E21E6D7D100671432 /* ComprehensionPopupShowPoint.swift */; };
+		1C643B5321E7C2BC00671432 /* TutorialBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5221E7C2BC00671432 /* TutorialBarViewController.swift */; };
+		1C643B5621E8044A00671432 /* GoalViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5521E8044A00671432 /* GoalViewControllerTutorial.swift */; };
+		1C643B5821E999F800671432 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5721E999F800671432 /* Tutorial.swift */; };
+		1C643B5A21EA8E9300671432 /* GoalViewControllerTutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5921EA8E9300671432 /* GoalViewControllerTutorialAudio.swift */; };
+		1C643B5C21EA8F7A00671432 /* TutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */; };
+		1C643B6021EA926900671432 /* goalTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B5E21EA926800671432 /* goalTutorial1.mp3 */; };
+		1C643B6121EA926900671432 /* goalTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B5F21EA926800671432 /* goalTutorial2.mp3 */; };
 		1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */; };
 		1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */; };
 		1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE321D336FC00034EB3 /* CountingLabel.swift */; };
@@ -157,6 +164,13 @@
 		1C643B3721E32FC100671432 /* NokioSansAlt-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-BoldItalic.ttf"; sourceTree = "<group>"; };
 		1C643B4C21E6D69E00671432 /* ComprehensionPopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupManager.swift; sourceTree = "<group>"; };
 		1C643B4E21E6D7D100671432 /* ComprehensionPopupShowPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupShowPoint.swift; sourceTree = "<group>"; };
+		1C643B5221E7C2BC00671432 /* TutorialBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialBarViewController.swift; sourceTree = "<group>"; };
+		1C643B5521E8044A00671432 /* GoalViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewControllerTutorial.swift; sourceTree = "<group>"; };
+		1C643B5721E999F800671432 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		1C643B5921EA8E9300671432 /* GoalViewControllerTutorialAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewControllerTutorialAudio.swift; sourceTree = "<group>"; };
+		1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialAudio.swift; sourceTree = "<group>"; };
+		1C643B5E21EA926800671432 /* goalTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial1.mp3; sourceTree = "<group>"; };
+		1C643B5F21EA926800671432 /* goalTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial2.mp3; sourceTree = "<group>"; };
 		1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircleColors.swift; sourceTree = "<group>"; };
 		1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressCircle.swift; sourceTree = "<group>"; };
 		1C769CE321D336FC00034EB3 /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
@@ -313,6 +327,7 @@
 		1C513A5921801B6100FFDC82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C643B5421E8042800671432 /* Tutorial */,
 				1C28737621A506F400B790A4 /* Extensions */,
 				CDA652951FA0F5B700835624 /* uReadLiteracy.xcdatamodeld */,
 				1C4C67EC218D3E5100D5383D /* Web */,
@@ -334,6 +349,7 @@
 				CDA652981FA0F5B700835624 /* Assets.xcassets */,
 				1C4C67D9218BFE7D00D5383D /* Font */,
 				CD1DCA6B1FF4ACE300FCDDB5 /* Gifs */,
+				1C643B5D21EA925C00671432 /* Audio */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -361,6 +377,27 @@
 				1C61170A21D8B2E00086903E /* ReadXMinutesGoalModel.swift */,
 			);
 			name = Goal;
+			sourceTree = "<group>";
+		};
+		1C643B5421E8042800671432 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				1C643B5721E999F800671432 /* Tutorial.swift */,
+				1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */,
+				1C643B5221E7C2BC00671432 /* TutorialBarViewController.swift */,
+				1C643B5521E8044A00671432 /* GoalViewControllerTutorial.swift */,
+				1C643B5921EA8E9300671432 /* GoalViewControllerTutorialAudio.swift */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
+		1C643B5D21EA925C00671432 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				1C643B5E21EA926800671432 /* goalTutorial1.mp3 */,
+				1C643B5F21EA926800671432 /* goalTutorial2.mp3 */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		1C769CE221D336E300034EB3 /* Goal Progress */ = {
@@ -472,14 +509,14 @@
 			name = Gifs;
 			sourceTree = "<group>";
 		};
-		CD6462B81FF33A55007AF08A /* Storyboards */ = {
+		CD6462B81FF33A55007AF08A /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				CDA652921FA0F5B700835624 /* Main.storyboard */,
 				CD6462B91FF33A88007AF08A /* First Time.storyboard */,
 				CDA6529A1FA0F5B700835624 /* LaunchScreen.storyboard */,
 			);
-			name = Storyboards;
+			name = UI;
 			sourceTree = "<group>";
 		};
 		CDA652821FA0F5B700835624 = {
@@ -508,7 +545,7 @@
 				1C513A5921801B6100FFDC82 /* Model */,
 				1C513AA3218675FA00FFDC82 /* View */,
 				1CDB3F28217ECDDB00BEC04C /* Controller */,
-				CD6462B81FF33A55007AF08A /* Storyboards */,
+				CD6462B81FF33A55007AF08A /* UI */,
 				1C9C7757219A8C1B002ADA76 /* Helper */,
 				CDDD7EFF1FF19A3E009FA71D /* Tutorial Files */,
 				CDDD7EFD1FF19937009FA71D /* Swift+Gif.swift */,
@@ -604,11 +641,13 @@
 				1C769CED21D348A700034EB3 /* DIN-Bold.ttf in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
 				1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */,
+				1C643B6121EA926900671432 /* goalTutorial2.mp3 in Resources */,
 				1C643B4121E32FC900671432 /* NokioSans-RegularItalic.ttf in Resources */,
 				1C643B4721E32FC900671432 /* NokioSansAlt-LightItalic.ttf in Resources */,
 				1C643B4B21E32FC900671432 /* NokioSansAlt-RegularItalic.ttf in Resources */,
 				1C769CEC21D348A300034EB3 /* DIN-BlackAlternate.ttf in Resources */,
 				1C643B4421E32FC900671432 /* NokioSansAlt-ExtraLight.ttf in Resources */,
+				1C643B6021EA926900671432 /* goalTutorial1.mp3 in Resources */,
 				1C769CF021D348AF00034EB3 /* DIN-Regular.ttf in Resources */,
 				1C643B3F21E32FC900671432 /* NokioSans-MediumItalic.ttf in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
@@ -694,12 +733,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C643B5621E8044A00671432 /* GoalViewControllerTutorial.swift in Sources */,
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
 				1C643B2321E1636800671432 /* ComprehensionPopup.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
 				1C61170421D85FBC0086903E /* ReadXArticlesGoalModel.swift in Sources */,
+				1C643B5321E7C2BC00671432 /* TutorialBarViewController.swift in Sources */,
 				1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */,
 				1C28737A21A5093400B790A4 /* BrowserUIController.swift in Sources */,
 				1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */,
@@ -714,7 +755,9 @@
 				1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* UserModel.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
+				1C643B5821E999F800671432 /* Tutorial.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
+				1C643B5A21EA8E9300671432 /* GoalViewControllerTutorialAudio.swift in Sources */,
 				1C9C77562194BFBF002ADA76 /* CoreDataHelper.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
 				1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */,
@@ -746,6 +789,7 @@
 				1C4C67DE218C004A00D5383D /* ProfileViewController.swift in Sources */,
 				1C28738621A855A200B790A4 /* GoalTableViewCell.swift in Sources */,
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
+				1C643B5C21EA8F7A00671432 /* TutorialAudio.swift in Sources */,
 				1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
