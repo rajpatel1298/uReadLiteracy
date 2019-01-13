@@ -60,6 +60,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
   - leveldb-library (1.20)
+  - lottie-ios (2.5.2)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -72,6 +73,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - lottie-ios
   - SwiftSoup
   - youtube-ios-player-helper (~> 0.1.4)
 
@@ -88,6 +90,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - lottie-ios
     - nanopb
     - SwiftSoup
     - youtube-ios-player-helper
@@ -104,10 +107,11 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8208aee3e97a1ae93d44c57e96c476a5a3b03f0a
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: cbc9e551457542639d66e3959662290ed6aec22d
+PODFILE CHECKSUM: d06069cf9f094cd9bd666c6fb07e793d2b70feaa
 
 COCOAPODS: 1.5.2

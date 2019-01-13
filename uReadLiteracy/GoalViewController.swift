@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class GoalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -111,6 +112,8 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshTableView()
         
         TutorialBarViewController.currentController = self
+        
+        
     }
     
     func showNoGoalStackView(){

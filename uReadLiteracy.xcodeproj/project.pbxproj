@@ -66,6 +66,7 @@
 		1C643B5C21EA8F7A00671432 /* TutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */; };
 		1C643B6021EA926900671432 /* goalTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B5E21EA926800671432 /* goalTutorial1.mp3 */; };
 		1C643B6121EA926900671432 /* goalTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B5F21EA926800671432 /* goalTutorial2.mp3 */; };
+		1C643B6421EA9E1D00671432 /* hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B6321EA9E1D00671432 /* hand_click_gesture.json */; };
 		1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */; };
 		1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */; };
 		1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE321D336FC00034EB3 /* CountingLabel.swift */; };
@@ -171,6 +172,7 @@
 		1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialAudio.swift; sourceTree = "<group>"; };
 		1C643B5E21EA926800671432 /* goalTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial1.mp3; sourceTree = "<group>"; };
 		1C643B5F21EA926800671432 /* goalTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial2.mp3; sourceTree = "<group>"; };
+		1C643B6321EA9E1D00671432 /* hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hand_click_gesture.json; sourceTree = "<group>"; };
 		1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircleColors.swift; sourceTree = "<group>"; };
 		1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressCircle.swift; sourceTree = "<group>"; };
 		1C769CE321D336FC00034EB3 /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				1C4C67D9218BFE7D00D5383D /* Font */,
 				CD1DCA6B1FF4ACE300FCDDB5 /* Gifs */,
 				1C643B5D21EA925C00671432 /* Audio */,
+				1C643B6221EA9E0C00671432 /* Lottie Animation */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -398,6 +401,14 @@
 				1C643B5F21EA926800671432 /* goalTutorial2.mp3 */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		1C643B6221EA9E0C00671432 /* Lottie Animation */ = {
+			isa = PBXGroup;
+			children = (
+				1C643B6321EA9E1D00671432 /* hand_click_gesture.json */,
+			);
+			name = "Lottie Animation";
 			sourceTree = "<group>";
 		};
 		1C769CE221D336E300034EB3 /* Goal Progress */ = {
@@ -672,6 +683,7 @@
 				1C643B4321E32FC900671432 /* NokioSansAlt-BoldItalic.ttf in Resources */,
 				1C643B3921E32FC900671432 /* NokioSans-BoldItalic.ttf in Resources */,
 				1C643B3C21E32FC900671432 /* NokioSans-Light.ttf in Resources */,
+				1C643B6421EA9E1D00671432 /* hand_click_gesture.json in Resources */,
 				1C4C67FC218E64B300D5383D /* GoogleService-Info.plist in Resources */,
 				CDA652941FA0F5B700835624 /* Main.storyboard in Resources */,
 			);
@@ -691,6 +703,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
@@ -700,6 +713,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);

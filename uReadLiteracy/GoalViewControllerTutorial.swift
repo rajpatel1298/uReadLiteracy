@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Lottie
 
 class GoalViewControllerTutorial:Tutorial{
     private var tutorialLayers = [CAShapeLayer]()
@@ -15,17 +16,18 @@ class GoalViewControllerTutorial:Tutorial{
     private var previousLayer = CAShapeLayer()
     private let goalVCFrame:CGRect
     private let vc:GoalViewController
-    private var rightArrow = CALayer()
     private var onComplete:()->Void = {}
     private var tutorialView = UIView(frame: .zero)
     private var gestureAdded = false
     private var audio = GoalViewControllerTutorialAudio()
+    private let animationView = LOTAnimationView(name: "hand_click_gesture")
     
     
     init(vc:GoalViewController){
-        
         self.vc = vc
         tutorialView.isUserInteractionEnabled = true
+        tutorialView.addSubview(animationView)
+        
         self.goalVCFrame = vc.view.frame
         super.init()
         setupRightArrow()
@@ -34,14 +36,6 @@ class GoalViewControllerTutorial:Tutorial{
     override func addGesture(gesture:UITapGestureRecognizer){
         tutorialView.addGestureRecognizer(gesture)
         gestureAdded = true
-    }
-    
-    private func setupRightArrow(){
-        let layerSize = vc.view.frame.width/5
-        
-        let myImage = #imageLiteral(resourceName: "rightArrow").cgImage
-        rightArrow.frame = CGRect(x: vc.view.frame.width/2 - layerSize/2, y: vc.view.frame.height/2 - layerSize/2, width: layerSize, height: layerSize)
-        rightArrow.contents = myImage
     }
     
     override func show(view:UIView,onComplete:@escaping ()->Void){
@@ -53,12 +47,20 @@ class GoalViewControllerTutorial:Tutorial{
         
         tutorialView.frame = vc.view.frame
         
+        let handSize = vc.view.frame.width/5
+        animationView.frame = CGRect(x: vc.view.frame.width/2 - handSize/2, y: vc.view.frame.height/2 - handSize/2, width: handSize, height: handSize)
+        
         getFirstStepLayer(view: view)
         getSecondStepLayer(view: view)
         
         vc.view.addSubview(tutorialView)
         
-        doNextStep()
+        tutorialView.alpha = 0
+        
+        UIView.animate(withDuration: 1) {
+            self.tutorialView.alpha = 1
+            self.doNextStep()
+        }
     }
     
     override func tapped(){
@@ -66,20 +68,28 @@ class GoalViewControllerTutorial:Tutorial{
     }
     
     private func doNextStep(){
-        previousLayer.removeFromSuperlayer()
-        rightArrow.removeFromSuperlayer()
-        
         if tutorialLayers.count > 0{
+            previousLayer.removeFromSuperlayer()
+            
             let layer = tutorialLayers.remove(at: 0)
             previousLayer = layer
             tutorialView.layer.addSublayer(layer)
-            tutorialView.layer.addSublayer(rightArrow)
+
+            tutorialView.bringSubview(toFront: animationView)
             
             audio.playNextAudio()
+
+            animationView.play{ (finished) in}
         }
         else{
-            tutorialView.removeFromSuperview()
-            onComplete()
+            self.tutorialView.alpha = 1
+            UIView.animate(withDuration: 1, animations: {
+                self.tutorialView.alpha = 0
+            }) { (_) in
+                self.tutorialView.removeFromSuperview()
+                self.previousLayer.removeFromSuperlayer()
+                self.onComplete()
+            }
         }
     }
     
