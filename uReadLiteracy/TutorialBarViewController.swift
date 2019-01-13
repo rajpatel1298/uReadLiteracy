@@ -28,13 +28,6 @@ class TutorialBarViewController: UIViewController {
         case is GoalViewController:
             let vc = TutorialBarViewController.currentController as! GoalViewController
             
-            /*let shadowLayer = CALayer()
-            shadowLayer.backgroundColor = UIColor.black.cgColor
-            shadowLayer.frame = vc.view.frame
-            shadowLayer.opacity = 0.5
-            
-            vc.view.layer.addSublayer(shadowLayer)*/
-            
             tutorial = GoalViewControllerTutorial(vc: vc)
             let gesture = UITapGestureRecognizer(target: self, action: #selector(onTapped(_:)))
             tutorial.addGesture(gesture: gesture)
@@ -43,20 +36,7 @@ class TutorialBarViewController: UIViewController {
                 self.tutorialBtn.isEnabled = true
             }
             tutorialBtn.isEnabled = false
-            
-            /*let path = UIBezierPath(rect: vc.view.frame)
-            let firstHighlight = UIBezierPath(rect: vc.goalOptionStackView.frame)
-            path.append(firstHighlight)
-            path.usesEvenOddFillRule = true
-            
-            let fillLayer = CAShapeLayer()
-            
-            fillLayer.path = path.cgPath
-            fillLayer.fillRule = kCAFillRuleEvenOdd
-            
-            fillLayer.fillColor = UIColor.black.cgColor
-            fillLayer.opacity = 0.8
-            vc.view.layer.addSublayer(fillLayer)*/
+
             break
             
         case .none:
