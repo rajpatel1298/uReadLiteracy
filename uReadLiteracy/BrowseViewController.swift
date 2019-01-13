@@ -78,16 +78,25 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
                 print("answer for now: \(answer)")
             }, onSkip: {
                 DispatchQueue.main.async {
-                    //self.popup.removeFromSuperview() does not work :(
-                    for subview in self.view.subviews{
-                        if subview is ComprehensionPopup{
-                            subview.removeFromSuperview()
+                    UIView.animate(withDuration: popup.animationDuration, animations: {
+                        popup.alpha = 0
+                    }, completion: { (_) in
+                        //self.popup.removeFromSuperview() does not work :(
+                        for subview in self.view.subviews{
+                            if subview is ComprehensionPopup{
+                                subview.removeFromSuperview()
+                            }
                         }
-                    }
+                    })
                 }
             })
             
             view.addSubview(popup)
+            
+            popup.alpha = 0
+            UIView.animate(withDuration: popup.animationDuration) {
+                popup.alpha = 1
+            }
         }
         
     }
