@@ -10,9 +10,30 @@ import Foundation
 import AVFoundation
 
 class TutorialAudio{
-    var player: AVAudioPlayer?
+    private var player: AVAudioPlayer?
+    private var audioFiles: [String]!
+    private var currentCount = 0
     
-    func playSound(soundName:String) {
+    init(audioFiles:[String]){
+        self.audioFiles = audioFiles
+    }
+    
+    func playNextAudio(){
+        if currentCount > audioFiles.count-1 {
+            fatalError("Out of range")
+        }
+        
+        let name = audioFiles[currentCount]
+        currentCount += 1
+        
+        playSound(soundName: name)
+    }
+    
+    func reset(){
+        currentCount = 0
+    }
+    
+    private func playSound(soundName:String) {
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
             return
             

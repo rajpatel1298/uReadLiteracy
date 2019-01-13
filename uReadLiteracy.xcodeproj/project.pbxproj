@@ -62,7 +62,6 @@
 		1C643B5321E7C2BC00671432 /* TutorialBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5221E7C2BC00671432 /* TutorialBarViewController.swift */; };
 		1C643B5621E8044A00671432 /* GoalViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5521E8044A00671432 /* GoalViewControllerTutorial.swift */; };
 		1C643B5821E999F800671432 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5721E999F800671432 /* Tutorial.swift */; };
-		1C643B5A21EA8E9300671432 /* GoalViewControllerTutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5921EA8E9300671432 /* GoalViewControllerTutorialAudio.swift */; };
 		1C643B5C21EA8F7A00671432 /* TutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */; };
 		1C643B6021EA926900671432 /* goalTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B5E21EA926800671432 /* goalTutorial1.mp3 */; };
 		1C643B6121EA926900671432 /* goalTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B5F21EA926800671432 /* goalTutorial2.mp3 */; };
@@ -168,7 +167,6 @@
 		1C643B5221E7C2BC00671432 /* TutorialBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialBarViewController.swift; sourceTree = "<group>"; };
 		1C643B5521E8044A00671432 /* GoalViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewControllerTutorial.swift; sourceTree = "<group>"; };
 		1C643B5721E999F800671432 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
-		1C643B5921EA8E9300671432 /* GoalViewControllerTutorialAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewControllerTutorialAudio.swift; sourceTree = "<group>"; };
 		1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialAudio.swift; sourceTree = "<group>"; };
 		1C643B5E21EA926800671432 /* goalTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial1.mp3; sourceTree = "<group>"; };
 		1C643B5F21EA926800671432 /* goalTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial2.mp3; sourceTree = "<group>"; };
@@ -389,7 +387,6 @@
 				1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */,
 				1C643B5221E7C2BC00671432 /* TutorialBarViewController.swift */,
 				1C643B5521E8044A00671432 /* GoalViewControllerTutorial.swift */,
-				1C643B5921EA8E9300671432 /* GoalViewControllerTutorialAudio.swift */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -771,7 +768,6 @@
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
 				1C643B5821E999F800671432 /* Tutorial.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
-				1C643B5A21EA8E9300671432 /* GoalViewControllerTutorialAudio.swift in Sources */,
 				1C9C77562194BFBF002ADA76 /* CoreDataHelper.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
 				1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */,

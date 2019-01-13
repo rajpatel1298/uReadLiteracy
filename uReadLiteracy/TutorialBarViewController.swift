@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+// This class
 class TutorialBarViewController: UIViewController {
     
     
@@ -18,12 +20,9 @@ class TutorialBarViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func tutorialBtnPressed(_ sender: Any) {
-        
         switch(TutorialBarViewController.currentController){
         case is GoalViewController:
             let vc = TutorialBarViewController.currentController as! GoalViewController

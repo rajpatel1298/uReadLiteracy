@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Lottie
 
+// For other Tutorial Controller, just copied the same code, and change stuffs when noted
 class GoalViewControllerTutorial:Tutorial{
     private var tutorialLayers = [CAShapeLayer]()
     
@@ -19,10 +20,14 @@ class GoalViewControllerTutorial:Tutorial{
     private var onComplete:()->Void = {}
     private var tutorialView = UIView(frame: .zero)
     private var gestureAdded = false
-    private var audio = GoalViewControllerTutorialAudio()
+    
     private let animationView = LOTAnimationView(name: "hand_click_gesture")
     
     
+    // Change based on the audio that you will use
+    private let audio = TutorialAudio(audioFiles: ["goalTutorial1","goalTutorial2"])
+    
+    // No need to change
     init(vc:GoalViewController){
         self.vc = vc
         tutorialView.isUserInteractionEnabled = true
@@ -32,11 +37,13 @@ class GoalViewControllerTutorial:Tutorial{
         super.init()
     }
     
+    // No need to change
     override func addGesture(gesture:UITapGestureRecognizer){
         tutorialView.addGestureRecognizer(gesture)
         gestureAdded = true
     }
     
+    // Change based on the number of steps
     override func show(view:UIView,onComplete:@escaping ()->Void){
         if !gestureAdded{
             fatalError("need to use gestureAdded function")
@@ -49,8 +56,10 @@ class GoalViewControllerTutorial:Tutorial{
         let handSize = vc.view.frame.width/5
         animationView.frame = CGRect(x: vc.view.frame.width/2 - handSize/2, y: vc.view.frame.height/2 - handSize/2, width: handSize, height: handSize)
         
+        // Change This part
         getFirstStepLayer(view: view)
         getSecondStepLayer(view: view)
+        //
         
         vc.view.addSubview(tutorialView)
         
@@ -66,6 +75,7 @@ class GoalViewControllerTutorial:Tutorial{
         doNextStep()
     }
     
+    // no need to change
     private func doNextStep(){
         if tutorialLayers.count > 0{
             previousLayer.removeFromSuperlayer()
@@ -92,13 +102,16 @@ class GoalViewControllerTutorial:Tutorial{
         }
     }
     
+    // Change based on what you want to highlight
     private func getFirstStepLayer(view:UIView){
         let  goalOptionStackViewFrame = vc.goalOptionStackView.frame
         
         let path = UIBezierPath(rect: goalVCFrame)
-        let highlightPath = UIBezierPath(roundedRect: goalOptionStackViewFrame, cornerRadius: 5)
         
-
+        // Change this
+        let highlightPath = UIBezierPath(roundedRect: goalOptionStackViewFrame, cornerRadius: 5)
+        //
+    
         path.append(highlightPath)
         path.usesEvenOddFillRule = true
         
@@ -117,7 +130,11 @@ class GoalViewControllerTutorial:Tutorial{
         let  addNewGoalBtnFrame = vc.addNewGoalBtn.frame
         
         let path = UIBezierPath(rect: goalVCFrame)
+        
+        // Change this
         let highlightPath = UIBezierPath(roundedRect: addNewGoalBtnFrame, cornerRadius: 5)
+        //
+        
         path.append(highlightPath)
         path.usesEvenOddFillRule = true
         
