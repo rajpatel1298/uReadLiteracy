@@ -30,7 +30,6 @@ class GoalViewControllerTutorial:Tutorial{
         
         self.goalVCFrame = vc.view.frame
         super.init()
-        setupRightArrow()
     }
     
     override func addGesture(gesture:UITapGestureRecognizer){
