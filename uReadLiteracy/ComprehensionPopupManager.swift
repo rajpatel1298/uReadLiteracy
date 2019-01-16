@@ -24,7 +24,7 @@ class ComprehensionPopupManager{
         }
         
         for position in showAtYOffsets{
-            if currentYOffset >= position.y && currentYOffset <= position.y + maxYOffset/100*5 && !position.isShowing(){
+            if  position.y.isLessThanOrEqualTo(currentYOffset) && currentYOffset.isLessThanOrEqualTo(position.y + maxYOffset/100*5)  && !position.isShowing(){
                 position.showPopup()
                 return true
             }

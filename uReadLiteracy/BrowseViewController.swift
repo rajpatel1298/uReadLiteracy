@@ -26,6 +26,9 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     var currentArticle:ArticleModel?
     
     private let popupManager = ComprehensionPopupManager()
+    private var maxBrowserOffset:Int!
+    
+    @IBOutlet weak var socialMediaView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,25 +45,67 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        webView.frame = view.frame
+        socialMediaView.frame = CGRect(x: view.frame.origin.x, y: view.frame.height/2, width: view.frame.width, height: view.frame.height/2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         previousPageBarBtn.isEnabled = false
         loadMainPage()
+        socialMediaView.isHidden = true
     }
     
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        /*print("max offset: \(scrollView.contentSize.height - scrollView.bounds.height)" )
-        print("current offset: \(scrollView.contentOffset.y)")*/
+        updateGoalIfNeeded()
+        showSocialMediaViewIfNeeded()
+        showPopupIfNeeded()
+    }
+    
+    
+    
+    private func showSocialMediaViewIfNeeded(){
+        let currentYOffset = Int(webView.scrollView.contentOffset.y)
         
-        let maxOffset = scrollView.contentSize.height - scrollView.bounds.height + scrollView.contentInset.bottom
-        let currentYOffset = scrollView.contentOffset.y
-        let url = webView.url?.absoluteString
+        if maxBrowserOffset == nil{
+            return
+        }
         
-        if currentYOffset >= maxOffset*90/100 && maxOffset > 0{
+        if currentYOffset >= maxBrowserOffset*90/100 && maxBrowserOffset > 0{
+            if socialMediaView.isHidden{
+                UIView.animate(withDuration: 1) {
+                    self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
+                    self.socialMediaView.isHidden = false
+                }
+                
+                //view.layoutIfNeeded()
+            }
+        }
+        else{
+            if !socialMediaView.isHidden{
+                UIView.animate(withDuration: 1) {
+                    self.webView.frame = self.view.frame
+                    self.socialMediaView.isHidden = true
+                }
+                
+                //view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func updateGoalIfNeeded(){
+        let currentYOffset = webView.scrollView.contentOffset.y
+        
+        if maxBrowserOffset == nil{
+            return
+        }
+        
+        if Int(currentYOffset) >= maxBrowserOffset*90/100 {
+            let url = webView.url?.absoluteString
+            
             if(controller.isCurrentURLAnArticle(url: url!)){
                 if(currentArticle != nil){
                     currentArticle?.stopRecordingTime()
@@ -68,9 +113,13 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
                 }
             }
         }
+    }
+    
+    private func showPopupIfNeeded(){
+        let currentYOffset = webView.scrollView.contentOffset.y
         
         if popupManager.shouldShowPopup(currentYOffset: currentYOffset){
-            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: currentYOffset), animated: true)
+            webView.scrollView.setContentOffset(CGPoint(x: webView.scrollView.contentOffset.x, y: currentYOffset), animated: true)
             
             let popup = ComprehensionPopup(frame: view.frame)
             
@@ -98,7 +147,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
                 popup.alpha = 1
             }
         }
-        
     }
 
     
@@ -126,7 +174,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             currentArticle = ArticleModel(name: webView.title!, url: url!)
             currentArticle?.incrementReadCount()
             currentArticle?.startRecordingTime()
-            //DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
+            
+            maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
             
             updatePopupManager()
         }

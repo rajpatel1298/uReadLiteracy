@@ -66,6 +66,7 @@
 		1C643B6021EA926900671432 /* goalTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B5E21EA926800671432 /* goalTutorial1.mp3 */; };
 		1C643B6121EA926900671432 /* goalTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B5F21EA926800671432 /* goalTutorial2.mp3 */; };
 		1C643B6421EA9E1D00671432 /* hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B6321EA9E1D00671432 /* hand_click_gesture.json */; };
+		1C643B6C21ED5A8F00671432 /* BrowserSocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B6B21ED5A8F00671432 /* BrowserSocialMediaViewController.swift */; };
 		1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */; };
 		1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */; };
 		1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE321D336FC00034EB3 /* CountingLabel.swift */; };
@@ -171,6 +172,7 @@
 		1C643B5E21EA926800671432 /* goalTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial1.mp3; sourceTree = "<group>"; };
 		1C643B5F21EA926800671432 /* goalTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial2.mp3; sourceTree = "<group>"; };
 		1C643B6321EA9E1D00671432 /* hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hand_click_gesture.json; sourceTree = "<group>"; };
+		1C643B6B21ED5A8F00671432 /* BrowserSocialMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSocialMediaViewController.swift; sourceTree = "<group>"; };
 		1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircleColors.swift; sourceTree = "<group>"; };
 		1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressCircle.swift; sourceTree = "<group>"; };
 		1C769CE321D336FC00034EB3 /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				1C28737921A5093400B790A4 /* BrowserUIController.swift */,
 				1C28737B21A50B6500B790A4 /* BrowserController.swift */,
 				1C28737D21A5ABFF00B790A4 /* DictionaryWebViewController.swift */,
+				1C643B6B21ED5A8F00671432 /* BrowserSocialMediaViewController.swift */,
 			);
 			name = "Read Page";
 			sourceTree = "<group>";
@@ -361,9 +364,9 @@
 				1C769CE221D336E300034EB3 /* Goal Progress */,
 				1C4C67E7218D321300D5383D /* Alert */,
 				1C9C775B219A962C002ADA76 /* Tableview Cells */,
+				1C643B6521EB214B00671432 /* Browser */,
 				1C769CF221D4352300034EB3 /* BouncingLabel.swift */,
 				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
-				1C643B2221E1636800671432 /* ComprehensionPopup.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -406,6 +409,14 @@
 				1C643B6321EA9E1D00671432 /* hand_click_gesture.json */,
 			);
 			name = "Lottie Animation";
+			sourceTree = "<group>";
+		};
+		1C643B6521EB214B00671432 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				1C643B2221E1636800671432 /* ComprehensionPopup.swift */,
+			);
+			name = Browser;
 			sourceTree = "<group>";
 		};
 		1C769CE221D336E300034EB3 /* Goal Progress */ = {
@@ -769,6 +780,7 @@
 				1C643B5821E999F800671432 /* Tutorial.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
 				1C9C77562194BFBF002ADA76 /* CoreDataHelper.swift in Sources */,
+				1C643B6C21ED5A8F00671432 /* BrowserSocialMediaViewController.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
 				1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */,
 				CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */,
