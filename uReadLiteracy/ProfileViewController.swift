@@ -54,6 +54,7 @@ class ProfileViewController: UIViewController {
         uiController.setupDailyGoalsProgressCircle()
         uiController.setGoalLabelTexts()
         uiController.hideGoalsThatDoesNotExist()
+        TutorialBarViewController.currentController = self
     }
     
     private func setupCurrentGoals(){
