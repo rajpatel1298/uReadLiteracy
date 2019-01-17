@@ -36,7 +36,6 @@ class TutorialBarViewController: UIViewController {
                 self.tutorialBtn.isEnabled = true
             }
             tutorialBtn.isEnabled = false
-
             break
         case is ProfileViewController:
             let vc = TutorialBarViewController.currentController as! ProfileViewController
@@ -50,8 +49,6 @@ class TutorialBarViewController: UIViewController {
             }
             tutorialBtn.isEnabled = false
             break
-            
-            
         case .none:
             break
         case .some(_):
