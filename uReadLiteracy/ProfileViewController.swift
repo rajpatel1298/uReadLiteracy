@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var iconView: UIView!
     
+    @IBOutlet weak var currentGoalsLabel: UILabel!
     
     @IBOutlet weak var goal1: UILabel!
     @IBOutlet weak var goal2: UILabel!
