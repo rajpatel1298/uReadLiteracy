@@ -22,6 +22,7 @@ class TutorialBarViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    
     @IBAction func tutorialBtnPressed(_ sender: Any) {
         switch(TutorialBarViewController.currentController){
         case is GoalViewController:
