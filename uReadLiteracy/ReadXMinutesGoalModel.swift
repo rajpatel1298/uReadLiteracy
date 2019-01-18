@@ -28,7 +28,7 @@ class ReadXMinutesGoalModel:GoalModel{
         super.init(name: name, progress: progress,date:date)
     }
     
-    init(model:ReadXMinutes){
+    init(model:ReadXMinutesCD){
         super.init(name: model.name!, progress: Int(model.progress), date: model.date! as Date)
         self.totalMinutes = Int(model.totalMinutes)
         self.minutesRead = Int(model.minutesRead)
@@ -40,7 +40,7 @@ class ReadXMinutesGoalModel:GoalModel{
         
         let model = find(name: name, date: date)
         
-        let entity = NSEntityDescription.entity(forEntityName: "ReadXMinutes", in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: "ReadXMinutesCD", in: managedContext)!
         
         if(model == nil){
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
@@ -69,14 +69,14 @@ class ReadXMinutesGoalModel:GoalModel{
         }
     }
     
-    func find(name:String,date:Date)->ReadXMinutes?{
+    func find(name:String,date:Date)->ReadXMinutesCD?{
         let model = ReadXMinutesGoalModel.find(name: name, date: date, goalType: goalType)
         
         return model
     }
     
-    static func find(name:String,date:Date, goalType:GoalType)->ReadXMinutes?{
-        let goals:[ReadXMinutes] = ReadXMinutesGoalModel.getModels()
+    static func find(name:String,date:Date, goalType:GoalType)->ReadXMinutesCD?{
+        let goals:[ReadXMinutesCD] = ReadXMinutesGoalModel.getModels()
         
         for goal in goals{
             let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
@@ -93,9 +93,9 @@ class ReadXMinutesGoalModel:GoalModel{
     
     static func getModels()->[ReadXMinutesGoalModel]{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutes")
+        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
         
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutes]
+        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
         
         var arr = [ReadXMinutesGoalModel]()
         
@@ -106,11 +106,11 @@ class ReadXMinutesGoalModel:GoalModel{
          return arr
     }
     
-    static func getModels()->[ReadXMinutes]{
+    static func getModels()->[ReadXMinutesCD]{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutes")
+        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
         
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutes]
+        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
         return goals
     }
     

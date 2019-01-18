@@ -92,9 +92,17 @@ class ProfileViewController: UIViewController {
     }
     
     private func loadUserInfo(){
-        let user = UserModel()
-        profileIV.image = user.getImage()
-        backgroundProfileIV.image = user.getImage()
+        let user = UserModel.sharedInstance
+        if user.getImage() == nil{
+            profileIV.image = #imageLiteral(resourceName: "profile")
+            backgroundProfileIV.image = nil
+        }
+        else{
+            profileIV.image = user.getImage()
+            backgroundProfileIV.image = user.getImage()
+        }
+        
+        
         welcomeLabel.text = "Welcome \(user.getNickname())"
     }
     

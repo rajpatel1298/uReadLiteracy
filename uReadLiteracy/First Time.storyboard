@@ -203,12 +203,8 @@
                                 </state>
                                 <connections>
                                     <action selector="continueBtnPressed:" destination="6D9-I7-k5j" eventType="touchUpInside" id="wmE-Wp-FVP"/>
-                                    <segue destination="yEU-qt-9RE" kind="show" identifier="AddUserInfoToWalkthroughSegue" id="uxr-3h-8cz"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uy6-3a-kRG">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
-                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIa-Dy-a2n">
                                 <rect key="frame" x="62.5" y="397" width="250" height="150"/>
                                 <subviews>
@@ -242,13 +238,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uN0-Vn-EZs">
                                 <rect key="frame" x="69" y="140" width="237" height="237"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-user" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-eh-M2K">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyProfile" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-eh-M2K">
                                         <rect key="frame" x="35" y="35" width="167" height="167"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="AHp-eh-M2K" secondAttribute="height" multiplier="1:1" id="TcY-7g-RTa"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxm-B2-GcP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxm-B2-GcP">
                                         <rect key="frame" x="0.0" y="0.0" width="237" height="237"/>
                                         <connections>
                                             <action selector="imageTapped:" destination="6D9-I7-k5j" eventType="touchUpInside" id="C7O-EK-LNl"/>
@@ -278,9 +274,7 @@
                             <constraint firstItem="TIa-Dy-a2n" firstAttribute="width" secondItem="WBE-o7-LRf" secondAttribute="width" multiplier="2:3" id="LVo-Ay-Dqd"/>
                             <constraint firstItem="uN0-Vn-EZs" firstAttribute="top" secondItem="qcc-xX-JKS" secondAttribute="bottom" constant="20" id="Q7e-Uq-Hcp"/>
                             <constraint firstItem="SNz-4B-EOV" firstAttribute="top" secondItem="TIa-Dy-a2n" secondAttribute="bottom" constant="40" id="VJw-IX-fDX"/>
-                            <constraint firstItem="uy6-3a-kRG" firstAttribute="centerY" secondItem="WBE-o7-LRf" secondAttribute="centerY" id="YBu-tP-MyX"/>
                             <constraint firstItem="TIa-Dy-a2n" firstAttribute="centerX" secondItem="WBE-o7-LRf" secondAttribute="centerX" id="agd-iH-D3P"/>
-                            <constraint firstItem="uy6-3a-kRG" firstAttribute="centerX" secondItem="WBE-o7-LRf" secondAttribute="centerX" id="blO-Yk-S4O"/>
                             <constraint firstItem="qcc-xX-JKS" firstAttribute="leading" secondItem="WBE-o7-LRf" secondAttribute="leadingMargin" constant="10" id="ovW-Vn-3QI"/>
                             <constraint firstItem="Dy2-5E-0qD" firstAttribute="top" secondItem="WBE-o7-LRf" secondAttribute="top" id="qT8-TM-Z70"/>
                             <constraint firstItem="uN0-Vn-EZs" firstAttribute="centerX" secondItem="WBE-o7-LRf" secondAttribute="centerX" id="r1j-T9-Zy1"/>
@@ -290,11 +284,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="uy6-3a-kRG" id="bis-sM-ISZ"/>
                         <outlet property="nextBtn" destination="SNz-4B-EOV" id="2th-D4-xiv"/>
                         <outlet property="nicknameTF" destination="xAk-7c-Fuj" id="lnh-GZ-fCX"/>
                         <outlet property="userIV" destination="AHp-eh-M2K" id="qBH-VC-E1u"/>
                         <outlet property="userImageOutsideView" destination="uN0-Vn-EZs" id="bMR-95-heC"/>
+                        <segue destination="yEU-qt-9RE" kind="show" identifier="AddUserInfoToWalkthroughSegue" id="Ih5-sZ-c95"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlJ-XT-GW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,7 +298,6 @@
         <!--Explore View Controller-->
         <scene sceneID="IfO-U9-nb2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yjp-kb-1we" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0Jl-jx-ZhO" customClass="ExploreViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P3r-9e-hfh"/>
@@ -366,13 +359,13 @@
                         <outlet property="GifView" destination="Z4P-Df-fga" id="R9C-tF-WsJ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yjp-kb-1we" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-858" y="709"/>
         </scene>
         <!--Get Help View Controller-->
         <scene sceneID="yUk-cP-LYI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H8x-s2-XOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dlt-vF-eq9" customClass="GetHelpViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EzU-pc-WYd"/>
@@ -420,12 +413,13 @@
                         <outlet property="gifView" destination="wfZ-Vf-ydv" id="0aW-JR-Moj"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H8x-s2-XOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-38" y="709"/>
         </scene>
     </scenes>
     <resources>
-        <image name="add-user" width="200" height="200"/>
+        <image name="emptyProfile" width="512" height="512"/>
         <image name="library" width="1920" height="1200"/>
     </resources>
 </document>

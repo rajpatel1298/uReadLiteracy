@@ -13,7 +13,6 @@ import FirebaseAuth
 class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var userIV: UIImageView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var nicknameTF: UITextField!
     @IBOutlet weak var userImageOutsideView: UIView!
     
@@ -22,6 +21,8 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
     private var noNickanmeAlert:InfoAlert!
     private var imageSelected = false
     private var animatedRectangle:AnimatedRectangle!
+    
+    var loadingScreen:ActivityIndicatorWithDarkBackground!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +43,6 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         else{
             animateUserIV()
         }
-        
-        stopLoading()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +55,7 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         animatedRectangle.removeFromSuperlayer()
         animatedRectangle.resetPath(topLeft: CGPoint(x: userIV.frame.origin.x, y: userIV.frame.origin.y), width: userIV.frame.width, height: userIV.frame.height)
         userImageOutsideView.layer.addSublayer(animatedRectangle)
+        loadingScreen = ActivityIndicatorWithDarkBackground(frame: view.frame)
         
     }
     
@@ -72,13 +72,23 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
     }
     
     func startLoading(){
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5) {
+                self.view.addSubview(self.loadingScreen)
+            }
+        }
     }
     
     func stopLoading(){
-        activityIndicator.isHidden = true
-        activityIndicator.startAnimating()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5) {
+                for v in self.view.subviews{
+                    if v is ActivityIndicatorWithDarkBackground{
+                        v.removeFromSuperview()
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func imageTapped(_ sender: Any) {
@@ -102,43 +112,39 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         userIV.image = image
         
         imageSelected = true
-        
-        /*userIV.layer.cornerRadius = userIV.frame.width/2
-        userIV.layer.masksToBounds = false
-        userIV.clipsToBounds = true*/
         userIV.alpha = 1
         
         stopLoading()
     }
     
     @IBAction func continueBtnPressed(_ sender: Any) {
+        startLoading()
         
         if(allInfoIsFilled()){
-            let user = UserModel()
-            
+            var image:UIImage?
             if(imageSelected){
-                user.save(image: userIV.image!, nickname: nicknameTF.text!)
+                image = userIV.image!
             }
-            else{
-                user.save(image: #imageLiteral(resourceName: "emptyProfilePic"), nickname: nicknameTF.text!)
+      
+            UserModel.createUser(image: image, nickname: nicknameTF.text!) { (state) in
+                
+                DispatchQueue.main.async {
+                    self.stopLoading()
+                    
+                    switch(state){
+                    case .Success:
+                        self.performSegue(withIdentifier: "AddUserInfoToWalkthroughSegue", sender: self)
+                        break
+                    case .Failure(let err):
+                        fatalError("Handle err")
+                        break
+                    default:
+                        break
+                    }
+                }
+                
             }
         }
-        
-        
-        
-        /*let uuid = UUID().uuidString
-        let email = "\(uuid)@gmail.com"
-        let password = UUID().uuidString
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (_, err) in
-            
-            DispatchQueue.main.async {
-                CoreDataHelper.sharedInstance.saveLoginInfo(email: email, password: password)
-                
-                self.performSegue(withIdentifier: "AddUserInfoToWalkthroughSegue", sender: self)
-            }
-            
-        }*/
     }
     
     func allInfoIsFilled()->Bool{

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Article" representedClassName="Article" syncable="YES" codeGenerationType="class">
+    <entity name="ArticleCD" representedClassName="ArticleCD" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="readCount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="HelpWord" representedClassName="HelpWord" syncable="YES" codeGenerationType="class">
+    <entity name="HelpWordCD" representedClassName="HelpWordCD" syncable="YES" codeGenerationType="class">
         <attribute name="beginningDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="blendDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="endingDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="multisyllabicDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="word" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="ReadXArticles" representedClassName="ReadXArticles" syncable="YES" codeGenerationType="class">
+    <entity name="ReadXArticlesCD" representedClassName="ReadXArticlesCD" syncable="YES" codeGenerationType="class">
         <attribute name="articles" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="goalType" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,7 +21,7 @@
         <attribute name="numberOfArticles" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="progress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="ReadXMinutes" representedClassName="ReadXMinutes" syncable="YES" codeGenerationType="class">
+    <entity name="ReadXMinutesCD" representedClassName="ReadXMinutesCD" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="goalType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="minutesRead" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -29,22 +29,23 @@
         <attribute name="progress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="totalMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
-        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="UserCD" representedClassName="UserCD" syncable="YES" codeGenerationType="class">
+        <attribute name="email" attributeType="String" syncable="YES"/>
         <attribute name="favTopic" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" attributeType="Binary" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="nickname" attributeType="String" syncable="YES"/>
         <attribute name="numArticlesRead" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="numLogins" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="screenName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeSpent" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uid" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Article" positionX="-63" positionY="54" width="128" height="105"/>
-        <element name="HelpWord" positionX="-63" positionY="54" width="128" height="30"/>
-        <element name="ReadXArticles" positionX="-54" positionY="63" width="128" height="135"/>
-        <element name="ReadXMinutes" positionX="-54" positionY="72" width="128" height="135"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="ArticleCD" positionX="-63" positionY="54" width="128" height="105"/>
+        <element name="HelpWordCD" positionX="-63" positionY="54" width="128" height="120"/>
+        <element name="ReadXArticlesCD" positionX="-54" positionY="63" width="128" height="135"/>
+        <element name="ReadXMinutesCD" positionX="-54" positionY="72" width="128" height="135"/>
+        <element name="UserCD" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>

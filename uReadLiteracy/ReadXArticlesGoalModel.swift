@@ -34,9 +34,7 @@ class ReadXArticlesGoalModel:GoalModel{
         super.init(name: name, progress: progress,date:date)
     }
     
-
-    
-    init(model:ReadXArticles){
+    init(model:ReadXArticlesCD){
         super.init(name: model.name!, progress: Int(model.progress), date: model.date! as Date)
         if(model.articles != nil){
             let articlesUrl = model.articles as! [String]
@@ -51,7 +49,7 @@ class ReadXArticlesGoalModel:GoalModel{
         
         let model = find(name: name, date: date)
     
-        let entity = NSEntityDescription.entity(forEntityName: "ReadXArticles", in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
 
         if(model == nil){
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
@@ -74,14 +72,14 @@ class ReadXArticlesGoalModel:GoalModel{
         }
     }
     
-    func find(name:String,date:Date)->ReadXArticles?{
+    func find(name:String,date:Date)->ReadXArticlesCD?{
         let model = ReadXArticlesGoalModel.find(name: name, date: date, goalType: goalType)
         
         return model
     }
     
-    static func find(name:String,date:Date, goalType:GoalType)->ReadXArticles?{
-        let goals:[ReadXArticles] = ReadXArticlesGoalModel.getModels()
+    static func find(name:String,date:Date, goalType:GoalType)->ReadXArticlesCD?{
+        let goals:[ReadXArticlesCD] = ReadXArticlesGoalModel.getModels()
         
         for goal in goals{
             
@@ -98,7 +96,7 @@ class ReadXArticlesGoalModel:GoalModel{
     
     
     static func getModels()->[ReadXArticlesGoalModel]{
-        let goals:[ReadXArticles] = ReadXArticlesGoalModel.getModels()
+        let goals:[ReadXArticlesCD] = ReadXArticlesGoalModel.getModels()
         
         var arr = [ReadXArticlesGoalModel]()
         
@@ -109,11 +107,11 @@ class ReadXArticlesGoalModel:GoalModel{
         return arr
     }
     
-    static func getModels()->[ReadXArticles]{
+    static func getModels()->[ReadXArticlesCD]{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticles")
+        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticlesCD")
         
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticles]
+        let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticlesCD]
         return goals
     }
     

@@ -10,10 +10,9 @@ import UIKit
 import SafariServices
 import WebKit
 import SwiftSoup
+import FirebaseAuth
 
 class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate{
-    
-    
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var previousPageBarBtn: UIBarButtonItem!
     
@@ -25,8 +24,9 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     var currentArticle:ArticleModel?
     
-    private let popupManager = ComprehensionPopupManager()
-    private var maxBrowserOffset:Int!
+    fileprivate let popupManager = ComprehensionPopupManager()
+    fileprivate var maxBrowserOffset:Int!
+    private var browserSocialMediaVC:BrowserSocialMediaViewController!
     
     @IBOutlet weak var socialMediaView: UIView!
     
@@ -40,7 +40,11 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
         webView.scrollView.delegate = self
         
+        SocialMediaComment.get(articleName: "asd", uid: "asd") { (_) in
+            print()
+        }
         
+        browserSocialMediaVC = (childViewControllers.first as! BrowserSocialMediaViewController)
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,43 +61,10 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         socialMediaView.isHidden = true
     }
     
-    
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateGoalIfNeeded()
         showSocialMediaViewIfNeeded()
         showPopupIfNeeded()
-    }
-    
-    
-    
-    private func showSocialMediaViewIfNeeded(){
-        let currentYOffset = Int(webView.scrollView.contentOffset.y)
-        
-        if maxBrowserOffset == nil{
-            return
-        }
-        
-        if currentYOffset >= maxBrowserOffset*90/100 && maxBrowserOffset > 0{
-            if socialMediaView.isHidden{
-                UIView.animate(withDuration: 1) {
-                    self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
-                    self.socialMediaView.isHidden = false
-                }
-                
-                //view.layoutIfNeeded()
-            }
-        }
-        else{
-            if !socialMediaView.isHidden{
-                UIView.animate(withDuration: 1) {
-                    self.webView.frame = self.view.frame
-                    self.socialMediaView.isHidden = true
-                }
-                
-                //view.layoutIfNeeded()
-            }
-        }
     }
     
     private func updateGoalIfNeeded(){
@@ -114,41 +85,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             }
         }
     }
-    
-    private func showPopupIfNeeded(){
-        let currentYOffset = webView.scrollView.contentOffset.y
-        
-        if popupManager.shouldShowPopup(currentYOffset: currentYOffset){
-            webView.scrollView.setContentOffset(CGPoint(x: webView.scrollView.contentOffset.x, y: currentYOffset), animated: true)
-            
-            let popup = ComprehensionPopup(frame: view.frame)
-            
-            popup.setupClosure(onAccept: { (answer) in
-                print("answer for now: \(answer)")
-            }, onSkip: {
-                DispatchQueue.main.async {
-                    UIView.animate(withDuration: popup.animationDuration, animations: {
-                        popup.alpha = 0
-                    }, completion: { (_) in
-                        //self.popup.removeFromSuperview() does not work :(
-                        for subview in self.view.subviews{
-                            if subview is ComprehensionPopup{
-                                subview.removeFromSuperview()
-                            }
-                        }
-                    })
-                }
-            })
-            
-            view.addSubview(popup)
-            
-            popup.alpha = 0
-            UIView.animate(withDuration: popup.animationDuration) {
-                popup.alpha = 1
-            }
-        }
-    }
-
     
     func loadMainPage(){
         let url = URL(string: mainUrl)
@@ -178,23 +114,14 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
             
             updatePopupManager()
+            
+            browserSocialMediaVC.currentArticle = currentArticle
         }
         
         else{
             popupManager.reset()
         }
     }
-    
-    private func updatePopupManager(){
-        let maxOffset = webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom
-        
-        popupManager.setMaxYOffset(value: maxOffset)
-        popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: maxOffset/2)])
-    }
-    
-    
-
-    
     
     private func setupHelpFunctionInMenuBar(){
         let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
@@ -233,6 +160,79 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DictionaryWebViewController{
             destination.url = urlSegue
+        }
+    }
+}
+
+// MARK: Comprehension Popup
+extension BrowseViewController{
+    fileprivate func updatePopupManager(){
+        let maxOffset = webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom
+        
+        popupManager.setMaxYOffset(value: maxOffset)
+        popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: maxOffset/2)])
+    }
+    
+    fileprivate func showPopupIfNeeded(){
+        let currentYOffset = webView.scrollView.contentOffset.y
+        
+        if popupManager.shouldShowPopup(currentYOffset: currentYOffset){
+            webView.scrollView.setContentOffset(CGPoint(x: webView.scrollView.contentOffset.x, y: currentYOffset), animated: true)
+            
+            let popup = ComprehensionPopup(frame: view.frame)
+            
+            popup.setupClosure(onAccept: { (answer) in
+                print("answer for now: \(answer)")
+            }, onSkip: {
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: popup.animationDuration, animations: {
+                        popup.alpha = 0
+                    }, completion: { (_) in
+                        //self.popup.removeFromSuperview() does not work :(
+                        for subview in self.view.subviews{
+                            if subview is ComprehensionPopup{
+                                subview.removeFromSuperview()
+                            }
+                        }
+                    })
+                }
+            })
+            
+            view.addSubview(popup)
+            
+            popup.alpha = 0
+            UIView.animate(withDuration: popup.animationDuration) {
+                popup.alpha = 1
+            }
+        }
+    }
+}
+
+
+// MARK: Social Media
+extension BrowseViewController{
+    fileprivate func showSocialMediaViewIfNeeded(){
+        let currentYOffset = Int(webView.scrollView.contentOffset.y)
+        
+        if maxBrowserOffset == nil{
+            return
+        }
+        
+        if currentYOffset >= maxBrowserOffset*90/100 && maxBrowserOffset > 0{
+            if socialMediaView.isHidden{
+                UIView.animate(withDuration: 1) {
+                    self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
+                    self.socialMediaView.isHidden = false
+                }
+            }
+        }
+        else{
+            if !socialMediaView.isHidden{
+                UIView.animate(withDuration: 1) {
+                    self.webView.frame = self.view.frame
+                    self.socialMediaView.isHidden = true
+                }
+            }
         }
     }
 }
