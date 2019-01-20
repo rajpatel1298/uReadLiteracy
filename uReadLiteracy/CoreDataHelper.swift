@@ -27,8 +27,4 @@ class CoreDataHelper{
         let managedContext = appDelegate.persistentContainer.viewContext
         return managedContext
     }
-    
-    
-    
-    
 }

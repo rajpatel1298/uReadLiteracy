@@ -9,8 +9,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="DIN-Medium.ttf">
+            <string>DIN-Medium</string>
+        </array>
         <array key="FSNokioBold.otf">
             <string>FSNokioBold</string>
+        </array>
+        <array key="NokioSans-Bold.ttf">
+            <string>NokioSans-Bold</string>
+        </array>
+        <array key="NokioSans-Medium.ttf">
+            <string>NokioSans-Medium</string>
         </array>
     </customFonts>
     <scenes>
@@ -146,7 +155,7 @@
                                 <rect key="frame" x="67" y="356" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="Rg9-Rh-dKT" kind="embed" id="2BR-9R-Uu0"/>
+                                    <segue destination="Rg9-Rh-dKT" kind="embed" id="Xtn-Fw-SRO"/>
                                 </connections>
                             </containerView>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUa-9g-zLY">
@@ -1234,6 +1243,10 @@
         <scene sceneID="knp-DX-ujf">
             <objects>
                 <viewController id="lza-cG-iOU" customClass="TutorialBarViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6DO-od-d6D"/>
+                        <viewControllerLayoutGuide type="bottom" id="5oM-qe-WZV"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RqM-OD-n2u">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1268,6 +1281,10 @@
         <scene sceneID="qUJ-ug-BwT">
             <objects>
                 <viewController id="Rg9-Rh-dKT" customClass="BrowserSocialMediaViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nm6-3a-NHs"/>
+                        <viewControllerLayoutGuide type="bottom" id="gW8-3v-rQc"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DTn-DV-iAH">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1282,17 +1299,21 @@
                                             <constraint firstAttribute="width" secondItem="E3g-4R-HJk" secondAttribute="height" id="Ugo-T9-s1a"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comments" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-IT-Dzu">
-                                        <rect key="frame" x="80" y="0.0" width="109" height="60"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-IT-Dzu">
+                                        <rect key="frame" x="80" y="0.0" width="103" height="60"/>
                                         <color key="backgroundColor" red="0.94656833630000003" green="0.94656833630000003" blue="0.94656833630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="NokioSans-Medium" family="NokioSans-Medium" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Rg9-Rh-dKT" id="ye5-LC-BgN"/>
+                                        </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgZ-Du-0VY">
-                                        <rect key="frame" x="199" y="0.0" width="31" height="60"/>
+                                        <rect key="frame" x="193" y="0.0" width="37" height="60"/>
+                                        <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="17"/>
                                         <state key="normal" title="Post"/>
                                         <connections>
-                                            <action selector="postBtnPressed:" destination="Rg9-Rh-dKT" eventType="touchUpInside" id="ICZ-NI-5Vm"/>
+                                            <action selector="postBtnPressed:" destination="Rg9-Rh-dKT" eventType="touchUpInside" id="LiP-os-Qbv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1314,39 +1335,52 @@
                                 <rect key="frame" x="16" y="90" width="208" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SocialMediaUserCell" rowHeight="60" id="8fs-h2-ECk" customClass="SocialMediaUserCell" customModule="uReadLiteracy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="208" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SocialMediaUserCell" rowHeight="100" id="8fs-h2-ECk" customClass="SocialMediaUserCell" customModule="uReadLiteracy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="208" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8fs-h2-ECk" id="mXh-GA-ziu">
-                                            <rect key="frame" x="0.0" y="0.0" width="208" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="208" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bW0-RW-P0i">
-                                                    <rect key="frame" x="10" y="0.0" width="59.5" height="59.5"/>
+                                                    <rect key="frame" x="0.0" y="5" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bW0-RW-P0i" secondAttribute="height" multiplier="1:1" id="ZvH-UN-bRm"/>
+                                                        <constraint firstAttribute="height" constant="60" id="pcp-b7-62N"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-LD-o7v">
-                                                    <rect key="frame" x="89.5" y="5" width="103.5" height="49.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-LD-o7v">
+                                                    <rect key="frame" x="80" y="5" width="248" height="64"/>
                                                     <color key="backgroundColor" red="0.94656833630000003" green="0.94656833630000003" blue="0.94656833630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="NokioSans-Medium" family="NokioSans-Medium" pointSize="14"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frD-md-0d9">
+                                                    <rect key="frame" x="80" y="74" width="248" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="gL7-dl-Wrd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="DIN-Medium" family="DIN" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bW0-RW-P0i" firstAttribute="leading" secondItem="mXh-GA-ziu" secondAttribute="leading" constant="10" id="8Vb-dg-PDU"/>
+                                                <constraint firstItem="bW0-RW-P0i" firstAttribute="leading" secondItem="mXh-GA-ziu" secondAttribute="leading" id="8Vb-dg-PDU"/>
                                                 <constraint firstItem="R2f-LD-o7v" firstAttribute="top" secondItem="mXh-GA-ziu" secondAttribute="top" constant="5" id="F1R-Mf-g3U"/>
                                                 <constraint firstItem="R2f-LD-o7v" firstAttribute="leading" secondItem="bW0-RW-P0i" secondAttribute="trailing" constant="20" id="O44-V7-xdL"/>
-                                                <constraint firstAttribute="bottom" secondItem="bW0-RW-P0i" secondAttribute="bottom" id="P9M-df-gcd"/>
+                                                <constraint firstItem="frD-md-0d9" firstAttribute="leading" secondItem="bW0-RW-P0i" secondAttribute="trailing" constant="20" id="Q0m-3P-X5g"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="R2f-LD-o7v" secondAttribute="trailing" id="XAQ-YF-q7g"/>
-                                                <constraint firstAttribute="bottom" secondItem="R2f-LD-o7v" secondAttribute="bottom" constant="5" id="eKc-zt-w8m"/>
-                                                <constraint firstItem="bW0-RW-P0i" firstAttribute="top" secondItem="mXh-GA-ziu" secondAttribute="top" id="tIN-MZ-UJ0"/>
+                                                <constraint firstItem="frD-md-0d9" firstAttribute="bottom" secondItem="mXh-GA-ziu" secondAttribute="bottomMargin" constant="5" id="biU-Yh-AqW"/>
+                                                <constraint firstItem="frD-md-0d9" firstAttribute="top" secondItem="R2f-LD-o7v" secondAttribute="bottom" constant="5" id="d7l-7f-Z5i"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="frD-md-0d9" secondAttribute="trailing" id="gsz-da-iYa"/>
+                                                <constraint firstItem="bW0-RW-P0i" firstAttribute="top" secondItem="mXh-GA-ziu" secondAttribute="top" constant="5" id="mqq-Uf-afn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentLabel" destination="R2f-LD-o7v" id="mba-Hw-9Fz"/>
+                                            <outlet property="dateLabel" destination="frD-md-0d9" id="U2S-8i-mBH"/>
                                             <outlet property="imageview" destination="bW0-RW-P0i" id="cFz-Mm-XFq"/>
                                         </connections>
                                     </tableViewCell>

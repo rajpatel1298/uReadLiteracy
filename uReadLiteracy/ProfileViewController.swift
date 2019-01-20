@@ -35,10 +35,6 @@ class ProfileViewController: UIViewController {
     var goal3ProgressCircle:GoalProgressCircle!
     
     var currentGoals = [GoalModel]()
-    
-    
-    
-    
     var uiController:ProfileUIController!
 
     override func viewDidLoad() {

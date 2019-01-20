@@ -14,6 +14,8 @@ class SocialMediaUserCell: UITableViewCell {
     
     @IBOutlet weak var commentLabel: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

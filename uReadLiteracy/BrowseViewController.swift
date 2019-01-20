@@ -39,11 +39,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         setupHelpFunctionInMenuBar()
         
         webView.scrollView.delegate = self
-        
-        SocialMediaComment.get(articleName: "asd", uid: "asd") { (_) in
-            print()
-        }
-        
+    
         browserSocialMediaVC = (childViewControllers.first as! BrowserSocialMediaViewController)
     }
     
@@ -220,17 +216,26 @@ extension BrowseViewController{
         
         if currentYOffset >= maxBrowserOffset*90/100 && maxBrowserOffset > 0{
             if socialMediaView.isHidden{
+                self.socialMediaView.isHidden = false
+                self.socialMediaView.alpha = 0
+                
                 UIView.animate(withDuration: 1) {
                     self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
-                    self.socialMediaView.isHidden = false
+                    self.socialMediaView.alpha = 1
                 }
             }
         }
         else{
             if !socialMediaView.isHidden{
-                UIView.animate(withDuration: 1) {
+                self.socialMediaView.alpha = 1
+                
+                UIView.animate(withDuration: 1, animations: {
                     self.webView.frame = self.view.frame
-                    self.socialMediaView.isHidden = true
+                    self.socialMediaView.alpha = 0
+                }) { (completed) in
+                    if completed{
+                        self.socialMediaView.isHidden = true
+                    }
                 }
             }
         }

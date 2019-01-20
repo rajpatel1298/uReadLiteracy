@@ -8,28 +8,60 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
 class SocialMediaComment{
     private let articleName:String
-    private let uid:String
+    private let uid:String!
     private let username:String
     let comment:String
-    private let date:Date
+    let date:Date?
+    var userImage:UIImage?
     
-    private let ref = Database.database().reference()
-    private static let ref = Database.database().reference()
+    private let dbRef = Database.database().reference()
+    private let storageRef = Storage.storage().reference()
     
     init(articleName:String,uid:String,username:String,comment:String){
         self.articleName = articleName
         self.uid = uid
         self.username = username
         self.comment = comment
-        
         self.date = Date()
+        
+        getImage { (image) in
+            self.userImage = image
+        }
+    }
+    
+    init(articleName:String,uid:String,username:String,comment:String, date:Date){
+        self.articleName = articleName
+        self.uid = uid
+        self.username = username
+        self.comment = comment
+        self.date = date
+        
+        getImage { (image) in
+            self.userImage = image
+        }
+    }
+    
+    func getImage(completionHandler:@escaping (_ image:UIImage)->Void){
+        let imageRef = storageRef.child("profile/\(uid!).jpg")
+        
+        // Download in memory with a maximum allowed size of 10MB (10 * 1024 * 1024 bytes)
+        imageRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                let image = UIImage(data: data!)
+                completionHandler(image!)
+            }
+        }
+        
     }
     
     func uploadToFirebase(){
-        ref.child(getFirebasePath()).setValue(getObjectAsDictionary())
+        dbRef.child(getFirebasePath()).setValue(getObjectAsDictionary())
     }
     
     private func getObjectAsDictionary()->[String:String]{
@@ -37,24 +69,7 @@ class SocialMediaComment{
     }
     
     private func getFirebasePath()->String{
-        let df = DateFormatter()
-        df.dateFormat = "yyyyMMddhhmmss"
-        let now = df.string(from: Date())
-        
-        return "\(articleName)/\(uid)/\(now)"
-    }
-    
-    static func get(articleName:String,uid:String,completionHandler:@escaping ([SocialMediaComment])->Void){
-        
-        
-        let path = "\(articleName)/\(uid)"
-        
-        ref.child(path).queryOrderedByKey().observeSingleEvent(of: .value,
-            with: { snapshot in
-                
-                for snap in snapshot.children{
-                    print(snap)
-                }
-        })
+        let now = Date().toStringWithoutSpace()
+        return "\(articleName)/\(uid!)/\(now)"
     }
 }

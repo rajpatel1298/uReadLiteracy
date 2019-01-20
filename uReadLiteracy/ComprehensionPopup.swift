@@ -16,7 +16,7 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
     private var onSkip:(()->Void)?
     
     private var answer = ""
-    let animationDuration = TimeInterval(1)
+    let animationDuration = TimeInterval(0.5)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

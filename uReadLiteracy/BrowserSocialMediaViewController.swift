@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
@@ -16,10 +17,39 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var tableview: UITableView!
     
-    var currentArticle:ArticleModel?
+    
+    
+    var currentArticle:ArticleModel? {
+        didSet{
+            observeComments()
+        }
+    }
+    
+    private var commentList = [SocialMediaComment]()
+    
+    private var commentRef:DatabaseQuery!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableview.separatorStyle = .none
+        userCommentTV.delegate = self
+        
+        userCommentTV.text = "Type Your Commet"
+        userCommentTV.textColor = UIColor.lightGray
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Type Your Comment"
+            textView.textColor = UIColor.lightGray
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -43,21 +73,127 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         userIV.image =  UserModel.sharedInstance.getImage()
+        
+    }
+    
+    private func observeComments(){
+        if currentArticle == nil{
+            fatalError()
+        }
+        
+        let articleName = (currentArticle?.getName())!
+        let uid = UserModel.sharedInstance.getUid()
+        
+        commentRef = Database.database().reference().child(articleName).queryOrderedByKey()
+        
+        commentRef.observe(.value, with: { snapshot in
+            self.commentList.removeAll()
+    
+            let snapshotDic = snapshot.value as? [String:Any]
+            
+            if snapshotDic == nil{
+                return
+            }
+            
+            for (key,value) in snapshotDic! {
+                let commentUid = key
+                
+                let dict = value as! [String:[String:String]]
+                
+                for (dateAsString,commentDetail) in dict{
+                    let commentString = commentDetail["comment"]
+                    let username = commentDetail["username"]
+                    
+                    let comment = SocialMediaComment(articleName: (self.currentArticle?.getName())!, uid: commentUid, username: username!, comment: commentString!, date: Date.get(string: dateAsString))
+                    
+                    self.commentList.append(comment)
+                }
+            }
+            
+            self.commentList.sort(by: { (c1, c2) -> Bool in
+                return c1.date! > c2.date!
+            })
+            
+            DispatchQueue.main.async {
+                self.tableview.reloadData()
+            }
+            
+        })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        commentRef.removeAllObservers()
     }
     
     @IBAction func postBtnPressed(_ sender: Any) {
         if (currentArticle != nil){
-            //let comment = SocialMediaComment(articleName: (currentArticle?.getName())!, uid: UserModel.sharedInstance., username: <#T##String#>, comment: <#T##String#>)
+            let comment = SocialMediaComment(articleName: (currentArticle?.getName())!, uid: UserModel.sharedInstance.getUid(), username: UserModel.sharedInstance.getNickname(), comment: userCommentTV.text)
+            comment.uploadToFirebase()
         }
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return commentList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableview.dequeueReusableCell(withIdentifier: "SocialMediaUserCell") as! SocialMediaUserCell
+        
+        let comment = commentList[indexPath.row]
+        if comment.userImage == nil{
+            comment.getImage { (image) in
+                comment.userImage = image
+                DispatchQueue.main.async {
+                    cell.imageview.image = image
+                }
+                
+            }
+        }
+        else{
+            cell.imageview.image = comment.userImage
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let comment = commentList[indexPath.row]
+        
+        let cell = cell as! SocialMediaUserCell
+        cell.commentLabel.text = comment.comment
+        
+        cell.commentLabel.layer.cornerRadius = 10
+        cell.commentLabel.layer.masksToBounds = false
+        cell.commentLabel.clipsToBounds = true
+        
+        cell.imageview.layer.cornerRadius = 10
+        cell.imageview.layer.masksToBounds = false
+        cell.imageview.clipsToBounds = true
+        
+        cell.dateLabel.text = comment.date?.toString()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let comment = commentList[indexPath.row]
+        
+        let cell = tableview.dequeueReusableCell(withIdentifier: "SocialMediaUserCell") as! SocialMediaUserCell
+        cell.commentLabel.text = comment.comment
+        cell.commentLabel.numberOfLines = 0
+        cell.commentLabel.font = UIFont(name: "NokioSans-Medium", size: 14)
+        
+        let fixedWidth = cell.commentLabel.frame.size.width
+        
+        let newSize: CGSize = cell.commentLabel.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+
+        if newSize.height < 70 {
+            return 55 + newSize.height
+        }
+        
+        return newSize.height + 40
     }
 
     /*

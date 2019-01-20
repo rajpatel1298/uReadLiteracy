@@ -15,9 +15,9 @@ import FirebaseStorage
 class UserModel{
     private var image:UIImage?
     private var nickname:String?
-    var uid:String!
-    var email:String!
-    var password:String!
+    private var uid:String!
+    private var email:String!
+    private var password:String!
     
     static var sharedInstance = UserModel()
     private let storage = Storage.storage()
@@ -32,7 +32,8 @@ class UserModel{
             if onlyUser.image != nil{
                 image = UIImage(data: onlyUser.image as! Data)
             }
-            
+            uid = onlyUser.uid
+            email = onlyUser.email!
             nickname = onlyUser.nickname
         }
     }
@@ -116,7 +117,9 @@ class UserModel{
         }
     }
     
-    
+    func getUid()->String{
+        return uid
+    }
     
     func getImage()->UIImage?{
         return image
