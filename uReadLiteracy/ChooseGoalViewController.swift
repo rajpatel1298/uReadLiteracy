@@ -47,6 +47,9 @@ class ChooseGoalViewController: UITableViewController {
                 
                 dailyGoals.append(readFor30Minutes)
             }
+            
+            let read1Articles = ReadXArticlesGoalModel(name: "Test: Read 1 Articles", date: Date(), goalType: goal, numberOfArticles: 1)
+            dailyGoals.append(read1Articles)
         }
         
         if goal == GoalType.Ongoing{
@@ -119,7 +122,7 @@ class ChooseGoalViewController: UITableViewController {
             message.append("\(dailyGoals[indexPath.row].getDescription()) has been added to your goal list!")
         case .Ongoing:
             alert.setTitle(title: "Ongoing Goal Confirm")
-            message.append("\(ongoingGoals[indexPath.row]) has been added to your goal list!")
+            message.append("\(ongoingGoals[indexPath.row].getDescription()) has been added to your goal list!")
         }
         
         alert.setMessage(message: message)

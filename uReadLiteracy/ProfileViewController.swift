@@ -49,6 +49,17 @@ class ProfileViewController: UIViewController {
         uiController.setupDailyGoalsProgressCircle()
         uiController.setGoalLabelTexts()
         uiController.hideGoalsThatDoesNotExist()
+        uiController.resetDailyGoalsProgressCircleCenter()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        uiController.resetDailyGoalsProgressCircleCenter()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        uiController.animateGoalProgressCircles()
     }
     
     private func setupCurrentGoals(){
@@ -77,15 +88,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        uiController.resetDailyGoalsProgressCircleCenter()
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        uiController.animateGoalProgressCircles()
-    }
     
     private func loadUserInfo(){
         let user = UserModel.sharedInstance

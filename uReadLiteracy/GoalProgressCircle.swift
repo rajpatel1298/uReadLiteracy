@@ -37,13 +37,13 @@ class GoalProgressCircle{
         view.layer.addSublayer(loadingCircle)
         
         
-        percentLabel = CountingLabel(percent: percent, loadingDuration: loadingDuration, frame: CGRect(x: center.x - width/2 , y: center.y - width/2 + 10, width: width, height: width))
+        percentLabel = CountingLabel(percent: percent, loadingDuration: loadingDuration)
          
         percentLabel.text = "0%"
         percentLabel.textAlignment = .center
         percentLabel.backgroundColor = UIColor.clear
         percentLabel.baselineAdjustment = .alignCenters
-        percentLabel.font = UIFont(name: "DIN-Bold", size: 30)
+        percentLabel.font = UIFont(name: "NokioSans-Bold", size: 30)
 
         view.addSubview(percentLabel)
         view.bringSubview(toFront: percentLabel)
@@ -68,7 +68,7 @@ class GoalProgressCircle{
         view.layer.addSublayer(pulsingLayer)
         view.layer.addSublayer(loadingCircle)
         
-        percentLabel.frame = CGRect(x: center.x - width/2 , y: center.y - width/2 + 10, width: width, height: width)
+        percentLabel.frame = CGRect(x: center.x - width/2 , y: center.y - width/2 + 2, width: width, height: width)
         view.bringSubview(toFront: percentLabel)
     }
     

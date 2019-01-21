@@ -27,7 +27,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     
     private var commentList = [SocialMediaComment]()
     
-    private var commentRef:DatabaseQuery!
+    private var commentRef:DatabaseQuery?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
         
         commentRef = Database.database().reference().child(articleName).queryOrderedByKey()
         
-        commentRef.observe(.value, with: { snapshot in
+        commentRef!.observe(.value, with: { snapshot in
             self.commentList.removeAll()
     
             let snapshotDic = snapshot.value as? [String:Any]
@@ -123,7 +123,9 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        commentRef.removeAllObservers()
+        if commentRef != nil{
+            commentRef!.removeAllObservers()
+        }
     }
     
     @IBAction func postBtnPressed(_ sender: Any) {
