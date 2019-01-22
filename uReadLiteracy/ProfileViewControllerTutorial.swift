@@ -104,8 +104,8 @@ class ProfileViewControllerTutorial:Tutorial{
     
     // Change based on what you want to highlight
     private func getFirstStepLayer(view:UIView){
-        let currGoalsFrame = vc.currentGoalsLabel.frame
         
+        let currGoalsFrame = vc.currentGoalsLabel.frame
         
         let path = UIBezierPath(rect: goalVCFrame)
         
