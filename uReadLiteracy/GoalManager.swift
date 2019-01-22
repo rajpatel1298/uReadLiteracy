@@ -90,4 +90,8 @@ class GoalManager{
         
         lastTimeUpdated = Date()
     }
+    
+    func showAchivementIfAvailable(){
+        
+    }
 }

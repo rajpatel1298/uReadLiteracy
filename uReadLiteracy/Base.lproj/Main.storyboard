@@ -1159,6 +1159,7 @@
                     <connections>
                         <outlet property="addNewGoalBtn" destination="65j-r7-y1c" id="Mmt-X5-4FX"/>
                         <outlet property="backgroundProfileIV" destination="w1u-sO-pPQ" id="sHV-ki-63i"/>
+                        <outlet property="currentGoalView" destination="Yiw-Xe-gP2" id="0iG-WK-mJQ"/>
                         <outlet property="goal1" destination="z3r-GF-lEa" id="ynz-Am-YEt"/>
                         <outlet property="goal1View" destination="C0K-0e-6n7" id="FLh-IS-epw"/>
                         <outlet property="goal2" destination="O0f-Wb-VCg" id="G0f-nt-tB4"/>
