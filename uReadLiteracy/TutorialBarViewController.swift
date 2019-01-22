@@ -32,7 +32,7 @@ class TutorialBarViewController: UIViewController {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(onTapped(_:)))
             tutorial.addGesture(gesture: gesture)
             
-            tutorial.show(view: vc.view) {
+            tutorial.show() {
                 self.tutorialBtn.isEnabled = true
             }
             tutorialBtn.isEnabled = false
@@ -44,7 +44,7 @@ class TutorialBarViewController: UIViewController {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(onTapped(_:)))
             tutorial.addGesture(gesture: gesture)
             
-            tutorial.show(view: vc.view) {
+            tutorial.show() {
                 self.tutorialBtn.isEnabled = true
             }
             tutorialBtn.isEnabled = false

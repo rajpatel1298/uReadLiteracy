@@ -1146,7 +1146,9 @@
                     <navigationItem key="navigationItem" id="glx-jh-zCy"/>
                     <connections>
                         <outlet property="addNewGoalBtn" destination="65j-r7-y1c" id="Mmt-X5-4FX"/>
+                        <outlet property="addNewGoalBtnUIView" destination="yp7-94-whH" id="7ab-AA-3Sb"/>
                         <outlet property="backgroundProfileIV" destination="w1u-sO-pPQ" id="sHV-ki-63i"/>
+                        <outlet property="currentGoalView" destination="Yiw-Xe-gP2" id="mxJ-x3-l6o"/>
                         <outlet property="currentGoalsLabel" destination="zdt-55-9vH" id="aDh-uj-suF"/>
                         <outlet property="goal1" destination="z3r-GF-lEa" id="ynz-Am-YEt"/>
                         <outlet property="goal1View" destination="C0K-0e-6n7" id="FLh-IS-epw"/>
@@ -1268,12 +1270,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="936" height="936"/>
-        <image name="background1" width="146.8800048828125" height="97.919998168945312"/>
+        <image name="background" width="1300" height="1300"/>
+        <image name="background1" width="612" height="408"/>
         <image name="background2" width="852" height="480"/>
-        <image name="book" width="50" height="50"/>
+        <image name="book" width="25" height="25"/>
         <image name="checkmark" width="512" height="512"/>
-        <image name="goal" width="48" height="48"/>
+        <image name="goal" width="25" height="25"/>
         <image name="imageView:w1u-sO-pPQ:image" width="300" height="300">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
@@ -7407,14 +7409,14 @@ eAAFmoUABZqIAAWalQAFmpoABZqiAAWapQAFmqoABZqyAAWatQAFmscABZrKAAWazwAAAAAAAAQBAAAA
 AAAAAFkAAAAAAAAAAAAAAAAABZrRA
 </mutableData>
         </image>
-        <image name="internet" width="12" height="12"/>
-        <image name="library2" width="407.27999877929688" height="271.44000244140625"/>
-        <image name="microphone" width="50" height="50"/>
-        <image name="nogoal" width="491.51998901367188" height="491.51998901367188"/>
-        <image name="profile" width="48" height="48"/>
+        <image name="internet" width="25" height="25"/>
+        <image name="library2" width="1697" height="1131"/>
+        <image name="microphone" width="25" height="25"/>
+        <image name="nogoal" width="512" height="512"/>
+        <image name="profile" width="25" height="25"/>
         <image name="question" width="512" height="512"/>
-        <image name="teacher" width="50" height="50"/>
-        <image name="uReadLoginBook" width="2000" height="1560"/>
+        <image name="teacher" width="25" height="25"/>
+        <image name="uReadLoginBook" width="1000" height="780"/>
         <image name="wave.png" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>

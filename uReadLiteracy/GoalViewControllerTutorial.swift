@@ -44,7 +44,7 @@ class GoalViewControllerTutorial:Tutorial{
     }
     
     // Change based on the number of steps
-    override func show(view:UIView,onComplete:@escaping ()->Void){
+    override func show(onComplete:@escaping ()->Void){
         if !gestureAdded{
             fatalError("need to use gestureAdded function")
         }
@@ -57,8 +57,8 @@ class GoalViewControllerTutorial:Tutorial{
         animationView.frame = CGRect(x: vc.view.frame.width/2 - handSize/2, y: vc.view.frame.height/2 - handSize/2, width: handSize, height: handSize)
         
         // Change This part
-        getFirstStepLayer(view: view)
-        getSecondStepLayer(view: view)
+        getFirstStepLayer()
+        getSecondStepLayer()
         //
         
         vc.view.addSubview(tutorialView)
@@ -103,7 +103,7 @@ class GoalViewControllerTutorial:Tutorial{
     }
     
     // Change based on what you want to highlight
-    private func getFirstStepLayer(view:UIView){
+    private func getFirstStepLayer(){
         let  goalOptionStackViewFrame = vc.goalOptionStackView.frame
         
         let path = UIBezierPath(rect: goalVCFrame)
@@ -126,7 +126,7 @@ class GoalViewControllerTutorial:Tutorial{
         tutorialLayers.append(fillLayer)
     }
     
-    private func getSecondStepLayer(view:UIView){
+    private func getSecondStepLayer(){
         let  addNewGoalBtnFrame = vc.addNewGoalBtn.frame
         
         let path = UIBezierPath(rect: goalVCFrame)

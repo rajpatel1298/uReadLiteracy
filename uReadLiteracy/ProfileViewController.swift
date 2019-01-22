@@ -25,9 +25,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var goal2View: UIView!
     @IBOutlet weak var goal3View: UIView!
     
+    @IBOutlet weak var currentGoalView: UIView!
     
     
     @IBOutlet weak var addNewGoalBtn: UIButton!
+    
+    @IBOutlet weak var addNewGoalBtnUIView: UIView!
+    
     
     
     //var userProgressCircle:GoalProgressCircle!
