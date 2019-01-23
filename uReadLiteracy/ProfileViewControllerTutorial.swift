@@ -25,7 +25,7 @@ class ProfileViewControllerTutorial:Tutorial{
     
     
     // Change based on the audio that you will use
-    private let audio = TutorialAudio(audioFiles: ["goalTutorial1","goalTutorial2"])
+    private let audio = TutorialAudio(audioFiles: ["profileTutorial1","goalTutorial2"])
     
     // No need to change
     init(vc:ProfileViewController){
