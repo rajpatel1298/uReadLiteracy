@@ -77,6 +77,12 @@
                 <string>fb350377288894581</string>
             </array>
         </dict>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>twitterkit-g1O86rW6kvegO8DdCp0cdCOxr</string>
+            </array>
+        </dict>
     </array>
     <key>FacebookAppID</key>
     <string>350377288894581</string>
@@ -91,5 +97,6 @@
         <string>fbauth2</string>
         <string>fbshareextension</string>
     </array>
+    
 </dict>
 </plist>

@@ -8,27 +8,22 @@
 
 import UIKit
 import Lottie
-import FacebookCore
-import FacebookShare
 import FBSDKShareKit
 
 class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
-    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable : Any]!) {
-        print()
-    }
     
-    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
-        print()
-    }
-    
-    func sharerDidCancel(_ sharer: FBSDKSharing!) {
-        print()
-    }
+    @IBOutlet weak var twitterView: LOTAnimationView!
+    @IBOutlet weak var facebookView: LOTAnimationView!
+    @IBOutlet weak var nextView: LOTAnimationView!
     
     
     @IBOutlet weak var starView: LOTAnimationView!
-    @IBOutlet weak var optionStackView: UIStackView!
-    @IBOutlet weak var share: UIView!
+    
+    @IBOutlet weak var optionView: UIView!
+    
+    @IBOutlet weak var contentView: UIView!
+    
+    
     
     var goal:GoalModel!
     
@@ -38,21 +33,31 @@ class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
         starView.loopAnimation = true
         starView.backgroundColor = UIColor.clear
         
-        //addFacebookShareBtn()
+        let facebookTap = UITapGestureRecognizer(target: self, action: #selector(facebookShareBtnPressed(_:)))
+        facebookView.addGestureRecognizer(facebookTap)
+        
+        let twitterTap = UITapGestureRecognizer(target: self, action: #selector(twitterShareBtnPressed(_:)))
+        twitterView.addGestureRecognizer(twitterTap)
+        
+        let nextTap = UITapGestureRecognizer(target: self, action: #selector(nextShareBtnPressed(_:)))
+        nextView.addGestureRecognizer(nextTap)
+        
+        facebookView.contentMode = .scaleAspectFit
+        twitterView.contentMode = .scaleAspectFit
+        nextView.contentMode = .scaleAspectFit
+        
+        contentView.layer.cornerRadius = 10.0
     }
     
-    private func addFacebookShareBtn(){
-        let shareButton = ShareButton<LinkShareContent>()
-        
- 
-        //SocialMediaQuote.get(goal: goal)
-        
-        //shareButton.content = content
-        //shareButton.frame = starView.frame
-        optionStackView.addArrangedSubview(shareButton)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        facebookView.play()
+        twitterView.play()
+        nextView.play()
     }
+
     
-    @IBAction func facebookShareBtnPressed(_ sender: Any) {
+    @objc func facebookShareBtnPressed(_ sender: UITapGestureRecognizer) {
         let content = FBSDKShareLinkContent()
         content.contentURL = URL(string: "https://www.google.com/")
         content.hashtag = FBSDKHashtag(string: "#Uread #FeelsGood")
@@ -70,8 +75,42 @@ class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
         dialog.show()
     }
     
+    @objc func twitterShareBtnPressed(_ sender: UITapGestureRecognizer) {
+        let tweetText = SocialMediaQuote.get(goal: goal)
+        let tweetUrl = "https://www.google.com/"
+        
+        let shareString = "https://twitter.com/intent/tweet?text=\(tweetText)&url=\(tweetUrl)"
+        
+        let escapedShareString = shareString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        
+        let url = URL(string: escapedShareString)
+        
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+    }
     
-    @IBAction func continueBtnPressed(_ sender: Any) {
+    @objc func nextShareBtnPressed(_ sender: UITapGestureRecognizer) {
+        self.removeFromParentViewController()
+        view.alpha = 1
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 0
+        }) { (completed) in
+            if completed{
+                self.view.removeFromSuperview()
+            }
+        }
+    }
+    
+    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable : Any]!) {
+        print()
+    }
+    
+    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
+        print()
+    }
+    
+    func sharerDidCancel(_ sharer: FBSDKSharing!) {
+        print()
     }
     
     

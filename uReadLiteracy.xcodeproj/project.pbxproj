@@ -87,6 +87,9 @@
 		1CAC790821F8ACA4007F8704 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC790721F8ACA4007F8704 /* Goal.storyboard */; };
 		1CAC790A21F8E13F007F8704 /* GoalCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC790921F8E13F007F8704 /* GoalCompleteViewController.swift */; };
 		1CAC790D21F95FA9007F8704 /* SocialMediaQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC790C21F95FA9007F8704 /* SocialMediaQuote.swift */; };
+		1CAC791121FA4FC3007F8704 /* facebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC790E21FA4F74007F8704 /* facebook.json */; };
+		1CAC791221FA4FC3007F8704 /* message_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC790F21FA4FC2007F8704 /* message_arrow.json */; };
+		1CAC791321FA4FC3007F8704 /* twitter_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC791021FA4FC3007F8704 /* twitter_icon.json */; };
 		1CE4EB2F21F269BF00D097C5 /* ActivityIndicatorWithDarkBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4EB2E21F269BF00D097C5 /* ActivityIndicatorWithDarkBackground.swift */; };
 		1CE4EB3221F30CB700D097C5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4EB3121F30CB700D097C5 /* DateExtension.swift */; };
 		1CE4EB3521F68BC800D097C5 /* GoalCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4EB3421F68BC800D097C5 /* GoalCompleteView.swift */; };
@@ -198,6 +201,9 @@
 		1CAC790721F8ACA4007F8704 /* Goal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
 		1CAC790921F8E13F007F8704 /* GoalCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCompleteViewController.swift; sourceTree = "<group>"; };
 		1CAC790C21F95FA9007F8704 /* SocialMediaQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaQuote.swift; sourceTree = "<group>"; };
+		1CAC790E21FA4F74007F8704 /* facebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facebook.json; sourceTree = "<group>"; };
+		1CAC790F21FA4FC2007F8704 /* message_arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = message_arrow.json; sourceTree = "<group>"; };
+		1CAC791021FA4FC3007F8704 /* twitter_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twitter_icon.json; sourceTree = "<group>"; };
 		1CE4EB2E21F269BF00D097C5 /* ActivityIndicatorWithDarkBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWithDarkBackground.swift; sourceTree = "<group>"; };
 		1CE4EB3121F30CB700D097C5 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1CE4EB3421F68BC800D097C5 /* GoalCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCompleteView.swift; sourceTree = "<group>"; };
@@ -363,7 +369,6 @@
 				1C769CF221D4352300034EB3 /* BouncingLabel.swift */,
 				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
 				1CE4EB2E21F269BF00D097C5 /* ActivityIndicatorWithDarkBackground.swift */,
-				1CE4EB3421F68BC800D097C5 /* GoalCompleteView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -404,6 +409,9 @@
 			children = (
 				1C643B6321EA9E1D00671432 /* hand_click_gesture.json */,
 				1CAC790021F88A5B007F8704 /* favourite_app_icon.json */,
+				1CAC790E21FA4F74007F8704 /* facebook.json */,
+				1CAC790F21FA4FC2007F8704 /* message_arrow.json */,
+				1CAC791021FA4FC3007F8704 /* twitter_icon.json */,
 			);
 			name = "Lottie Animation";
 			sourceTree = "<group>";
@@ -506,6 +514,15 @@
 			name = "Social Media";
 			sourceTree = "<group>";
 		};
+		1CAC791421FA6936007F8704 /* GoalComplete */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC790921F8E13F007F8704 /* GoalCompleteViewController.swift */,
+				1CE4EB3421F68BC800D097C5 /* GoalCompleteView.swift */,
+			);
+			name = GoalComplete;
+			sourceTree = "<group>";
+		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,8 +534,8 @@
 				1C4C67D7218BF91D00D5383D /* Read Page */,
 				1C9C775A219A90A5002ADA76 /* Learn More */,
 				1C28738721A855D200B790A4 /* Goal */,
+				1CAC791421FA6936007F8704 /* GoalComplete */,
 				CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */,
-				1CAC790921F8E13F007F8704 /* GoalCompleteViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -688,6 +705,7 @@
 				1C643B4721E32FC900671432 /* NokioSansAlt-LightItalic.ttf in Resources */,
 				1C643B4B21E32FC900671432 /* NokioSansAlt-RegularItalic.ttf in Resources */,
 				1C643B4421E32FC900671432 /* NokioSansAlt-ExtraLight.ttf in Resources */,
+				1CAC791221FA4FC3007F8704 /* message_arrow.json in Resources */,
 				1C643B6021EA926900671432 /* goalTutorial1.mp3 in Resources */,
 				1C643B3F21E32FC900671432 /* NokioSans-MediumItalic.ttf in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
@@ -696,6 +714,7 @@
 				CDDD7F051FF1A64C009FA71D /* getHelp.gif in Resources */,
 				1C643B3821E32FC900671432 /* NokioSans-Bold.ttf in Resources */,
 				1C643B4821E32FC900671432 /* NokioSansAlt-Medium.ttf in Resources */,
+				1CAC791121FA4FC3007F8704 /* facebook.json in Resources */,
 				1CAC790121F88A5B007F8704 /* favourite_app_icon.json in Resources */,
 				1C643B3A21E32FC900671432 /* NokioSans-ExtraLight.ttf in Resources */,
 				1C643B4521E32FC900671432 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
@@ -703,6 +722,7 @@
 				1C643B4021E32FC900671432 /* NokioSans-Regular.ttf in Resources */,
 				CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */,
 				1C643B4A21E32FC900671432 /* NokioSansAlt-Regular.ttf in Resources */,
+				1CAC791321FA4FC3007F8704 /* twitter_icon.json in Resources */,
 				CD1DCA681FF4ACD300FCDDB5 /* learnMore.gif in Resources */,
 				1CAC790621F8907B007F8704 /* goal_complete.mp3 in Resources */,
 				1C643B4221E32FC900671432 /* NokioSansAlt-Bold.ttf in Resources */,

@@ -26,13 +26,18 @@ class GoalComplete{
         vc.addChildViewController(controller)
         controller.didMove(toParentViewController: controller)
         
-        vc.view.addSubview(controller.view)
         controller.view.frame = vc.view.frame
-        animate()
-    }
-    
-    func hide(vc:UIViewController){
-        controller.removeFromParentViewController()
+        vc.view.addSubview(self.controller.view)
+        
+        vc.view.alpha = 0
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            vc.view.alpha = 1
+        }) { (completed) in
+            if completed{
+                self.animate()
+            }
+        }
     }
     
     func animate(){

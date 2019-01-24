@@ -47,7 +47,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKE-Le-zas">
                                                 <rect key="frame" x="0.0" y="83" width="312.5" height="83.5"/>
-                                                <fontDescription key="fontDescription" name="NokioSansAlt-Bold" family="NokioSansAlt-Bold" pointSize="40"/>
+                                                <fontDescription key="fontDescription" name="NokioSansAlt-Bold" family="NokioSansAlt-Bold" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -57,37 +57,63 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zeg-wL-40q">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVc-LC-YsD">
                                                 <rect key="frame" x="0.0" y="250" width="312.5" height="83.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iMC-oc-XdE">
-                                                        <rect key="frame" x="10" y="21.5" width="292.5" height="40"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zeg-wL-40q">
+                                                        <rect key="frame" x="20" y="20.5" width="272.5" height="42"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWG-HF-chx">
-                                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="40"/>
-                                                                <state key="normal" image="facebook_share"/>
-                                                                <connections>
-                                                                    <action selector="facebookShareBtnPressed:" destination="ZYw-sS-Unv" eventType="touchUpInside" id="P8J-yx-kdj"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jah-Dx-2QU">
-                                                                <rect key="frame" x="148.5" y="0.0" width="144" height="40"/>
-                                                                <state key="normal" title="COntinue"/>
-                                                                <connections>
-                                                                    <action selector="continueBtnPressed:" destination="ZYw-sS-Unv" eventType="touchUpInside" id="iI6-x2-ztY"/>
-                                                                </connections>
-                                                            </button>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGx-wP-Wx5" customClass="LOTAnimationView">
+                                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="42"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="pGx-wP-Wx5" secondAttribute="height" multiplier="1:1" id="YCO-4u-skv"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="facebook"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsQ-RY-d6I" customClass="LOTAnimationView">
+                                                                <rect key="frame" x="107" y="-8" width="58" height="58"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="zsQ-RY-d6I" secondAttribute="height" multiplier="1:1" id="f3j-6y-CgK"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="twitter_icon"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H83-eM-54g" customClass="LOTAnimationView">
+                                                                <rect key="frame" x="230.5" y="0.0" width="42" height="42"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="H83-eM-54g" secondAttribute="height" id="ARI-Yk-n5s"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="message_arrow"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
                                                         </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="Jwt-ip-Ydl"/>
+                                                            <constraint firstItem="pGx-wP-Wx5" firstAttribute="height" secondItem="Zeg-wL-40q" secondAttribute="height" id="2Lp-Yz-mNv"/>
+                                                            <constraint firstItem="zsQ-RY-d6I" firstAttribute="height" secondItem="Zeg-wL-40q" secondAttribute="height" multiplier="7:5" id="Bea-Ve-odN"/>
+                                                            <constraint firstAttribute="trailing" secondItem="H83-eM-54g" secondAttribute="trailing" id="HWz-Gd-9h5"/>
+                                                            <constraint firstItem="zsQ-RY-d6I" firstAttribute="centerY" secondItem="Zeg-wL-40q" secondAttribute="centerY" id="OFu-q8-IKK"/>
+                                                            <constraint firstItem="H83-eM-54g" firstAttribute="top" secondItem="Zeg-wL-40q" secondAttribute="top" id="QO3-vV-lgU"/>
+                                                            <constraint firstItem="pGx-wP-Wx5" firstAttribute="top" secondItem="Zeg-wL-40q" secondAttribute="top" id="dK2-jX-aqR"/>
+                                                            <constraint firstItem="H83-eM-54g" firstAttribute="height" secondItem="Zeg-wL-40q" secondAttribute="height" id="eUc-O4-n0v"/>
+                                                            <constraint firstItem="pGx-wP-Wx5" firstAttribute="leading" secondItem="Zeg-wL-40q" secondAttribute="leading" id="jeP-u9-DHO"/>
+                                                            <constraint firstItem="zsQ-RY-d6I" firstAttribute="centerX" secondItem="Zeg-wL-40q" secondAttribute="centerX" id="y7B-GU-O48"/>
                                                         </constraints>
-                                                    </stackView>
+                                                    </view>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="iMC-oc-XdE" firstAttribute="leading" secondItem="Zeg-wL-40q" secondAttribute="leading" constant="10" id="bq5-wd-hsR"/>
-                                                    <constraint firstAttribute="trailing" secondItem="iMC-oc-XdE" secondAttribute="trailing" constant="10" id="c6K-9T-Epd"/>
-                                                    <constraint firstItem="iMC-oc-XdE" firstAttribute="centerY" secondItem="Zeg-wL-40q" secondAttribute="centerY" id="lNX-IG-R9B"/>
+                                                    <constraint firstItem="Zeg-wL-40q" firstAttribute="height" secondItem="lVc-LC-YsD" secondAttribute="height" multiplier="1:2" id="LmO-9q-w0n"/>
+                                                    <constraint firstItem="Zeg-wL-40q" firstAttribute="leading" secondItem="lVc-LC-YsD" secondAttribute="leading" constant="20" id="h7V-ql-tSE"/>
+                                                    <constraint firstItem="Zeg-wL-40q" firstAttribute="centerY" secondItem="lVc-LC-YsD" secondAttribute="centerY" id="keZ-3N-eLw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Zeg-wL-40q" secondAttribute="trailing" constant="20" id="vU8-5B-jFn"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -129,8 +155,12 @@
                         <viewLayoutGuide key="safeArea" id="mAe-es-Fdx"/>
                     </view>
                     <connections>
-                        <outlet property="optionStackView" destination="iMC-oc-XdE" id="B4a-w4-Y4j"/>
+                        <outlet property="contentView" destination="y8h-fV-L14" id="oV8-kT-p1L"/>
+                        <outlet property="facebookView" destination="pGx-wP-Wx5" id="y61-5F-BbY"/>
+                        <outlet property="nextView" destination="H83-eM-54g" id="4tu-FK-50O"/>
+                        <outlet property="optionView" destination="Zeg-wL-40q" id="cBi-8A-IkY"/>
                         <outlet property="starView" destination="G91-PO-PM9" id="5k6-uX-tSe"/>
+                        <outlet property="twitterView" destination="zsQ-RY-d6I" id="5xb-CJ-zbN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eip-wc-Msj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -138,7 +168,4 @@
             <point key="canvasLocation" x="-396" y="27"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="facebook_share" width="315" height="150"/>
-    </resources>
 </document>
