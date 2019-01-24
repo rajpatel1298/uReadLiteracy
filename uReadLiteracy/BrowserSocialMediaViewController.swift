@@ -25,7 +25,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
-    private var commentList = [SocialMediaComment]()
+    private var commentList = [ArticleComment]()
     
     private var commentRef:DatabaseQuery?
 
@@ -104,7 +104,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
                     let commentString = commentDetail["comment"]
                     let username = commentDetail["username"]
                     
-                    let comment = SocialMediaComment(articleName: (self.currentArticle?.getName())!, uid: commentUid, username: username!, comment: commentString!, date: Date.get(string: dateAsString))
+                    let comment = ArticleComment(articleName: (self.currentArticle?.getName())!, uid: commentUid, username: username!, comment: commentString!, date: Date.get(string: dateAsString))
                     
                     self.commentList.append(comment)
                 }
@@ -130,7 +130,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     
     @IBAction func postBtnPressed(_ sender: Any) {
         if (currentArticle != nil){
-            let comment = SocialMediaComment(articleName: (currentArticle?.getName())!, uid: UserModel.sharedInstance.getUid(), username: UserModel.sharedInstance.getNickname(), comment: userCommentTV.text)
+            let comment = ArticleComment(articleName: (currentArticle?.getName())!, uid: UserModel.sharedInstance.getUid(), username: UserModel.sharedInstance.getNickname(), comment: userCommentTV.text)
             comment.uploadToFirebase()
         }
     }

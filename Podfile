@@ -15,4 +15,8 @@ target 'uReadLiteracy' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'lottie-ios'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+
 end

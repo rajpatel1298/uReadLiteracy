@@ -16,6 +16,12 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        GoalComplete.shared.show(vc: self, goal: GoalModel(name: "Reading X Article", date: Date()))
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateContinueBtn()

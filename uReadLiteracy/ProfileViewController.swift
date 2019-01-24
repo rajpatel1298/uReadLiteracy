@@ -93,7 +93,7 @@ class ProfileViewController: UIViewController {
     private func loadUserInfo(){
         let user = UserModel.sharedInstance
         if user.getImage() == nil{
-            profileIV.image = #imageLiteral(resourceName: "profile")
+            profileIV.image = #imageLiteral(resourceName: "profile_hd")
             backgroundProfileIV.image = nil
         }
         else{

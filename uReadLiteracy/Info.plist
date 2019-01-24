@@ -51,6 +51,7 @@
 		<string>NokioSansAlt-MediumItalic.ttf</string>
 		<string>NokioSansAlt-Regular.ttf</string>
 		<string>NokioSansAlt-RegularItalic.ttf</string>
+		<string>FSNokioBold.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -66,5 +67,29 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb350377288894581</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>350377288894581</string>
+    <key>FacebookDisplayName</key>
+    <string>Uread</string>
+    
+    
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-share-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
 </dict>
 </plist>

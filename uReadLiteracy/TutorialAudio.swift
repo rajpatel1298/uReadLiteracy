@@ -7,10 +7,8 @@
 //
 
 import Foundation
-import AVFoundation
 
-class TutorialAudio{
-    private var player: AVAudioPlayer?
+class TutorialAudio:AudioPlayer{
     private var audioFiles: [String]!
     private var currentCount = 0
     
@@ -31,26 +29,5 @@ class TutorialAudio{
     
     func reset(){
         currentCount = 0
-    }
-    
-    private func playSound(soundName:String) {
-        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
-            return
-            
-        }
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            player = try AVAudioPlayer(contentsOf: url)
-            
-            guard let player = player else { return }
-            
-            player.play()
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
     }
 }

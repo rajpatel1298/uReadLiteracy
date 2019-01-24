@@ -67,17 +67,11 @@
 		1C643B6421EA9E1D00671432 /* hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B6321EA9E1D00671432 /* hand_click_gesture.json */; };
 		1C643B6C21ED5A8F00671432 /* BrowserSocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B6B21ED5A8F00671432 /* BrowserSocialMediaViewController.swift */; };
 		1C643B7021EEEBFD00671432 /* SocialMediaUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B6F21EEEBFD00671432 /* SocialMediaUserCell.swift */; };
-		1C643B7221EEF98F00671432 /* SocialMediaComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B7121EEF98F00671432 /* SocialMediaComment.swift */; };
+		1C643B7221EEF98F00671432 /* ArticleComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C643B7121EEF98F00671432 /* ArticleComment.swift */; };
 		1C643B7421F19F8F00671432 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C643B7321F19F8F00671432 /* GoogleService-Info.plist */; };
 		1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */; };
 		1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */; };
 		1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE321D336FC00034EB3 /* CountingLabel.swift */; };
-		1C769CEC21D348A300034EB3 /* DIN-BlackAlternate.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CEA21D348A000034EB3 /* DIN-BlackAlternate.ttf */; };
-		1C769CED21D348A700034EB3 /* DIN-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE821D3489F00034EB3 /* DIN-Bold.ttf */; };
-		1C769CEE21D348AA00034EB3 /* DIN-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CEB21D348A000034EB3 /* DIN-Light.ttf */; };
-		1C769CEF21D348AD00034EB3 /* DIN-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE621D3489F00034EB3 /* DIN-Medium.ttf */; };
-		1C769CF021D348AF00034EB3 /* DIN-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE721D3489F00034EB3 /* DIN-Regular.ttf */; };
-		1C769CF121D348B200034EB3 /* DIN-RegularAlternate.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE921D3489F00034EB3 /* DIN-RegularAlternate.ttf */; };
 		1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CF221D4352300034EB3 /* BouncingLabel.swift */; };
 		1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */; };
 		1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */; };
@@ -87,9 +81,15 @@
 		1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8821B2D9E700FF296E /* LoadingCircle.swift */; };
 		1C9C77562194BFBF002ADA76 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C77552194BFBF002ADA76 /* CoreDataHelper.swift */; };
 		1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */; };
+		1CAC790121F88A5B007F8704 /* favourite_app_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC790021F88A5B007F8704 /* favourite_app_icon.json */; };
+		1CAC790421F88F18007F8704 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC790321F88F18007F8704 /* AudioPlayer.swift */; };
+		1CAC790621F8907B007F8704 /* goal_complete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC790521F8907B007F8704 /* goal_complete.mp3 */; };
+		1CAC790821F8ACA4007F8704 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC790721F8ACA4007F8704 /* Goal.storyboard */; };
+		1CAC790A21F8E13F007F8704 /* GoalCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC790921F8E13F007F8704 /* GoalCompleteViewController.swift */; };
+		1CAC790D21F95FA9007F8704 /* SocialMediaQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC790C21F95FA9007F8704 /* SocialMediaQuote.swift */; };
 		1CE4EB2F21F269BF00D097C5 /* ActivityIndicatorWithDarkBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4EB2E21F269BF00D097C5 /* ActivityIndicatorWithDarkBackground.swift */; };
 		1CE4EB3221F30CB700D097C5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4EB3121F30CB700D097C5 /* DateExtension.swift */; };
-		1CE4EB3521F68BC800D097C5 /* AchivementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4EB3421F68BC800D097C5 /* AchivementView.swift */; };
+		1CE4EB3521F68BC800D097C5 /* GoalCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4EB3421F68BC800D097C5 /* GoalCompleteView.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -178,17 +178,11 @@
 		1C643B6321EA9E1D00671432 /* hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hand_click_gesture.json; sourceTree = "<group>"; };
 		1C643B6B21ED5A8F00671432 /* BrowserSocialMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSocialMediaViewController.swift; sourceTree = "<group>"; };
 		1C643B6F21EEEBFD00671432 /* SocialMediaUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaUserCell.swift; sourceTree = "<group>"; };
-		1C643B7121EEF98F00671432 /* SocialMediaComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaComment.swift; sourceTree = "<group>"; };
+		1C643B7121EEF98F00671432 /* ArticleComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleComment.swift; sourceTree = "<group>"; };
 		1C643B7321F19F8F00671432 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircleColors.swift; sourceTree = "<group>"; };
 		1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressCircle.swift; sourceTree = "<group>"; };
 		1C769CE321D336FC00034EB3 /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
-		1C769CE621D3489F00034EB3 /* DIN-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Medium.ttf"; sourceTree = "<group>"; };
-		1C769CE721D3489F00034EB3 /* DIN-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Regular.ttf"; sourceTree = "<group>"; };
-		1C769CE821D3489F00034EB3 /* DIN-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Bold.ttf"; sourceTree = "<group>"; };
-		1C769CE921D3489F00034EB3 /* DIN-RegularAlternate.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-RegularAlternate.ttf"; sourceTree = "<group>"; };
-		1C769CEA21D348A000034EB3 /* DIN-BlackAlternate.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-BlackAlternate.ttf"; sourceTree = "<group>"; };
-		1C769CEB21D348A000034EB3 /* DIN-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Light.ttf"; sourceTree = "<group>"; };
 		1C769CF221D4352300034EB3 /* BouncingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingLabel.swift; sourceTree = "<group>"; };
 		1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRectangle.swift; sourceTree = "<group>"; };
 		1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalCell.swift; sourceTree = "<group>"; };
@@ -198,9 +192,15 @@
 		1C870F8821B2D9E700FF296E /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
 		1C9C77552194BFBF002ADA76 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoTableViewCell.swift; sourceTree = "<group>"; };
+		1CAC790021F88A5B007F8704 /* favourite_app_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favourite_app_icon.json; sourceTree = "<group>"; };
+		1CAC790321F88F18007F8704 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		1CAC790521F8907B007F8704 /* goal_complete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goal_complete.mp3; sourceTree = "<group>"; };
+		1CAC790721F8ACA4007F8704 /* Goal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
+		1CAC790921F8E13F007F8704 /* GoalCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCompleteViewController.swift; sourceTree = "<group>"; };
+		1CAC790C21F95FA9007F8704 /* SocialMediaQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaQuote.swift; sourceTree = "<group>"; };
 		1CE4EB2E21F269BF00D097C5 /* ActivityIndicatorWithDarkBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWithDarkBackground.swift; sourceTree = "<group>"; };
 		1CE4EB3121F30CB700D097C5 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		1CE4EB3421F68BC800D097C5 /* AchivementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivementView.swift; sourceTree = "<group>"; };
+		1CE4EB3421F68BC800D097C5 /* GoalCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCompleteView.swift; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -273,14 +273,6 @@
 			name = "Starting Page";
 			sourceTree = "<group>";
 		};
-		1C4C67D9218BFE7D00D5383D /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */,
-			);
-			name = Font;
-			sourceTree = "<group>";
-		};
 		1C4C67DA218C000100D5383D /* Profile Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,7 +334,8 @@
 				1C28738121A7B77A00B790A4 /* HelpWordModel.swift */,
 				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
 				1C61170921D8B27E0086903E /* Goal */,
-				1C643B7121EEF98F00671432 /* SocialMediaComment.swift */,
+				1CAC790B21F95F80007F8704 /* Social Media */,
+				1CAC790321F88F18007F8704 /* AudioPlayer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -352,7 +345,7 @@
 			children = (
 				1C643B7321F19F8F00671432 /* GoogleService-Info.plist */,
 				CDA652981FA0F5B700835624 /* Assets.xcassets */,
-				1C4C67D9218BFE7D00D5383D /* Font */,
+				1C769CE521D3488100034EB3 /* Font */,
 				CD1DCA6B1FF4ACE300FCDDB5 /* Gifs */,
 				1C643B5D21EA925C00671432 /* Audio */,
 				1C643B6221EA9E0C00671432 /* Lottie Animation */,
@@ -370,7 +363,7 @@
 				1C769CF221D4352300034EB3 /* BouncingLabel.swift */,
 				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
 				1CE4EB2E21F269BF00D097C5 /* ActivityIndicatorWithDarkBackground.swift */,
-				1CE4EB3421F68BC800D097C5 /* AchivementView.swift */,
+				1CE4EB3421F68BC800D097C5 /* GoalCompleteView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -392,8 +385,6 @@
 			children = (
 				1C643B5721E999F800671432 /* Tutorial.swift */,
 				1C643B5B21EA8F7A00671432 /* TutorialAudio.swift */,
-				1C643B5221E7C2BC00671432 /* TutorialBarViewController.swift */,
-				1C643B5521E8044A00671432 /* GoalViewControllerTutorial.swift */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -403,6 +394,7 @@
 			children = (
 				1C643B5E21EA926800671432 /* goalTutorial1.mp3 */,
 				1C643B5F21EA926800671432 /* goalTutorial2.mp3 */,
+				1CAC790521F8907B007F8704 /* goal_complete.mp3 */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -411,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				1C643B6321EA9E1D00671432 /* hand_click_gesture.json */,
+				1CAC790021F88A5B007F8704 /* favourite_app_icon.json */,
 			);
 			name = "Lottie Animation";
 			sourceTree = "<group>";
@@ -426,6 +419,7 @@
 		1C769CE221D336E300034EB3 /* Goal Progress */ = {
 			isa = PBXGroup;
 			children = (
+				CDDD7EFD1FF19937009FA71D /* Swift+Gif.swift */,
 				1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */,
 				1C870F8821B2D9E700FF296E /* LoadingCircle.swift */,
 				1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */,
@@ -437,6 +431,7 @@
 		1C769CE521D3488100034EB3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */,
 				1C643B3221E32FBB00671432 /* NokioSans-Bold.ttf */,
 				1C643B2D21E32FB500671432 /* NokioSans-BoldItalic.ttf */,
 				1C643B3321E32FBD00671432 /* NokioSans-ExtraLight.ttf */,
@@ -457,12 +452,6 @@
 				1C643B2821E32FB000671432 /* NokioSansAlt-MediumItalic.ttf */,
 				1C643B2A21E32FB100671432 /* NokioSansAlt-Regular.ttf */,
 				1C643B2421E32FAD00671432 /* NokioSansAlt-RegularItalic.ttf */,
-				1C769CEA21D348A000034EB3 /* DIN-BlackAlternate.ttf */,
-				1C769CE821D3489F00034EB3 /* DIN-Bold.ttf */,
-				1C769CEB21D348A000034EB3 /* DIN-Light.ttf */,
-				1C769CE621D3489F00034EB3 /* DIN-Medium.ttf */,
-				1C769CE721D3489F00034EB3 /* DIN-Regular.ttf */,
-				1C769CE921D3489F00034EB3 /* DIN-RegularAlternate.ttf */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -499,15 +488,37 @@
 			name = "Tableview Cells";
 			sourceTree = "<group>";
 		};
+		1CAC790221F88EEF007F8704 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				1C643B5221E7C2BC00671432 /* TutorialBarViewController.swift */,
+				1C643B5521E8044A00671432 /* GoalViewControllerTutorial.swift */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
+		1CAC790B21F95F80007F8704 /* Social Media */ = {
+			isa = PBXGroup;
+			children = (
+				1C643B7121EEF98F00671432 /* ArticleComment.swift */,
+				1CAC790C21F95FA9007F8704 /* SocialMediaQuote.swift */,
+			);
+			name = "Social Media";
+			sourceTree = "<group>";
+		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				1C4C67D8218BF92400D5383D /* Starting Page */,
 				1C4C680821912A1900D5383D /* First Time Launch */,
+				CDDD7EFF1FF19A3E009FA71D /* First Time Tutorial */,
+				1CAC790221F88EEF007F8704 /* Tutorial */,
 				1C4C67DA218C000100D5383D /* Profile Page */,
 				1C4C67D7218BF91D00D5383D /* Read Page */,
 				1C9C775A219A90A5002ADA76 /* Learn More */,
 				1C28738721A855D200B790A4 /* Goal */,
+				CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */,
+				1CAC790921F8E13F007F8704 /* GoalCompleteViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -548,6 +559,7 @@
 				CDA652921FA0F5B700835624 /* Main.storyboard */,
 				CD6462B91FF33A88007AF08A /* First Time.storyboard */,
 				CDA6529A1FA0F5B700835624 /* LaunchScreen.storyboard */,
+				1CAC790721F8ACA4007F8704 /* Goal.storyboard */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -574,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA6528E1FA0F5B700835624 /* AppDelegate.swift */,
+				CDA6529D1FA0F5B700835624 /* Info.plist */,
 				1C513A8F218662A700FFDC82 /* Resource */,
 				1C513A5921801B6100FFDC82 /* Model */,
 				1C513AA3218675FA00FFDC82 /* View */,
@@ -581,22 +594,17 @@
 				CD6462B81FF33A55007AF08A /* UI */,
 				1C9C7757219A8C1B002ADA76 /* Helper */,
 				1CE4EB3021F30C9F00D097C5 /* Extensions */,
-				CDDD7EFF1FF19A3E009FA71D /* Tutorial Files */,
-				CDDD7EFD1FF19937009FA71D /* Swift+Gif.swift */,
-				1C769CE521D3488100034EB3 /* Font */,
-				CDA6529D1FA0F5B700835624 /* Info.plist */,
-				CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */,
 			);
 			path = uReadLiteracy;
 			sourceTree = "<group>";
 		};
-		CDDD7EFF1FF19A3E009FA71D /* Tutorial Files */ = {
+		CDDD7EFF1FF19A3E009FA71D /* First Time Tutorial */ = {
 			isa = PBXGroup;
 			children = (
 				CDDD7F001FF19A67009FA71D /* ExploreViewController.swift */,
 				CDDD7F061FF1A65F009FA71D /* GetHelpViewController.swift */,
 			);
-			name = "Tutorial Files";
+			name = "First Time Tutorial";
 			sourceTree = "<group>";
 		};
 		EF7EF7D627ADB23342CBCA90 /* Frameworks */ = {
@@ -672,7 +680,6 @@
 				1C643B3D21E32FC900671432 /* NokioSans-LightItalic.ttf in Resources */,
 				CD1DCA661FF4ACCD00FCDDB5 /* progress.gif in Resources */,
 				1C643B3B21E32FC900671432 /* NokioSans-ExtraLightItalic.ttf in Resources */,
-				1C769CED21D348A700034EB3 /* DIN-Bold.ttf in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
 				1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */,
 				1C643B6121EA926900671432 /* goalTutorial2.mp3 in Resources */,
@@ -680,10 +687,8 @@
 				1C643B7421F19F8F00671432 /* GoogleService-Info.plist in Resources */,
 				1C643B4721E32FC900671432 /* NokioSansAlt-LightItalic.ttf in Resources */,
 				1C643B4B21E32FC900671432 /* NokioSansAlt-RegularItalic.ttf in Resources */,
-				1C769CEC21D348A300034EB3 /* DIN-BlackAlternate.ttf in Resources */,
 				1C643B4421E32FC900671432 /* NokioSansAlt-ExtraLight.ttf in Resources */,
 				1C643B6021EA926900671432 /* goalTutorial1.mp3 in Resources */,
-				1C769CF021D348AF00034EB3 /* DIN-Regular.ttf in Resources */,
 				1C643B3F21E32FC900671432 /* NokioSans-MediumItalic.ttf in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
 				CDA6529C1FA0F5B700835624 /* LaunchScreen.storyboard in Resources */,
@@ -691,23 +696,23 @@
 				CDDD7F051FF1A64C009FA71D /* getHelp.gif in Resources */,
 				1C643B3821E32FC900671432 /* NokioSans-Bold.ttf in Resources */,
 				1C643B4821E32FC900671432 /* NokioSansAlt-Medium.ttf in Resources */,
+				1CAC790121F88A5B007F8704 /* favourite_app_icon.json in Resources */,
 				1C643B3A21E32FC900671432 /* NokioSans-ExtraLight.ttf in Resources */,
 				1C643B4521E32FC900671432 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
-				1C769CEF21D348AD00034EB3 /* DIN-Medium.ttf in Resources */,
 				CDA652991FA0F5B700835624 /* Assets.xcassets in Resources */,
-				1C769CEE21D348AA00034EB3 /* DIN-Light.ttf in Resources */,
 				1C643B4021E32FC900671432 /* NokioSans-Regular.ttf in Resources */,
 				CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */,
 				1C643B4A21E32FC900671432 /* NokioSansAlt-Regular.ttf in Resources */,
 				CD1DCA681FF4ACD300FCDDB5 /* learnMore.gif in Resources */,
+				1CAC790621F8907B007F8704 /* goal_complete.mp3 in Resources */,
 				1C643B4221E32FC900671432 /* NokioSansAlt-Bold.ttf in Resources */,
 				1C643B4921E32FC900671432 /* NokioSansAlt-MediumItalic.ttf in Resources */,
-				1C769CF121D348B200034EB3 /* DIN-RegularAlternate.ttf in Resources */,
 				1C643B3E21E32FC900671432 /* NokioSans-Medium.ttf in Resources */,
 				1C643B4321E32FC900671432 /* NokioSansAlt-BoldItalic.ttf in Resources */,
 				1C643B3921E32FC900671432 /* NokioSans-BoldItalic.ttf in Resources */,
 				1C643B3C21E32FC900671432 /* NokioSans-Light.ttf in Resources */,
 				1C643B6421EA9E1D00671432 /* hand_click_gesture.json in Resources */,
+				1CAC790821F8ACA4007F8704 /* Goal.storyboard in Resources */,
 				CDA652941FA0F5B700835624 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,6 +727,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -732,6 +744,13 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
@@ -778,6 +797,7 @@
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
 				1C61170421D85FBC0086903E /* ReadXArticlesGoalModel.swift in Sources */,
 				1C643B5321E7C2BC00671432 /* TutorialBarViewController.swift in Sources */,
+				1CAC790A21F8E13F007F8704 /* GoalCompleteViewController.swift in Sources */,
 				1C643B7021EEEBFD00671432 /* SocialMediaUserCell.swift in Sources */,
 				1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */,
 				1C28737A21A5093400B790A4 /* BrowserUIController.swift in Sources */,
@@ -787,12 +807,13 @@
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
 				1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */,
+				1CAC790421F88F18007F8704 /* AudioPlayer.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* UIState.swift in Sources */,
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
 				1C643B4D21E6D69E00671432 /* ComprehensionPopupManager.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
 				1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */,
-				1C643B7221EEF98F00671432 /* SocialMediaComment.swift in Sources */,
+				1C643B7221EEF98F00671432 /* ArticleComment.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* UserModel.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
 				1C643B5821E999F800671432 /* Tutorial.swift in Sources */,
@@ -832,10 +853,11 @@
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
 				1C643B5C21EA8F7A00671432 /* TutorialAudio.swift in Sources */,
 				1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */,
-				1CE4EB3521F68BC800D097C5 /* AchivementView.swift in Sources */,
+				1CE4EB3521F68BC800D097C5 /* GoalCompleteView.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
 				CDA652971FA0F5B700835624 /* uReadLiteracy.xcdatamodeld in Sources */,
+				1CAC790D21F95FA9007F8704 /* SocialMediaQuote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,6 +985,75 @@
 				INFOPLIST_FILE = uReadLiteracy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FacebookCore\"",
+					"-framework",
+					"\"FacebookLogin\"",
+					"-framework",
+					"\"FacebookShare\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftSoup\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"youtube_ios_player_helper\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RajPatel.uReadLiteracy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -978,6 +1069,75 @@
 				INFOPLIST_FILE = uReadLiteracy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FacebookCore\"",
+					"-framework",
+					"\"FacebookLogin\"",
+					"-framework",
+					"\"FacebookShare\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftSoup\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"youtube_ios_player_helper\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RajPatel.uReadLiteracy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
