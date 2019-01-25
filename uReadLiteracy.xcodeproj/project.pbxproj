@@ -63,6 +63,17 @@
 		1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */; };
 		1CAC793E21FB5A54007F8704 /* TutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */; };
 		1CAC794021FB5A7E007F8704 /* SocialMediaQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */; };
+		1CAC795621FB62F2007F8704 /* ProfileViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC795521FB62F2007F8704 /* ProfileViewControllerTutorial.swift */; };
+		1CAC795921FB6364007F8704 /* goal_complete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795821FB6364007F8704 /* goal_complete.mp3 */; };
+		1CAC795C21FB636C007F8704 /* goalTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795A21FB636C007F8704 /* goalTutorial2.mp3 */; };
+		1CAC795D21FB636C007F8704 /* goalTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795B21FB636C007F8704 /* goalTutorial1.mp3 */; };
+		1CAC796021FB637E007F8704 /* profileTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795E21FB637E007F8704 /* profileTutorial1.mp3 */; };
+		1CAC796121FB637E007F8704 /* TextTo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795F21FB637E007F8704 /* TextTo.mp3 */; };
+		1CAC796821FB63BA007F8704 /* message_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796321FB63BA007F8704 /* message_arrow.json */; };
+		1CAC796921FB63BA007F8704 /* twitter_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796421FB63BA007F8704 /* twitter_icon.json */; };
+		1CAC796A21FB63BA007F8704 /* hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796521FB63BA007F8704 /* hand_click_gesture.json */; };
+		1CAC796B21FB63BA007F8704 /* favourite_app_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796621FB63BA007F8704 /* favourite_app_icon.json */; };
+		1CAC796C21FB63BA007F8704 /* facebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796721FB63BA007F8704 /* facebook.json */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -174,6 +185,17 @@
 		1CAC795221FB5B13007F8704 /* NokioSansAlt-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1CAC795321FB5B13007F8704 /* NokioSansAlt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		1CAC795421FB5B14007F8704 /* NokioSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1CAC795521FB62F2007F8704 /* ProfileViewControllerTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerTutorial.swift; sourceTree = "<group>"; };
+		1CAC795821FB6364007F8704 /* goal_complete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goal_complete.mp3; sourceTree = "<group>"; };
+		1CAC795A21FB636C007F8704 /* goalTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial2.mp3; sourceTree = "<group>"; };
+		1CAC795B21FB636C007F8704 /* goalTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalTutorial1.mp3; sourceTree = "<group>"; };
+		1CAC795E21FB637E007F8704 /* profileTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = profileTutorial1.mp3; sourceTree = "<group>"; };
+		1CAC795F21FB637E007F8704 /* TextTo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TextTo.mp3; sourceTree = "<group>"; };
+		1CAC796321FB63BA007F8704 /* message_arrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = message_arrow.json; sourceTree = "<group>"; };
+		1CAC796421FB63BA007F8704 /* twitter_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twitter_icon.json; sourceTree = "<group>"; };
+		1CAC796521FB63BA007F8704 /* hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hand_click_gesture.json; sourceTree = "<group>"; };
+		1CAC796621FB63BA007F8704 /* favourite_app_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favourite_app_icon.json; sourceTree = "<group>"; };
+		1CAC796721FB63BA007F8704 /* facebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facebook.json; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +376,8 @@
 		1C513A8F218662A700FFDC82 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1CAC796221FB63A3007F8704 /* Lottie Animations */,
+				1CAC795721FB635A007F8704 /* Sound */,
 				1C4C67FB218E64B300D5383D /* GoogleService-Info.plist */,
 				CDA652981FA0F5B700835624 /* Assets.xcassets */,
 				1C4C67D9218BFE7D00D5383D /* Font */,
@@ -454,8 +478,9 @@
 			children = (
 				1CAC792521FB5748007F8704 /* TutorialBarViewController.swift */,
 				1CAC793721FB599E007F8704 /* Tutorial.swift */,
-				1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */,
 				1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */,
+				1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */,
+				1CAC795521FB62F2007F8704 /* ProfileViewControllerTutorial.swift */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -476,6 +501,30 @@
 				1CAC793421FB594D007F8704 /* ComprehensionPopupShowPoint.swift */,
 			);
 			name = "Comprehension Popup";
+			sourceTree = "<group>";
+		};
+		1CAC795721FB635A007F8704 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC795E21FB637E007F8704 /* profileTutorial1.mp3 */,
+				1CAC795F21FB637E007F8704 /* TextTo.mp3 */,
+				1CAC795B21FB636C007F8704 /* goalTutorial1.mp3 */,
+				1CAC795A21FB636C007F8704 /* goalTutorial2.mp3 */,
+				1CAC795821FB6364007F8704 /* goal_complete.mp3 */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
+		1CAC796221FB63A3007F8704 /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC796721FB63BA007F8704 /* facebook.json */,
+				1CAC796621FB63BA007F8704 /* favourite_app_icon.json */,
+				1CAC796521FB63BA007F8704 /* hand_click_gesture.json */,
+				1CAC796321FB63BA007F8704 /* message_arrow.json */,
+				1CAC796421FB63BA007F8704 /* twitter_icon.json */,
+			);
+			name = "Lottie Animations";
 			sourceTree = "<group>";
 		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
@@ -643,14 +692,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CAC796121FB637E007F8704 /* TextTo.mp3 in Resources */,
 				CD1DCA661FF4ACCD00FCDDB5 /* progress.gif in Resources */,
+				1CAC795D21FB636C007F8704 /* goalTutorial1.mp3 in Resources */,
+				1CAC796C21FB63BA007F8704 /* facebook.json in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
+				1CAC796B21FB63BA007F8704 /* favourite_app_icon.json in Resources */,
+				1CAC795921FB6364007F8704 /* goal_complete.mp3 in Resources */,
 				1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */,
+				1CAC796021FB637E007F8704 /* profileTutorial1.mp3 in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
 				CDA6529C1FA0F5B700835624 /* LaunchScreen.storyboard in Resources */,
+				1CAC795C21FB636C007F8704 /* goalTutorial2.mp3 in Resources */,
 				CDDD7F051FF1A64C009FA71D /* getHelp.gif in Resources */,
+				1CAC796A21FB63BA007F8704 /* hand_click_gesture.json in Resources */,
 				CDA652991FA0F5B700835624 /* Assets.xcassets in Resources */,
 				CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */,
+				1CAC796821FB63BA007F8704 /* message_arrow.json in Resources */,
+				1CAC796921FB63BA007F8704 /* twitter_icon.json in Resources */,
 				CD1DCA681FF4ACD300FCDDB5 /* learnMore.gif in Resources */,
 				1C4C67FC218E64B300D5383D /* GoogleService-Info.plist in Resources */,
 				CDA652941FA0F5B700835624 /* Main.storyboard in Resources */,
@@ -773,6 +832,7 @@
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
 				1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */,
 				1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */,
+				1CAC795621FB62F2007F8704 /* ProfileViewControllerTutorial.swift in Sources */,
 				1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
