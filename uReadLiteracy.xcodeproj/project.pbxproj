@@ -74,6 +74,8 @@
 		1CAC796A21FB63BA007F8704 /* hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796521FB63BA007F8704 /* hand_click_gesture.json */; };
 		1CAC796B21FB63BA007F8704 /* favourite_app_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796621FB63BA007F8704 /* favourite_app_icon.json */; };
 		1CAC796C21FB63BA007F8704 /* facebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796721FB63BA007F8704 /* facebook.json */; };
+		1CAC796E21FB6521007F8704 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796D21FB651D007F8704 /* Goal.storyboard */; };
+		1CAC797021FB65AC007F8704 /* ChooseGoalTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -196,6 +198,8 @@
 		1CAC796521FB63BA007F8704 /* hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hand_click_gesture.json; sourceTree = "<group>"; };
 		1CAC796621FB63BA007F8704 /* favourite_app_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favourite_app_icon.json; sourceTree = "<group>"; };
 		1CAC796721FB63BA007F8704 /* facebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facebook.json; sourceTree = "<group>"; };
+		1CAC796D21FB651D007F8704 /* Goal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
+		1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseGoalTypeViewController.swift; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 			children = (
 				1C28738821A855E600B790A4 /* GoalViewController.swift */,
 				1C28738C21A8B07500B790A4 /* GoalListViewController.swift */,
+				1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */,
 				1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */,
 			);
 			name = Goal;
@@ -571,6 +576,7 @@
 				CDA652921FA0F5B700835624 /* Main.storyboard */,
 				CD6462B91FF33A88007AF08A /* First Time.storyboard */,
 				CDA6529A1FA0F5B700835624 /* LaunchScreen.storyboard */,
+				1CAC796D21FB651D007F8704 /* Goal.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -699,6 +705,7 @@
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
 				1CAC796B21FB63BA007F8704 /* favourite_app_icon.json in Resources */,
 				1CAC795921FB6364007F8704 /* goal_complete.mp3 in Resources */,
+				1CAC796E21FB6521007F8704 /* Goal.storyboard in Resources */,
 				1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */,
 				1CAC796021FB637E007F8704 /* profileTutorial1.mp3 in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
@@ -783,6 +790,7 @@
 				1CAC793E21FB5A54007F8704 /* TutorialAudio.swift in Sources */,
 				1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */,
 				1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */,
+				1CAC797021FB65AC007F8704 /* ChooseGoalTypeViewController.swift in Sources */,
 				1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */,
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
