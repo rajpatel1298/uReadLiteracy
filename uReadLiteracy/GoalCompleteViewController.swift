@@ -23,6 +23,9 @@ class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
     
     @IBOutlet weak var contentView: UIView!
     
+    @IBOutlet weak var goalDetailLabel: UILabel!
+    
+    
     
     
     var goal:GoalModel!
@@ -47,6 +50,11 @@ class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
         nextView.contentMode = .scaleAspectFit
         
         contentView.layer.cornerRadius = 10.0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        goalDetailLabel.text = "You Have Completed \"\(goal.getDescription())\""
     }
     
     override func viewDidAppear(_ animated: Bool) {

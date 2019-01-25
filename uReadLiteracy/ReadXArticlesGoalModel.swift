@@ -15,6 +15,9 @@ class ReadXArticlesGoalModel:GoalModel{
     var articles:[ArticleModel] = [ArticleModel](){
         didSet{
             progress = Int(Float(articles.count/numberOfArticles)*100)
+            if progress == 99 {
+                progress = 100
+            }
         }
     }
     
@@ -42,9 +45,14 @@ class ReadXArticlesGoalModel:GoalModel{
         }
         self.goalType = GoalType(rawValue: model.goalType!)
         self.numberOfArticles = Int(model.numberOfArticles)
+        self.showCompletionToUser = model.showCompletionToUser
     }
     
     override func save(){
+        if progress == 99 {
+            progress = 100
+        }
+        
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         
         let model = find(name: name, date: date)
@@ -59,10 +67,12 @@ class ReadXArticlesGoalModel:GoalModel{
             object.setValue(date, forKeyPath: "date")
             object.setValue(numberOfArticles, forKeyPath: "numberOfArticles")
             object.setValue(ArticleModel.getUrls(articles: articles), forKeyPath: "articles")
+            object.setValue(showCompletionToUser, forKeyPath: "showCompletionToUser")
         }
         else{
             model?.articles = ArticleModel.getUrls(articles: self.articles) as NSObject
             model?.progress = Int16(self.progress)
+            model?.showCompletionToUser = self.showCompletionToUser
         }
         
         do {

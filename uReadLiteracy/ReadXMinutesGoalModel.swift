@@ -33,6 +33,7 @@ class ReadXMinutesGoalModel:GoalModel{
         self.totalMinutes = Int(model.totalMinutes)
         self.minutesRead = Int(model.minutesRead)
         self.goalType = GoalType(rawValue: model.goalType!)
+        self.showCompletionToUser = showCompletionToUser
     }
     
     override func save(){
@@ -42,6 +43,10 @@ class ReadXMinutesGoalModel:GoalModel{
         
         let entity = NSEntityDescription.entity(forEntityName: "ReadXMinutesCD", in: managedContext)!
         
+        if progress == 99{
+            progress = 100
+        }
+        
         if(model == nil){
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
             object.setValue(name, forKeyPath: "name")
@@ -50,6 +55,7 @@ class ReadXMinutesGoalModel:GoalModel{
             object.setValue(date, forKeyPath: "date")
             object.setValue(totalMinutes, forKeyPath: "totalMinutes")
             object.setValue(minutesRead, forKeyPath: "minutesRead")
+            object.setValue(showCompletionToUser, forKeyPath: "showCompletionToUser")
         }
         else{
             model?.minutesRead = Int16(self.minutesRead)
@@ -60,6 +66,7 @@ class ReadXMinutesGoalModel:GoalModel{
             }
 
             model?.progress = Int16(progress)
+            model?.showCompletionToUser = showCompletionToUser
         }
         
         do {

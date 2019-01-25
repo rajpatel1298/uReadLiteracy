@@ -22,7 +22,7 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
     private var imageSelected = false
     private var animatedRectangle:AnimatedRectangle!
     
-    var loadingScreen:ActivityIndicatorWithDarkBackground!
+    var loadingScreen = ActivityIndicatorWithDarkBackground()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +43,7 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         else{
             animateUserIV()
         }
+        loadingScreen.removeFromSuperview()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,7 +56,7 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
         animatedRectangle.removeFromSuperlayer()
         animatedRectangle.resetPath(topLeft: CGPoint(x: userIV.frame.origin.x, y: userIV.frame.origin.y), width: userIV.frame.width, height: userIV.frame.height)
         userImageOutsideView.layer.addSublayer(animatedRectangle)
-        loadingScreen = ActivityIndicatorWithDarkBackground(frame: view.frame)
+        loadingScreen.frame = view.frame
         
     }
     

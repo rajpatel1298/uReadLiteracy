@@ -157,6 +157,7 @@
                     <connections>
                         <outlet property="contentView" destination="y8h-fV-L14" id="oV8-kT-p1L"/>
                         <outlet property="facebookView" destination="pGx-wP-Wx5" id="y61-5F-BbY"/>
+                        <outlet property="goalDetailLabel" destination="pv0-SK-435" id="aP4-Hi-FJn"/>
                         <outlet property="nextView" destination="H83-eM-54g" id="4tu-FK-50O"/>
                         <outlet property="optionView" destination="Zeg-wL-40q" id="cBi-8A-IkY"/>
                         <outlet property="starView" destination="G91-PO-PM9" id="5k6-uX-tSe"/>

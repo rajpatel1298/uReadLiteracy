@@ -20,19 +20,24 @@ class GoalComplete{
         controller = storyboard.instantiateViewController(withIdentifier: "GoalCompleteViewController") as! GoalCompleteViewController
     }
     
-    func show(vc:UIViewController, goal:GoalModel){
+    func show(goal:GoalModel){
         controller.goal = goal
         
-        vc.addChildViewController(controller)
-        controller.didMove(toParentViewController: controller)
+        let window = UIApplication.shared.keyWindow!
+        controller.view.frame = window.frame
+        window.addSubview(controller.view);
         
-        controller.view.frame = vc.view.frame
-        vc.view.addSubview(self.controller.view)
         
-        vc.view.alpha = 0
+        //vc.addChildViewController(controller)
+        //controller.didMove(toParentViewController: controller)
+        
+        //controller.view.frame = vc.view.frame
+        //vc.view.addSubview(self.controller.view)
+        
+        controller.view.alpha = 0
         
         UIView.animate(withDuration: 0.5, animations: {
-            vc.view.alpha = 1
+            self.controller.view.alpha = 1
         }) { (completed) in
             if completed{
                 self.animate()

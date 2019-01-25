@@ -14,7 +14,6 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GoalComplete.shared.show(vc: self, goal: GoalModel(name: "Reading X Article", date: Date()))
     }
     
     override func viewDidLayoutSubviews() {
