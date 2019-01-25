@@ -86,6 +86,25 @@ class TutorialController{
             }
         }
     }
+    
+    func highlightFrame(frame:CGRect){
+        let path = UIBezierPath(rect: vc.view.frame)
+        
+        let highlightPath = UIBezierPath(roundedRect: frame, cornerRadius: 5)
+        
+        path.append(highlightPath)
+        path.usesEvenOddFillRule = true
+        
+        let fillLayer = CAShapeLayer()
+        
+        fillLayer.path = path.cgPath
+        fillLayer.fillRule = kCAFillRuleEvenOdd
+        
+        fillLayer.fillColor = UIColor.black.cgColor
+        fillLayer.opacity = 0.8
+        
+        tutorialLayers.append(fillLayer)
+    }
 }
 
 
