@@ -11,7 +11,7 @@ import AVFoundation
 
 class AudioPlayer{
     private var player: AVAudioPlayer?
-    static var sharedInstance = AudioPlayer()
+    static var shared = AudioPlayer()
     
     func playSound(soundName:String) {
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {

@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 import Lottie
 
-class GoalComplete{
+class GoalCompleteHelper{
     
     private let controller:GoalCompleteViewController
-    static let shared = GoalComplete()
+    static let shared = GoalCompleteHelper()
     
     init(){
         let storyboard = UIStoryboard.init(name: "Goal", bundle: Bundle.main)
@@ -47,7 +47,7 @@ class GoalComplete{
     
     func animate(){
         controller.starView.play()
-        AudioPlayer.sharedInstance.playSound(soundName: "goal_complete")
+        AudioPlayer.shared.playSound(soundName: "goal_complete")
     }
     
 }

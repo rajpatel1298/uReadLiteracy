@@ -11,25 +11,20 @@ import SafariServices
 import WebKit
 import SwiftSoup
 import AVFoundation
+import FirebaseAuth
 
-class BrowseViewController: UIViewController, WKNavigationDelegate, AVAudioRecorderDelegate {
+class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate,AVAudioRecorderDelegate{
     
     
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var previousPageBarBtn: UIBarButtonItem!
     @IBOutlet weak var recordBarBtn: UIBarButtonItem!
+    @IBOutlet weak var socialMediaView: UIView!
     
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var currentRecording: String = ""
-    
-import FirebaseAuth
 
-class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate{
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var previousPageBarBtn: UIBarButtonItem!
-    @IBOutlet weak var socialMediaView: UIView!
-    
     var urlSegue:URL!
     let mainUrl = "http://www.manythings.org/voa/stories/"
     
@@ -49,7 +44,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         controller = BrowserController(webView: webView, url: mainUrl)
         
         webView.navigationDelegate = self
-        setupHelpFunctionInMenuBar()
         
         //set up audio session
         recordingSession = AVAudioSession.sharedInstance()

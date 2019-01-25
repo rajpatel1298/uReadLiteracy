@@ -90,7 +90,7 @@ class GoalManager{
                 
                 if  !goal.showCompletionToUser{
                     goal.showCompletionToUser = true
-                    GoalComplete.shared.show(goal: goal)
+                    GoalCompleteHelper.shared.show(goal: goal)
                 }
                 goal.save()
             }

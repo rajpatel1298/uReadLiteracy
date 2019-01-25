@@ -17,7 +17,6 @@
 		1C28738621A855A200B790A4 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738521A855A200B790A4 /* GoalTableViewCell.swift */; };
 		1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738821A855E600B790A4 /* GoalViewController.swift */; };
 		1C28738D21A8B07500B790A4 /* GoalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738C21A8B07500B790A4 /* GoalListViewController.swift */; };
-		1C28738F21AA129300B790A4 /* DailyGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738E21AA129300B790A4 /* DailyGoalModel.swift */; };
 		1C28739121AA12A500B790A4 /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28739021AA12A500B790A4 /* GoalModel.swift */; };
 		1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */; };
 		1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */; };
@@ -35,23 +34,35 @@
 		1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */; };
 		1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE021D3126000034EB3 /* GoalProgressCircle.swift */; };
 		1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CE321D336FC00034EB3 /* CountingLabel.swift */; };
-		1C769CEC21D348A300034EB3 /* DIN-BlackAlternate.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CEA21D348A000034EB3 /* DIN-BlackAlternate.ttf */; };
-		1C769CED21D348A700034EB3 /* DIN-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE821D3489F00034EB3 /* DIN-Bold.ttf */; };
-		1C769CEE21D348AA00034EB3 /* DIN-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CEB21D348A000034EB3 /* DIN-Light.ttf */; };
-		1C769CEF21D348AD00034EB3 /* DIN-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE621D3489F00034EB3 /* DIN-Medium.ttf */; };
-		1C769CF021D348AF00034EB3 /* DIN-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE721D3489F00034EB3 /* DIN-Regular.ttf */; };
-		1C769CF121D348B200034EB3 /* DIN-RegularAlternate.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C769CE921D3489F00034EB3 /* DIN-RegularAlternate.ttf */; };
 		1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CF221D4352300034EB3 /* BouncingLabel.swift */; };
 		1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */; };
 		1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */; };
 		1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */; };
 		1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7E21AA49D100FF296E /* GoalType.swift */; };
 		1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8021AA4CFA00FF296E /* ChoosingGoalAlert.swift */; };
-		1C870F8521AB95ED00FF296E /* DailyGoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8421AB95ED00FF296E /* DailyGoalType.swift */; };
-		1C870F8721AB965000FF296E /* ReadXStoriesWeeklyGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8621AB965000FF296E /* ReadXStoriesWeeklyGoal.swift */; };
 		1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8821B2D9E700FF296E /* LoadingCircle.swift */; };
 		1C9C77562194BFBF002ADA76 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C77552194BFBF002ADA76 /* CoreDataHelper.swift */; };
 		1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */; };
+		1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */; };
+		1CAC791821FB5590007F8704 /* ReadXMinutesGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */; };
+		1CAC791A21FB55DF007F8704 /* BrowserSocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791921FB55DF007F8704 /* BrowserSocialMediaViewController.swift */; };
+		1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791C21FB5693007F8704 /* ArticleComment.swift */; };
+		1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791E21FB56C7007F8704 /* DateExtension.swift */; };
+		1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */; };
+		1CAC792321FB570F007F8704 /* ProfileUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792221FB570F007F8704 /* ProfileUIController.swift */; };
+		1CAC792621FB5748007F8704 /* TutorialBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792521FB5748007F8704 /* TutorialBarViewController.swift */; };
+		1CAC792821FB5764007F8704 /* ActivityIndicatorWithDarkBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */; };
+		1CAC792A21FB57B0007F8704 /* GoalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792921FB57B0007F8704 /* GoalManager.swift */; };
+		1CAC792C21FB57D9007F8704 /* GoalCompleteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792B21FB57D9007F8704 /* GoalCompleteHelper.swift */; };
+		1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */; };
+		1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793021FB5906007F8704 /* AudioPlayer.swift */; };
+		1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */; };
+		1CAC793521FB594D007F8704 /* ComprehensionPopupShowPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793421FB594D007F8704 /* ComprehensionPopupShowPoint.swift */; };
+		1CAC793821FB599E007F8704 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793721FB599E007F8704 /* Tutorial.swift */; };
+		1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */; };
+		1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */; };
+		1CAC793E21FB5A54007F8704 /* TutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */; };
+		1CAC794021FB5A7E007F8704 /* SocialMediaQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -91,7 +102,6 @@
 		1C28738521A855A200B790A4 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		1C28738821A855E600B790A4 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		1C28738C21A8B07500B790A4 /* GoalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalListViewController.swift; sourceTree = "<group>"; };
-		1C28738E21AA129300B790A4 /* DailyGoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGoalModel.swift; sourceTree = "<group>"; };
 		1C28739021AA12A500B790A4 /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
 		1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHeaderCell.swift; sourceTree = "<group>"; };
 		1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FSNokioBold.otf; sourceTree = "<group>"; };
@@ -121,11 +131,49 @@
 		1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalViewController.swift; sourceTree = "<group>"; };
 		1C870F7E21AA49D100FF296E /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
 		1C870F8021AA4CFA00FF296E /* ChoosingGoalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingGoalAlert.swift; sourceTree = "<group>"; };
-		1C870F8421AB95ED00FF296E /* DailyGoalType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyGoalType.swift; sourceTree = "<group>"; };
-		1C870F8621AB965000FF296E /* ReadXStoriesWeeklyGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadXStoriesWeeklyGoal.swift; sourceTree = "<group>"; };
 		1C870F8821B2D9E700FF296E /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
 		1C9C77552194BFBF002ADA76 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoTableViewCell.swift; sourceTree = "<group>"; };
+		1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadXArticlesGoalModel.swift; sourceTree = "<group>"; };
+		1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadXMinutesGoalModel.swift; sourceTree = "<group>"; };
+		1CAC791921FB55DF007F8704 /* BrowserSocialMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserSocialMediaViewController.swift; sourceTree = "<group>"; };
+		1CAC791C21FB5693007F8704 /* ArticleComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleComment.swift; sourceTree = "<group>"; };
+		1CAC791E21FB56C7007F8704 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaUserCell.swift; sourceTree = "<group>"; };
+		1CAC792221FB570F007F8704 /* ProfileUIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUIController.swift; sourceTree = "<group>"; };
+		1CAC792521FB5748007F8704 /* TutorialBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialBarViewController.swift; sourceTree = "<group>"; };
+		1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWithDarkBackground.swift; sourceTree = "<group>"; };
+		1CAC792921FB57B0007F8704 /* GoalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalManager.swift; sourceTree = "<group>"; };
+		1CAC792B21FB57D9007F8704 /* GoalCompleteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompleteHelper.swift; sourceTree = "<group>"; };
+		1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompleteViewController.swift; sourceTree = "<group>"; };
+		1CAC793021FB5906007F8704 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupManager.swift; sourceTree = "<group>"; };
+		1CAC793421FB594D007F8704 /* ComprehensionPopupShowPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupShowPoint.swift; sourceTree = "<group>"; };
+		1CAC793721FB599E007F8704 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewControllerTutorial.swift; sourceTree = "<group>"; };
+		1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopup.swift; sourceTree = "<group>"; };
+		1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialAudio.swift; sourceTree = "<group>"; };
+		1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaQuote.swift; sourceTree = "<group>"; };
+		1CAC794121FB5B12007F8704 /* NokioSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		1CAC794221FB5B12007F8704 /* NokioSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		1CAC794321FB5B12007F8704 /* NokioSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		1CAC794421FB5B12007F8704 /* NokioSansAlt-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-Medium.ttf"; sourceTree = "<group>"; };
+		1CAC794521FB5B12007F8704 /* NokioSansAlt-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-Light.ttf"; sourceTree = "<group>"; };
+		1CAC794621FB5B12007F8704 /* NokioSansAlt-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1CAC794721FB5B12007F8704 /* NokioSansAlt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-Regular.ttf"; sourceTree = "<group>"; };
+		1CAC794821FB5B12007F8704 /* NokioSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-Bold.ttf"; sourceTree = "<group>"; };
+		1CAC794921FB5B13007F8704 /* NokioSansAlt-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-RegularItalic.ttf"; sourceTree = "<group>"; };
+		1CAC794A21FB5B13007F8704 /* NokioSansAlt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-Bold.ttf"; sourceTree = "<group>"; };
+		1CAC794B21FB5B13007F8704 /* NokioSans-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-RegularItalic.ttf"; sourceTree = "<group>"; };
+		1CAC794C21FB5B13007F8704 /* NokioSansAlt-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-ExtraLight.ttf"; sourceTree = "<group>"; };
+		1CAC794D21FB5B13007F8704 /* NokioSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1CAC794E21FB5B13007F8704 /* NokioSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-Medium.ttf"; sourceTree = "<group>"; };
+		1CAC794F21FB5B13007F8704 /* NokioSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-Light.ttf"; sourceTree = "<group>"; };
+		1CAC795021FB5B13007F8704 /* NokioSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-Regular.ttf"; sourceTree = "<group>"; };
+		1CAC795121FB5B13007F8704 /* NokioSansAlt-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-LightItalic.ttf"; sourceTree = "<group>"; };
+		1CAC795221FB5B13007F8704 /* NokioSansAlt-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1CAC795321FB5B13007F8704 /* NokioSansAlt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSansAlt-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		1CAC795421FB5B14007F8704 /* NokioSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NokioSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				1C28737721A5070400B790A4 /* HtmlStringExtension.swift */,
+				1CAC791E21FB56C7007F8704 /* DateExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -193,6 +242,7 @@
 				1C28737921A5093400B790A4 /* BrowserUIController.swift */,
 				1C28737B21A50B6500B790A4 /* BrowserController.swift */,
 				1C28737D21A5ABFF00B790A4 /* DictionaryWebViewController.swift */,
+				1CAC791921FB55DF007F8704 /* BrowserSocialMediaViewController.swift */,
 			);
 			name = Browser;
 			sourceTree = "<group>";
@@ -209,6 +259,26 @@
 			isa = PBXGroup;
 			children = (
 				1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */,
+				1CAC794821FB5B12007F8704 /* NokioSans-Bold.ttf */,
+				1CAC795421FB5B14007F8704 /* NokioSans-BoldItalic.ttf */,
+				1CAC794121FB5B12007F8704 /* NokioSans-ExtraLight.ttf */,
+				1CAC794321FB5B12007F8704 /* NokioSans-ExtraLightItalic.ttf */,
+				1CAC794F21FB5B13007F8704 /* NokioSans-Light.ttf */,
+				1CAC794221FB5B12007F8704 /* NokioSans-LightItalic.ttf */,
+				1CAC794E21FB5B13007F8704 /* NokioSans-Medium.ttf */,
+				1CAC794D21FB5B13007F8704 /* NokioSans-MediumItalic.ttf */,
+				1CAC795021FB5B13007F8704 /* NokioSans-Regular.ttf */,
+				1CAC794B21FB5B13007F8704 /* NokioSans-RegularItalic.ttf */,
+				1CAC794A21FB5B13007F8704 /* NokioSansAlt-Bold.ttf */,
+				1CAC794621FB5B12007F8704 /* NokioSansAlt-BoldItalic.ttf */,
+				1CAC794C21FB5B13007F8704 /* NokioSansAlt-ExtraLight.ttf */,
+				1CAC795321FB5B13007F8704 /* NokioSansAlt-ExtraLightItalic.ttf */,
+				1CAC794521FB5B12007F8704 /* NokioSansAlt-Light.ttf */,
+				1CAC795121FB5B13007F8704 /* NokioSansAlt-LightItalic.ttf */,
+				1CAC794421FB5B12007F8704 /* NokioSansAlt-Medium.ttf */,
+				1CAC795221FB5B13007F8704 /* NokioSansAlt-MediumItalic.ttf */,
+				1CAC794721FB5B12007F8704 /* NokioSansAlt-Regular.ttf */,
+				1CAC794921FB5B13007F8704 /* NokioSansAlt-RegularItalic.ttf */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -217,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				1C4C67DD218C004A00D5383D /* ProfileViewController.swift */,
+				1CAC792221FB570F007F8704 /* ProfileUIController.swift */,
 			);
 			name = "Profile Page";
 			sourceTree = "<group>";
@@ -263,20 +334,19 @@
 		1C513A5921801B6100FFDC82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1C28737621A506F400B790A4 /* Extensions */,
 				CDA652951FA0F5B700835624 /* uReadLiteracy.xcdatamodeld */,
 				1C4C67EC218D3E5100D5383D /* Web */,
 				1C870F7D21AA49B300FF296E /* Enum */,
 				1C4C67ED218D3E6C00D5383D /* State.swift */,
+				1CAC791B21FB5666007F8704 /* Goal */,
 				1C4C67F7218E5D6D00D5383D /* UIState.swift */,
 				1C4C67EF218D400500D5383D /* HelpFunctionError.swift */,
 				1C28737F21A7B42B00B790A4 /* UserModel.swift */,
 				1C28738121A7B77A00B790A4 /* HelpWordModel.swift */,
 				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
-				1C28739021AA12A500B790A4 /* GoalModel.swift */,
-				1C28738E21AA129300B790A4 /* DailyGoalModel.swift */,
-				1C870F8621AB965000FF296E /* ReadXStoriesWeeklyGoal.swift */,
 				CDED752521E7D69C00E9E135 /* Recordings.swift */,
+				1CAC791C21FB5693007F8704 /* ArticleComment.swift */,
+				1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,6 +370,8 @@
 				1C9C775B219A962C002ADA76 /* Tableview Cells */,
 				1C769CF221D4352300034EB3 /* BouncingLabel.swift */,
 				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
+				1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */,
+				1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -331,7 +403,6 @@
 		1C870F7D21AA49B300FF296E /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				1C870F8421AB95ED00FF296E /* DailyGoalType.swift */,
 				1C870F7E21AA49D100FF296E /* GoalType.swift */,
 			);
 			name = Enum;
@@ -362,19 +433,64 @@
 				1C28738521A855A200B790A4 /* GoalTableViewCell.swift */,
 				1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */,
 				1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */,
+				1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */,
 			);
 			name = "Tableview Cells";
+			sourceTree = "<group>";
+		};
+		1CAC791B21FB5666007F8704 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC792921FB57B0007F8704 /* GoalManager.swift */,
+				1C28739021AA12A500B790A4 /* GoalModel.swift */,
+				1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */,
+				1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */,
+			);
+			name = Goal;
+			sourceTree = "<group>";
+		};
+		1CAC792421FB5733007F8704 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC792521FB5748007F8704 /* TutorialBarViewController.swift */,
+				1CAC793721FB599E007F8704 /* Tutorial.swift */,
+				1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */,
+				1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
+		1CAC792D21FB5807007F8704 /* Goal Complete */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC792B21FB57D9007F8704 /* GoalCompleteHelper.swift */,
+				1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */,
+			);
+			name = "Goal Complete";
+			sourceTree = "<group>";
+		};
+		1CAC793621FB5978007F8704 /* Comprehension Popup */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */,
+				1CAC793421FB594D007F8704 /* ComprehensionPopupShowPoint.swift */,
+			);
+			name = "Comprehension Popup";
 			sourceTree = "<group>";
 		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1CAC793021FB5906007F8704 /* AudioPlayer.swift */,
 				1C4C67D8218BF92400D5383D /* Starting Page */,
 				1C4C680821912A1900D5383D /* First Time Launch */,
+				1CAC792421FB5733007F8704 /* Tutorial */,
 				1C4C67DA218C000100D5383D /* Profile Page */,
 				1C4C67D7218BF91D00D5383D /* Browser */,
 				1C9C775A219A90A5002ADA76 /* Learn More */,
 				1C28738721A855D200B790A4 /* Goal */,
+				1CAC792D21FB5807007F8704 /* Goal Complete */,
+				1CAC793621FB5978007F8704 /* Comprehension Popup */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -436,6 +552,7 @@
 				1C513A5921801B6100FFDC82 /* Model */,
 				1C513AA3218675FA00FFDC82 /* View */,
 				1CDB3F28217ECDDB00BEC04C /* Controller */,
+				1C28737621A506F400B790A4 /* Extensions */,
 				CD6462B81FF33A55007AF08A /* Storyboards */,
 				1C9C7757219A8C1B002ADA76 /* Helper */,
 				CDDD7EFF1FF19A3E009FA71D /* Tutorial Files */,
@@ -527,20 +644,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD1DCA661FF4ACCD00FCDDB5 /* progress.gif in Resources */,
-				1C769CED21D348A700034EB3 /* DIN-Bold.ttf in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
 				1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */,
-				1C769CEC21D348A300034EB3 /* DIN-BlackAlternate.ttf in Resources */,
-				1C769CF021D348AF00034EB3 /* DIN-Regular.ttf in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
 				CDA6529C1FA0F5B700835624 /* LaunchScreen.storyboard in Resources */,
 				CDDD7F051FF1A64C009FA71D /* getHelp.gif in Resources */,
-				1C769CEF21D348AD00034EB3 /* DIN-Medium.ttf in Resources */,
 				CDA652991FA0F5B700835624 /* Assets.xcassets in Resources */,
-				1C769CEE21D348AA00034EB3 /* DIN-Light.ttf in Resources */,
 				CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */,
 				CD1DCA681FF4ACD300FCDDB5 /* learnMore.gif in Resources */,
-				1C769CF121D348B200034EB3 /* DIN-RegularAlternate.ttf in Resources */,
 				1C4C67FC218E64B300D5383D /* GoogleService-Info.plist in Resources */,
 				CDA652941FA0F5B700835624 /* Main.storyboard in Resources */,
 			);
@@ -602,58 +713,75 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */,
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
 				1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */,
 				1C28737A21A5093400B790A4 /* BrowserUIController.swift in Sources */,
+				1CAC792621FB5748007F8704 /* TutorialBarViewController.swift in Sources */,
+				1CAC793E21FB5A54007F8704 /* TutorialAudio.swift in Sources */,
+				1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */,
 				1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */,
 				1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */,
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
 				1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */,
 				CDED752621E7D69C00E9E135 /* Recordings.swift in Sources */,
+				1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */,
+				1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* UIState.swift in Sources */,
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
+				1CAC793821FB599E007F8704 /* Tutorial.swift in Sources */,
 				1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* UserModel.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
 				1C9C77562194BFBF002ADA76 /* CoreDataHelper.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
+				1CAC792821FB5764007F8704 /* ActivityIndicatorWithDarkBackground.swift in Sources */,
 				1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */,
 				CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */,
 				1C4C67EE218D3E6C00D5383D /* State.swift in Sources */,
+				1CAC791821FB5590007F8704 /* ReadXMinutesGoalModel.swift in Sources */,
 				1C28739121AA12A500B790A4 /* GoalModel.swift in Sources */,
 				CD1DCA621FF4A2D200FCDDB5 /* WalkthroughViewController.swift in Sources */,
 				1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */,
 				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
 				1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */,
 				1C28737C21A50B6500B790A4 /* BrowserController.swift in Sources */,
-				1C870F8721AB965000FF296E /* ReadXStoriesWeeklyGoal.swift in Sources */,
 				CD704F4E2019A1B700E1E4F8 /* BrowseViewController.swift in Sources */,
 				1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */,
+				1CAC792A21FB57B0007F8704 /* GoalManager.swift in Sources */,
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
+				1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */,
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,
 				1C28738D21A8B07500B790A4 /* GoalListViewController.swift in Sources */,
 				1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */,
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
+				1CAC792C21FB57D9007F8704 /* GoalCompleteHelper.swift in Sources */,
 				1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */,
 				1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */,
 				CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */,
 				CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */,
-				1C870F8521AB95ED00FF296E /* DailyGoalType.swift in Sources */,
 				CDDD7F011FF19A67009FA71D /* ExploreViewController.swift in Sources */,
 				1C4C67DE218C004A00D5383D /* ProfileViewController.swift in Sources */,
 				1C28738621A855A200B790A4 /* GoalTableViewCell.swift in Sources */,
+				1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */,
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
+				1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */,
 				1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */,
+				1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,
-				1C28738F21AA129300B790A4 /* DailyGoalModel.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
+				1CAC791A21FB55DF007F8704 /* BrowserSocialMediaViewController.swift in Sources */,
+				1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */,
 				CDA652971FA0F5B700835624 /* uReadLiteracy.xcdatamodeld in Sources */,
+				1CAC792321FB570F007F8704 /* ProfileUIController.swift in Sources */,
+				1CAC793521FB594D007F8704 /* ComprehensionPopupShowPoint.swift in Sources */,
+				1CAC794021FB5A7E007F8704 /* SocialMediaQuote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

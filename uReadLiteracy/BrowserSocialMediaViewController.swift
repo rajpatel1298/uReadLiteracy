@@ -82,7 +82,6 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
         }
         
         let articleName = (currentArticle?.getName())!
-        let uid = UserModel.sharedInstance.getUid()
         
         commentRef = Database.database().reference().child(articleName).queryOrderedByKey()
         
@@ -166,6 +165,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
         
         let cell = cell as! SocialMediaUserCell
         cell.commentLabel.text = comment.comment
+        cell.commentLabel.font = UIFont(name: "NokioSans-Medium", size: 14)
         
         cell.commentLabel.layer.cornerRadius = 10
         cell.commentLabel.layer.masksToBounds = false
@@ -187,8 +187,8 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
         cell.commentLabel.numberOfLines = 0
         cell.commentLabel.font = UIFont(name: "NokioSans-Medium", size: 14)
         
-        let fixedWidth = cell.commentLabel.frame.size.width
-        
+        let fixedWidth = cell.commentLabel.frame.size.width * 2
+
         let newSize: CGSize = cell.commentLabel.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
 
         if newSize.height < 70 {
