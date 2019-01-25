@@ -16,6 +16,12 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateContinueBtn()
@@ -30,14 +36,14 @@ class StartViewController: UIViewController {
     @IBAction func continueBtnPressed(_ sender: Any) {
         if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough"){
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
+            let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController")
             self.show(vc, sender: self)
         }
         else{
             performSegue(withIdentifier: "StartToFirstTimeSegue", sender: self)
         }
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController")
         self.show(vc, sender: self)
     }
 

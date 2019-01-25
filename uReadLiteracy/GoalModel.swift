@@ -10,8 +10,9 @@ import Foundation
 
 class GoalModel{
     let name:String
-    var progress:Double!
+    var progress:Int!
     let date:Date
+    var showCompletionToUser = false
     
     init(name:String,date:Date){
         self.name = name
@@ -19,7 +20,7 @@ class GoalModel{
         progress = 0
     }
     
-    init(name:String,progress:Double,date:Date){
+    init(name:String,progress:Int,date:Date){
         self.name = name
         self.progress = progress
         self.date = date
@@ -27,6 +28,22 @@ class GoalModel{
     
     func getDescription()->String{
         return  "\(name)"
-        //return  "\(name): \(Int(progress))%"
-    } 
+    }
+    
+    func getDescriptionWithProgress()->String{
+        return  "\(name): \(Int(progress))%"
+    }
+    
+    func save(){
+        if let model = self as? ReadXMinutesGoalModel{
+            model.save()
+        }
+        else if let model = self as? ReadXArticlesGoalModel{
+            model.save()
+        }
+    }
+    
+    func isCompleted()->Bool{
+        return progress == 100
+    }
 }

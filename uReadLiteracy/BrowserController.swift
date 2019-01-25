@@ -35,7 +35,7 @@ class BrowserController{
         }
     }
     
-    func articleURL(url:String)->Bool{
+    func isCurrentURLAnArticle(url:String)->Bool{
         if(url.contains(mainURL) && url.count > mainURL.count){
             return true
         }

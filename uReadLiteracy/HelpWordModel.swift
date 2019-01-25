@@ -105,7 +105,7 @@ class HelpWordModel{
     
     func save(){
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWord", in: managedContext)!
+        let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
         
         let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
         
@@ -126,9 +126,9 @@ class HelpWordModel{
     
     static func getWordList()->[HelpWordModel]{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        let wordFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "HelpWord")
+        let wordFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "HelpWordCD")
         
-        let words = try! managedContext.fetch(wordFetch) as! [HelpWord]
+        let words = try! managedContext.fetch(wordFetch) as! [HelpWordCD]
         
         var list = [HelpWordModel]()
         

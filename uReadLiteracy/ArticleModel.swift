@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 public class ArticleModel{
-    var name:String
+    private var name:String
     private var readCount:Double
     
     // 1 unit = 1 second
@@ -76,17 +76,17 @@ public class ArticleModel{
         save()
     }
     
-    func timeReadThisTime()->Double{
-        return currentTimeSpent
+    func timeReadThisTimeInMinutes()->Int{
+        return Int(currentTimeSpent/60)
     }
     
     func save(){
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         
-        let model:Article? = ArticleModel.findCoreDataModel(url: url)
+        let model:ArticleCD? = ArticleModel.findCoreDataModel(url: url)
         
         if(model == nil){
-            let articleEntity = NSEntityDescription.entity(forEntityName: "Article", in: managedContext)!
+            let articleEntity = NSEntityDescription.entity(forEntityName: "ArticleCD", in: managedContext)!
             let articleObject = NSManagedObject(entity: articleEntity, insertInto: managedContext)
             
             articleObject.setValue(name, forKeyPath: "name")
@@ -109,9 +109,9 @@ public class ArticleModel{
     
     private static func find(url:String)->ArticleModel?{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Article")
+        let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
         
-        let articles = try! managedContext.fetch(articleFetch) as! [Article]
+        let articles = try! managedContext.fetch(articleFetch) as! [ArticleCD]
         
         for article in articles{
             if(article.url! == url){
@@ -122,11 +122,11 @@ public class ArticleModel{
         return nil
     }
     
-    private static func findCoreDataModel(url:String)->Article?{
+    private static func findCoreDataModel(url:String)->ArticleCD?{
         let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Article")
+        let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
         
-        let articles = try! managedContext.fetch(articleFetch) as! [Article]
+        let articles = try! managedContext.fetch(articleFetch) as! [ArticleCD]
         
         for article in articles{
             if(article.url! == url){

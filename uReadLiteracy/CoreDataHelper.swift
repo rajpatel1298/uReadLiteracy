@@ -27,21 +27,4 @@ class CoreDataHelper{
         let managedContext = appDelegate.persistentContainer.viewContext
         return managedContext
     }
-    
-    /*func saveLoginInfo(email:String,password:String){
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let userEntity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
-        
-        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        user.setValue(email, forKeyPath: "email")
-        user.setValue(password, forKeyPath: "password")
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }*/
-    
-    
 }

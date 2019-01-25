@@ -27,7 +27,7 @@ class WalkthroughViewController: UIViewController, WalkthroughPageViewController
     
     func goToNextViewController(){
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController") as! UITabBarController
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController")
         self.show(vc, sender: self)
     }
     

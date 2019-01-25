@@ -12,7 +12,8 @@ class GoalTableViewCell: UITableViewCell {
     
     @IBOutlet weak var goalSubLabel: UILabel!
     
-
+    @IBOutlet weak var goalFinishIV: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

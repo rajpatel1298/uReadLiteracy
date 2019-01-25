@@ -23,6 +23,12 @@ class BrowseViewController: UIViewController, WKNavigationDelegate, AVAudioRecor
     var audioRecorder: AVAudioRecorder!
     var currentRecording: String = ""
     
+import FirebaseAuth
+
+class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate{
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var previousPageBarBtn: UIBarButtonItem!
+    @IBOutlet weak var socialMediaView: UIView!
     
     var urlSegue:URL!
     let mainUrl = "http://www.manythings.org/voa/stories/"
@@ -31,7 +37,11 @@ class BrowseViewController: UIViewController, WKNavigationDelegate, AVAudioRecor
     var controller:BrowserController!
     
     var currentArticle:ArticleModel?
-
+    
+    
+    private var browserSocialMediaVC:BrowserSocialMediaViewController!
+    
+    var maxBrowserOffset:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +60,55 @@ class BrowseViewController: UIViewController, WKNavigationDelegate, AVAudioRecor
             }
         }
 
+        
+        webView.scrollView.delegate = self
+    
+        browserSocialMediaVC = (childViewControllers.first as! BrowserSocialMediaViewController)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        webView.frame = view.frame
+        socialMediaView.frame = CGRect(x: view.frame.origin.x, y: view.frame.height/2, width: view.frame.width, height: view.frame.height/2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         previousPageBarBtn.isEnabled = false
         loadMainPage()
+        socialMediaView.isHidden = true
+        webView.frame = view.frame
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        webView.frame = view.frame
+        loadMainPage()
+        socialMediaView.isHidden = true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        uiController.readScrollViewPosition()
+        updateGoalIfNeeded()
+    }
+    
+    private func updateGoalIfNeeded(){
+        let currentYOffset = webView.scrollView.contentOffset.y
+        let url = webView.url?.absoluteString
+        
+        if maxBrowserOffset == nil{
+            return
+        }
+        
+        if Int(currentYOffset) >= maxBrowserOffset!*90/100 {
+            if(controller.isCurrentURLAnArticle(url: url!)){
+                if(currentArticle != nil){
+                    currentArticle?.stopRecordingTime()
+                    GoalManager.shared.updateGoals(article: currentArticle!)
+                }
+            }
+        }
     }
     
     func loadMainPage(){
@@ -78,28 +131,33 @@ class BrowseViewController: UIViewController, WKNavigationDelegate, AVAudioRecor
         
         let url = webView.url?.absoluteString
         
-        if(controller.articleURL(url: url!)){
+        if isReading(){
             currentArticle = ArticleModel(name: webView.title!, url: url!)
             currentArticle?.incrementReadCount()
             currentArticle?.startRecordingTime()
-            //DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
-        }
-        else{
-            currentArticle?.stopRecordingTime()
-            if(currentArticle != nil){
-                DailyGoalModel.updateGoals(articleUpdate: currentArticle!)
-            }
+            
+            maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
+            
+            updatePopupManager()
+            
+            browserSocialMediaVC.currentArticle = currentArticle
         }
         
+        else{
+            uiController.popupManager.reset()
+        }
     }
-
     
+    func isReading()->Bool{
+        let url = webView.url?.absoluteString
+        return controller.isCurrentURLAnArticle(url: url!)
+    }
     
-    private func setupHelpFunctionInMenuBar(){
-        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
-        UIMenuController.shared.menuItems = [helpItem]
-        UIMenuController.shared.update()
-        UIMenuController.shared.setMenuVisible(true, animated: true)
+    private func updatePopupManager(){
+        let maxOffset = webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom
+        
+        uiController.popupManager.setMaxYOffset(value: maxOffset)
+        uiController.popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: maxOffset/2)])
     }
     
     func helpFunction(){
@@ -126,8 +184,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate, AVAudioRecor
             }
         }
     }
-   
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DictionaryWebViewController{
@@ -199,3 +255,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate, AVAudioRecor
         return documentDirectory
     }
 }
+
+
+
+
+

@@ -15,13 +15,13 @@ class CountingLabel:UILabel{
     private let maxValue:Float
     private var numberOfUpdates:Double = 100
     private var percent:Int!
-    private let loadingDuration:Int
+    private let loadingDuration:Double
     
-    init(percent:Int,loadingDuration:Int, frame:CGRect){
+    init(percent:Int,loadingDuration:Double){
         self.maxValue = Float(percent)
         self.loadingDuration = loadingDuration
         self.percent = percent
-        super.init(frame: frame)
+        super.init(frame: .zero)
         
     }
     

@@ -12,5 +12,11 @@ target 'uReadLiteracy' do
   pod "youtube-ios-player-helper", "~> 0.1.4"
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'lottie-ios'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+
 end

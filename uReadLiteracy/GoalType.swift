@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GoalType{
+enum GoalType:String{
     case Daily
     case Ongoing
 }

@@ -10,6 +10,6 @@ import Foundation
 
 enum UIState{
     case Success
-    case Failure
+    case Failure(String)
     case Loading
 }
