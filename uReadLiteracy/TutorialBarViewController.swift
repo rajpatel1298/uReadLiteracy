@@ -16,7 +16,7 @@ class TutorialBarViewController: UIViewController {
     @IBOutlet weak var tutorialBtn: UIButton!
     
     static var currentController:UIViewController!
-    private var tutorial:Tutorial!
+    private var tutorial:TutorialController!
   
     override func viewDidLoad() {
         super.viewDidLoad()
