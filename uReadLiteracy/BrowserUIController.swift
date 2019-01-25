@@ -62,6 +62,10 @@ extension BrowserUIController{
             return
         }
         
+        if !viewcontroller.isReading(){
+            return
+        }
+        
         if currentYOffset >= maxBrowserOffset!*90/100 && maxBrowserOffset! > 0{
             if viewcontroller.socialMediaView.isHidden{
                 viewcontroller.socialMediaView.isHidden = false
@@ -95,6 +99,10 @@ extension BrowserUIController{
     
     
     fileprivate func showPopupIfNeeded(){
+        if !viewcontroller.isReading(){
+            return
+        }
+        
         let currentYOffset = viewcontroller.webView.scrollView.contentOffset.y
         
         if popupManager.shouldShowPopup(currentYOffset: currentYOffset){

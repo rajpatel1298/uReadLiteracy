@@ -54,6 +54,14 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         previousPageBarBtn.isEnabled = false
         loadMainPage()
         socialMediaView.isHidden = true
+        webView.frame = view.frame
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        webView.frame = view.frame
+        loadMainPage()
+        socialMediaView.isHidden = true
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -99,7 +107,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
         let url = webView.url?.absoluteString
         
-        if(controller.isCurrentURLAnArticle(url: url!)){
+        if isReading(){
             currentArticle = ArticleModel(name: webView.title!, url: url!)
             currentArticle?.incrementReadCount()
             currentArticle?.startRecordingTime()
@@ -114,6 +122,11 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         else{
             uiController.popupManager.reset()
         }
+    }
+    
+    func isReading()->Bool{
+        let url = webView.url?.absoluteString
+        return controller.isCurrentURLAnArticle(url: url!)
     }
     
     private func updatePopupManager(){
