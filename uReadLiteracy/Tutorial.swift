@@ -18,7 +18,7 @@ class Tutorial{
         fatalError("Need to override addGesture function")
     }
     
-    func show(view:UIView,onComplete:@escaping ()->Void){
+    func show(onComplete:@escaping ()->Void){
         fatalError("Need to override show function")
         
     }

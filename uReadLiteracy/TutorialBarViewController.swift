@@ -31,13 +31,23 @@ class TutorialBarViewController: UIViewController {
             let gesture = UITapGestureRecognizer(target: self, action: #selector(onTapped(_:)))
             tutorial.addGesture(gesture: gesture)
             
-            tutorial.show(view: vc.view) {
+            tutorial.show() {
                 self.tutorialBtn.isEnabled = true
             }
             tutorialBtn.isEnabled = false
-
             break
+        case is ProfileViewController:
+            let vc = TutorialBarViewController.currentController as! ProfileViewController
             
+            tutorial = ProfileViewControllerTutorial(vc: vc)
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(onTapped(_:)))
+            tutorial.addGesture(gesture: gesture)
+            
+            tutorial.show() {
+                self.tutorialBtn.isEnabled = true
+            }
+            tutorialBtn.isEnabled = false
+            break
         case .none:
             break
         case .some(_):

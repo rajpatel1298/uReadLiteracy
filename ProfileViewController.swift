@@ -26,13 +26,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var goal3View: UIView!
     
     @IBOutlet weak var currentGoalView: UIView!
-    
-    
     @IBOutlet weak var addNewGoalBtn: UIButton!
     
+    @IBOutlet weak var currentGoalStackView: UIStackView!
+    
     @IBOutlet weak var addNewGoalBtnUIView: UIView!
-    
-    
     
     //var userProgressCircle:GoalProgressCircle!
     var goal1ProgressCircle:GoalProgressCircle!
@@ -54,17 +52,6 @@ class ProfileViewController: UIViewController {
         uiController.setupDailyGoalsProgressCircle()
         uiController.setGoalLabelTexts()
         uiController.hideGoalsThatDoesNotExist()
-        uiController.resetDailyGoalsProgressCircleCenter()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        uiController.resetDailyGoalsProgressCircleCenter()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        uiController.animateGoalProgressCircles()
         TutorialBarViewController.currentController = self
     }
     
@@ -94,20 +81,20 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        uiController.resetDailyGoalsProgressCircleCenter()
+    }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        uiController.animateGoalProgressCircles()
+    }
     
     private func loadUserInfo(){
-        let user = UserModel.sharedInstance
-        if user.getImage() == nil{
-            profileIV.image = #imageLiteral(resourceName: "profile_hd")
-            backgroundProfileIV.image = nil
-        }
-        else{
-            profileIV.image = user.getImage()
-            backgroundProfileIV.image = user.getImage()
-        }
-        
-        
+        let user = UserModel()
+        profileIV.image = user.getImage()
+        backgroundProfileIV.image = user.getImage()
         welcomeLabel.text = "Welcome \(user.getNickname())"
     }
     

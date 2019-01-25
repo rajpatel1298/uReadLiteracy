@@ -1,8 +1,8 @@
 //
-//  GoalViewControllerTutorial.swift
+//  ProfileViewControllerTutorial.swift
 //  uReadLiteracy
 //
-//  Created by Duy Le 2 on 1/10/19.
+//  Created by Raj Patel on 1/16/19.
 //  Copyright © 2019 AdaptConsulting. All rights reserved.
 //
 
@@ -11,12 +11,12 @@ import UIKit
 import Lottie
 
 // For other Tutorial Controller, just copied the same code, and change stuffs when noted
-class GoalViewControllerTutorial:Tutorial{
+class ProfileViewControllerTutorial:Tutorial{
     private var tutorialLayers = [CAShapeLayer]()
     
     private var previousLayer = CAShapeLayer()
     private let goalVCFrame:CGRect
-    private let vc:GoalViewController
+    private let vc: ProfileViewController
     private var onComplete:()->Void = {}
     private var tutorialView = UIView(frame: .zero)
     private var gestureAdded = false
@@ -25,10 +25,10 @@ class GoalViewControllerTutorial:Tutorial{
     
     
     // Change based on the audio that you will use
-    private let audio = TutorialAudio(audioFiles: ["goalTutorial1","goalTutorial2"])
+    private let audio = TutorialAudio(audioFiles: ["profileTutorial1","goalTutorial2"])
     
     // No need to change
-    init(vc:GoalViewController){
+    init(vc:ProfileViewController){
         self.vc = vc
         tutorialView.isUserInteractionEnabled = true
         tutorialView.addSubview(animationView)
@@ -83,11 +83,11 @@ class GoalViewControllerTutorial:Tutorial{
             let layer = tutorialLayers.remove(at: 0)
             previousLayer = layer
             tutorialView.layer.addSublayer(layer)
-
+            
             tutorialView.bringSubview(toFront: animationView)
             
             audio.playNextAudio()
-
+            
             animationView.play{ (finished) in}
         }
         else{
@@ -104,14 +104,15 @@ class GoalViewControllerTutorial:Tutorial{
     
     // Change based on what you want to highlight
     private func getFirstStepLayer(){
-        let  goalOptionStackViewFrame = vc.goalOptionStackView.frame
+        
+        let currGoalsFrame = vc.view.convert(vc.currentGoalsLabel.frame, from:vc.currentGoalView)
         
         let path = UIBezierPath(rect: goalVCFrame)
         
         // Change this
-        let highlightPath = UIBezierPath(roundedRect: goalOptionStackViewFrame, cornerRadius: 5)
+        let highlightPath = UIBezierPath(roundedRect: currGoalsFrame, cornerRadius: 5)
         //
-    
+        
         path.append(highlightPath)
         path.usesEvenOddFillRule = true
         
@@ -127,7 +128,7 @@ class GoalViewControllerTutorial:Tutorial{
     }
     
     private func getSecondStepLayer(){
-        let  addNewGoalBtnFrame = vc.addNewGoalBtn.frame
+        let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.addNewGoalBtnUIView)
         
         let path = UIBezierPath(rect: goalVCFrame)
         
