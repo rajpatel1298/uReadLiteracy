@@ -48,6 +48,18 @@ class TutorialBarViewController: UIViewController {
             }
             tutorialBtn.isEnabled = false
             break
+        case is RecordViewController:
+            let vc = TutorialBarViewController.currentController as! RecordViewController
+            
+            tutorial = RecordViewControllerTutorial(vc: vc)
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(onTapped(_:)))
+            tutorial.addGesture(gesture: gesture)
+        
+            tutorial.show(){
+                self.tutorialBtn.isEnabled = true
+            }
+            tutorialBtn.isEnabled = false
+            break
         case .none:
             break
         case .some(_):

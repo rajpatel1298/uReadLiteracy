@@ -96,6 +96,10 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        TutorialBarViewController.currentController = self
+    }
+    
     //function that gets path to directory
     func getDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
