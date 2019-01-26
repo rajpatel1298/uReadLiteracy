@@ -76,6 +76,27 @@
 		1CAC796E21FB6521007F8704 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796D21FB651D007F8704 /* Goal.storyboard */; };
 		1CAC797021FB65AC007F8704 /* ChooseGoalTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */; };
 		1CAC797221FBAD78007F8704 /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC797121FBAD78007F8704 /* TutorialController.swift */; };
+		1CAC797821FBC7BC007F8704 /* ReadTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC797721FBC7BC007F8704 /* ReadTab.storyboard */; };
+		1CAC797921FCB287007F8704 /* NokioSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794821FB5B12007F8704 /* NokioSans-Bold.ttf */; };
+		1CAC797A21FCB287007F8704 /* NokioSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795421FB5B14007F8704 /* NokioSans-BoldItalic.ttf */; };
+		1CAC797B21FCB287007F8704 /* NokioSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794121FB5B12007F8704 /* NokioSans-ExtraLight.ttf */; };
+		1CAC797C21FCB287007F8704 /* NokioSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794321FB5B12007F8704 /* NokioSans-ExtraLightItalic.ttf */; };
+		1CAC797D21FCB287007F8704 /* NokioSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794F21FB5B13007F8704 /* NokioSans-Light.ttf */; };
+		1CAC797E21FCB287007F8704 /* NokioSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794221FB5B12007F8704 /* NokioSans-LightItalic.ttf */; };
+		1CAC797F21FCB287007F8704 /* NokioSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794E21FB5B13007F8704 /* NokioSans-Medium.ttf */; };
+		1CAC798021FCB287007F8704 /* NokioSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794D21FB5B13007F8704 /* NokioSans-MediumItalic.ttf */; };
+		1CAC798121FCB287007F8704 /* NokioSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795021FB5B13007F8704 /* NokioSans-Regular.ttf */; };
+		1CAC798221FCB287007F8704 /* NokioSans-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794B21FB5B13007F8704 /* NokioSans-RegularItalic.ttf */; };
+		1CAC798321FCB287007F8704 /* NokioSansAlt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794A21FB5B13007F8704 /* NokioSansAlt-Bold.ttf */; };
+		1CAC798421FCB287007F8704 /* NokioSansAlt-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794621FB5B12007F8704 /* NokioSansAlt-BoldItalic.ttf */; };
+		1CAC798521FCB287007F8704 /* NokioSansAlt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794C21FB5B13007F8704 /* NokioSansAlt-ExtraLight.ttf */; };
+		1CAC798621FCB287007F8704 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795321FB5B13007F8704 /* NokioSansAlt-ExtraLightItalic.ttf */; };
+		1CAC798721FCB287007F8704 /* NokioSansAlt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794521FB5B12007F8704 /* NokioSansAlt-Light.ttf */; };
+		1CAC798821FCB287007F8704 /* NokioSansAlt-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795121FB5B13007F8704 /* NokioSansAlt-LightItalic.ttf */; };
+		1CAC798921FCB287007F8704 /* NokioSansAlt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794421FB5B12007F8704 /* NokioSansAlt-Medium.ttf */; };
+		1CAC798A21FCB287007F8704 /* NokioSansAlt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795221FB5B13007F8704 /* NokioSansAlt-MediumItalic.ttf */; };
+		1CAC798B21FCB287007F8704 /* NokioSansAlt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794721FB5B12007F8704 /* NokioSansAlt-Regular.ttf */; };
+		1CAC798C21FCB287007F8704 /* NokioSansAlt-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794921FB5B13007F8704 /* NokioSansAlt-RegularItalic.ttf */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -200,6 +221,7 @@
 		1CAC796D21FB651D007F8704 /* Goal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
 		1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseGoalTypeViewController.swift; sourceTree = "<group>"; };
 		1CAC797121FBAD78007F8704 /* TutorialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
+		1CAC797721FBC7BC007F8704 /* ReadTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReadTab.storyboard; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -577,6 +599,7 @@
 				CD6462B91FF33A88007AF08A /* First Time.storyboard */,
 				CDA6529A1FA0F5B700835624 /* LaunchScreen.storyboard */,
 				1CAC796D21FB651D007F8704 /* Goal.storyboard */,
+				1CAC797721FBC7BC007F8704 /* ReadTab.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -698,8 +721,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CAC797921FCB287007F8704 /* NokioSans-Bold.ttf in Resources */,
+				1CAC797A21FCB287007F8704 /* NokioSans-BoldItalic.ttf in Resources */,
+				1CAC797B21FCB287007F8704 /* NokioSans-ExtraLight.ttf in Resources */,
+				1CAC797C21FCB287007F8704 /* NokioSans-ExtraLightItalic.ttf in Resources */,
+				1CAC797D21FCB287007F8704 /* NokioSans-Light.ttf in Resources */,
+				1CAC797E21FCB287007F8704 /* NokioSans-LightItalic.ttf in Resources */,
+				1CAC797F21FCB287007F8704 /* NokioSans-Medium.ttf in Resources */,
+				1CAC798021FCB287007F8704 /* NokioSans-MediumItalic.ttf in Resources */,
+				1CAC798121FCB287007F8704 /* NokioSans-Regular.ttf in Resources */,
+				1CAC798221FCB287007F8704 /* NokioSans-RegularItalic.ttf in Resources */,
+				1CAC798321FCB287007F8704 /* NokioSansAlt-Bold.ttf in Resources */,
+				1CAC798421FCB287007F8704 /* NokioSansAlt-BoldItalic.ttf in Resources */,
+				1CAC798521FCB287007F8704 /* NokioSansAlt-ExtraLight.ttf in Resources */,
+				1CAC798621FCB287007F8704 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
+				1CAC798721FCB287007F8704 /* NokioSansAlt-Light.ttf in Resources */,
+				1CAC798821FCB287007F8704 /* NokioSansAlt-LightItalic.ttf in Resources */,
+				1CAC798921FCB287007F8704 /* NokioSansAlt-Medium.ttf in Resources */,
+				1CAC798A21FCB287007F8704 /* NokioSansAlt-MediumItalic.ttf in Resources */,
+				1CAC798B21FCB287007F8704 /* NokioSansAlt-Regular.ttf in Resources */,
+				1CAC798C21FCB287007F8704 /* NokioSansAlt-RegularItalic.ttf in Resources */,
 				1CAC796121FB637E007F8704 /* TextTo.mp3 in Resources */,
 				CD1DCA661FF4ACCD00FCDDB5 /* progress.gif in Resources */,
+				1CAC797821FBC7BC007F8704 /* ReadTab.storyboard in Resources */,
 				1CAC795D21FB636C007F8704 /* goalTutorial1.mp3 in Resources */,
 				1CAC796C21FB63BA007F8704 /* facebook.json in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
