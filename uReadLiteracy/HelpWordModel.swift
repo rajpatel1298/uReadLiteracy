@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class HelpWordModel{
+class HelpWordModel:CoreDataModelHandler{
     private let word:String
     
     private var beginningDifficult:Bool!
@@ -17,16 +17,18 @@ class HelpWordModel{
     private var blendDifficult:Bool!
     private var multisyllabicDifficult:Bool!
     
-    
     init(word:String){
         self.word = word
+        super.init()
     }
     init(word:String,beginningDifficult:Bool,endingDifficult:Bool,blendDifficult:Bool,multisyllabicDifficult:Bool){
+        
         self.word = word
         self.beginningDifficult = beginningDifficult
         self.endingDifficult = endingDifficult
         self.blendDifficult = blendDifficult
         self.multisyllabicDifficult = multisyllabicDifficult
+        super.init()
     }
     
     func getWord()->String{
@@ -103,8 +105,7 @@ class HelpWordModel{
         return false
     }
     
-    func save(){
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+    override func save(){
         let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
         
         let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
@@ -123,9 +124,8 @@ class HelpWordModel{
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-    
-    static func getWordList()->[HelpWordModel]{
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+        
+    internal override func getList()->[Any]{
         let wordFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "HelpWordCD")
         
         let words = try! managedContext.fetch(wordFetch) as! [HelpWordCD]

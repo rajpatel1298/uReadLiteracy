@@ -62,7 +62,7 @@ extension BrowserUIController{
             return
         }
         
-        if !viewcontroller.isReading(){
+        if !viewcontroller.isReadingAnArticle(){
             return
         }
         
@@ -99,7 +99,7 @@ extension BrowserUIController{
     
     
     fileprivate func showPopupIfNeeded(){
-        if !viewcontroller.isReading(){
+        if !viewcontroller.isReadingAnArticle(){
             return
         }
         

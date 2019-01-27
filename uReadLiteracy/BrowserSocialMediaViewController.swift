@@ -28,6 +28,8 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     private var commentList = [ArticleComment]()
     
     private var commentRef:DatabaseQuery?
+    
+    let currentUser = UserModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +74,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        userIV.image =  UserModel.sharedInstance.getImage()
+        userIV.image =  currentUser.getImage()
         
     }
     
@@ -81,7 +83,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
             fatalError()
         }
         
-        let articleName = (currentArticle?.getName())!
+        let articleName = (currentArticle?.getTitle())!
         
         commentRef = Database.database().reference().child(articleName).queryOrderedByKey()
         
@@ -103,7 +105,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
                     let commentString = commentDetail["comment"]
                     let username = commentDetail["username"]
                     
-                    let comment = ArticleComment(articleName: (self.currentArticle?.getName())!, uid: commentUid, username: username!, comment: commentString!, date: Date.get(string: dateAsString))
+                    let comment = ArticleComment(articleName: (self.currentArticle?.getTitle())!, uid: commentUid, username: username!, comment: commentString!, date: Date.get(string: dateAsString))
                     
                     self.commentList.append(comment)
                 }
@@ -129,7 +131,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     
     @IBAction func postBtnPressed(_ sender: Any) {
         if (currentArticle != nil){
-            let comment = ArticleComment(articleName: (currentArticle?.getName())!, uid: UserModel.sharedInstance.getUid(), username: UserModel.sharedInstance.getNickname(), comment: userCommentTV.text)
+            let comment = ArticleComment(articleName: (currentArticle?.getTitle())!, uid: currentUser.getUid(), username: currentUser.getNickname(), comment: userCommentTV.text)
             comment.uploadToFirebase()
         }
     }

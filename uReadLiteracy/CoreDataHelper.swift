@@ -11,20 +11,5 @@ import CoreData
 import UIKit
 
 class CoreDataHelper{
-    static var sharedInstance = CoreDataHelper()
     
-    private var appDelegate:AppDelegate!
-    
-    init(){
-        setup()
-    }
-    
-    private func setup(){
-        appDelegate = UIApplication.shared.delegate as? AppDelegate
-    }
-    
-    func getManagedContext()->NSManagedObjectContext{
-        let managedContext = appDelegate.persistentContainer.viewContext
-        return managedContext
-    }
 }

@@ -126,8 +126,10 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
             if(imageSelected){
                 image = userIV.image!
             }
+            
+            let currentUser = UserModel()
       
-            UserModel.createUser(image: image, nickname: nicknameTF.text!) { (state) in
+            currentUser.createUser(image: image, nickname: nicknameTF.text!) { (state) in
                 
                 DispatchQueue.main.async {
                     self.stopLoading()

@@ -12,18 +12,17 @@ import CoreData
 import FirebaseAuth
 import FirebaseStorage
 
-class UserModel{
+class UserModel:CoreDataModelHandler{
     private var image:UIImage?
-    private var nickname:String?
+    private var nickname:String!
     private var uid:String!
     private var email:String!
     private var password:String!
     
-    static var sharedInstance = UserModel()
     private let storage = Storage.storage()
     
-    private init(){
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+    override init(){
+        super.init()
         let userFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCD")
         let users = try! managedContext.fetch(userFetch)
         
@@ -38,24 +37,22 @@ class UserModel{
         }
     }
     
-    static func createUser(image:UIImage?, nickname: String, completionHandler:@escaping (_ state:UIState)->Void){
-        let tempId = UUID().uuidString
-        let email = "\(tempId)@gmail.com"
-        let password = tempId
+    func createUser(image:UIImage?, nickname: String, completionHandler:@escaping (_ state:UIState)->Void){
+        self.nickname = nickname
+        self.image = image
         
-        sharedInstance.email = email
-        sharedInstance.password = password
-        sharedInstance.nickname = nickname
-        sharedInstance.image = image
+        let tempId = UUID().uuidString
+        email = "\(tempId)@gmail.com"
+        password = tempId
         
         Auth.auth().createUser(withEmail: email, password: password) { (_, err) in
             if err == nil{
-                sharedInstance.uid = Auth.auth().currentUser?.uid
+                self.uid = Auth.auth().currentUser?.uid
                 
-                sharedInstance.saveUserImageToFirebaseStorage(completionHandler: { (state) in
+                self.saveUserImageToFirebaseStorage(completionHandler: { (state) in
                     switch(state){
                     case .Success:
-                        self.sharedInstance.saveToCoreData()
+                        self.save()
                         completionHandler(.Success)
                         break
                     case .Failure(let err):
@@ -73,8 +70,7 @@ class UserModel{
         }
     }
     
-    private func saveToCoreData(){
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+    internal override func save(){
         let userEntity = NSEntityDescription.entity(forEntityName: "UserCD", in: managedContext)!
         
         let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
@@ -130,19 +126,4 @@ class UserModel{
     }
 }
 
-extension UIImage {
-    enum JPEGQuality: CGFloat {
-        case lowest  = 0
-        case low     = 0.25
-        case medium  = 0.5
-        case high    = 0.75
-        case highest = 1
-    }
-    
-    /// Returns the data for the specified image in JPEG format.
-    /// If the image object’s underlying image data has been purged, calling this function forces that data to be reloaded into memory.
-    /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
-    func jpeg(_ quality: JPEGQuality) -> Data? {
-        return UIImageJPEGRepresentation(self, quality.rawValue)
-    }
-}
+

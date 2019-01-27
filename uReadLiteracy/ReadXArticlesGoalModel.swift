@@ -53,8 +53,6 @@ class ReadXArticlesGoalModel:GoalModel{
             progress = 100
         }
         
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        
         let model = find(name: name, date: date)
     
         let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
@@ -89,7 +87,7 @@ class ReadXArticlesGoalModel:GoalModel{
     }
     
     static func find(name:String,date:Date, goalType:GoalType)->ReadXArticlesCD?{
-        let goals:[ReadXArticlesCD] = ReadXArticlesGoalModel.getModels()
+        let goals:[ReadXArticlesCD] = ReadXArticlesGoalModel.getCDModels()
         
         for goal in goals{
             
@@ -104,9 +102,8 @@ class ReadXArticlesGoalModel:GoalModel{
         return nil
     }
     
-    
-    static func getModels()->[ReadXArticlesGoalModel]{
-        let goals:[ReadXArticlesCD] = ReadXArticlesGoalModel.getModels()
+    override func getList() -> [Any] {
+        let goals:[ReadXArticlesCD] = ReadXArticlesGoalModel.getCDModels()
         
         var arr = [ReadXArticlesGoalModel]()
         
@@ -117,11 +114,10 @@ class ReadXArticlesGoalModel:GoalModel{
         return arr
     }
     
-    static func getModels()->[ReadXArticlesCD]{
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+    private static func getCDModels()->[ReadXArticlesCD]{
         let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticlesCD")
         
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticlesCD]
+        let goals = try! shared.managedContext.fetch(goalFetch) as! [ReadXArticlesCD]
         return goals
     }
     

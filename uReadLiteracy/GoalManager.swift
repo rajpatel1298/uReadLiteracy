@@ -14,8 +14,8 @@ class GoalManager{
     private var lastTimeUpdated = Date()
     
     func getDailyGoals()->[GoalModel]{
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.shared.getList() as! [ReadXArticlesGoalModel]
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.shared.getList() as! [ReadXMinutesGoalModel]
         
         var dailyGoals = [GoalModel]()
         
@@ -35,8 +35,8 @@ class GoalManager{
     }
     
     func getOngoingGoals()->[GoalModel]{
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.shared.getList() as! [ReadXArticlesGoalModel]
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.shared.getList() as! [ReadXMinutesGoalModel]
         
         var dailyGoals = [GoalModel]()
         
@@ -66,12 +66,10 @@ class GoalManager{
         updateReadXArticlesGoals(article: article)
         
         lastTimeUpdated = Date()
-        
-        showGoalCompleteIfAvailable()
     }
     
     private func updateReadXArticlesGoals(article:ArticleModel){
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.getModels()
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.shared.getList() as! [ReadXArticlesGoalModel]
         
         for goal in readXArticlesGoals{
             if goal.isCompleted(){
@@ -100,7 +98,7 @@ class GoalManager{
     }
     
     private func updateReadXMinutesGoals(article:ArticleModel){
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.getModels()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.shared.getList() as! [ReadXMinutesGoalModel]
         for goal in readXMinutesGoals{
             goal.minutesRead = goal.minutesRead + article.timeReadThisTimeInMinutes()
             if(goal.minutesRead > goal.totalMinutes){
@@ -108,9 +106,5 @@ class GoalManager{
             }
             goal.save()
         }
-    }
-    
-    func showGoalCompleteIfAvailable(){
-        
     }
 }

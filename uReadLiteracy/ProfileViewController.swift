@@ -97,7 +97,8 @@ class ProfileViewController: UIViewController {
     
     
     private func loadUserInfo(){
-        let user = UserModel.sharedInstance
+        let user = UserModel()
+
         if user.getImage() == nil{
             profileIV.image = #imageLiteral(resourceName: "profile_hd")
             backgroundProfileIV.image = nil

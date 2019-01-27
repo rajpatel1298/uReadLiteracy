@@ -37,8 +37,6 @@ class ReadXMinutesGoalModel:GoalModel{
     }
     
     override func save(){
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        
         let model = find(name: name, date: date)
         
         let entity = NSEntityDescription.entity(forEntityName: "ReadXMinutesCD", in: managedContext)!
@@ -83,7 +81,7 @@ class ReadXMinutesGoalModel:GoalModel{
     }
     
     static func find(name:String,date:Date, goalType:GoalType)->ReadXMinutesCD?{
-        let goals:[ReadXMinutesCD] = ReadXMinutesGoalModel.getModels()
+        let goals:[ReadXMinutesCD] = ReadXMinutesGoalModel.getCDModels()
         
         for goal in goals{
             let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
@@ -98,8 +96,7 @@ class ReadXMinutesGoalModel:GoalModel{
     }
     
     
-    static func getModels()->[ReadXMinutesGoalModel]{
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+    override func getList() -> [Any] {
         let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
         
         let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
@@ -110,14 +107,13 @@ class ReadXMinutesGoalModel:GoalModel{
             let model = ReadXMinutesGoalModel(model: goal)
             arr.append(model)
         }
-         return arr
+        return arr
     }
     
-    static func getModels()->[ReadXMinutesCD]{
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
+    private static func getCDModels()->[ReadXMinutesCD]{
         let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
         
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
+        let goals = try! shared.managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
         return goals
     }
     

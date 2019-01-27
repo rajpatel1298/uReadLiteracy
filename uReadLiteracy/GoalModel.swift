@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GoalModel{
+class GoalModel:CoreDataModelHandler{
     let name:String
     var progress:Int!
     let date:Date
@@ -34,13 +34,8 @@ class GoalModel{
         return  "\(name): \(Int(progress))%"
     }
     
-    func save(){
-        if let model = self as? ReadXMinutesGoalModel{
-            model.save()
-        }
-        else if let model = self as? ReadXArticlesGoalModel{
-            model.save()
-        }
+    override func save(){
+        super.save()
     }
     
     func isCompleted()->Bool{

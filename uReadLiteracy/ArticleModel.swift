@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public class ArticleModel{
+class ArticleModel:CoreDataModelHandler{
     private var name:String
     private var readCount:Double
     
@@ -27,7 +27,7 @@ public class ArticleModel{
         self.readCount = readCount
         self.totalTimeSpent = timeSpent
         self.url = url
-        
+        super.init()
         
         fixNameParsing()
     }
@@ -35,7 +35,7 @@ public class ArticleModel{
     init(name:String,url:String){
         self.name = name
         self.url = url
-        
+    
         let model:ArticleModel? = ArticleModel.find(url: url)
         
         if(model == nil){
@@ -47,10 +47,12 @@ public class ArticleModel{
             self.totalTimeSpent = (model?.totalTimeSpent)!
         }
         
+        super.init()
+        
         fixNameParsing()
     }
     
-    func getName()->String{
+    func getTitle()->String{
         return name
     }
     
@@ -80,9 +82,7 @@ public class ArticleModel{
         return Int(currentTimeSpent/60)
     }
     
-    func save(){
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
-        
+    internal override func save(){
         let model:ArticleCD? = ArticleModel.findCoreDataModel(url: url)
         
         if(model == nil){
@@ -108,10 +108,9 @@ public class ArticleModel{
     }
     
     private static func find(url:String)->ArticleModel?{
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
         
-        let articles = try! managedContext.fetch(articleFetch) as! [ArticleCD]
+        let articles = try! shared.managedContext.fetch(articleFetch) as! [ArticleCD]
         
         for article in articles{
             if(article.url! == url){
@@ -123,10 +122,9 @@ public class ArticleModel{
     }
     
     private static func findCoreDataModel(url:String)->ArticleCD?{
-        let managedContext = CoreDataHelper.sharedInstance.getManagedContext()
         let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
         
-        let articles = try! managedContext.fetch(articleFetch) as! [ArticleCD]
+        let articles = try! shared.managedContext.fetch(articleFetch) as! [ArticleCD]
         
         for article in articles{
             if(article.url! == url){

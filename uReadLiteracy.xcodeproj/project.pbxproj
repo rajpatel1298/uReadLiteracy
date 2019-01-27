@@ -97,6 +97,10 @@
 		1CAC798A21FCB287007F8704 /* NokioSansAlt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC795221FB5B13007F8704 /* NokioSansAlt-MediumItalic.ttf */; };
 		1CAC798B21FCB287007F8704 /* NokioSansAlt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794721FB5B12007F8704 /* NokioSansAlt-Regular.ttf */; };
 		1CAC798C21FCB287007F8704 /* NokioSansAlt-RegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794921FB5B13007F8704 /* NokioSansAlt-RegularItalic.ttf */; };
+		1CAC798E21FCB425007F8704 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC798D21FCB425007F8704 /* Recorder.swift */; };
+		1CAC799121FE241E007F8704 /* AudioRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799021FE241E007F8704 /* AudioRecordModel.swift */; };
+		1CAC799421FE248C007F8704 /* CoreDataModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799321FE248C007F8704 /* CoreDataModelHandler.swift */; };
+		1CAC799621FE4995007F8704 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799521FE4995007F8704 /* UIImageExtension.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -222,6 +226,10 @@
 		1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseGoalTypeViewController.swift; sourceTree = "<group>"; };
 		1CAC797121FBAD78007F8704 /* TutorialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
 		1CAC797721FBC7BC007F8704 /* ReadTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReadTab.storyboard; sourceTree = "<group>"; };
+		1CAC798D21FCB425007F8704 /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		1CAC799021FE241E007F8704 /* AudioRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordModel.swift; sourceTree = "<group>"; };
+		1CAC799321FE248C007F8704 /* CoreDataModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModelHandler.swift; sourceTree = "<group>"; };
+		1CAC799521FE4995007F8704 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +277,7 @@
 			children = (
 				1C28737721A5070400B790A4 /* HtmlStringExtension.swift */,
 				1CAC791E21FB56C7007F8704 /* DateExtension.swift */,
+				1CAC799521FE4995007F8704 /* UIImageExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -280,6 +289,7 @@
 				1C28738C21A8B07500B790A4 /* GoalListViewController.swift */,
 				1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */,
 				1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */,
+				1CAC792D21FB5807007F8704 /* Goal Complete */,
 			);
 			name = Goal;
 			sourceTree = "<group>";
@@ -383,16 +393,13 @@
 		1C513A5921801B6100FFDC82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1CAC799221FE242B007F8704 /* Core Data Model Handler */,
 				CDA652951FA0F5B700835624 /* uReadLiteracy.xcdatamodeld */,
 				1C4C67EC218D3E5100D5383D /* Web */,
 				1C870F7D21AA49B300FF296E /* Enum */,
 				1C4C67ED218D3E6C00D5383D /* State.swift */,
-				1CAC791B21FB5666007F8704 /* Goal */,
 				1C4C67F7218E5D6D00D5383D /* UIState.swift */,
 				1C4C67EF218D400500D5383D /* HelpFunctionError.swift */,
-				1C28737F21A7B42B00B790A4 /* UserModel.swift */,
-				1C28738121A7B77A00B790A4 /* HelpWordModel.swift */,
-				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
 				CDED752521E7D69C00E9E135 /* Recordings.swift */,
 				1CAC791C21FB5693007F8704 /* ArticleComment.swift */,
 				1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */,
@@ -463,6 +470,9 @@
 			isa = PBXGroup;
 			children = (
 				1C9C77552194BFBF002ADA76 /* CoreDataHelper.swift */,
+				1CAC798D21FCB425007F8704 /* Recorder.swift */,
+				1CAC793021FB5906007F8704 /* AudioPlayer.swift */,
+				1CAC792921FB57B0007F8704 /* GoalManager.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -492,7 +502,6 @@
 		1CAC791B21FB5666007F8704 /* Goal */ = {
 			isa = PBXGroup;
 			children = (
-				1CAC792921FB57B0007F8704 /* GoalManager.swift */,
 				1C28739021AA12A500B790A4 /* GoalModel.swift */,
 				1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */,
 				1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */,
@@ -554,18 +563,38 @@
 			name = "Lottie Animations";
 			sourceTree = "<group>";
 		};
+		1CAC798F21FCB543007F8704 /* Record Page */ = {
+			isa = PBXGroup;
+			children = (
+				CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */,
+			);
+			name = "Record Page";
+			sourceTree = "<group>";
+		};
+		1CAC799221FE242B007F8704 /* Core Data Model Handler */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC799321FE248C007F8704 /* CoreDataModelHandler.swift */,
+				1C28737F21A7B42B00B790A4 /* UserModel.swift */,
+				1C28738121A7B77A00B790A4 /* HelpWordModel.swift */,
+				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
+				1CAC799021FE241E007F8704 /* AudioRecordModel.swift */,
+				1CAC791B21FB5666007F8704 /* Goal */,
+			);
+			name = "Core Data Model Handler";
+			sourceTree = "<group>";
+		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1CAC793021FB5906007F8704 /* AudioPlayer.swift */,
 				1C4C67D8218BF92400D5383D /* Starting Page */,
 				1C4C680821912A1900D5383D /* First Time Launch */,
 				1CAC792421FB5733007F8704 /* Tutorial */,
 				1C4C67DA218C000100D5383D /* Profile Page */,
 				1C4C67D7218BF91D00D5383D /* Browser */,
+				1CAC798F21FCB543007F8704 /* Record Page */,
 				1C9C775A219A90A5002ADA76 /* Learn More */,
 				1C28738721A855D200B790A4 /* Goal */,
-				1CAC792D21FB5807007F8704 /* Goal Complete */,
 				1CAC793621FB5978007F8704 /* Comprehension Popup */,
 			);
 			name = Controller;
@@ -637,7 +666,6 @@
 				CDDD7EFD1FF19937009FA71D /* Swift+Gif.swift */,
 				1C769CE521D3488100034EB3 /* Font */,
 				CDA6529D1FA0F5B700835624 /* Info.plist */,
-				CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */,
 			);
 			path = uReadLiteracy;
 			sourceTree = "<group>";
@@ -824,6 +852,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */,
+				1CAC799421FE248C007F8704 /* CoreDataModelHandler.swift in Sources */,
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
@@ -886,8 +915,11 @@
 				1CAC795621FB62F2007F8704 /* ProfileViewControllerTutorial.swift in Sources */,
 				1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,
+				1CAC799121FE241E007F8704 /* AudioRecordModel.swift in Sources */,
+				1CAC798E21FCB425007F8704 /* Recorder.swift in Sources */,
 				1CAC797221FBAD78007F8704 /* TutorialController.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
+				1CAC799621FE4995007F8704 /* UIImageExtension.swift in Sources */,
 				1CAC791A21FB55DF007F8704 /* BrowserSocialMediaViewController.swift in Sources */,
 				1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */,
 				CDA652971FA0F5B700835624 /* uReadLiteracy.xcdatamodeld in Sources */,
