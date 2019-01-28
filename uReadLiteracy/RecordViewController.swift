@@ -13,7 +13,11 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     @IBOutlet weak var buttonLabel: UIButton!
     @IBOutlet weak var myTableView: UITableView!
     
-    var models = [AudioRecordModel]()
+    private var list = [String:[AudioRecordModel]]()
+    private var titles = [String]()
+    
+    private var selectedTitle:[AudioRecordModel]!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +25,24 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        models = CoreDataManager.shared.getList()
         myTableView.reloadData()
+        getListTitleWithoutDuplicate()
+    }
+    
+    func getListTitleWithoutDuplicate(){
+        let models:[AudioRecordModel] = CoreDataManager.shared.getList()
+        
+        for model in models{
+            if list[model.getTitle()] == nil{
+                list[model.getTitle()] = [AudioRecordModel]()
+                list[model.getTitle()]?.append(model)
+            }
+            else{
+                list[model.getTitle()]?.append(model)
+            }
+        }
+        
+        titles = list.keys.sorted()
     }
     
     //function that gets path to directory
@@ -32,40 +52,30 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
         return documentDirectory
     }
     
-    //function that displays an alert
-    func displayAlert(title: String, message: String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
+
 
     //setting up table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = models[indexPath.row].getTitle()
+        cell.textLabel?.text = titles[indexPath.row]
         return cell
     }
     
     //listen to the selected row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        selectedTitle = list[titles[indexPath.row]]
+        performSegue(withIdentifier: "RecordToAudioRecordsSegue", sender: self)
     }
     
-    
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? AudioRecordsViewController{
+            destination.audioRecords = selectedTitle
+        }
     }
-    */
 
 }

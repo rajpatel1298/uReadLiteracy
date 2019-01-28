@@ -62,6 +62,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         loadMainPage()
         socialMediaView.isHidden = true
         webView.frame = view.frame
+        recordBarBtn.isEnabled = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -128,6 +129,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             
             recorder = Recorder(delegate:self)
             
+            recordBarBtn.isEnabled = true
+            
             /*let selectedSound = recorder.getDirectory().appendingPathComponent("\((currentArticle?.getTitle())!).m4a")
             let url = selectedSound
     
@@ -147,6 +150,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
         else{
             uiController.popupManager.reset()
+            recordBarBtn.isEnabled = false
         }
     }
     
@@ -188,7 +192,9 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        self.recorder.stopRecording()
+        if recorder.isRecording{
+            self.recorder.stopRecording()
+        }
     }
     
     @IBAction func record(_ sender: Any) {

@@ -24,11 +24,15 @@ class AudioRecordModel:CoreDataModelHandler{
         return title
     }
     
+    func getDate()->Date{
+        return date
+    }
+    
     override func save(){
         let model:AudioRecordCD? = nil
         
         if(model == nil){
-            let entity = NSEntityDescription.entity(forEntityName: "ArticleCD", in: managedContext)!
+            let entity = NSEntityDescription.entity(forEntityName: "AudioRecordCD", in: managedContext)!
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
             
             object.setValue(path, forKeyPath: "path")

@@ -16,7 +16,6 @@
 		1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738321A7CC0500B790A4 /* ArticleModel.swift */; };
 		1C28738621A855A200B790A4 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738521A855A200B790A4 /* GoalTableViewCell.swift */; };
 		1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738821A855E600B790A4 /* GoalViewController.swift */; };
-		1C28738D21A8B07500B790A4 /* GoalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738C21A8B07500B790A4 /* GoalListViewController.swift */; };
 		1C28739121AA12A500B790A4 /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28739021AA12A500B790A4 /* GoalModel.swift */; };
 		1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */; };
 		1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */; };
@@ -101,6 +100,8 @@
 		1CAC799421FE248C007F8704 /* CoreDataModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799321FE248C007F8704 /* CoreDataModelHandler.swift */; };
 		1CAC799621FE4995007F8704 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799521FE4995007F8704 /* UIImageExtension.swift */; };
 		1CAC799721FEA75D007F8704 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C77552194BFBF002ADA76 /* CoreDataManager.swift */; };
+		1CAC799921FF5617007F8704 /* AudioRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799821FF5617007F8704 /* AudioRecordsViewController.swift */; };
+		1CAC799B21FF5648007F8704 /* AudioRecordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799A21FF5648007F8704 /* AudioRecordsCell.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -138,7 +139,6 @@
 		1C28738321A7CC0500B790A4 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		1C28738521A855A200B790A4 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		1C28738821A855E600B790A4 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
-		1C28738C21A8B07500B790A4 /* GoalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalListViewController.swift; sourceTree = "<group>"; };
 		1C28739021AA12A500B790A4 /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
 		1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHeaderCell.swift; sourceTree = "<group>"; };
 		1C4C67D3218A9A1900D5383D /* FSNokioBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FSNokioBold.otf; sourceTree = "<group>"; };
@@ -229,6 +229,8 @@
 		1CAC799021FE241E007F8704 /* AudioRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordModel.swift; sourceTree = "<group>"; };
 		1CAC799321FE248C007F8704 /* CoreDataModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModelHandler.swift; sourceTree = "<group>"; };
 		1CAC799521FE4995007F8704 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		1CAC799821FF5617007F8704 /* AudioRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordsViewController.swift; sourceTree = "<group>"; };
+		1CAC799A21FF5648007F8704 /* AudioRecordsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordsCell.swift; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -284,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				1C28738821A855E600B790A4 /* GoalViewController.swift */,
-				1C28738C21A8B07500B790A4 /* GoalListViewController.swift */,
 				1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */,
 				1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */,
 				1CAC792D21FB5807007F8704 /* Goal Complete */,
@@ -492,6 +493,7 @@
 				1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */,
 				1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */,
 				1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */,
+				1CAC799A21FF5648007F8704 /* AudioRecordsCell.swift */,
 			);
 			name = "Tableview Cells";
 			sourceTree = "<group>";
@@ -564,6 +566,7 @@
 			isa = PBXGroup;
 			children = (
 				CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */,
+				1CAC799821FF5617007F8704 /* AudioRecordsViewController.swift */,
 			);
 			name = "Record Page";
 			sourceTree = "<group>";
@@ -854,6 +857,7 @@
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
+				1CAC799921FF5617007F8704 /* AudioRecordsViewController.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
 				1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */,
 				1C28737A21A5093400B790A4 /* BrowserUIController.swift in Sources */,
@@ -874,6 +878,7 @@
 				1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* CurrentUserModel.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
+				1CAC799B21FF5648007F8704 /* AudioRecordsCell.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
 				1CAC792821FB5764007F8704 /* ActivityIndicatorWithDarkBackground.swift in Sources */,
@@ -893,7 +898,6 @@
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
 				1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */,
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,
-				1C28738D21A8B07500B790A4 /* GoalListViewController.swift in Sources */,
 				1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */,
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
 				1CAC792C21FB57D9007F8704 /* GoalCompleteHelper.swift in Sources */,

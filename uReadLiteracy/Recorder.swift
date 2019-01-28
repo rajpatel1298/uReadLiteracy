@@ -32,7 +32,7 @@ class Recorder{
     }
     
     func startRecording(filename:String, showErrorIfAny:(_ error:String)->Void){
-        let pathUrl = getDirectory().appendingPathComponent("\(filename).m4a")
+        let pathUrl = getDirectory().appendingPathComponent("\(filename)\(Date().toStringWithoutSpace()).m4a")
         title = filename
         path = pathUrl.absoluteString
         
