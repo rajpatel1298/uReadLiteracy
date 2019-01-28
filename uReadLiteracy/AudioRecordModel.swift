@@ -20,6 +20,10 @@ class AudioRecordModel:CoreDataModelHandler{
         self.date = date
     }
     
+    func getTitle()->String{
+        return title
+    }
+    
     override func save(){
         let model:AudioRecordCD? = nil
         
@@ -45,7 +49,7 @@ class AudioRecordModel:CoreDataModelHandler{
     }
     
     private static func findCoreDataModel(path:String,title:String,date:Date)->AudioRecordCD?{
-        let list:[AudioRecordCD] = shared.getList() as! [AudioRecordCD]
+        let list:[AudioRecordCD] = CoreDataManager.shared.getList()
         
         for item in list{
             if(item.path == path && item.title == title && (item.date! as Date) == date){
@@ -56,10 +60,5 @@ class AudioRecordModel:CoreDataModelHandler{
         return nil
     }
     
-    override func getList() -> [Any] {
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AudioRecordCD")
-        
-        let list = try! managedContext.fetch(fetch) as! [AudioRecordCD]
-        return list
-    }
+    
 }

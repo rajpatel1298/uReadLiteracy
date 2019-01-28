@@ -13,15 +13,10 @@ import UIKit
 class CoreDataModelHandler{
     private var appDelegate:AppDelegate!
     let managedContext:NSManagedObjectContext
-    static let shared = CoreDataModelHandler()
     
     init(){
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         managedContext = appDelegate.persistentContainer.viewContext
-    }
-    
-    func getList()->[Any]{
-        fatalError("Need to be implement")
     }
     
     func save(){

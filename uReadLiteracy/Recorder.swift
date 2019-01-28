@@ -16,6 +16,9 @@ class Recorder{
     private var audioRecorder: AVAudioRecorder!
     private let delegate:AVAudioRecorderDelegate
     
+    private var title:String!
+    private var path:String!
+    
     init(delegate:AVAudioRecorderDelegate){
         self.delegate = delegate
         
@@ -28,22 +31,21 @@ class Recorder{
         }
     }
     
-    func startRecording(filename:String){
-        let filename = getDirectory().appendingPathComponent("\(filename).m4a")
-        
-        print(filename)
+    func startRecording(filename:String, showErrorIfAny:(_ error:String)->Void){
+        let pathUrl = getDirectory().appendingPathComponent("\(filename).m4a")
+        title = filename
+        path = pathUrl.absoluteString
         
         let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
         
-        //Start audio recording
         do {
-            audioRecorder = try AVAudioRecorder(url: filename, settings: settings)
+            audioRecorder = try AVAudioRecorder(url: pathUrl, settings: settings)
             audioRecorder.delegate = delegate
             
             audioRecorder.record()
         }
         catch {
-            //self.displayAlert(title: "Error", message: "Recording failed")
+            showErrorIfAny(error.localizedDescription)
         }
         
         recording = true
@@ -51,11 +53,10 @@ class Recorder{
     
     func stopRecording(){
         audioRecorder.stop()
-        
-       // UserDefaults.standard.set(currentRecording, forKey: "myRecording")
-
-        
         recording = false
+        
+        let audio = AudioRecordModel(path: path, title: title, date: Date())
+        audio.save()
     }
     
     func isRecording()->Bool{

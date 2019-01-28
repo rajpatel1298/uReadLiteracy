@@ -14,8 +14,8 @@ class GoalManager{
     private var lastTimeUpdated = Date()
     
     func getDailyGoals()->[GoalModel]{
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.shared.getList() as! [ReadXArticlesGoalModel]
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.shared.getList() as! [ReadXMinutesGoalModel]
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataManager.shared.getList()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataManager.shared.getList()
         
         var dailyGoals = [GoalModel]()
         
@@ -35,8 +35,8 @@ class GoalManager{
     }
     
     func getOngoingGoals()->[GoalModel]{
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.shared.getList() as! [ReadXArticlesGoalModel]
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.shared.getList() as! [ReadXMinutesGoalModel]
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataManager.shared.getList()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataManager.shared.getList()
         
         var dailyGoals = [GoalModel]()
         
@@ -69,7 +69,7 @@ class GoalManager{
     }
     
     private func updateReadXArticlesGoals(article:ArticleModel){
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = ReadXArticlesGoalModel.shared.getList() as! [ReadXArticlesGoalModel]
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataManager.shared.getList()
         
         for goal in readXArticlesGoals{
             if goal.isCompleted(){
@@ -98,7 +98,7 @@ class GoalManager{
     }
     
     private func updateReadXMinutesGoals(article:ArticleModel){
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = ReadXMinutesGoalModel.shared.getList() as! [ReadXMinutesGoalModel]
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataManager.shared.getList()
         for goal in readXMinutesGoals{
             goal.minutesRead = goal.minutesRead + article.timeReadThisTimeInMinutes()
             if(goal.minutesRead > goal.totalMinutes){

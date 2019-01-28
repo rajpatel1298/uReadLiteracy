@@ -15,14 +15,11 @@ import FirebaseAuth
 
 class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate{
     
-    
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var previousPageBarBtn: UIBarButtonItem!
     @IBOutlet weak var recordBarBtn: UIBarButtonItem!
     @IBOutlet weak var socialMediaView: UIView!
     
-    
-
     var urlSegue:URL!
     let mainUrl = "http://www.manythings.org/voa/stories/"
     
@@ -131,7 +128,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             
             recorder = Recorder(delegate:self)
             
-            let selectedSound = recorder.getDirectory().appendingPathComponent("\((currentArticle?.getTitle())!).m4a")
+            /*let selectedSound = recorder.getDirectory().appendingPathComponent("\((currentArticle?.getTitle())!).m4a")
             let url = selectedSound
     
             
@@ -145,13 +142,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             }
             catch {
                 print("Something bad happened. Try catching specific errors to narrow things down",error)
-            }
-            
-            
-            //player?.delegate = self
-            //try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            //player?.prepareToPlay()
-            
+            }*/
         }
         
         else{
@@ -206,7 +197,12 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             recorder.stopRecording()
         }
         else {
-            recorder.startRecording(filename: (currentArticle?.getTitle())!)
+            recorder.startRecording(filename: (currentArticle?.getTitle())!) { (errStr) in
+                DispatchQueue.main.async {
+                    self.uiController.showRecordErrorAlert()
+                    print(errStr)
+                }
+            }
             recordBarBtn.title = "Stop Recording"
         }
     }

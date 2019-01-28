@@ -15,6 +15,7 @@ class BrowserUIController{
     
     fileprivate var onlyOneWordAlert:InfoAlert!
     fileprivate var cannotUseHelpFunctionAlert:ReportAlert!
+    fileprivate var recordErrorAlert:InfoAlert!
     let popupManager = ComprehensionPopupManager()
     
     init(viewcontroller:BrowseViewController){
@@ -29,6 +30,10 @@ class BrowserUIController{
     
     func showCannotUseHelpFunctionAlert(){
         cannotUseHelpFunctionAlert.show()
+    }
+    
+    func showRecordErrorAlert(){
+        recordErrorAlert.show()
     }
     
     func readScrollViewPosition(){
@@ -49,6 +54,7 @@ extension BrowserUIController{
     fileprivate func setupAlert(){
         onlyOneWordAlert = InfoAlert(viewcontroller: viewcontroller, title: "1 Word Only", message: "Please choose only one word to use Help function")
         cannotUseHelpFunctionAlert = ReportAlert(viewcontroller: viewcontroller, title: "Cannot Use Help Function", message: "Please try again alert!")
+        recordErrorAlert = InfoAlert(viewcontroller: viewcontroller, title: "Canot Record Audio", message: "Recording failed")
     }
 }
 

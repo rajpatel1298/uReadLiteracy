@@ -29,7 +29,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     
     private var commentRef:DatabaseQuery?
     
-    let currentUser = UserModel()
+    let currentUser = CurrentUserModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

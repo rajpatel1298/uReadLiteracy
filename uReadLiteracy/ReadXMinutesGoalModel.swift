@@ -81,7 +81,7 @@ class ReadXMinutesGoalModel:GoalModel{
     }
     
     static func find(name:String,date:Date, goalType:GoalType)->ReadXMinutesCD?{
-        let goals:[ReadXMinutesCD] = ReadXMinutesGoalModel.getCDModels()
+        let goals:[ReadXMinutesCD] = CoreDataManager.shared.getList()
         
         for goal in goals{
             let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
@@ -96,26 +96,7 @@ class ReadXMinutesGoalModel:GoalModel{
     }
     
     
-    override func getList() -> [Any] {
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
-        
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
-        
-        var arr = [ReadXMinutesGoalModel]()
-        
-        for goal in goals{
-            let model = ReadXMinutesGoalModel(model: goal)
-            arr.append(model)
-        }
-        return arr
-    }
     
-    private static func getCDModels()->[ReadXMinutesCD]{
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
-        
-        let goals = try! shared.managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
-        return goals
-    }
     
     override func getDescriptionWithProgress() -> String {
         return  "\(name): \(totalMinutes - minutesRead) minute(s) left"

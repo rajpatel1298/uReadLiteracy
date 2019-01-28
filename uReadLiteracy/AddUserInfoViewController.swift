@@ -127,7 +127,7 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
                 image = userIV.image!
             }
             
-            let currentUser = UserModel()
+            let currentUser = CurrentUserModel()
       
             currentUser.createUser(image: image, nickname: nicknameTF.text!) { (state) in
                 

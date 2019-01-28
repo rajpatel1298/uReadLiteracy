@@ -1,5 +1,5 @@
 //
-//  UserModel.swift
+//  CurrentUserModel.swift
 //  uReadLiteracy
 //
 //  Created by Duy Le 2 on 11/22/18.
@@ -12,7 +12,7 @@ import CoreData
 import FirebaseAuth
 import FirebaseStorage
 
-class UserModel:CoreDataModelHandler{
+class CurrentUserModel:CoreDataModelHandler{
     private var image:UIImage?
     private var nickname:String!
     private var uid:String!
@@ -20,7 +20,7 @@ class UserModel:CoreDataModelHandler{
     private var password:String!
     
     private let storage = Storage.storage()
-    
+        
     override init(){
         super.init()
         let userFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCD")

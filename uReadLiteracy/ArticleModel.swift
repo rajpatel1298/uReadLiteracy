@@ -21,6 +21,7 @@ class ArticleModel:CoreDataModelHandler{
     
     private var timer = Timer()
     
+  
     init(name:String,readCount:Double,timeSpent:Double,url:String){
         
         self.name = name
@@ -108,9 +109,7 @@ class ArticleModel:CoreDataModelHandler{
     }
     
     private static func find(url:String)->ArticleModel?{
-        let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
-        
-        let articles = try! shared.managedContext.fetch(articleFetch) as! [ArticleCD]
+        let articles:[ArticleCD] = CoreDataManager.shared.getList()
         
         for article in articles{
             if(article.url! == url){
@@ -122,9 +121,7 @@ class ArticleModel:CoreDataModelHandler{
     }
     
     private static func findCoreDataModel(url:String)->ArticleCD?{
-        let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
-        
-        let articles = try! shared.managedContext.fetch(articleFetch) as! [ArticleCD]
+        let articles:[ArticleCD] = CoreDataManager.shared.getList()
         
         for article in articles{
             if(article.url! == url){

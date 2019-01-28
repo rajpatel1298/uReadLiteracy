@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 class HelpWordModel:CoreDataModelHandler{
+ 
     private let word:String
     
     private var beginningDifficult:Bool!
@@ -125,20 +126,7 @@ class HelpWordModel:CoreDataModelHandler{
         }
     }
         
-    internal override func getList()->[Any]{
-        let wordFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "HelpWordCD")
-        
-        let words = try! managedContext.fetch(wordFetch) as! [HelpWordCD]
-        
-        var list = [HelpWordModel]()
-        
-        for word in words{
-            let w = HelpWordModel(word: word.word!, beginningDifficult: word.beginningDifficult, endingDifficult: word.endingDifficult, blendDifficult: word.blendDifficult, multisyllabicDifficult: word.multisyllabicDifficult)
-            list.append(w)
-        }
-        
-        return list
-    }
+    
     
     private func getWordDifficultyIfNil(){
         if(self.beginningDifficult == nil){

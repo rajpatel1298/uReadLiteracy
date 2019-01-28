@@ -87,7 +87,8 @@ class ReadXArticlesGoalModel:GoalModel{
     }
     
     static func find(name:String,date:Date, goalType:GoalType)->ReadXArticlesCD?{
-        let goals:[ReadXArticlesCD] = ReadXArticlesGoalModel.getCDModels()
+   
+        let goals:[ReadXArticlesCD] = CoreDataManager.shared.getList()
         
         for goal in goals{
             
@@ -102,24 +103,7 @@ class ReadXArticlesGoalModel:GoalModel{
         return nil
     }
     
-    override func getList() -> [Any] {
-        let goals:[ReadXArticlesCD] = ReadXArticlesGoalModel.getCDModels()
-        
-        var arr = [ReadXArticlesGoalModel]()
-        
-        for goal in goals{
-            let model = ReadXArticlesGoalModel(model: goal)
-            arr.append(model)
-        }
-        return arr
-    }
     
-    private static func getCDModels()->[ReadXArticlesCD]{
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticlesCD")
-        
-        let goals = try! shared.managedContext.fetch(goalFetch) as! [ReadXArticlesCD]
-        return goals
-    }
     
     override func getDescriptionWithProgress() -> String {
         return  "\(name): \(articles.count)/\(Int(numberOfArticles))"
