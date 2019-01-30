@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ProfileViewController: UIViewController {
     
@@ -46,6 +47,19 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         uiController = ProfileUIController(vc: self)
         loadUserInfo()
+        
+        
+        //set up daily notifications
+        let content = UNMutableNotificationContent()
+        content.title = "URead"
+        content.body = "Remember to finish your daily goals on URead!"
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "daily", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
