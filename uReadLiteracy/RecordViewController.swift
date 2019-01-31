@@ -45,15 +45,6 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
         
         titles = list.keys.sorted()
     }
-    
-    //function that gets path to directory
-    func getDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = paths[0]
-        return documentDirectory
-    }
-    
-
 
     //setting up table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

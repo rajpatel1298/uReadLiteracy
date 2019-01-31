@@ -24,8 +24,8 @@ class AudioRecordsViewController: UIViewController, UITableViewDelegate, UITable
     var audioPlayer:AudioPlayerWithTimer!
     let subject = AudioSubject()
     
-    private var audioPlayerViewHeight:CGFloat = 60
-    private var audioPlayerShowing = false
+    var audioPlayerViewHeight:CGFloat = 60
+    var audioPlayerShowing = false
     
 
     override func viewDidLoad() {
@@ -34,13 +34,57 @@ class AudioRecordsViewController: UIViewController, UITableViewDelegate, UITable
             return m1.getDate() > m2.getDate()
         }
         
-        audioPlayer = AudioPlayerWithTimer()
+        setupAudioSlider()
         
         subject.attach(observer: audioLabel)
         subject.attach(observer: audioSlider)
         subject.attach(observer: audioPlayer)
         subject.attach(observer: playPauseBtn)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
+        if !audioPlayerShowing{
+            audioPlayerView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: 0)
+            tableview.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        audioPlayerShowing = false
+    }
+    
+    @IBAction func playPauseBtnPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            switch(self.subject.getState()){
+            case .Play:
+                self.subject.setState(state: .Pause)
+                break
+            case .Pause:
+                self.subject.setState(state: .Play)
+                break
+            }
+        }
+    }
+    
+    
+    
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        updateAudioPlayerFromSliderValue()
+    }
+    
+    func updateAudioPlayerFromSliderValue(){
+        subject.updateCurrentTime(sliderValue: audioSlider.value)
+        audioPlayer.moveTo(time: subject.getCurrentTime())
+    }
+}
+
+// MARK: Audio Slider
+extension AudioRecordsViewController{
+    func setupAudioSlider(){
+        audioPlayer = AudioPlayerWithTimer()
         
         audioSlider.isContinuous = false
         
@@ -62,33 +106,10 @@ class AudioRecordsViewController: UIViewController, UITableViewDelegate, UITable
         audioSlider.setValue(Float(newValue), animated: true)
         updateAudioPlayerFromSliderValue()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if !audioPlayerShowing{
-            audioPlayerView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: 0)
-            tableview.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        audioPlayerShowing = false
-    }
-    
-    @IBAction func playPauseBtnPressed(_ sender: Any) {
-        switch(subject.getState()){
-        case .Play:
-            
-            break
-        case .Pause:
-            
-            break
-        }
-    }
-    
-    
+}
+
+// MARK: TableView
+extension AudioRecordsViewController{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return audioRecords.count
     }
@@ -114,37 +135,9 @@ class AudioRecordsViewController: UIViewController, UITableViewDelegate, UITable
             self.audioPlayerView.frame = CGRect(x: 0, y: self.view.frame.height - self.audioPlayerViewHeight - tabBarHeight!, width: self.view.frame.width, height: self.audioPlayerViewHeight)
         }) { (completed) in
             if completed{
-                let url = self.getDirectory().appendingPathComponent(self.audioRecords[indexPath.row].getPath())
+                let url = FileHelper.getDirectory().appendingPathComponent(self.audioRecords[indexPath.row].getPath())
                 self.audioPlayer.playFile(url: url)
             }
         }
     }
-    
-    //function that gets path to directory
-    func getDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = paths[0]
-        return documentDirectory
-    }
-    
-    @IBAction func sliderValueChanged(_ sender: Any) {
-        updateAudioPlayerFromSliderValue()
-    }
-    
-    private func updateAudioPlayerFromSliderValue(){
-        subject.updateCurrentTime(sliderValue: audioSlider.value)
-        audioPlayer.moveTo(time: subject.getCurrentTime())
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

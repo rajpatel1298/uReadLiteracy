@@ -44,7 +44,9 @@ class AudioPlayerWithTimer:AudioObserver{
     }
     
     @objc func updateTimer() {
-        subject?.setCurrentTime(currentTime: player!.currentTime())
+        if subject?.getState() == .Play{
+            subject?.setCurrentTime(currentTime: player!.currentTime())
+        }
     }
     
     func updateNotification() {
@@ -65,24 +67,28 @@ class AudioPlayerWithTimer:AudioObserver{
     }
     
     private func play() {
-        if (timer != nil){
-            timer.invalidate()
-        }
-        
         DispatchQueue.main.async {
+            if (self.timer != nil){
+                self.timer.invalidate()
+            }
+            
             self.updateTimer()
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
             self.player.play()
+            
+            self.isPlaying = true
         }
-        isPlaying = true
+        
     }
     
     func pause() {
-        player.pause()
-        if (timer != nil){
-            timer.invalidate()
+        DispatchQueue.main.async {
+            self.player.pause()
+            if (self.timer != nil){
+                self.timer.invalidate()
+            }
+            
+            self.isPlaying = false
         }
-        
-        isPlaying = false
     }
 }

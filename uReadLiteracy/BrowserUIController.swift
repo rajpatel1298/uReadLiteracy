@@ -102,7 +102,14 @@ extension BrowserUIController{
 
 // MARK: Comprehension Popup
 extension BrowserUIController{
-    
+    func updatePopupManager(){
+        let webview = viewcontroller.webView!
+        
+        let maxOffset = webview.scrollView.contentSize.height - webview.scrollView.bounds.height + webview.scrollView.contentInset.bottom
+        
+        popupManager.setMaxYOffset(value: maxOffset)
+        popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: maxOffset/2)])
+    }
     
     fileprivate func showPopupIfNeeded(){
         if !viewcontroller.isReadingAnArticle(){

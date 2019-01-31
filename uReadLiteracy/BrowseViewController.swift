@@ -29,7 +29,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     var currentArticle:ArticleModel?
     
     
-    private var browserSocialMediaVC:BrowserSocialMediaViewController!
+    fileprivate var browserSocialMediaVC:BrowserSocialMediaViewController!
     
     var maxBrowserOffset:Int!
     
@@ -43,10 +43,10 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         controller = BrowserController(webView: webView, url: mainUrl)
         
         webView.navigationDelegate = self
-    
         webView.scrollView.delegate = self
     
         browserSocialMediaVC = (childViewControllers.first as! BrowserSocialMediaViewController)
+        recorder = Recorder(delegate:self)
     }
     
     override func viewDidLayoutSubviews() {
@@ -114,57 +114,21 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             previousPageBarBtn.isEnabled = false
         }
         
-        let url = webView.url?.absoluteString
+        updateCurrentArticleIfNeeded()
+        updatePopupManager()
+ 
         
         if isReadingAnArticle(){
-            currentArticle = ArticleModel(name: webView.title!, url: url!)
-            currentArticle?.incrementReadCount()
-            currentArticle?.startRecordingTime()
-            
             maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
-            
-            updatePopupManager()
-            
-            browserSocialMediaVC.currentArticle = currentArticle
-            
-            recorder = Recorder(delegate:self)
-            
             recordBarBtn.isEnabled = true
-            
-            /*let selectedSound = recorder.getDirectory().appendingPathComponent("\((currentArticle?.getTitle())!).m4a")
-            let url = selectedSound
-    
-            
-            do {
-                player = try AVAudioPlayer(contentsOf: url)
-                
-                
-                player.delegate = self
-                player.prepareToPlay()
-                player.play()
-            }
-            catch {
-                print("Something bad happened. Try catching specific errors to narrow things down",error)
-            }*/
         }
         
         else{
-            uiController.popupManager.reset()
             recordBarBtn.isEnabled = false
         }
     }
     
-    func isReadingAnArticle()->Bool{
-        let url = webView.url?.absoluteString
-        return controller.isCurrentURLAnArticle(url: url!)
-    }
     
-    private func updatePopupManager(){
-        let maxOffset = webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom
-        
-        uiController.popupManager.setMaxYOffset(value: maxOffset)
-        uiController.popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: maxOffset/2)])
-    }
     
     func helpFunction(){
         controller.helpFunction { [weak self] (state,word) in
@@ -222,6 +186,35 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
 }
 
+// MARK: Webview did finish navigation
+
+extension BrowseViewController{
+    fileprivate func updatePopupManager(){
+        if isReadingAnArticle(){
+            uiController.updatePopupManager()
+        }
+            
+        else{
+            uiController.popupManager.reset()
+        }
+    }
+    
+    fileprivate func updateCurrentArticleIfNeeded(){
+        let url = webView.url?.absoluteString
+        
+        if isReadingAnArticle(){
+            currentArticle = ArticleModel(name: webView.title!, url: url!)
+            currentArticle?.incrementReadCount()
+            currentArticle?.startRecordingTime()
+            browserSocialMediaVC.currentArticle = currentArticle
+        }
+    }
+    
+    func isReadingAnArticle()->Bool{
+        let url = webView.url?.absoluteString
+        return controller.isCurrentURLAnArticle(url: url!)
+    }
+}
 
 
 

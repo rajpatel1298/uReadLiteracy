@@ -32,7 +32,7 @@ class Recorder{
     }
     
     func startRecording(filename:String, showErrorIfAny:(_ error:String)->Void){
-        let pathUrl = getDirectory().appendingPathComponent("\(filename)\(Date().toStringWithoutSpace()).m4a")
+        let pathUrl = FileHelper.getDirectory().appendingPathComponent("\(filename)\(Date().toStringWithoutSpace()).m4a")
         title = filename
         path = "\(filename)\(Date().toStringWithoutSpace()).m4a"
         
@@ -61,11 +61,5 @@ class Recorder{
     
     func isRecording()->Bool{
         return recording
-    }
-    
-    func getDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = paths[0]
-        return documentDirectory
     }
 }
