@@ -37,8 +37,8 @@ class RecordViewControllerTutorial:TutorialController{
     // Change based on what you want to highlight
     private func getFirstStepLayer(){
       //  let currGoalsFrame = vc.view.convert(vc.currentGoalsLabel.frame, from:vc.currentGoalView)
-        let currGoalsFrame = vc.buttonLabel.frame
-        highlightFrame(frame: currGoalsFrame)
+        //let currGoalsFrame = vc.buttonLabel.frame
+        //highlightFrame(frame: currGoalsFrame)
     }
     
     private func getSecondStepLayer(){
