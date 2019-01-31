@@ -34,7 +34,7 @@ class Recorder{
     func startRecording(filename:String, showErrorIfAny:(_ error:String)->Void){
         let pathUrl = getDirectory().appendingPathComponent("\(filename)\(Date().toStringWithoutSpace()).m4a")
         title = filename
-        path = pathUrl.absoluteString
+        path = "\(filename)\(Date().toStringWithoutSpace()).m4a"
         
         let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 12000, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
         

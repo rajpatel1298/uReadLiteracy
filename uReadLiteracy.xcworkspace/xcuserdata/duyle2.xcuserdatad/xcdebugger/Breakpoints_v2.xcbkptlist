@@ -58,29 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uReadLiteracy/BrowserWithPlayerViewController.swift"
-            timestampString = "564505329.2636859"
+            timestampString = "570397092.5798891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "getMp3LinkIfExist()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "uReadLiteracy/NewBrowserViewController.swift"
-            timestampString = "564451757.722409"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "textView(_:shouldInteractWith:in:interaction:)"
-            landmarkType = "7">
+            startingLineNumber = "141"
+            endingLineNumber = "141">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -102,16 +84,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "uReadLiteracy/BrowseViewController.swift"
-            timestampString = "570385725.5156339"
+            filePath = "uReadLiteracy/AudioSubject.swift"
+            timestampString = "570592040.072893"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "record(_:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "setCurrentTime(currentTime:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

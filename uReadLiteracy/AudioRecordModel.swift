@@ -28,6 +28,10 @@ class AudioRecordModel:CoreDataModelHandler{
         return date
     }
     
+    func getPath()->String{
+        return path
+    }
+    
     override func save(){
         let model:AudioRecordCD? = nil
         

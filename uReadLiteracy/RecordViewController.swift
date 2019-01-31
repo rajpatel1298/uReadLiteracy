@@ -10,7 +10,6 @@ import AVFoundation
 
 class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var buttonLabel: UIButton!
     @IBOutlet weak var myTableView: UITableView!
     
     private var list = [String:[AudioRecordModel]]()
@@ -30,6 +29,8 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     }
     
     func getListTitleWithoutDuplicate(){
+        list.removeAll()
+        
         let models:[AudioRecordModel] = CoreDataManager.shared.getList()
         
         for model in models{
@@ -60,8 +61,8 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = titles[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath) as! RecordCell
+        cell.titleLabel?.text = titles[indexPath.row]
         return cell
     }
     
