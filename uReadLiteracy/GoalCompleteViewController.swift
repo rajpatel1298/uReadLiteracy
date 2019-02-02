@@ -9,6 +9,7 @@
 import UIKit
 import Lottie
 import FBSDKShareKit
+import FacebookShare
 
 class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
     
@@ -66,10 +67,12 @@ class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
 
     
     @objc func facebookShareBtnPressed(_ sender: UITapGestureRecognizer) {
-        let content = FBSDKShareLinkContent()
+        /*let content = FBSDKShareLinkContent()
         content.contentURL = URL(string: "https://www.google.com/")
         content.hashtag = FBSDKHashtag(string: "#Uread #FeelsGood")
         content.quote = SocialMediaQuote.get(goal: goal)
+        
+     
         
         let dialog = FBSDKShareDialog()
         dialog.fromViewController = self
@@ -80,7 +83,16 @@ class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
         if !dialog.canShow {
             dialog.mode = FBSDKShareDialogMode.automatic
         }
-        dialog.show()
+        dialog.show()*/
+        
+        let content = LinkShareContent(url: URL(string: "https://www.google.com/")!)
+        
+        do {
+            try ShareDialog.show(from: self, content: content)
+        }
+        catch{
+            
+        }
     }
     
     @objc func twitterShareBtnPressed(_ sender: UITapGestureRecognizer) {

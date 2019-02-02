@@ -16,8 +16,6 @@ import FirebaseAuth
 class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate{
     
     @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var previousPageBarBtn: UIBarButtonItem!
-    @IBOutlet weak var recordBarBtn: UIBarButtonItem!
     @IBOutlet weak var socialMediaView: UIView!
     
     var urlSegue:URL!
@@ -37,10 +35,12 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     var player:AVAudioPlayer!
     
+    var previousBtn:UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         uiController = BrowserUIController(viewcontroller: self)
-        controller = BrowserController(webView: webView, url: mainUrl)
+        controller = BrowserController(webView: webView, url: mainUrl, vc: self)
         
         webView.navigationDelegate = self
         webView.scrollView.delegate = self
@@ -58,11 +58,34 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        previousPageBarBtn.isEnabled = false
         loadMainPage()
         socialMediaView.isHidden = true
         webView.frame = view.frame
-        recordBarBtn.isEnabled = false
+        
+        TopToolBarViewController.currentController = self
+        TopToolBarViewController.shared.onPreviousBtnPressed = {
+            self.webView.goBack()
+        }
+        TopToolBarViewController.shared.onRecordBtnPressed = {
+            if self.recorder.isRecording() {
+                self.recorder.stopRecording()
+            }
+            else {
+                self.recorder.startRecording(filename: (self.currentArticle?.getTitle())!) { (errStr) in
+                    DispatchQueue.main.async {
+                        self.uiController.showRecordErrorAlert()
+                        print(errStr)
+                    }
+                }
+            }
+        }
+        
+        
+        TopToolBarViewController.shared.disableRecordBtn()
+        TopToolBarViewController.shared.disablePreviousBtn()
+        TopToolBarViewController.shared.showPreviousAndRecordBtn()
+
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,29 +93,14 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         webView.frame = view.frame
         loadMainPage()
         socialMediaView.isHidden = true
+        TopToolBarViewController.shared.hidePreviousAndRecordBtn()
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         uiController.readScrollViewPosition()
-        updateGoalIfNeeded()
-    }
-    
-    private func updateGoalIfNeeded(){
-        let currentYOffset = webView.scrollView.contentOffset.y
-        let url = webView.url?.absoluteString
-        
-        if maxBrowserOffset == nil{
-            return
-        }
-        
-        if Int(currentYOffset) >= maxBrowserOffset!*90/100 {
-            if(controller.isCurrentURLAnArticle(url: url!)){
-                if(currentArticle != nil){
-                    currentArticle?.stopRecordingTime()
-                    GoalManager.shared.updateGoals(article: currentArticle!)
-                }
-            }
-        }
+        controller.updateGoalIfNeeded()
     }
     
     func loadMainPage(){
@@ -102,16 +110,16 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     }
     
     @IBAction func previousBtnPressed(_ sender: Any) {
-        webView.goBack()
+        
     }
     
     // when go to new webpage
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if(webView.canGoBack){
-            previousPageBarBtn.isEnabled = true
+            TopToolBarViewController.shared.enablePreviousBtn()
         }
         else{
-            previousPageBarBtn.isEnabled = false
+            TopToolBarViewController.shared.disablePreviousBtn()
         }
         
         updateCurrentArticleIfNeeded()
@@ -120,37 +128,24 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
         if isReadingAnArticle(){
             maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
-            recordBarBtn.isEnabled = true
+            TopToolBarViewController.shared.enableRecordBtn()
         }
         
         else{
-            recordBarBtn.isEnabled = false
+            TopToolBarViewController.shared.disableRecordBtn()
         }
     }
-    
-    
-    
+
     func helpFunction(){
-        controller.helpFunction { [weak self] (state,word) in
+        controller.helpFunction { [weak self] (state) in
             switch(state){
             case .Success(let url):
-                HelpWordModel(word: word!).save()
-                
                 self!.urlSegue = url as! URL
                 self!.performSegue(withIdentifier: "BrowserToDictionaryWebViewSegue", sender: self)
                 break
             case .Failure(let helpFunctionError):
                 let helpFunctionError = helpFunctionError as! HelpFunctionError
-                
-                switch(helpFunctionError){
-                case .MoreThanOneWord:
-                    self!.uiController.showOnlyOneWordAlert()
-                    break
-                case .UnknownError:
-                    break
-                }
-                
-                break
+                self!.uiController.handleHelpError(helpFunctionError: helpFunctionError)
             }
         }
     }
@@ -158,22 +153,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if recorder.isRecording{
             self.recorder.stopRecording()
-        }
-    }
-    
-    @IBAction func record(_ sender: Any) {
-        if recorder.isRecording() {
-            recordBarBtn.title = "Record"
-            recorder.stopRecording()
-        }
-        else {
-            recorder.startRecording(filename: (currentArticle?.getTitle())!) { (errStr) in
-                DispatchQueue.main.async {
-                    self.uiController.showRecordErrorAlert()
-                    print(errStr)
-                }
-            }
-            recordBarBtn.title = "Stop Recording"
         }
     }
     

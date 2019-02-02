@@ -69,6 +69,8 @@ class ProfileViewController: UIViewController {
         uiController.setGoalLabelTexts()
         uiController.hideGoalsThatDoesNotExist()
         uiController.resetDailyGoalsProgressCircleCenter()
+        
+        TopToolBarViewController.currentController = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -79,7 +81,6 @@ class ProfileViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         uiController.animateGoalProgressCircles()
-        TutorialBarViewController.currentController = self
     }
     
     private func setupCurrentGoals(){

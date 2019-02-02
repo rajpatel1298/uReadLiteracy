@@ -111,7 +111,7 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshGoalTabUI()
         refreshTableView()
         
-        TutorialBarViewController.currentController = self
+        TopToolBarViewController.currentController = self
         
         
     }

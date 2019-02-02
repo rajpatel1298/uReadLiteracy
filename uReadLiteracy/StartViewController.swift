@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookShare
 
 class StartViewController: UIViewController {
     
@@ -18,8 +19,6 @@ class StartViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

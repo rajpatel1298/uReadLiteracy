@@ -24,6 +24,26 @@ class BrowserUIController{
         setupHelpFunctionInMenuBar()
     }
     
+    
+    
+    func readScrollViewPosition(){
+        showSocialMediaViewIfNeeded()
+        showPopupIfNeeded()
+    }
+}
+
+// MARK: Alert
+extension BrowserUIController{
+    func handleHelpError(helpFunctionError: HelpFunctionError){
+        switch(helpFunctionError){
+        case .MoreThanOneWord:
+            showOnlyOneWordAlert()
+            break
+        case .UnknownError:
+            break
+        }
+    }
+    
     func showOnlyOneWordAlert(){
         onlyOneWordAlert.show()
     }
@@ -34,11 +54,6 @@ class BrowserUIController{
     
     func showRecordErrorAlert(){
         recordErrorAlert.show()
-    }
-    
-    func readScrollViewPosition(){
-        showSocialMediaViewIfNeeded()
-        showPopupIfNeeded()
     }
 }
 

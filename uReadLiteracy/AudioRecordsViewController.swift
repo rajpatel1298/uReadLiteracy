@@ -54,6 +54,7 @@ class AudioRecordsViewController: UIViewController, UITableViewDelegate, UITable
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         audioPlayerShowing = false
+        tableview.reloadData()
     }
     
     @IBAction func playPauseBtnPressed(_ sender: Any) {

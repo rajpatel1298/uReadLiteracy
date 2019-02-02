@@ -13,11 +13,12 @@ class AudioPlayer{
     private var player: AVAudioPlayer?
     static var shared = AudioPlayer()
     
-    func playSound(soundName:String) {
-        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
+    func playSound(soundName:String, audioExtension:String) {
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: audioExtension) else {
             return
-            
         }
+        
+      
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -32,5 +33,10 @@ class AudioPlayer{
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func playSound(soundName:String, audioExtension:String, delegate:AVAudioPlayerDelegate) {
+        playSound(soundName: soundName, audioExtension: audioExtension)
+        player?.delegate = delegate
     }
 }

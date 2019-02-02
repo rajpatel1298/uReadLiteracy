@@ -24,7 +24,7 @@ class TutorialAudio:AudioPlayer{
         let name = audioFiles[currentCount]
         currentCount += 1
         
-        playSound(soundName: name)
+        playSound(soundName: name, audioExtension: "mp3")
     }
     
     func reset(){

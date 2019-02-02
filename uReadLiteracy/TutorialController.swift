@@ -21,6 +21,9 @@ class TutorialController{
     
     private let audio:TutorialAudio
     private var gestureAdded = false
+    
+    private var gesture:UITapGestureRecognizer!
+    
     var onComplete:()->Void = {}
     
     init(audio:TutorialAudio, vc:UIViewController){
@@ -35,8 +38,13 @@ class TutorialController{
         doNextStep()
     }
     func addGesture(gesture:UITapGestureRecognizer){
+        self.gesture = gesture
         tutorialView.addGestureRecognizer(gesture)
         gestureAdded = true
+    }
+    
+    func removeGesture(){
+        tutorialView.removeGestureRecognizer(gesture)
     }
     
     func show(onComplete:@escaping ()->Void){

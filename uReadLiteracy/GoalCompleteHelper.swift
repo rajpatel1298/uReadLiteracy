@@ -47,7 +47,7 @@ class GoalCompleteHelper{
     
     func animate(){
         controller.starView.play()
-        AudioPlayer.shared.playSound(soundName: "goal_complete")
+        AudioPlayer.shared.playSound(soundName: "goal_complete", audioExtension: "mp3")
     }
     
 }

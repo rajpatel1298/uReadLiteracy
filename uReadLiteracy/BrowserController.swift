@@ -12,25 +12,27 @@ import WebKit
 class BrowserController{
     private var webView: WKWebView!
     private var mainURL:String!
+    private let vc:BrowseViewController
     
-    init(webView:WKWebView, url:String){
+    init(webView:WKWebView, url:String, vc:BrowseViewController){
         self.webView = webView
         mainURL = url
+        self.vc = vc
     }
     
-    func helpFunction(completionHandler:@escaping (_ state:State, _ word:String?)->Void){
+    func helpFunction(completionHandler:@escaping (_ state:State)->Void){
         getSelectedWord { (word) in
             if(self.onlyOneWordIsSelected(word: word)){
                 if let url = URL(string: "http://www.dictionary.com/browse/\(word)?s=t"){
-                    
-                    completionHandler(.Success(url), word)
+                    HelpWordModel(word: word).save()
+                    completionHandler(.Success(url))
                 }
                 else{
-                    completionHandler(.Failure(HelpFunctionError.UnknownError), nil)
+                    completionHandler(.Failure(HelpFunctionError.UnknownError))
                 }
             }
             else{
-                completionHandler(.Failure(HelpFunctionError.MoreThanOneWord), nil)
+                completionHandler(.Failure(HelpFunctionError.MoreThanOneWord))
             }
         }
     }
@@ -54,5 +56,25 @@ class BrowserController{
             (selectedWord: Any?, error: Error?) in
             completionHandler(selectedWord as! String)
         })
+    }
+    
+    func updateGoalIfNeeded(){
+        
+        let currentYOffset = webView.scrollView.contentOffset.y
+        let url = webView.url?.absoluteString
+        let maxBrowserOffset = vc.maxBrowserOffset
+        
+        if maxBrowserOffset == nil{
+            return
+        }
+
+        if Int(currentYOffset) >= maxBrowserOffset!*90/100 {
+            if(isCurrentURLAnArticle(url: url!)){
+                if(vc.currentArticle != nil){
+                    vc.currentArticle?.stopRecordingTime()
+                    GoalManager.shared.updateGoals(article: vc.currentArticle!)
+                }
+            }
+        }
     }
 }

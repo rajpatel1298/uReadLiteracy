@@ -51,6 +51,11 @@ class AudioPlayerWithTimer:AudioObserver{
     
     func updateNotification() {
         if subject?.getState() == .Play{
+            if player.currentTime() == subject?.getDuration(){
+                DispatchQueue.main.async {
+                    self.moveTo(time: CMTime(seconds: 0, preferredTimescale: 1))
+                }
+            }
             play()
         }
         else{
@@ -63,7 +68,7 @@ class AudioPlayerWithTimer:AudioObserver{
     }
     
     func moveTo(time:CMTime){
-        player.seek(to: (self.subject?.getCurrentTime())!)
+        player.seek(to: time)
     }
     
     private func play() {

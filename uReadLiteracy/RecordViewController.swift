@@ -26,12 +26,10 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
         super.viewWillAppear(animated)
         myTableView.reloadData()
         getListTitleWithoutDuplicate()
+        
+        TopToolBarViewController.currentController = self
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        TutorialBarViewController.currentController = self
-    }
-    
+        
     func getListTitleWithoutDuplicate(){
         list.removeAll()
         
