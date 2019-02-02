@@ -35,7 +35,6 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         TopToolBarViewController.shared = self
-        //recordLOTView.autoReverseAnimation = true
         recordLOTView.loopAnimation = true
         recordLOTView.animationSpeed = 0.5
     }
@@ -50,12 +49,12 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func enableRecordBtn(){
-        recordLOTView.alpha = 1
+        //recordLOTView.alpha = 1
         recordBtn.isEnabled = true
     }
     
     func disableRecordBtn(){
-        recordLOTView.alpha = 0.2
+        //recordLOTView.alpha = 0.2
         recordBtn.isEnabled = false
     }
     
@@ -83,7 +82,7 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
         else{
             onRecordBtnPressed()
             AudioPlayer.shared.playSound(soundName: "postrecording", audioExtension: "mp3", delegate: self)
-            recordLOTView.animation = "3844-listening"
+            recordLOTView.animation = "3787-jumping-mic"
             recordLOTView.loopAnimation = true
             recordLOTView.play()
         }

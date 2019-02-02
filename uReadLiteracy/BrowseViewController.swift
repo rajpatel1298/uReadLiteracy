@@ -15,7 +15,7 @@ import FirebaseAuth
 
 class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate{
     
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var webView: WKWebviewWithHelpMenu!
     @IBOutlet weak var socialMediaView: UIView!
     
     var urlSegue:URL!
