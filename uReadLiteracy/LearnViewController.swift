@@ -13,12 +13,11 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableview: UITableView!
     
-    @IBOutlet weak var noResultView: UIView!
-    
-    
     var helpList = [HelpWordModel]()
     var loginLoadingIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     var sendHelpWord: HelpWordModel!
+    
+    var noResultController:NoWordToLearnViewController!
     
 
     override func viewDidLoad() {
@@ -32,7 +31,8 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         view.addSubview(loginLoadingIndicator)
         //analyzeButton.addTarget(self, action: #selector(analyzeWords), for: .touchUpInside)
     
-        // Do any additional setup after loading the view.
+        noResultController = storyboard!.instantiateViewController(withIdentifier: "NoWordToLearnViewController") as! NoWordToLearnViewController
+        add(noResultController)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,20 +40,20 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         getHelpWords()
         
         if(helpList.count == 0){
-            noResultView.isHidden = false
+            noResultController.view.isHidden = false
+            noResultController.animationView.play()
             tableview.isHidden = true
         }
         else{
-            noResultView.isHidden = true
+            noResultController.view.isHidden = true
+            noResultController.animationView.stop()
             tableview.isHidden = false
             tableview.reloadData()
         }
         
+        TopToolBarViewController.currentController = self
+        
     }
-    
-    @IBAction func goToBrowserBtnPressed(_ sender: Any) {
-    }
-    
     
     func getHelpWords(){
         helpList = CoreDataManager.shared.getList() 

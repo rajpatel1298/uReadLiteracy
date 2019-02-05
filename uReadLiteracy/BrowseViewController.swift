@@ -81,9 +81,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         }
         
         
-        TopToolBarViewController.shared.disableRecordBtn()
-        TopToolBarViewController.shared.disablePreviousBtn()
-        TopToolBarViewController.shared.showPreviousAndRecordBtn()
+        TopToolBarViewController.shared.disablePreviousAndRecordBtn()
 
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -93,7 +91,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         webView.frame = view.frame
         loadMainPage()
         socialMediaView.isHidden = true
-        TopToolBarViewController.shared.hidePreviousAndRecordBtn()
+        TopToolBarViewController.shared.disablePreviousAndRecordBtn()
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
@@ -115,24 +113,17 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     // when go to new webpage
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        if(webView.canGoBack){
-            TopToolBarViewController.shared.enablePreviousBtn()
-        }
-        else{
-            TopToolBarViewController.shared.disablePreviousBtn()
-        }
-        
         updateCurrentArticleIfNeeded()
         updatePopupManager()
  
         
         if isReadingAnArticle(){
             maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
-            TopToolBarViewController.shared.enableRecordBtn()
+            TopToolBarViewController.shared.disablePreviousAndRecordBtn()
         }
         
         else{
-            TopToolBarViewController.shared.disableRecordBtn()
+            TopToolBarViewController.shared.disablePreviousAndRecordBtn()
         }
     }
 

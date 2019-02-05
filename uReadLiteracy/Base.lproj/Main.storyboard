@@ -21,6 +21,9 @@
         <array key="NokioSans-Medium.ttf">
             <string>NokioSans-Medium</string>
         </array>
+        <array key="NokioSans-Regular.ttf">
+            <string>NokioSans-Regular</string>
+        </array>
         <array key="NokioSansAlt-Medium.ttf">
             <string>NokioSansAlt-Medium</string>
         </array>
@@ -674,7 +677,7 @@
                                                         <rect key="frame" x="0.0" y="58.5" width="335" height="58.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This list does not have any goals" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-3P-0yj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="26"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="23.5"/>
                                                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -883,21 +886,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YpQ-Xg-psm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YpQ-Xg-psm">
                                 <rect key="frame" x="16" y="64" width="343" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="learnCell" id="r9a-Ap-7Ic" customClass="LearnCell" customModule="uReadLiteracy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r9a-Ap-7Ic" id="UE8-5c-UhW">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymO-2e-qcn">
-                                                    <rect key="frame" x="151" y="11.5" width="41" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="148" y="20" width="47" height="20"/>
+                                                    <fontDescription key="fontDescription" name="NokioSansAlt-Medium" family="NokioSansAlt-Medium" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -917,57 +920,25 @@
                                     <outlet property="delegate" destination="l33-Ft-hsB" id="MSu-87-sUJ"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXn-ug-dHU">
-                                <rect key="frame" x="16" y="260.5" width="343" height="71"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no word to learn!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUl-PY-rnx">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBj-Fg-Ars">
-                                        <rect key="frame" x="0.0" y="41" width="343" height="30"/>
-                                        <state key="normal" title="Go to Browser"/>
-                                        <connections>
-                                            <action selector="goToBrowserBtnPressed:" destination="l33-Ft-hsB" eventType="touchUpInside" id="1gw-Zf-7y2"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="RBj-Fg-Ars" firstAttribute="leading" secondItem="PXn-ug-dHU" secondAttribute="leading" id="IXT-JP-7NR"/>
-                                    <constraint firstItem="CUl-PY-rnx" firstAttribute="leading" secondItem="PXn-ug-dHU" secondAttribute="leading" id="KA9-VH-vY7"/>
-                                    <constraint firstItem="CUl-PY-rnx" firstAttribute="top" secondItem="PXn-ug-dHU" secondAttribute="top" id="c9A-Sf-hXG"/>
-                                    <constraint firstItem="RBj-Fg-Ars" firstAttribute="top" secondItem="CUl-PY-rnx" secondAttribute="bottom" constant="20" id="dWU-px-Bt8"/>
-                                    <constraint firstAttribute="bottom" secondItem="RBj-Fg-Ars" secondAttribute="bottom" id="dkI-Wt-Kko"/>
-                                    <constraint firstAttribute="trailing" secondItem="RBj-Fg-Ars" secondAttribute="trailing" id="mH6-qh-PDU"/>
-                                    <constraint firstAttribute="trailing" secondItem="CUl-PY-rnx" secondAttribute="trailing" id="yf8-NS-nPI"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YpQ-Xg-psm" firstAttribute="top" secondItem="8od-oY-f5i" secondAttribute="bottom" id="5yT-aw-Hg6"/>
-                            <constraint firstItem="PXn-ug-dHU" firstAttribute="leading" secondItem="wfO-sZ-nPQ" secondAttribute="leadingMargin" id="6RZ-yC-ntP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PXn-ug-dHU" secondAttribute="trailing" id="EIc-oD-9eU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YpQ-Xg-psm" secondAttribute="trailing" id="YvW-8r-NMK"/>
                             <constraint firstItem="YpQ-Xg-psm" firstAttribute="leading" secondItem="wfO-sZ-nPQ" secondAttribute="leadingMargin" id="eZ2-nQ-AjR"/>
-                            <constraint firstItem="PXn-ug-dHU" firstAttribute="centerY" secondItem="wfO-sZ-nPQ" secondAttribute="centerY" id="vAy-Fy-Fva"/>
                             <constraint firstItem="Ljb-0R-lGX" firstAttribute="top" secondItem="YpQ-Xg-psm" secondAttribute="bottom" id="wwV-Wx-ifp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Learn More" image="book" id="gl8-B3-blG"/>
                     <navigationItem key="navigationItem" id="bKy-gM-m9j"/>
                     <connections>
-                        <outlet property="noResultView" destination="PXn-ug-dHU" id="bpp-4X-KrM"/>
                         <outlet property="tableview" destination="YpQ-Xg-psm" id="1Zj-Qf-Wsl"/>
                         <segue destination="Kkn-Vk-qty" kind="show" identifier="LearnMoreToDynamicVideoSegue" id="OUH-3f-lF0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2M-uz-QI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4777" y="920"/>
+            <point key="canvasLocation" x="4932" y="919"/>
         </scene>
         <!--Dynamic Video View Controller-->
         <scene sceneID="2YJ-ST-Cb9">
@@ -1043,7 +1014,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZC-xS-YRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5665" y="920"/>
+            <point key="canvasLocation" x="6332" y="909"/>
+        </scene>
+        <!--No Word To Learn View Controller-->
+        <scene sceneID="OWw-dh-cr6">
+            <objects>
+                <viewController storyboardIdentifier="NoWordToLearnViewController" id="lPG-Ea-hn2" customClass="NoWordToLearnViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HV0-MQ-byN"/>
+                        <viewControllerLayoutGuide type="bottom" id="2o8-hx-YyQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uqe-db-0Gg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCQ-kI-ir3">
+                                <rect key="frame" x="0.0" y="167" width="375" height="333.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4DJ-rg-ePX" customClass="LOTAnimationView">
+                                        <rect key="frame" x="112.5" y="20" width="150" height="150"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4DJ-rg-ePX" secondAttribute="height" multiplier="1:1" id="7Xj-w1-syX"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="3227-error-404-facebook-style"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no word to learn!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-Km-glj">
+                                        <rect key="frame" x="0.0" y="261.5" width="375" height="20"/>
+                                        <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xuz-qb-T5c">
+                                        <rect key="frame" x="0.0" y="301.5" width="375" height="32"/>
+                                        <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="20"/>
+                                        <state key="normal" title="Read Articles to Learn More Words"/>
+                                        <connections>
+                                            <action selector="goToBrowserBtnPressed:" destination="lPG-Ea-hn2" eventType="touchUpInside" id="KcB-nN-vUu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="4DJ-rg-ePX" firstAttribute="centerX" secondItem="PCQ-kI-ir3" secondAttribute="centerX" id="4cf-6K-Oh1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yc1-Km-glj" secondAttribute="trailing" id="6am-l1-SEr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xuz-qb-T5c" secondAttribute="trailing" id="AY2-ph-hRJ"/>
+                                    <constraint firstItem="Xuz-qb-T5c" firstAttribute="top" secondItem="Yc1-Km-glj" secondAttribute="bottom" constant="20" id="ETz-kU-6hS"/>
+                                    <constraint firstItem="4DJ-rg-ePX" firstAttribute="width" secondItem="PCQ-kI-ir3" secondAttribute="width" multiplier="2:5" id="WBL-OZ-Eso"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xuz-qb-T5c" secondAttribute="bottom" id="Za3-h0-1hR"/>
+                                    <constraint firstItem="Yc1-Km-glj" firstAttribute="leading" secondItem="PCQ-kI-ir3" secondAttribute="leading" id="cB2-vI-y1a"/>
+                                    <constraint firstItem="4DJ-rg-ePX" firstAttribute="top" secondItem="PCQ-kI-ir3" secondAttribute="top" constant="20" id="klG-Xe-wMA"/>
+                                    <constraint firstItem="Xuz-qb-T5c" firstAttribute="leading" secondItem="PCQ-kI-ir3" secondAttribute="leading" id="ocb-vT-uTY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PCQ-kI-ir3" firstAttribute="centerY" secondItem="uqe-db-0Gg" secondAttribute="centerY" id="ErX-fC-uVW"/>
+                            <constraint firstItem="PCQ-kI-ir3" firstAttribute="height" secondItem="uqe-db-0Gg" secondAttribute="height" multiplier="1:2" id="KoL-vO-jH7"/>
+                            <constraint firstItem="PCQ-kI-ir3" firstAttribute="leading" secondItem="uqe-db-0Gg" secondAttribute="leading" id="ZCR-5Z-MY8"/>
+                            <constraint firstAttribute="trailing" secondItem="PCQ-kI-ir3" secondAttribute="trailing" id="fhg-EZ-EiK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="4DJ-rg-ePX" id="7JN-Qe-hRk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5IM-VP-Rtq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5629.6000000000004" y="1428.9355322338831"/>
         </scene>
         <!--Profile-->
         <scene sceneID="CAl-Xh-Pk1">
@@ -1422,7 +1463,7 @@
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-IT-Dzu">
-                                        <rect key="frame" x="80" y="0.0" width="103" height="60"/>
+                                        <rect key="frame" x="80" y="0.0" width="105" height="60"/>
                                         <color key="backgroundColor" red="0.94656833630000003" green="0.94656833630000003" blue="0.94656833630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="NokioSans-Medium" family="NokioSans-Medium" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1431,7 +1472,7 @@
                                         </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgZ-Du-0VY">
-                                        <rect key="frame" x="193" y="0.0" width="37" height="60"/>
+                                        <rect key="frame" x="195" y="0.0" width="35" height="60"/>
                                         <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="17"/>
                                         <state key="normal" title="Post"/>
                                         <connections>

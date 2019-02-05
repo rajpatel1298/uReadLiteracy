@@ -163,7 +163,6 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         noGoalListVC.view.translatesAutoresizingMaskIntoConstraints = false
-        //noGoalListVC.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         view.addConstraint(NSLayoutConstraint(item: noGoalListVC.view, attribute: .top, relatedBy: .equal, toItem: goalOptionStackView, attribute: .bottom, multiplier: 1, constant: 20))
         view.addConstraint(NSLayoutConstraint(item: noGoalListVC.view, attribute: .bottom, relatedBy: .equal, toItem: addNewGoalBtn, attribute: .top, multiplier: 1, constant: -20))
         

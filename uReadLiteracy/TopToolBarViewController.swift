@@ -26,7 +26,18 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     var recording = false
     
     
-    static var currentController:UIViewController!
+    static var currentController:UIViewController!{
+        didSet{
+            if currentController is BrowseViewController{
+                shared.previousBtn.isHidden = false
+                shared.recordLOTView.isHidden = false
+            }
+            else{
+                shared.previousBtn.isHidden = true
+                shared.recordLOTView.isHidden = true
+            }
+        }
+    }
     
     static var shared:TopToolBarViewController!
     
@@ -39,37 +50,35 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
         recordLOTView.animationSpeed = 0.5
     }
     
-    func enablePreviousBtn(){
+    private func enablePreviousBtn(){
         previousBtn.alpha = 1
         previousBtn.isEnabled = true
     }
-    func disablePreviousBtn(){
-        previousBtn.alpha = 0.2
+    private func disablePreviousBtn(){
+        //previousBtn.alpha = 0.2
         previousBtn.isEnabled = false
     }
     
-    func enableRecordBtn(){
-        //recordLOTView.alpha = 1
-        recordBtn.isEnabled = true
-    }
-    
-    func disableRecordBtn(){
-        //recordLOTView.alpha = 0.2
-        recordBtn.isEnabled = false
-    }
-    
-    func hidePreviousAndRecordBtn(){
-        previousBtn.isHidden = true
-        recordLOTView.isHidden = true
-        recordLOTView.pause()
-        recordBtn.isEnabled = false
-    }
-    
-    func showPreviousAndRecordBtn(){
-        previousBtn.isHidden = false
-        recordLOTView.isHidden = false
+    private func enableRecordBtn(){
+        recordLOTView.alpha = 1
         recordLOTView.play()
         recordBtn.isEnabled = true
+    }
+    
+    private func disableRecordBtn(){
+        //recordLOTView.alpha = 0.2
+        recordLOTView.stop()
+        recordBtn.isEnabled = false
+    }
+    
+    func disablePreviousAndRecordBtn(){
+        disableRecordBtn()
+        disablePreviousBtn()
+    }
+    
+    func enablePreviousAndRecordBtn(){
+        enableRecordBtn()
+        enablePreviousBtn()
     }
     
     
