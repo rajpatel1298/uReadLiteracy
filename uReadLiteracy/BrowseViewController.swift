@@ -111,17 +111,21 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
     }
     
-    // when go to new webpage
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+    }
+        
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         updateCurrentArticleIfNeeded()
         updatePopupManager()
- 
+        
         
         if isReadingAnArticle(){
             maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
-            TopToolBarViewController.shared.disablePreviousAndRecordBtn()
+            TopToolBarViewController.shared.enablePreviousAndRecordBtn()
         }
-        
+            
         else{
             TopToolBarViewController.shared.disablePreviousAndRecordBtn()
         }

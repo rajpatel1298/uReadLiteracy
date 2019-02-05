@@ -10,27 +10,46 @@ import AVFoundation
 
 class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var tableview: UITableView!
     
     private var list = [String:[AudioRecordModel]]()
     private var titles = [String]()
     
     private var selectedTitle:[AudioRecordModel]!
 
+    private var noResultController:NoResultViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        noResultController = (storyboard!.instantiateViewController(withIdentifier: "NoResultViewController") as! NoResultViewController)
+        noResultController.inject(title: "There is no record!", actionStr: "Record You Reading Articles", action: {
+            DispatchQueue.main.async {
+                self.tabBarController?.selectedIndex = 2
+            }
+        })
+        add(noResultController)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        myTableView.reloadData()
         getListTitleWithoutDuplicate()
-        
+        tableview.reloadData()
+        showNoResultControllerIfNeeded()
         TopToolBarViewController.currentController = self
     }
+    
+    func showNoResultControllerIfNeeded(){
+        if list.count == 0{
+            noResultController.view.isHidden = false
+            tableview.isHidden = true
+        }
+        else{
+            noResultController.view.isHidden = true
+            tableview.isHidden = false
+        }
+    }
         
-    func getListTitleWithoutDuplicate(){
+    private func getListTitleWithoutDuplicate(){
         list.removeAll()
         
         let models:[AudioRecordModel] = CoreDataManager.shared.getList()

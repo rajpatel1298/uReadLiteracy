@@ -302,7 +302,7 @@
                     <tabBarItem key="tabBarItem" title="Record" image="microphone" id="2pF-Wy-A7j"/>
                     <navigationItem key="navigationItem" id="yRY-YY-LjR"/>
                     <connections>
-                        <outlet property="myTableView" destination="u47-hU-KRR" id="uGI-yW-yK3"/>
+                        <outlet property="tableview" destination="u47-hU-KRR" id="uGI-yW-yK3"/>
                         <segue destination="9NI-kH-UVC" kind="show" identifier="RecordToAudioRecordsSegue" id="2qz-Xj-BPL"/>
                     </connections>
                 </viewController>
@@ -1016,10 +1016,10 @@
             </objects>
             <point key="canvasLocation" x="6332" y="909"/>
         </scene>
-        <!--No Word To Learn View Controller-->
+        <!--No Result View Controller-->
         <scene sceneID="OWw-dh-cr6">
             <objects>
-                <viewController storyboardIdentifier="NoWordToLearnViewController" id="lPG-Ea-hn2" customClass="NoWordToLearnViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoResultViewController" id="lPG-Ea-hn2" customClass="NoResultViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HV0-MQ-byN"/>
                         <viewControllerLayoutGuide type="bottom" id="2o8-hx-YyQ"/>
@@ -1038,10 +1038,10 @@
                                             <constraint firstAttribute="width" secondItem="4DJ-rg-ePX" secondAttribute="height" multiplier="1:1" id="7Xj-w1-syX"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="3227-error-404-facebook-style"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="629-empty-box"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no word to learn!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-Km-glj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-Km-glj">
                                         <rect key="frame" x="0.0" y="261.5" width="375" height="20"/>
                                         <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -1050,9 +1050,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xuz-qb-T5c">
                                         <rect key="frame" x="0.0" y="301.5" width="375" height="32"/>
                                         <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="20"/>
-                                        <state key="normal" title="Read Articles to Learn More Words"/>
+                                        <state key="normal" title="Handle Action"/>
                                         <connections>
-                                            <action selector="goToBrowserBtnPressed:" destination="lPG-Ea-hn2" eventType="touchUpInside" id="KcB-nN-vUu"/>
+                                            <action selector="actionBtnPressed:" destination="lPG-Ea-hn2" eventType="touchUpInside" id="KcB-nN-vUu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1079,7 +1079,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionBtn" destination="Xuz-qb-T5c" id="e0M-Mr-dmi"/>
                         <outlet property="animationView" destination="4DJ-rg-ePX" id="7JN-Qe-hRk"/>
+                        <outlet property="titleLabel" destination="Yc1-Km-glj" id="ea6-iT-f0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IM-VP-Rtq" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -43,7 +43,7 @@ class RecordViewControllerTutorial:TutorialController{
     
     private func getSecondStepLayer(){
      //   let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.addNewGoalBtnUIView)
-        let recordListFrame = vc.myTableView.frame
+        let recordListFrame = vc.tableview.frame
         highlightFrame(frame: recordListFrame)
     }
 }

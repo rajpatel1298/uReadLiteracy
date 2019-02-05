@@ -9,7 +9,6 @@
 import UIKit
 
 class NoGoalListViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

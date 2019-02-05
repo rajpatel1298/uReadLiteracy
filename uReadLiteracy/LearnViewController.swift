@@ -17,7 +17,7 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var loginLoadingIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     var sendHelpWord: HelpWordModel!
     
-    var noResultController:NoWordToLearnViewController!
+    var noResultController:NoResultViewController!
     
 
     override func viewDidLoad() {
@@ -31,7 +31,12 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         view.addSubview(loginLoadingIndicator)
         //analyzeButton.addTarget(self, action: #selector(analyzeWords), for: .touchUpInside)
     
-        noResultController = storyboard!.instantiateViewController(withIdentifier: "NoWordToLearnViewController") as! NoWordToLearnViewController
+        noResultController = (storyboard!.instantiateViewController(withIdentifier: "NoResultViewController") as! NoResultViewController)
+        noResultController.inject(title: "There is no word to learn!", actionStr: "Read Articles to Learn More Words", action: {
+            DispatchQueue.main.async {
+                self.tabBarController?.selectedIndex = 2
+            }
+        })
         add(noResultController)
     }
     

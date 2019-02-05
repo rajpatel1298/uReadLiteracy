@@ -129,7 +129,8 @@
 		1CAD87A1220A07970096DD90 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A0220A07970096DD90 /* UIViewControllerExtension.swift */; };
 		1CAD87A3220A18500096DD90 /* Check Mark Success Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A2220A18500096DD90 /* Check Mark Success Data.json */; };
 		1CAD87A5220A20DB0096DD90 /* 3227-error-404-facebook-style.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */; };
-		1CAD87A7220A21190096DD90 /* NoWordToLearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A6220A21190096DD90 /* NoWordToLearnViewController.swift */; };
+		1CAD87A7220A21190096DD90 /* NoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A6220A21190096DD90 /* NoResultViewController.swift */; };
+		1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A8220A456B0096DD90 /* 629-empty-box.json */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -287,7 +288,8 @@
 		1CAD87A0220A07970096DD90 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1CAD87A2220A18500096DD90 /* Check Mark Success Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Check Mark Success Data.json"; sourceTree = "<group>"; };
 		1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3227-error-404-facebook-style.json"; sourceTree = "<group>"; };
-		1CAD87A6220A21190096DD90 /* NoWordToLearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWordToLearnViewController.swift; sourceTree = "<group>"; };
+		1CAD87A6220A21190096DD90 /* NoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultViewController.swift; sourceTree = "<group>"; };
+		1CAD87A8220A456B0096DD90 /* 629-empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "629-empty-box.json"; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -574,7 +576,6 @@
 			children = (
 				CD3E1E13205C5AC200AC2D1A /* LearnViewController.swift */,
 				CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */,
-				1CAD87A6220A21190096DD90 /* NoWordToLearnViewController.swift */,
 			);
 			name = "Learn More";
 			sourceTree = "<group>";
@@ -656,6 +657,7 @@
 				1C578F93220563120077E1DD /* 3787-jumping-mic.json */,
 				1CAD87A2220A18500096DD90 /* Check Mark Success Data.json */,
 				1C578F772204D3710077E1DD /* 1552-microphone.json */,
+				1CAD87A8220A456B0096DD90 /* 629-empty-box.json */,
 				1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */,
 				1C578F782204D3710077E1DD /* images */,
 			);
@@ -708,6 +710,7 @@
 			isa = PBXGroup;
 			children = (
 				1CAC792521FB5748007F8704 /* TopToolBarViewController.swift */,
+				1CAD87A6220A21190096DD90 /* NoResultViewController.swift */,
 				1C4C67D8218BF92400D5383D /* Starting Page */,
 				1C4C680821912A1900D5383D /* First Time Launch */,
 				1CAC792421FB5733007F8704 /* Tutorial */,
@@ -884,6 +887,7 @@
 				1CAC798221FCB287007F8704 /* NokioSans-RegularItalic.ttf in Resources */,
 				1CAC798321FCB287007F8704 /* NokioSansAlt-Bold.ttf in Resources */,
 				1CAC798421FCB287007F8704 /* NokioSansAlt-BoldItalic.ttf in Resources */,
+				1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */,
 				1CAC798521FCB287007F8704 /* NokioSansAlt-ExtraLight.ttf in Resources */,
 				1CAC798621FCB287007F8704 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
 				1CAC798721FCB287007F8704 /* NokioSansAlt-Light.ttf in Resources */,
@@ -1053,7 +1057,7 @@
 				1CAC79AA21FFB0EB007F8704 /* AudioTimeLabel.swift in Sources */,
 				CDDD7F011FF19A67009FA71D /* ExploreViewController.swift in Sources */,
 				1C4C67DE218C004A00D5383D /* ProfileViewController.swift in Sources */,
-				1CAD87A7220A21190096DD90 /* NoWordToLearnViewController.swift in Sources */,
+				1CAD87A7220A21190096DD90 /* NoResultViewController.swift in Sources */,
 				1C28738621A855A200B790A4 /* GoalTableViewCell.swift in Sources */,
 				1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */,
 				1C578F9622056D770077E1DD /* WKWebviewWithHelpMenu.swift in Sources */,
