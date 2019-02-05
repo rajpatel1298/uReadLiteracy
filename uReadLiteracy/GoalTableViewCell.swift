@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import Lottie
 
 class GoalTableViewCell: UITableViewCell {
     
     @IBOutlet weak var goalSubLabel: UILabel!
+    @IBOutlet weak var goalFinishAnimationView: LOTAnimationView!
     
-    @IBOutlet weak var goalFinishIV: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        goalFinishAnimationView.animationSpeed = 0.8
         // Initialization code
     }
 

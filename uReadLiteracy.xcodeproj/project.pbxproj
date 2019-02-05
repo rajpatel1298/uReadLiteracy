@@ -125,6 +125,9 @@
 		1CAC79A821FFB0E5007F8704 /* AudioSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC79A721FFB0E4007F8704 /* AudioSubject.swift */; };
 		1CAC79AA21FFB0EB007F8704 /* AudioTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC79A921FFB0EB007F8704 /* AudioTimeLabel.swift */; };
 		1CAC79AD21FFB396007F8704 /* AudioPlayerWithTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC79AC21FFB395007F8704 /* AudioPlayerWithTimer.swift */; };
+		1CAD879F220A06D70096DD90 /* NoGoalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD879E220A06D70096DD90 /* NoGoalListViewController.swift */; };
+		1CAD87A1220A07970096DD90 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A0220A07970096DD90 /* UIViewControllerExtension.swift */; };
+		1CAD87A3220A18500096DD90 /* Check Mark Success Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A2220A18500096DD90 /* Check Mark Success Data.json */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -278,6 +281,9 @@
 		1CAC79A721FFB0E4007F8704 /* AudioSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioSubject.swift; sourceTree = "<group>"; };
 		1CAC79A921FFB0EB007F8704 /* AudioTimeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTimeLabel.swift; sourceTree = "<group>"; };
 		1CAC79AC21FFB395007F8704 /* AudioPlayerWithTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerWithTimer.swift; sourceTree = "<group>"; };
+		1CAD879E220A06D70096DD90 /* NoGoalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoGoalListViewController.swift; sourceTree = "<group>"; };
+		1CAD87A0220A07970096DD90 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		1CAD87A2220A18500096DD90 /* Check Mark Success Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Check Mark Success Data.json"; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +334,7 @@
 				1C28737721A5070400B790A4 /* HtmlStringExtension.swift */,
 				1CAC791E21FB56C7007F8704 /* DateExtension.swift */,
 				1CAC799521FE4995007F8704 /* UIImageExtension.swift */,
+				1CAD87A0220A07970096DD90 /* UIViewControllerExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -338,6 +345,7 @@
 				1C28738821A855E600B790A4 /* GoalViewController.swift */,
 				1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */,
 				1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */,
+				1CAD879E220A06D70096DD90 /* NoGoalListViewController.swift */,
 			);
 			name = Goal;
 			sourceTree = "<group>";
@@ -641,6 +649,7 @@
 				1CAC796321FB63BA007F8704 /* message_arrow.json */,
 				1CAC796421FB63BA007F8704 /* twitter_icon.json */,
 				1C578F93220563120077E1DD /* 3787-jumping-mic.json */,
+				1CAD87A2220A18500096DD90 /* Check Mark Success Data.json */,
 				1C578F772204D3710077E1DD /* 1552-microphone.json */,
 				1C578F782204D3710077E1DD /* images */,
 			);
@@ -876,6 +885,7 @@
 				1C578F832204D3750077E1DD /* img_0.png in Resources */,
 				1C578F872204D3750077E1DD /* img_6.png in Resources */,
 				1CAC798A21FCB287007F8704 /* NokioSansAlt-MediumItalic.ttf in Resources */,
+				1CAD87A3220A18500096DD90 /* Check Mark Success Data.json in Resources */,
 				1CAC798B21FCB287007F8704 /* NokioSansAlt-Regular.ttf in Resources */,
 				1CAC798C21FCB287007F8704 /* NokioSansAlt-RegularItalic.ttf in Resources */,
 				1CAC796121FB637E007F8704 /* TextTo.mp3 in Resources */,
@@ -992,6 +1002,7 @@
 				1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */,
 				1C578F6B22023E020077E1DD /* PlayerState.swift in Sources */,
 				1CAC79AD21FFB396007F8704 /* AudioPlayerWithTimer.swift in Sources */,
+				1CAD87A1220A07970096DD90 /* UIViewControllerExtension.swift in Sources */,
 				1CAC79A621FFB0DE007F8704 /* AudioSlider.swift in Sources */,
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
@@ -1051,6 +1062,7 @@
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
 				1CAC799621FE4995007F8704 /* UIImageExtension.swift in Sources */,
 				1CAC791A21FB55DF007F8704 /* BrowserSocialMediaViewController.swift in Sources */,
+				1CAD879F220A06D70096DD90 /* NoGoalListViewController.swift in Sources */,
 				1CAC79A221FFB0CD007F8704 /* AudioObserver.swift in Sources */,
 				1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */,
 				CDA652971FA0F5B700835624 /* uReadLiteracy.xcdatamodeld in Sources */,
