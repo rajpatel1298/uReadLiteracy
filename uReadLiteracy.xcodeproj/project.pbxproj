@@ -131,6 +131,7 @@
 		1CAD87A5220A20DB0096DD90 /* 3227-error-404-facebook-style.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */; };
 		1CAD87A7220A21190096DD90 /* NoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A6220A21190096DD90 /* NoResultViewController.swift */; };
 		1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A8220A456B0096DD90 /* 629-empty-box.json */; };
+		1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -290,6 +291,7 @@
 		1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3227-error-404-facebook-style.json"; sourceTree = "<group>"; };
 		1CAD87A6220A21190096DD90 /* NoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultViewController.swift; sourceTree = "<group>"; };
 		1CAD87A8220A456B0096DD90 /* 629-empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "629-empty-box.json"; sourceTree = "<group>"; };
+		1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = black_hand_click_gesture.json; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -459,7 +461,6 @@
 				1CAC799221FE242B007F8704 /* Core Data Model Handler */,
 				CDA652951FA0F5B700835624 /* uReadLiteracy.xcdatamodeld */,
 				1C4C67EC218D3E5100D5383D /* Web */,
-				1C870F7D21AA49B300FF296E /* Enum */,
 				1C4C67ED218D3E6C00D5383D /* State.swift */,
 				1C4C67F7218E5D6D00D5383D /* UIState.swift */,
 				1C4C67EF218D400500D5383D /* HelpFunctionError.swift */,
@@ -652,6 +653,7 @@
 				1CAC796721FB63BA007F8704 /* facebook.json */,
 				1CAC796621FB63BA007F8704 /* favourite_app_icon.json */,
 				1CAC796521FB63BA007F8704 /* hand_click_gesture.json */,
+				1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */,
 				1CAC796321FB63BA007F8704 /* message_arrow.json */,
 				1CAC796421FB63BA007F8704 /* twitter_icon.json */,
 				1C578F93220563120077E1DD /* 3787-jumping-mic.json */,
@@ -787,6 +789,7 @@
 				1CDB3F28217ECDDB00BEC04C /* Controller */,
 				1C28737621A506F400B790A4 /* Extensions */,
 				1C9C7757219A8C1B002ADA76 /* Helper */,
+				1C870F7D21AA49B300FF296E /* Enum */,
 				CDDD7EFF1FF19A3E009FA71D /* Tutorial Files */,
 				CDDD7EFD1FF19937009FA71D /* Swift+Gif.swift */,
 				1C769CE521D3488100034EB3 /* Font */,
@@ -906,6 +909,7 @@
 				1CAC796C21FB63BA007F8704 /* facebook.json in Resources */,
 				1C578F852204D3750077E1DD /* img_3.png in Resources */,
 				1C578F812204D3750077E1DD /* 1552-microphone.json in Resources */,
+				1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
 				1C578F892204D3750077E1DD /* img_5.png in Resources */,
 				1CAC796B21FB63BA007F8704 /* favourite_app_icon.json in Resources */,

@@ -17,7 +17,7 @@ class TutorialController{
     private var previousLayer = CAShapeLayer()
     
     private let tutorialView = UIView(frame: .zero)
-    private let animationView = LOTAnimationView(name: "hand_click_gesture")
+    private let handAnimationView = LOTAnimationView(name: "hand_click_gesture")
     
     private let audio:TutorialAudio
     private var gestureAdded = false
@@ -31,7 +31,18 @@ class TutorialController{
         self.vc = vc
         
         tutorialView.isUserInteractionEnabled = true
-        tutorialView.addSubview(animationView)
+        tutorialView.addSubview(handAnimationView)
+        
+        handAnimationView.loopAnimation = true
+        handAnimationView.autoReverseAnimation = true
+    }
+    
+    func setHandAnimationColorBlack(){
+        handAnimationView.animation = "black_hand_click_gesture"
+    }
+    
+    func setHandAnimationColorWhite(){
+        handAnimationView.animation = "hand_click_gesture"
     }
     
     func tapped(){
@@ -57,7 +68,7 @@ class TutorialController{
         tutorialView.frame = vc.view.frame
         
         let handSize = vc.view.frame.width/5
-        animationView.frame = CGRect(x: vc.view.frame.width/2 - handSize/2, y: vc.view.frame.height/2 - handSize/2, width: handSize, height: handSize)
+        handAnimationView.frame = CGRect(x: vc.view.frame.width/2 - handSize/2, y: vc.view.frame.height/2 - handSize/2, width: handSize, height: handSize)
         
         vc.view.addSubview(tutorialView)
         
@@ -77,11 +88,11 @@ class TutorialController{
             previousLayer = layer
             tutorialView.layer.addSublayer(layer)
             
-            tutorialView.bringSubview(toFront: animationView)
+            tutorialView.bringSubview(toFront: handAnimationView)
             
             audio.playNextAudio()
             
-            animationView.play{ (finished) in}
+            handAnimationView.play()
         }
         else{
             self.tutorialView.alpha = 1

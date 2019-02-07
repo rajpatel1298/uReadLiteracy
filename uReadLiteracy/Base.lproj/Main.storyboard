@@ -49,7 +49,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tij-jv-Rkq">
-                                <rect key="frame" x="26" y="603.5" width="323" height="23.5"/>
+                                <rect key="frame" x="26" y="601" width="323" height="26"/>
                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bna-S2-Wki">
-                                <rect key="frame" x="66" y="25" width="62.5" height="40"/>
+                                <rect key="frame" x="66" y="25" width="60.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PnO-OH-6BH"/>
                                 </constraints>
@@ -75,7 +75,7 @@
                                 <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTi-O6-VcD">
-                                <rect key="frame" x="26" y="242" width="285.5" height="83"/>
+                                <rect key="frame" x="26" y="242" width="286.5" height="83"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wave.png" translatesAutoresizingMaskIntoConstraints="NO" id="DeM-r1-oMm">
                                         <rect key="frame" x="40" y="21.5" width="40" height="40"/>
@@ -85,7 +85,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-aB-EOL">
-                                        <rect key="frame" x="80" y="18" width="165.5" height="47"/>
+                                        <rect key="frame" x="80" y="15.5" width="166.5" height="52"/>
                                         <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -101,7 +101,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uread is a reading app for ...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ne-qY-9ND">
-                                <rect key="frame" x="26" y="325" width="343" height="23.5"/>
+                                <rect key="frame" x="26" y="325" width="343" height="26"/>
                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -256,23 +256,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u47-hU-KRR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="479"/>
+                                <rect key="frame" x="20" y="84" width="335" height="439"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecordCell" rowHeight="80" id="HVS-At-o3d" customClass="RecordCell" customModule="uReadLiteracy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="28" width="335" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HVS-At-o3d" id="J9W-8e-0iz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09L-Ic-6gl">
-                                                    <rect key="frame" x="15" y="11" width="345" height="58"/>
+                                                    <rect key="frame" x="15" y="11" width="305" height="58"/>
                                                     <fontDescription key="fontDescription" name="NokioSansAlt-Medium" family="NokioSansAlt-Medium" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="09L-Ic-6gl" firstAttribute="top" secondItem="J9W-8e-0iz" secondAttribute="topMargin" id="HDI-9x-rYl"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="09L-Ic-6gl" secondAttribute="bottom" id="Qpe-2t-q0C"/>
@@ -293,10 +294,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zCM-ii-kE1" firstAttribute="top" secondItem="u47-hU-KRR" secondAttribute="bottom" id="Dmy-2h-8Z1"/>
-                            <constraint firstItem="u47-hU-KRR" firstAttribute="top" secondItem="bB8-BW-1am" secondAttribute="bottom" id="F3t-dL-dYb"/>
-                            <constraint firstItem="u47-hU-KRR" firstAttribute="leading" secondItem="HLn-uH-yqc" secondAttribute="leading" id="SMX-GS-tXa"/>
-                            <constraint firstAttribute="trailing" secondItem="u47-hU-KRR" secondAttribute="trailing" id="z2e-Jc-rft"/>
+                            <constraint firstItem="zCM-ii-kE1" firstAttribute="top" secondItem="u47-hU-KRR" secondAttribute="bottom" constant="20" id="Dmy-2h-8Z1"/>
+                            <constraint firstItem="u47-hU-KRR" firstAttribute="top" secondItem="bB8-BW-1am" secondAttribute="bottom" constant="20" id="F3t-dL-dYb"/>
+                            <constraint firstItem="u47-hU-KRR" firstAttribute="leading" secondItem="HLn-uH-yqc" secondAttribute="leading" constant="20" id="SMX-GS-tXa"/>
+                            <constraint firstAttribute="trailing" secondItem="u47-hU-KRR" secondAttribute="trailing" constant="20" id="z2e-Jc-rft"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Record" image="microphone" id="2pF-Wy-A7j"/>
@@ -677,7 +678,7 @@
                                                         <rect key="frame" x="0.0" y="58.5" width="335" height="58.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This list does not have any goals" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-3P-0yj">
-                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="23.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="26"/>
                                                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -790,7 +791,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3v-rH-SlD">
-                                                <rect key="frame" x="0.0" y="90.5" width="375" height="58.5"/>
+                                                <rect key="frame" x="0.0" y="87.5" width="375" height="65"/>
                                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="50"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -818,7 +819,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ongoing Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5s-4p-E01">
-                                                <rect key="frame" x="0.0" y="90.5" width="375" height="58.5"/>
+                                                <rect key="frame" x="0.0" y="87.5" width="375" height="65"/>
                                                 <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1465,7 +1466,7 @@
                                         </constraints>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-IT-Dzu">
-                                        <rect key="frame" x="80" y="0.0" width="105" height="60"/>
+                                        <rect key="frame" x="80" y="0.0" width="103" height="60"/>
                                         <color key="backgroundColor" red="0.94656833630000003" green="0.94656833630000003" blue="0.94656833630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="NokioSans-Medium" family="NokioSans-Medium" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1474,7 +1475,7 @@
                                         </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgZ-Du-0VY">
-                                        <rect key="frame" x="195" y="0.0" width="35" height="60"/>
+                                        <rect key="frame" x="193" y="0.0" width="37" height="60"/>
                                         <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="17"/>
                                         <state key="normal" title="Post"/>
                                         <connections>

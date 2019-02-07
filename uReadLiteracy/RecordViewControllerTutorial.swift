@@ -20,6 +20,7 @@ class RecordViewControllerTutorial:TutorialController{
         
         // Change based on the audio that you will use
         super.init(audio: TutorialAudio(audioFiles: ["recordTutorial1","recordTutorial2"]), vc: vc)
+        setHandAnimationColorBlack()
         //
     }
     
@@ -36,9 +37,9 @@ class RecordViewControllerTutorial:TutorialController{
     
     // Change based on what you want to highlight
     private func getFirstStepLayer(){
-      //  let currGoalsFrame = vc.view.convert(vc.currentGoalsLabel.frame, from:vc.currentGoalView)
-        //let currGoalsFrame = vc.buttonLabel.frame
-        //highlightFrame(frame: currGoalsFrame)
+        //let currGoalsFrame = vc.view.convert(vc.tableview.frame, from:vc.view)
+        let currGoalsFrame = vc.tableview.frame
+        highlightFrame(frame: currGoalsFrame)
     }
     
     private func getSecondStepLayer(){
