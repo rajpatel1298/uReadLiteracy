@@ -25,21 +25,22 @@ class GoalViewControllerTutorial:TutorialController{
     // Change based on the number of steps
     override func show(onComplete:@escaping ()->Void){
         // Change This part
-        setupFirstStep()
-        setupSecondStep()
+        steps.append(firstStep)
+        steps.append(secondStep)
         //
-        
         super.show(onComplete: onComplete)
     }
     
     // Change based on what you want to highlight
-    private func setupFirstStep(){
+    private func firstStep(){
         let  goalOptionStackViewFrame = vc.goalOptionStackView.frame
-        highlightFrame(frame: goalOptionStackViewFrame)
+        showHighlightFrame(frame: goalOptionStackViewFrame)
+        setHandAnimationPosition(frame: goalOptionStackViewFrame)
     }
     
-    private func setupSecondStep(){
+    private func secondStep(){
         let  addNewGoalBtnFrame = vc.addNewGoalBtn.frame
-        highlightFrame(frame: addNewGoalBtnFrame)
+        showHighlightFrame(frame: addNewGoalBtnFrame)
+        setHandAnimationPosition(frame: addNewGoalBtnFrame)
     }
 }
