@@ -15,6 +15,7 @@ class TutorialController{
     
     var tutorialLayers = [CAShapeLayer]()
     private var previousLayer = CAShapeLayer()
+    private var handPositions = [CGRect]()
     
     private let tutorialView = UIView(frame: .zero)
     private let handAnimationView = LOTAnimationView(name: "hand_click_gesture")
@@ -45,13 +46,6 @@ class TutorialController{
         handAnimationView.animation = "hand_click_gesture"
     }
     
-    func setHandAnimationPosition(x: CGFloat, y: CGFloat){
-        let handSize = vc.view.frame.width/5
-        handAnimationView.frame = CGRect(x: x/2 - handSize/2, y: y/2 - handSize/2, width: handSize, height: handSize)
-        
-       
-    }
-    
     func tapped(){
         doNextStep()
     }
@@ -74,8 +68,7 @@ class TutorialController{
         
         tutorialView.frame = vc.view.frame
         
-        let handSize = vc.view.frame.width/5
-        handAnimationView.frame = CGRect(x: vc.view.frame.width/2 - handSize/2, y: vc.view.frame.height/2 - handSize/2, width: handSize, height: handSize)
+        handAnimationView.frame = handPositions.first!
         
         vc.view.addSubview(tutorialView)
         
@@ -97,8 +90,9 @@ class TutorialController{
             
             tutorialView.bringSubview(toFront: handAnimationView)
             
-            audio.playNextAudio()
+            handAnimationView.frame = handPositions.removeFirst()
             
+            audio.playNextAudio()
             handAnimationView.play()
         }
         else{
@@ -113,7 +107,18 @@ class TutorialController{
         }
     }
     
+    func setHandAnimationPosition(x: CGFloat, y: CGFloat){
+        let handSize = vc.view.frame.width/5
+        handAnimationView.frame = CGRect(x: x/2 - handSize/2, y: y/2 - handSize/2, width: handSize, height: handSize)
+        
+        
+    }
+    
     func highlightFrame(frame:CGRect){
+        let handSize = vc.view.frame.width/5
+        let handPosition = CGRect(x: frame.origin.x + frame.width/2 - handSize/2, y: frame.origin.y, width: handSize, height: handSize)
+        handPositions.append(handPosition)
+        
         let path = UIBezierPath(rect: vc.view.frame)
         
         let highlightPath = UIBezierPath(roundedRect: frame, cornerRadius: 5)
@@ -130,6 +135,8 @@ class TutorialController{
         fillLayer.opacity = 0.8
         
         tutorialLayers.append(fillLayer)
+        
+        
     }
 }
 

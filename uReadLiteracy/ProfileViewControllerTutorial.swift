@@ -27,23 +27,21 @@ class ProfileViewControllerTutorial:TutorialController{
     // Change based on the number of steps
     override func show(onComplete:@escaping ()->Void){
         // Change This part
-        getFirstStepLayer()
-        getSecondStepLayer()
+        setupFirstStep()
+        setupSecondStep()
         //
         
         super.show(onComplete: onComplete)
     }
     
     // Change based on what you want to highlight
-    private func getFirstStepLayer(){
+    private func setupFirstStep(){
         let currGoalsFrame = vc.view.convert(vc.currentGoalsLabel.frame, from:vc.currentGoalView)
-        setHandAnimationPosition(x: currGoalsFrame.midX, y: currGoalsFrame.midY)
         highlightFrame(frame: currGoalsFrame)
     }
     
-    private func getSecondStepLayer(){
+    private func setupSecondStep(){
         let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.addNewGoalBtnUIView)
-        setHandAnimationPosition(x: addNewGoalBtnFrame.midX, y: addNewGoalBtnFrame.midY)
         highlightFrame(frame: addNewGoalBtnFrame)
     }
 }

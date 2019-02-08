@@ -28,21 +28,21 @@ class RecordViewControllerTutorial:TutorialController{
     // Change based on the number of steps
     override func show(onComplete:@escaping ()->Void){
         // Change This part
-        getFirstStepLayer()
-        getSecondStepLayer()
+        setupFirstStep()
+        setupSecondStep()
         //
         
         super.show(onComplete: onComplete)
     }
     
     // Change based on what you want to highlight
-    private func getFirstStepLayer(){
+    private func setupFirstStep(){
         //let currGoalsFrame = vc.view.convert(vc.tableview.frame, from:vc.view)
         let currGoalsFrame = vc.tableview.frame
         highlightFrame(frame: currGoalsFrame)
     }
     
-    private func getSecondStepLayer(){
+    private func setupSecondStep(){
      //   let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.addNewGoalBtnUIView)
         let recordListFrame = vc.tableview.frame
         highlightFrame(frame: recordListFrame)

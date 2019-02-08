@@ -25,20 +25,20 @@ class GoalViewControllerTutorial:TutorialController{
     // Change based on the number of steps
     override func show(onComplete:@escaping ()->Void){
         // Change This part
-        getFirstStepLayer()
-        getSecondStepLayer()
+        setupFirstStep()
+        setupSecondStep()
         //
         
         super.show(onComplete: onComplete)
     }
     
     // Change based on what you want to highlight
-    private func getFirstStepLayer(){
+    private func setupFirstStep(){
         let  goalOptionStackViewFrame = vc.goalOptionStackView.frame
         highlightFrame(frame: goalOptionStackViewFrame)
     }
     
-    private func getSecondStepLayer(){
+    private func setupSecondStep(){
         let  addNewGoalBtnFrame = vc.addNewGoalBtn.frame
         highlightFrame(frame: addNewGoalBtnFrame)
     }
