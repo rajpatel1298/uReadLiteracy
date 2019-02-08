@@ -45,6 +45,13 @@ class TutorialController{
         handAnimationView.animation = "hand_click_gesture"
     }
     
+    func setHandAnimationPosition(x: CGFloat, y: CGFloat){
+        let handSize = vc.view.frame.width/5
+        handAnimationView.frame = CGRect(x: x/2 - handSize/2, y: y/2 - handSize/2, width: handSize, height: handSize)
+        
+       
+    }
+    
     func tapped(){
         doNextStep()
     }

@@ -37,11 +37,13 @@ class ProfileViewControllerTutorial:TutorialController{
     // Change based on what you want to highlight
     private func getFirstStepLayer(){
         let currGoalsFrame = vc.view.convert(vc.currentGoalsLabel.frame, from:vc.currentGoalView)
+        setHandAnimationPosition(x: currGoalsFrame.midX, y: currGoalsFrame.midY)
         highlightFrame(frame: currGoalsFrame)
     }
     
     private func getSecondStepLayer(){
         let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.addNewGoalBtnUIView)
+        setHandAnimationPosition(x: addNewGoalBtnFrame.midX, y: addNewGoalBtnFrame.midY)
         highlightFrame(frame: addNewGoalBtnFrame)
     }
 }
