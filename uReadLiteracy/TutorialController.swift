@@ -81,6 +81,7 @@ class TutorialController{
     }
     
     private func doNextStep(){
+        // still have more steps
         if tutorialLayers.count > 0{
             previousLayer.removeFromSuperlayer()
             
@@ -95,6 +96,7 @@ class TutorialController{
             audio.playNextAudio()
             handAnimationView.play()
         }
+        // no more steps
         else{
             self.tutorialView.alpha = 1
             UIView.animate(withDuration: 1, animations: {
