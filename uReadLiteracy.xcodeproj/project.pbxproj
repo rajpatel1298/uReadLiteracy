@@ -65,7 +65,6 @@
 		1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791C21FB5693007F8704 /* ArticleComment.swift */; };
 		1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791E21FB56C7007F8704 /* DateExtension.swift */; };
 		1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */; };
-		1CAC792321FB570F007F8704 /* ProfileUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792221FB570F007F8704 /* ProfileUIController.swift */; };
 		1CAC792621FB5748007F8704 /* TopToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792521FB5748007F8704 /* TopToolBarViewController.swift */; };
 		1CAC792821FB5764007F8704 /* ActivityIndicatorWithDarkBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */; };
 		1CAC792A21FB57B0007F8704 /* GoalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792921FB57B0007F8704 /* GoalManager.swift */; };
@@ -132,6 +131,11 @@
 		1CAD87A7220A21190096DD90 /* NoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A6220A21190096DD90 /* NoResultViewController.swift */; };
 		1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A8220A456B0096DD90 /* 629-empty-box.json */; };
 		1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */; };
+		1CCF9885220FB68100C491A8 /* 3151-books.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF9884220FB68100C491A8 /* 3151-books.json */; };
+		1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */; };
+		1CCF98A72211E50100C491A8 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98A62211E50100C491A8 /* RoundedButton.swift */; };
+		1CCF98A92211E55C00C491A8 /* ProfileBackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98A82211E55C00C491A8 /* ProfileBackgroundImageView.swift */; };
+		1CCF98AB2211E72B00C491A8 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -226,7 +230,6 @@
 		1CAC791C21FB5693007F8704 /* ArticleComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleComment.swift; sourceTree = "<group>"; };
 		1CAC791E21FB56C7007F8704 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaUserCell.swift; sourceTree = "<group>"; };
-		1CAC792221FB570F007F8704 /* ProfileUIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUIController.swift; sourceTree = "<group>"; };
 		1CAC792521FB5748007F8704 /* TopToolBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopToolBarViewController.swift; sourceTree = "<group>"; };
 		1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWithDarkBackground.swift; sourceTree = "<group>"; };
 		1CAC792921FB57B0007F8704 /* GoalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalManager.swift; sourceTree = "<group>"; };
@@ -292,6 +295,11 @@
 		1CAD87A6220A21190096DD90 /* NoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultViewController.swift; sourceTree = "<group>"; };
 		1CAD87A8220A456B0096DD90 /* 629-empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "629-empty-box.json"; sourceTree = "<group>"; };
 		1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = black_hand_click_gesture.json; sourceTree = "<group>"; };
+		1CCF9884220FB68100C491A8 /* 3151-books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3151-books.json"; sourceTree = "<group>"; };
+		1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		1CCF98A62211E50100C491A8 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		1CCF98A82211E55C00C491A8 /* ProfileBackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBackgroundImageView.swift; sourceTree = "<group>"; };
+		1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -410,7 +418,6 @@
 			isa = PBXGroup;
 			children = (
 				1C4C67DD218C004A00D5383D /* ProfileViewController.swift */,
-				1CAC792221FB570F007F8704 /* ProfileUIController.swift */,
 			);
 			name = "Profile Page";
 			sourceTree = "<group>";
@@ -494,6 +501,9 @@
 				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
 				1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */,
 				1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */,
+				1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */,
+				1CCF98A62211E50100C491A8 /* RoundedButton.swift */,
+				1CCF98A82211E55C00C491A8 /* ProfileBackgroundImageView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -533,6 +543,7 @@
 				1C870F8821B2D9E700FF296E /* LoadingCircle.swift */,
 				1C769CDE21D17A7D00034EB3 /* LoadingCircleColors.swift */,
 				1C769CE321D336FC00034EB3 /* CountingLabel.swift */,
+				1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */,
 			);
 			name = "Goal Progress";
 			sourceTree = "<group>";
@@ -661,6 +672,7 @@
 				1C578F772204D3710077E1DD /* 1552-microphone.json */,
 				1CAD87A8220A456B0096DD90 /* 629-empty-box.json */,
 				1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */,
+				1CCF9884220FB68100C491A8 /* 3151-books.json */,
 				1C578F782204D3710077E1DD /* images */,
 			);
 			name = "Lottie Animations";
@@ -893,6 +905,7 @@
 				1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */,
 				1CAC798521FCB287007F8704 /* NokioSansAlt-ExtraLight.ttf in Resources */,
 				1CAC798621FCB287007F8704 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
+				1CCF9885220FB68100C491A8 /* 3151-books.json in Resources */,
 				1CAC798721FCB287007F8704 /* NokioSansAlt-Light.ttf in Resources */,
 				1CAC798821FCB287007F8704 /* NokioSansAlt-LightItalic.ttf in Resources */,
 				1CAC798921FCB287007F8704 /* NokioSansAlt-Medium.ttf in Resources */,
@@ -1013,6 +1026,7 @@
 				1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */,
 				1C578F67220123A70077E1DD /* RecordCell.swift in Sources */,
 				1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */,
+				1CCF98A92211E55C00C491A8 /* ProfileBackgroundImageView.swift in Sources */,
 				1CAC797021FB65AC007F8704 /* ChooseGoalTypeViewController.swift in Sources */,
 				1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */,
 				1C578F6B22023E020077E1DD /* PlayerState.swift in Sources */,
@@ -1022,6 +1036,7 @@
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
 				1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */,
+				1CCF98A72211E50100C491A8 /* RoundedButton.swift in Sources */,
 				1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */,
 				1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* UIState.swift in Sources */,
@@ -1039,6 +1054,7 @@
 				1C4C67EE218D3E6C00D5383D /* State.swift in Sources */,
 				1CAC791821FB5590007F8704 /* ReadXMinutesGoalModel.swift in Sources */,
 				1C28739121AA12A500B790A4 /* GoalModel.swift in Sources */,
+				1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */,
 				CD1DCA621FF4A2D200FCDDB5 /* WalkthroughViewController.swift in Sources */,
 				1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */,
 				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
@@ -1051,6 +1067,7 @@
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
 				1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */,
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,
+				1CCF98AB2211E72B00C491A8 /* GoalProgressView.swift in Sources */,
 				1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */,
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
 				1CAC792C21FB57D9007F8704 /* GoalCompleteHelper.swift in Sources */,
@@ -1082,7 +1099,6 @@
 				1CAC79A221FFB0CD007F8704 /* AudioObserver.swift in Sources */,
 				1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */,
 				CDA652971FA0F5B700835624 /* uReadLiteracy.xcdatamodeld in Sources */,
-				1CAC792321FB570F007F8704 /* ProfileUIController.swift in Sources */,
 				1CAC793521FB594D007F8704 /* ComprehensionPopupShowPoint.swift in Sources */,
 				1CAC794021FB5A7E007F8704 /* SocialMediaQuote.swift in Sources */,
 				1CAC79A821FFB0E5007F8704 /* AudioSubject.swift in Sources */,

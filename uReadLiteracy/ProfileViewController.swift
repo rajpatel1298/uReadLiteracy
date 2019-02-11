@@ -11,27 +11,25 @@ import UserNotifications
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var profileIV: UIImageView!
-    @IBOutlet weak var backgroundProfileIV: UIImageView!
+    @IBOutlet weak var profileIV: RoundedImageView!
+    @IBOutlet weak var backgroundProfileIV: ProfileBackgroundImageView!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var iconView: UIView!
     
     @IBOutlet weak var currentGoalsLabel: UILabel!
     
-    @IBOutlet weak var goal1: UILabel!
-    @IBOutlet weak var goal2: UILabel!
-    @IBOutlet weak var goal3: UILabel!
-    
-    @IBOutlet weak var goal1View: UIView!
-    @IBOutlet weak var goal2View: UIView!
-    @IBOutlet weak var goal3View: UIView!
+
     
     @IBOutlet weak var currentGoalView: UIView!
     
     
-    @IBOutlet weak var addNewGoalBtn: UIButton!
+    @IBOutlet weak var addNewGoalBtn: RoundedButton!
     
     @IBOutlet weak var addNewGoalBtnUIView: UIView!
+    
+    
+    
+    @IBOutlet weak var goalStackView: UIStackView!
     
     
     
@@ -41,11 +39,11 @@ class ProfileViewController: UIViewController {
     var goal3ProgressCircle:GoalProgressCircle!
     
     var currentGoals = [GoalModel]()
-    var uiController:ProfileUIController!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        uiController = ProfileUIController(vc: self)
+  
         loadUserInfo()
         
         
@@ -65,22 +63,49 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupCurrentGoals()
-        uiController.setupDailyGoalsProgressCircle()
-        uiController.setGoalLabelTexts()
-        uiController.hideGoalsThatDoesNotExist()
-        uiController.resetDailyGoalsProgressCircleCenter()
+        setupGoalStackView()
         
         TopToolBarViewController.currentController = self
+        
+        backgroundProfileIV.animate()
     }
+    
+    private func setupGoalStackView(){
+        for v in goalStackView.subviews{
+            v.removeFromSuperview()
+        }
+        
+        for goal in currentGoals{
+            let goalView = GoalProgressView(percent: goal.progress, goalDescription: goal.getDescription())
+            goalStackView.addArrangedSubview(goalView)
+        }
+        
+        var count = currentGoals.count
+        while count <= 3{
+            goalStackView.addArrangedSubview(UIView())
+            count += 1
+        }
+    }
+    
+ 
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        uiController.resetDailyGoalsProgressCircleCenter()
+        for v in goalStackView.subviews{
+            v.layoutSubviews()
+        }
     }
+    
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        uiController.animateGoalProgressCircles()
+        for v in goalStackView.subviews{
+            if let v = v as? GoalProgressView{
+                v.animate()
+            }
+        }
     }
     
     private func setupCurrentGoals(){

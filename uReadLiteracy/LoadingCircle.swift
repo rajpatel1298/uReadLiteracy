@@ -38,13 +38,8 @@ class LoadingCircle:CAShapeLayer{
     }
     
     func animate(){
-        /*CATransaction.begin()
-        CATransaction.setAnimationDuration(10.0)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))*/
-        
         animateLoadingPath()
         animatePathColor()
-        //CATransaction.commit()
     }
     
     private func animateLoadingPath(){

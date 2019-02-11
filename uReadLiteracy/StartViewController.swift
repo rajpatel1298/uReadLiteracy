@@ -8,13 +8,18 @@
 
 import UIKit
 import FacebookShare
+import Lottie
 
 class StartViewController: UIViewController {
+    
+    
+    @IBOutlet weak var bookAnimationView: LOTAnimationView!
     
     @IBOutlet weak var continueLabel: UILabel! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bookAnimationView.loopAnimation = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -24,6 +29,7 @@ class StartViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateContinueBtn()
+        bookAnimationView.play()
     }
     
     private func animateContinueBtn(){
