@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
     
     @IBOutlet weak var profileIV: RoundedImageView!
     @IBOutlet weak var backgroundProfileIV: ProfileBackgroundImageView!
@@ -17,27 +17,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var iconView: UIView!
     
     @IBOutlet weak var currentGoalsLabel: UILabel!
-    
-
-    
     @IBOutlet weak var currentGoalView: UIView!
-    
-    
     @IBOutlet weak var addNewGoalBtn: RoundedButton!
     
-    @IBOutlet weak var addNewGoalBtnUIView: UIView!
-    
-    
-    
     @IBOutlet weak var goalStackView: UIStackView!
-    
-    
-    
-    //var userProgressCircle:GoalProgressCircle!
-    var goal1ProgressCircle:GoalProgressCircle!
-    var goal2ProgressCircle:GoalProgressCircle!
-    var goal3ProgressCircle:GoalProgressCircle!
-    
+   
     var currentGoals = [GoalModel]()
 
 
@@ -46,7 +30,7 @@ class ProfileViewController: UIViewController {
   
         loadUserInfo()
         
-        
+
         //set up daily notifications
         let content = UNMutableNotificationContent()
         content.title = "URead"
@@ -64,9 +48,6 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         setupCurrentGoals()
         setupGoalStackView()
-        
-        TopToolBarViewController.currentController = self
-        
         backgroundProfileIV.animate()
     }
     
@@ -95,9 +76,6 @@ class ProfileViewController: UIViewController {
             v.layoutSubviews()
         }
     }
-    
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

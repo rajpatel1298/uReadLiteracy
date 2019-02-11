@@ -136,6 +136,7 @@
 		1CCF98A72211E50100C491A8 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98A62211E50100C491A8 /* RoundedButton.swift */; };
 		1CCF98A92211E55C00C491A8 /* ProfileBackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98A82211E55C00C491A8 /* ProfileBackgroundImageView.swift */; };
 		1CCF98AB2211E72B00C491A8 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */; };
+		1CCF98AD221204F500C491A8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AC221204F500C491A8 /* BaseViewController.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
@@ -300,6 +301,7 @@
 		1CCF98A62211E50100C491A8 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		1CCF98A82211E55C00C491A8 /* ProfileBackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBackgroundImageView.swift; sourceTree = "<group>"; };
 		1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
+		1CCF98AC221204F500C491A8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1CCF98AC221204F500C491A8 /* BaseViewController.swift */,
 				1CAC792521FB5748007F8704 /* TopToolBarViewController.swift */,
 				1CAD87A6220A21190096DD90 /* NoResultViewController.swift */,
 				1C4C67D8218BF92400D5383D /* Starting Page */,
@@ -1045,6 +1048,7 @@
 				1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* CurrentUserModel.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
+				1CCF98AD221204F500C491A8 /* BaseViewController.swift in Sources */,
 				1CAC799B21FF5648007F8704 /* AudioRecordsCell.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,

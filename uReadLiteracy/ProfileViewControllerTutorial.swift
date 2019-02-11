@@ -41,7 +41,7 @@ class ProfileViewControllerTutorial:TutorialController{
     }
     
     private func getSecondStepLayer(){
-        let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.addNewGoalBtnUIView)
+        let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.view)
         highlightFrame(frame: addNewGoalBtnFrame)
     }
 }
