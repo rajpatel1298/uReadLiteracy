@@ -21,7 +21,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     var urlSegue:URL!
     let mainUrl = "http://www.manythings.org/voa/stories/"
     
-    var uiController:BrowserUIController!
     var controller:BrowserController!
     var logicController:BrowserLogicController!
     
@@ -37,10 +36,11 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     var popupManager:ComprehensionPopupManager!
     private var popup:ComprehensionPopup!
+    private var alerts:BrowserVCAlerts!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        uiController = BrowserUIController(viewcontroller: self)
+        
         controller = BrowserController(webView: webView, url: mainUrl, vc: self)
         logicController = BrowserLogicController(mainURL: mainUrl)
         
@@ -50,6 +50,9 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
     
         browserSocialMediaVC = (childViewControllers.first as! BrowserSocialMediaViewController)
+        add(browserSocialMediaVC)
+        socialMediaView = browserSocialMediaVC.view
+        
         recorder = Recorder(delegate:self)
         
         popup = ComprehensionPopup(frame: view.frame)
@@ -58,11 +61,13 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         popup.isHidden = true
         view.sendSubview(toBack: popup)
         
-        popupManager = ComprehensionPopupManager(popup: popup, showPopup: {
+        popupManager = ComprehensionPopupManager(popup: popup, didShowPopup: {
             DispatchQueue.main.async {
                 self.webView.scrollView.setContentOffset(CGPoint(x: self.webView.scrollView.contentOffset.x, y: self.webView.scrollView.contentOffset.y), animated: true)
             }
         })
+        
+        alerts = BrowserVCAlerts(viewcontroller: self)
     
     }
     
@@ -92,7 +97,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             else {
                 self.recorder.startRecording(filename: (self.controller.currentArticle?.getTitle())!) { (errStr) in
                     DispatchQueue.main.async {
-                        self.uiController.showRecordErrorAlert()
+                        self.alerts.showRecordErrorAlert()
                         print(errStr)
                     }
                 }
@@ -119,8 +124,29 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         //showSocialMediaViewIfNeeded()
         //updateCurrentArticleIfNeeded()
         //updateGoalIfNeeded()
-        popupManager.updateScrollPosition(position: scrollView.contentOffset.y)
+        guard let webview = webView else{
+            return
+        }
+        guard let url = webview.url?.absoluteString else{
+            return
+        }
         
+        let y = scrollView.contentOffset.y
+        
+        if logicController.isCurrentURLAnArticle(url: url){
+            popupManager.updateScrollPosition(position: y)
+            browserSocialMediaVC.updateScrollPosition(position: y, maxOffset: maxBrowserOffset, url: url, didShow: {
+                DispatchQueue.main.async {
+                    self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
+                }
+                
+            }, didHide: {
+                DispatchQueue.main.async {
+                    self.webView.frame = self.view.frame
+                }
+                
+            })
+        }
     }
     
     func loadMainPage(){
@@ -146,14 +172,18 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
 
     func helpFunction(){
         logicController.helpFunction(webView: webView) { [weak self] (state) in
+            guard let strongSelf = self else{
+                return
+            }
+            
             switch(state){
             case .Success(let url):
-                self!.urlSegue = url as! URL
-                self!.performSegue(withIdentifier: "BrowserToDictionaryWebViewSegue", sender: self)
+                strongSelf.urlSegue = url as! URL
+                strongSelf.performSegue(withIdentifier: "BrowserToDictionaryWebViewSegue", sender: self)
                 break
             case .Failure(let helpFunctionError):
                 let helpFunctionError = helpFunctionError as! HelpFunctionError
-                self!.uiController.handleHelpError(helpFunctionError: helpFunctionError)
+                strongSelf.handleHelpError(helpFunctionError: helpFunctionError)
             }
         }
     }
@@ -182,6 +212,23 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         }
     }
     
+    fileprivate func setupHelpFunctionInMenuBar(){
+        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
+        UIMenuController.shared.menuItems = [helpItem]
+        UIMenuController.shared.update()
+        UIMenuController.shared.setMenuVisible(true, animated: true)
+    }
+    
+    func handleHelpError(helpFunctionError: HelpFunctionError){
+        switch(helpFunctionError){
+        case .MoreThanOneWord:
+            alerts.showOnlyOneWordAlert()
+            break
+        case .UnknownError:
+            break
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DictionaryWebViewController{
             destination.url = urlSegue
@@ -198,49 +245,6 @@ extension BrowseViewController{
         if logicController.isCurrentURLAnArticle(url: url!){
             controller.currentArticle = ArticleModel(name: webView.title!, url: url!)
             browserSocialMediaVC.currentArticle = controller.currentArticle
-        }
-    }
-}
-
-
-// MARK: Social Media
-extension BrowseViewController{
-    fileprivate func showSocialMediaViewIfNeeded(){
-        let currentYOffset = Int(webView.scrollView.contentOffset.y)
-        let url = webView.url?.absoluteString
-        
-        if maxBrowserOffset == nil{
-            return
-        }
-        
-        if !logicController.isCurrentURLAnArticle(url: url!){
-            return
-        }
-        
-        if currentYOffset >= maxBrowserOffset!*90/100 && maxBrowserOffset! > 0{
-            if socialMediaView.isHidden{
-                socialMediaView.isHidden = false
-                socialMediaView.alpha = 0
-                
-                UIView.animate(withDuration: 1) {
-                    self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
-                    self.socialMediaView.alpha = 1
-                }
-            }
-        }
-        else{
-            if !socialMediaView.isHidden{
-                socialMediaView.alpha = 1
-                
-                UIView.animate(withDuration: 1, animations: {
-                    self.webView.frame = self.view.frame
-                    self.socialMediaView.alpha = 0
-                }) { (completed) in
-                    if completed{
-                        self.socialMediaView.isHidden = true
-                    }
-                }
-            }
         }
     }
 }

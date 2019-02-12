@@ -62,7 +62,7 @@ class ProfileViewController: BaseViewController {
         }
         
         var count = currentGoals.count
-        while count <= 3{
+        while count < 3{
             goalStackView.addArrangedSubview(UIView())
             count += 1
         }

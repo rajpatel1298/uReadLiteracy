@@ -106,7 +106,7 @@ class GoalProgressCircle:UIView{
     }
     
     private func setupLoadingCircle(){
-        loadingCircle = LoadingCircle(position: CGPoint(x: bounds.width/2, y: bounds.height/2),radius: bounds.width/3, percent: percent, loadingDuration: loadingDuration, numberOfColor: numberOfColor)
+        loadingCircle = LoadingCircle(position: CGPoint(x: bounds.width/2, y: bounds.height/2),radius: bounds.width/4, percent: percent, loadingDuration: loadingDuration, numberOfColor: numberOfColor)
         
     }
     

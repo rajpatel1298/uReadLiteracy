@@ -13,11 +13,13 @@ class ComprehensionPopupManager{
     private var maxYOffset:CGFloat!
     private var showAtYOffsets:[ComprehensionPopupShowPoint]!
     private let popup:ComprehensionPopup
+    private var didShowPopup:()->Void
   
-    init(popup:ComprehensionPopup, showPopup:@escaping ()->Void){
+    init(popup:ComprehensionPopup, didShowPopup:@escaping ()->Void){
         showAtYOffsets = [ComprehensionPopupShowPoint]()
         maxYOffset = 0
         self.popup = popup
+        self.didShowPopup = didShowPopup
         
         popup.setupClosure(onAccept: { (answer) in
             print("answer for now: \(answer)")
@@ -74,6 +76,7 @@ class ComprehensionPopupManager{
                 return
             }
             superview.bringSubview(toFront: popup)
+            didShowPopup()
             UIView.animate(withDuration: popup.animationDuration) {
                 self.popup.alpha = 1
             }

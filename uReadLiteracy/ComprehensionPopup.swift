@@ -26,23 +26,10 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         super.init(frame: frame)
         setupDarkGrayBackground()
         
-        setupPopupView()
-        
         topBackgroundIV.image = #imageLiteral(resourceName: "book background")
         addSubview(topBackgroundIV)
         
-        popupView.alignment = .fill
-        popupView.distribution = .fillEqually
-        popupView.axis = .vertical
-        popupView.spacing = 10
-        
-        
-        popupViewBackground.backgroundColor = UIColor.white
-        addSubview(popupViewBackground)
-        
-        addSubview(popupView)
-        
-        
+        setupPopupView()
         popupView.layoutIfNeeded()
     }
     
@@ -56,60 +43,36 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         self.onSkip = onSkip
     }
     
-    
     private func setupDarkGrayBackground(){
         let darkBackground = CALayer()
         darkBackground.frame = self.frame
         darkBackground.backgroundColor = UIColor.black.cgColor
         darkBackground.opacity = 0.5
         self.layer.addSublayer(darkBackground)
-        
-        
     }
     
-    func setupPopupView(){
-        let questionLabel = UILabel(frame: .zero)
-        questionLabel.text = "Question: What is the meaning of life?"
-        questionLabel.font = UIFont(name: "NokioSansAlt-Medium", size: 23)
-        questionLabel.textAlignment = .center
-        questionLabel.numberOfLines = 3
+    private func setupPopupView(){
+        popupView.alignment = .fill
+        popupView.distribution = .fillEqually
+        popupView.axis = .vertical
+        popupView.spacing = 10
+        
+        
+        popupViewBackground.backgroundColor = UIColor.white
+        addSubview(popupViewBackground)
+        
+        let questionLabel = getQuestionLabel()
         popupView.addArrangedSubview(questionLabel)
-        
-        let responseTV = UITextView(frame: .zero)
-        responseTV.text = "Type Your Answer"
-        responseTV.textColor = UIColor.lightGray
-        responseTV.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
-        responseTV.isEditable = true
-        responseTV.delegate = self
-        
+        let responseTV = getResponseTextView()
         popupView.addArrangedSubview(responseTV)
         
-        let optionView = UIStackView(frame: .zero)
-        optionView.alignment = .center
-        optionView.distribution = .fillEqually
-        optionView.axis = .horizontal
-        optionView.spacing = 10
-        
-        
-        let skipBtn = UIButton(frame: .zero)
-        skipBtn.setTitle("Skip", for: .normal)
-        skipBtn.setTitleColor(UIColor.lightGray, for: .normal)
-        skipBtn.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
-        skipBtn.layer.cornerRadius = 10
-        skipBtn.layer.masksToBounds = true
-        skipBtn.addTarget(self, action: #selector(skipBtnPressed), for: .touchDown)
-        
-        optionView.addArrangedSubview(skipBtn)
+        let optionView = getOptionView()
         popupView.addArrangedSubview(optionView)
         
-        let answerBtn = UIButton(frame: .zero)
-        answerBtn.setTitle("Answer", for: .normal)
-        answerBtn.setTitleColor(UIColor.white, for: .normal)
-        answerBtn.backgroundColor = UIColor.init(red: 255/255, green: 140/255, blue: 0/255, alpha: 1)
-        answerBtn.layer.cornerRadius = 10
-        answerBtn.layer.masksToBounds = true
-        answerBtn.addTarget(self, action: #selector(acceptBtnPressed), for: .touchDown)
+        let skipBtn = getSkipBtn()
+        optionView.addArrangedSubview(skipBtn)
         
+        let answerBtn = getAnswerBtn()
         optionView.addArrangedSubview(answerBtn)
         
         let dashedBorder = CAShapeLayer()
@@ -121,6 +84,59 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         dashedBorder.fillColor = nil
         dashedBorder.path = UIBezierPath(rect: responseTV.frame).cgPath
         popupView.layer.addSublayer(dashedBorder)
+        
+        addSubview(popupView)
+    }
+    
+    private func getAnswerBtn()->UIButton{
+        let answerBtn = UIButton(frame: .zero)
+        answerBtn.setTitle("Answer", for: .normal)
+        answerBtn.setTitleColor(UIColor.white, for: .normal)
+        answerBtn.backgroundColor = UIColor.init(red: 255/255, green: 140/255, blue: 0/255, alpha: 1)
+        answerBtn.layer.cornerRadius = 10
+        answerBtn.layer.masksToBounds = true
+        answerBtn.addTarget(self, action: #selector(acceptBtnPressed), for: .touchDown)
+        return answerBtn
+    }
+    
+    private func getSkipBtn()->UIButton{
+        let skipBtn = UIButton(frame: .zero)
+        skipBtn.setTitle("Skip", for: .normal)
+        skipBtn.setTitleColor(UIColor.lightGray, for: .normal)
+        skipBtn.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
+        skipBtn.layer.cornerRadius = 10
+        skipBtn.layer.masksToBounds = true
+        skipBtn.addTarget(self, action: #selector(skipBtnPressed), for: .touchDown)
+        return skipBtn
+    }
+    
+    private func getOptionView()->UIStackView{
+        let optionView = UIStackView(frame: .zero)
+        optionView.alignment = .center
+        optionView.distribution = .fillEqually
+        optionView.axis = .horizontal
+        optionView.spacing = 10
+        return optionView
+    }
+    
+    private func getQuestionLabel()->UILabel{
+        let questionLabel = UILabel(frame: .zero)
+        questionLabel.text = "Question: What is the meaning of life?"
+        questionLabel.font = UIFont(name: "NokioSansAlt-Medium", size: 23)
+        questionLabel.textAlignment = .center
+        questionLabel.numberOfLines = 3
+        
+        return questionLabel
+    }
+    
+    private func getResponseTextView()->UITextView{
+        let responseTV = UITextView(frame: .zero)
+        responseTV.text = "Type Your Answer"
+        responseTV.textColor = UIColor.lightGray
+        responseTV.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
+        responseTV.isEditable = true
+        responseTV.delegate = self
+        return responseTV
     }
     
     private func setSubviewsLocation(){

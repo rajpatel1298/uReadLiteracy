@@ -17,8 +17,6 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var tableview: UITableView!
     
-    
-    
     var currentArticle:ArticleModel? {
         didSet{
             observeComments()
@@ -30,14 +28,50 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     private var commentRef:DatabaseQuery?
     
     let currentUser = CurrentUserModel()
+    
+    private var isShowing = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.separatorStyle = .none
         userCommentTV.delegate = self
         
-        userCommentTV.text = "Type Your Commet"
+        userCommentTV.text = "Type Your Comment"
         userCommentTV.textColor = UIColor.lightGray
+    }
+    
+    func updateScrollPosition(position:CGFloat, maxOffset:Int, url:String, didShow:@escaping ()->Void, didHide:@escaping ()->Void){
+        let currentYOffset = Int(position)
+   
+        if currentYOffset >= maxOffset*90/100 && maxOffset > 0{
+            if !isShowing{
+                view.isHidden = false
+                isShowing = true
+                view.alpha = 0
+                
+                didShow()
+                UIView.animate(withDuration: 1) {
+                    
+                    self.view.alpha = 1
+                }
+            }
+        }
+        else{
+            if isShowing{
+                view.alpha = 1
+                isShowing = false
+                
+                didHide()
+                UIView.animate(withDuration: 1, animations: {
+                    
+                    self.view.alpha = 0
+                }) { (completed) in
+                    if completed{
+                        self.view.isHidden = true
+                    }
+                }
+            }
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

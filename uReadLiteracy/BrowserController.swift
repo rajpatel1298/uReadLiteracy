@@ -25,10 +25,4 @@ class BrowserController{
     init(webView:WKWebView, url:String, vc:BrowseViewController){
         self.webView = webView
     }
-    
-    
-    
-    
-    
-    
 }
