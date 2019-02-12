@@ -40,8 +40,9 @@ class ReadXArticlesGoalModel:GoalModel{
     init(model:ReadXArticlesCD){
         super.init(name: model.name!, progress: Int(model.progress), date: model.date! as Date)
         if(model.articles != nil){
-            let articlesUrl = model.articles as! [String]
-            self.articles = ArticleModel.getArticles(from: articlesUrl)
+            let articlesUrls = model.articles as! [String]
+            
+            self.articles = ArticleManager.shared.getArticles(from: articlesUrls)
         }
         self.goalType = GoalType(rawValue: model.goalType!)
         self.numberOfArticles = Int(model.numberOfArticles)
@@ -64,11 +65,13 @@ class ReadXArticlesGoalModel:GoalModel{
             object.setValue(goalType.rawValue, forKeyPath: "goalType")
             object.setValue(date, forKeyPath: "date")
             object.setValue(numberOfArticles, forKeyPath: "numberOfArticles")
-            object.setValue(ArticleModel.getUrls(articles: articles), forKeyPath: "articles")
+            
+            
+            object.setValue(ArticleManager.shared.getUrls(articles: articles), forKeyPath: "articles")
             object.setValue(showCompletionToUser, forKeyPath: "showCompletionToUser")
         }
         else{
-            model?.articles = ArticleModel.getUrls(articles: self.articles) as NSObject
+            model?.articles = ArticleManager.shared.getUrls(articles: self.articles) as NSObject
             model?.progress = Int16(self.progress)
             model?.showCompletionToUser = self.showCompletionToUser
         }

@@ -12,11 +12,30 @@ import UIKit
 class ComprehensionPopupManager{
     private var maxYOffset:CGFloat!
     private var showAtYOffsets:[ComprehensionPopupShowPoint]!
-    
-    init(){
+    private let popup:ComprehensionPopup
+  
+    init(popup:ComprehensionPopup, showPopup:@escaping ()->Void){
         showAtYOffsets = [ComprehensionPopupShowPoint]()
         maxYOffset = 0
+        self.popup = popup
+        
+        popup.setupClosure(onAccept: { (answer) in
+            print("answer for now: \(answer)")
+        }, onSkip: {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: self.popup.animationDuration, animations: {
+                    self.popup.alpha = 0
+                }, completion: { (_) in
+                    guard let superview = self.popup.superview else{
+                        return
+                    }
+                    self.popup.isHidden = true
+                    superview.sendSubview(toBack: self.popup)
+                })
+            }
+        })
     }
+    
     
     func shouldShowPopup(currentYOffset:CGFloat)->Bool{
         if maxYOffset == 0{
@@ -43,6 +62,21 @@ class ComprehensionPopupManager{
     func reset(){
         for position in showAtYOffsets{
             position.reset()
+        }
+    }
+    
+    // show popup if needed
+    func updateScrollPosition(position: CGFloat) {
+        if shouldShowPopup(currentYOffset: position){
+            popup.isHidden = false
+            popup.alpha = 0
+            guard let superview = self.popup.superview else{
+                return
+            }
+            superview.bringSubview(toFront: popup)
+            UIView.animate(withDuration: popup.animationDuration) {
+                self.popup.alpha = 1
+            }
         }
     }
 }

@@ -11,17 +11,44 @@ import UIKit
 
 class ComprehensionPopup:UIView,UITextViewDelegate{
     
-    private var popupView: UIStackView!
+    
     private var onAccept:((_ answer:String)->Void)?
     private var onSkip:(()->Void)?
     
     private var answer = ""
     let animationDuration = TimeInterval(0.5)
     
+    private let topBackgroundIV = UIImageView(frame: .zero)
+    private let popupView = UIStackView(frame: .zero)
+    private let popupViewBackground = UIView(frame: .zero)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupDarkGrayBackground()
+        
         setupPopupView()
+        
+        topBackgroundIV.image = #imageLiteral(resourceName: "book background")
+        addSubview(topBackgroundIV)
+        
+        popupView.alignment = .fill
+        popupView.distribution = .fillEqually
+        popupView.axis = .vertical
+        popupView.spacing = 10
+        
+        
+        popupViewBackground.backgroundColor = UIColor.white
+        addSubview(popupViewBackground)
+        
+        addSubview(popupView)
+        
+        
+        popupView.layoutIfNeeded()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setSubviewsLocation()
     }
     
     func setupClosure(onAccept:@escaping (_ answer:String)->Void, onSkip:@escaping ()->Void){
@@ -36,34 +63,11 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         darkBackground.backgroundColor = UIColor.black.cgColor
         darkBackground.opacity = 0.5
         self.layer.addSublayer(darkBackground)
+        
+        
     }
     
-    private func setupPopupView(){
-        let XMid = frame.width/2
-        let popupWidth = frame.width*5/6
-        let YMid = frame.height/2
-        let popupHeight = frame.height * 4/7
-        
-        let XPadding:CGFloat = 20
-        let YPadding:CGFloat = 10
-        
-        let topBackgroundIV = UIImageView(frame: CGRect(x: XMid-popupWidth/2, y: YMid - popupHeight/2 , width: popupWidth, height: popupHeight*2/5))
-        topBackgroundIV.image = #imageLiteral(resourceName: "book background")
-       // topBackgroundIV.contentMode = .scaleAspectFill
-        self.addSubview(topBackgroundIV)
-        
-        
-        let popViewFrame = CGRect(x: XMid-popupWidth/2 + XPadding, y: topBackgroundIV.frame.origin.y + topBackgroundIV.frame.height, width: popupWidth - XPadding*2, height: popupHeight*2/3)
-        let popViewBackgroundFrame = CGRect(x: XMid-popupWidth/2 , y: topBackgroundIV.frame.origin.y +  topBackgroundIV.frame.height, width: popupWidth, height: popupHeight*3/5 + YPadding)
-        
-        popupView = UIStackView(frame: popViewFrame)
-        popupView.alignment = .fill
-        popupView.distribution = .fillEqually
-        popupView.axis = .vertical
-        popupView.spacing = 10
-        
-      
-        
+    func setupPopupView(){
         let questionLabel = UILabel(frame: .zero)
         questionLabel.text = "Question: What is the meaning of life?"
         questionLabel.font = UIFont(name: "NokioSansAlt-Medium", size: 23)
@@ -108,14 +112,6 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         
         optionView.addArrangedSubview(answerBtn)
         
-        let popupViewBackground = UIView(frame: popViewBackgroundFrame)
-        popupViewBackground.backgroundColor = UIColor.white
-        self.addSubview(popupViewBackground)
-        self.addSubview(popupView)
-        
-        
-        popupView.layoutIfNeeded()
-        
         let dashedBorder = CAShapeLayer()
         dashedBorder.strokeColor = UIColor.black.cgColor
         dashedBorder.lineDashPattern = [8, 4]
@@ -125,6 +121,31 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         dashedBorder.fillColor = nil
         dashedBorder.path = UIBezierPath(rect: responseTV.frame).cgPath
         popupView.layer.addSublayer(dashedBorder)
+    }
+    
+    private func setSubviewsLocation(){
+        let XMid = frame.width/2
+        let popupWidth = frame.width*5/6
+        let YMid = frame.height/2
+        let popupHeight = frame.height * 4/7
+        
+        let XPadding:CGFloat = 20
+        let YPadding:CGFloat = 10
+        
+        topBackgroundIV.frame = CGRect(x: XMid-popupWidth/2, y: YMid - popupHeight/2 , width: popupWidth, height: popupHeight*2/5)
+        
+       // topBackgroundIV.contentMode = .scaleAspectFill
+        
+        
+        
+        let popViewFrame = CGRect(x: XMid-popupWidth/2 + XPadding, y: topBackgroundIV.frame.origin.y + topBackgroundIV.frame.height, width: popupWidth - XPadding*2, height: popupHeight*2/3)
+        
+        popupView.frame = popViewFrame
+        
+        
+        let popViewBackgroundFrame = CGRect(x: XMid-popupWidth/2 , y: topBackgroundIV.frame.origin.y +  topBackgroundIV.frame.height, width: popupWidth, height: popupHeight*3/5 + YPadding)
+        
+        popupViewBackground.frame = popViewBackgroundFrame
         
     }
     

@@ -100,7 +100,7 @@ class GoalManager{
     private func updateReadXMinutesGoals(article:ArticleModel){
         let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataManager.shared.getList()
         for goal in readXMinutesGoals{
-            goal.minutesRead = goal.minutesRead + article.timeReadThisTimeInMinutes()
+            goal.minutesRead = Int(article.totalTimeSpent)
             if(goal.minutesRead > goal.totalMinutes){
                 goal.minutesRead = goal.totalMinutes
             }

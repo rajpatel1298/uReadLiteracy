@@ -14,13 +14,10 @@ class ArticleModel:CoreDataModelHandler{
     private var readCount:Double
     
     // 1 unit = 1 second
-    private var totalTimeSpent:Double
-    private var currentTimeSpent = 0.0
+    var totalTimeSpent:Double
     
-    private let url:String
-    
-    private var timer = Timer()
-    
+    let url:String
+
   
     init(name:String,readCount:Double,timeSpent:Double,url:String){
         
@@ -36,8 +33,8 @@ class ArticleModel:CoreDataModelHandler{
     init(name:String,url:String){
         self.name = name
         self.url = url
-    
-        let model:ArticleModel? = ArticleModel.find(url: url)
+        
+        let model:ArticleModel? = ArticleManager.shared.find(url: url)
         
         if(model == nil){
             self.readCount = 0
@@ -61,30 +58,13 @@ class ArticleModel:CoreDataModelHandler{
         name = name.replacingOccurrences(of: "Text & MP3 File", with: "")
     }
     
-    func startRecordingTime(){
-        timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(self.updateTimeSpent), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateTimeSpent() {
-        totalTimeSpent = totalTimeSpent + 1
-        currentTimeSpent = currentTimeSpent + 1
-    }
-    
-    func stopRecordingTime(){
-        save()
-    }
-    
     func incrementReadCount(){
         readCount = readCount + 1
         save()
     }
     
-    func timeReadThisTimeInMinutes()->Int{
-        return Int(currentTimeSpent/60)
-    }
-    
     internal override func save(){
-        let model:ArticleCD? = ArticleModel.findCoreDataModel(url: url)
+        let model:ArticleCD? = findCoreDataModel(url: url)
         
         if(model == nil){
             let articleEntity = NSEntityDescription.entity(forEntityName: "ArticleCD", in: managedContext)!
@@ -108,19 +88,7 @@ class ArticleModel:CoreDataModelHandler{
         }
     }
     
-    private static func find(url:String)->ArticleModel?{
-        let articles:[ArticleCD] = CoreDataManager.shared.getList()
-        
-        for article in articles{
-            if(article.url! == url){
-                return ArticleModel(name: article.name!, readCount: article.readCount, timeSpent: article.timeSpent, url: article.url!)
-            }
-        }
-        
-        return nil
-    }
-    
-    private static func findCoreDataModel(url:String)->ArticleCD?{
+    private func findCoreDataModel(url:String)->ArticleCD?{
         let articles:[ArticleCD] = CoreDataManager.shared.getList()
         
         for article in articles{
@@ -137,21 +105,5 @@ class ArticleModel:CoreDataModelHandler{
             return true
         }
         return false
-    }
-    
-    static func getUrls(articles:[ArticleModel])->[String]{
-        var arr = [String]()
-        for article in articles{
-            arr.append(article.url)
-        }
-        return arr
-    }
-    
-    static func getArticles(from:[String])->[ArticleModel]{
-        var arr = [ArticleModel]()
-        for url in from{
-            arr.append(ArticleModel.find(url: url)!)
-        }
-        return arr
     }
 }
