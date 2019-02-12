@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class BrowserLogicController{
     
@@ -18,6 +19,13 @@ class BrowserLogicController{
     
     func isCurrentURLAnArticle(url:String)->Bool{
         if(url.contains(mainURL) && url.count > mainURL.count){
+            return true
+        }
+        return false
+    }
+    
+    func atTheEndOfArticle(position:CGFloat, maxOffset:Int)->Bool{
+        if Int(position) >= maxOffset*90/100 {
             return true
         }
         return false
@@ -43,8 +51,6 @@ class BrowserLogicController{
             else{
                 completionHandler(.Failure(HelpFunctionError.MoreThanOneWord))
             }
-            
-            
         })
     }
     private func onlyOneWordIsSelected(word:String)->Bool{

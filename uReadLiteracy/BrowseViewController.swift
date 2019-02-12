@@ -34,41 +34,13 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     var previousBtn:UIButton!
     
-    var popupManager:ComprehensionPopupManager!
-    private var popup:ComprehensionPopup!
-    private var alerts:BrowserVCAlerts!
+    fileprivate var popupManager:ComprehensionPopupManager!
+    fileprivate var popup:ComprehensionPopup!
+    fileprivate var alerts:BrowserVCAlerts!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        controller = BrowserController(webView: webView, url: mainUrl, vc: self)
-        logicController = BrowserLogicController(mainURL: mainUrl)
-        
-        webView.navigationDelegate = self
-        webView.scrollView.delegate = self
-        
-        
-    
-        browserSocialMediaVC = (childViewControllers.first as! BrowserSocialMediaViewController)
-        add(browserSocialMediaVC)
-        socialMediaView = browserSocialMediaVC.view
-        
-        recorder = Recorder(delegate:self)
-        
-        popup = ComprehensionPopup(frame: view.frame)
-        
-        view.addSubview(popup)
-        popup.isHidden = true
-        view.sendSubview(toBack: popup)
-        
-        popupManager = ComprehensionPopupManager(popup: popup, didShowPopup: {
-            DispatchQueue.main.async {
-                self.webView.scrollView.setContentOffset(CGPoint(x: self.webView.scrollView.contentOffset.x, y: self.webView.scrollView.contentOffset.y), animated: true)
-            }
-        })
-        
-        alerts = BrowserVCAlerts(viewcontroller: self)
-    
+        setup()
     }
     
     override func viewDidLayoutSubviews() {
@@ -121,9 +93,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //showSocialMediaViewIfNeeded()
-        //updateCurrentArticleIfNeeded()
-        //updateGoalIfNeeded()
         guard let webview = webView else{
             return
         }
@@ -146,6 +115,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
                 }
                 
             })
+            
+            updateGoalIfNeeded()
         }
     }
     
@@ -156,13 +127,18 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     }
         
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        updateCurrentArticleIfNeeded()
         
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
+            controller.currentArticle = ArticleModel(name: webView.title!, url: url!)
+            browserSocialMediaVC.currentArticle = controller.currentArticle
+            
             maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
+            
             TopToolBarViewController.shared.enablePreviousAndRecordBtn()
-            updatePopupManager()
+            
+            popupManager.setMaxYOffset(value: CGFloat(maxBrowserOffset))
+            popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: CGFloat(maxBrowserOffset)/2)])
         }
             
         else{
@@ -188,37 +164,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         }
     }
     
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if recorder.isRecording{
-            self.recorder.stopRecording()
-        }
-    }
-    
-    func updateGoalIfNeeded(){
-        let currentYOffset = webView.scrollView.contentOffset.y
-        let url = webView.url?.absoluteString
-   
-        if maxBrowserOffset == nil{
-            return
-        }
-        
-        if Int(currentYOffset) >= maxBrowserOffset!*90/100 {
-            if logicController.isCurrentURLAnArticle(url: url!) {
-                if(controller.currentArticle != nil){
-                    controller.articleReadingTimer.stopRecordingTime()
-                    GoalManager.shared.updateGoals(article: controller.currentArticle)
-                }
-            }
-        }
-    }
-    
-    fileprivate func setupHelpFunctionInMenuBar(){
-        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
-        UIMenuController.shared.menuItems = [helpItem]
-        UIMenuController.shared.update()
-        UIMenuController.shared.setMenuVisible(true, animated: true)
-    }
-    
     func handleHelpError(helpFunctionError: HelpFunctionError){
         switch(helpFunctionError){
         case .MoreThanOneWord:
@@ -229,6 +174,30 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         }
     }
     
+    func setupHelpFunctionInMenuBar(){
+        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
+        UIMenuController.shared.menuItems = [helpItem]
+        UIMenuController.shared.update()
+        UIMenuController.shared.setMenuVisible(true, animated: true)
+    }
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if recorder.isRecording{
+            self.recorder.stopRecording()
+        }
+    }
+    
+    func updateGoalIfNeeded(){
+        let currentYOffset = webView.scrollView.contentOffset.y
+
+        if logicController.atTheEndOfArticle(position: currentYOffset, maxOffset: maxBrowserOffset){
+            if(controller.currentArticle != nil){
+                controller.articleReadingTimer.stopRecordingTime()
+                GoalManager.shared.updateGoals(article: controller.currentArticle)
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DictionaryWebViewController{
             destination.url = urlSegue
@@ -236,24 +205,44 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     }
 }
 
-// MARK: Webview did finish navigation
-
+// MARK: Setup
 extension BrowseViewController{
-    fileprivate func updateCurrentArticleIfNeeded(){
-        let url = webView.url?.absoluteString
+    fileprivate func setup(){
+        controller = BrowserController(webView: webView, url: mainUrl, vc: self)
+        logicController = BrowserLogicController(mainURL: mainUrl)
         
-        if logicController.isCurrentURLAnArticle(url: url!){
-            controller.currentArticle = ArticleModel(name: webView.title!, url: url!)
-            browserSocialMediaVC.currentArticle = controller.currentArticle
-        }
+        setupWebview()
+        setupSocialMedia()
+        
+        recorder = Recorder(delegate:self)
+        setupComprehensionPopup()
+        
+        alerts = BrowserVCAlerts(viewcontroller: self)
     }
-}
-
-// MARK: Comprehension Popup
-extension BrowseViewController{
-    func updatePopupManager(){
-        popupManager.setMaxYOffset(value: CGFloat(maxBrowserOffset))
-        popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: CGFloat(maxBrowserOffset)/2)])
+    
+    fileprivate func setupComprehensionPopup(){
+        popup = ComprehensionPopup(frame: view.frame)
+        
+        view.addSubview(popup)
+        popup.isHidden = true
+        view.sendSubview(toBack: popup)
+        
+        popupManager = ComprehensionPopupManager(popup: popup, didShowPopup: {
+            DispatchQueue.main.async {
+                self.webView.scrollView.setContentOffset(CGPoint(x: self.webView.scrollView.contentOffset.x, y: self.webView.scrollView.contentOffset.y), animated: true)
+            }
+        })
+    }
+    
+    fileprivate func setupSocialMedia(){
+        browserSocialMediaVC = (childViewControllers.first as! BrowserSocialMediaViewController)
+        add(browserSocialMediaVC)
+        socialMediaView = browserSocialMediaVC.view
+    }
+    
+    fileprivate func setupWebview(){
+        webView.navigationDelegate = self
+        webView.scrollView.delegate = self
     }
 }
 
