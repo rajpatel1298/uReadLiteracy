@@ -41,11 +41,8 @@ class ProfileViewControllerTutorial:TutorialController{
         setHandAnimationPosition(frame: currGoalsFrame)
     }
     
-    private func getSecondStepLayer(){
-        let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.view)
-        highlightFrame(frame: addNewGoalBtnFrame)
     private func secondStep(){
-        let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.addNewGoalBtnUIView)
+        let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.view)
         showHighlightFrame(frame: addNewGoalBtnFrame)
         setHandAnimationPosition(frame: addNewGoalBtnFrame)
     }

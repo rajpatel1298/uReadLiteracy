@@ -142,6 +142,8 @@
 		1CCF98B622122A6C00C491A8 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B422122A6B00C491A8 /* Observer.swift */; };
 		1CCF98B722122A6C00C491A8 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B522122A6B00C491A8 /* Subject.swift */; };
 		1CCF98B922129ECC00C491A8 /* BrowserVCAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */; };
+		1CCF98C02213CA8E00C491A8 /* recordTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */; };
+		1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */; };
 		CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */; };
@@ -169,8 +171,6 @@
 		CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */ = {isa = PBXBuildFile; fileRef = CDDD7F021FF19B55009FA71D /* bookTurn.gif */; };
 		CDDD7F051FF1A64C009FA71D /* getHelp.gif in Resources */ = {isa = PBXBuildFile; fileRef = CDDD7F041FF1A64C009FA71D /* getHelp.gif */; };
 		CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDD7F061FF1A65F009FA71D /* GetHelpViewController.swift */; };
-		CDF58FB1221205C5007514DC /* recordTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDF58FB0221205C5007514DC /* recordTutorial1.mp3 */; };
-		CDF58FB3221205CE007514DC /* recordTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDF58FB2221205CE007514DC /* recordTutorial2.mp3 */; };
 		CDF58FB522120A85007514DC /* BrowseViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF58FB422120A85007514DC /* BrowseViewControllerTutorial.swift */; };
 		CDF58FBA22121379007514DC /* browseTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDF58FB622121378007514DC /* browseTutorial1.mp3 */; };
 		CDF58FBB22121379007514DC /* browseTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDF58FB722121379007514DC /* browseTutorial2.mp3 */; };
@@ -320,6 +320,8 @@
 		1CCF98B422122A6B00C491A8 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		1CCF98B522122A6B00C491A8 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserVCAlerts.swift; sourceTree = "<group>"; };
+		1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial2.mp3; sourceTree = "<group>"; };
+		1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial1.mp3; sourceTree = "<group>"; };
 		CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial1.mp3; sourceTree = "<group>"; };
 		CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial2.mp3; sourceTree = "<group>"; };
@@ -349,8 +351,6 @@
 		CDDD7F021FF19B55009FA71D /* bookTurn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bookTurn.gif; sourceTree = "<group>"; };
 		CDDD7F041FF1A64C009FA71D /* getHelp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = getHelp.gif; sourceTree = "<group>"; };
 		CDDD7F061FF1A65F009FA71D /* GetHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHelpViewController.swift; sourceTree = "<group>"; };
-		CDF58FB0221205C5007514DC /* recordTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = recordTutorial1.mp3; path = ../../../Downloads/recordTutorial1.mp3; sourceTree = "<group>"; };
-		CDF58FB2221205CE007514DC /* recordTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = recordTutorial2.mp3; path = ../../../Downloads/recordTutorial2.mp3; sourceTree = "<group>"; };
 		CDF58FB422120A85007514DC /* BrowseViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CDF58FB622121378007514DC /* browseTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = browseTutorial1.mp3; sourceTree = "<group>"; };
 		CDF58FB722121379007514DC /* browseTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = browseTutorial2.mp3; sourceTree = "<group>"; };
@@ -560,9 +560,9 @@
 			children = (
 				CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */,
 				CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */,
-				CDF58FB0221205C5007514DC /* recordTutorial1.mp3 */,
-				CDF58FB2221205CE007514DC /* recordTutorial2.mp3 */,
 				1CAC795E21FB637E007F8704 /* profileTutorial1.mp3 */,
+				1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */,
+				1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */,
 				1CAC795F21FB637E007F8704 /* TextTo.mp3 */,
 				1CAC795B21FB636C007F8704 /* goalTutorial1.mp3 */,
 				1CAC795A21FB636C007F8704 /* goalTutorial2.mp3 */,
@@ -938,9 +938,9 @@
 				CDF58FBD22121379007514DC /* browseTutorial3.mp3 in Resources */,
 				1CAC797B21FCB287007F8704 /* NokioSans-ExtraLight.ttf in Resources */,
 				1CAC797C21FCB287007F8704 /* NokioSans-ExtraLightItalic.ttf in Resources */,
-				CDF58FB1221205C5007514DC /* recordTutorial1.mp3 in Resources */,
 				1CAC797D21FCB287007F8704 /* NokioSans-Light.ttf in Resources */,
 				1CAC797E21FCB287007F8704 /* NokioSans-LightItalic.ttf in Resources */,
+				1CCF98C02213CA8E00C491A8 /* recordTutorial2.mp3 in Resources */,
 				1CAC797F21FCB287007F8704 /* NokioSans-Medium.ttf in Resources */,
 				1CAC798021FCB287007F8704 /* NokioSans-MediumItalic.ttf in Resources */,
 				1CAC798121FCB287007F8704 /* NokioSans-Regular.ttf in Resources */,
@@ -956,6 +956,7 @@
 				1CAC798821FCB287007F8704 /* NokioSansAlt-LightItalic.ttf in Resources */,
 				1CAC798921FCB287007F8704 /* NokioSansAlt-Medium.ttf in Resources */,
 				1C578F832204D3750077E1DD /* img_0.png in Resources */,
+				1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */,
 				1C578F872204D3750077E1DD /* img_6.png in Resources */,
 				1CAC798A21FCB287007F8704 /* NokioSansAlt-MediumItalic.ttf in Resources */,
 				1CAD87A3220A18500096DD90 /* Check Mark Success Data.json in Resources */,
@@ -981,7 +982,6 @@
 				1C578F862204D3750077E1DD /* img_7.png in Resources */,
 				CDA6529C1FA0F5B700835624 /* LaunchScreen.storyboard in Resources */,
 				1CAC795C21FB636C007F8704 /* goalTutorial2.mp3 in Resources */,
-				CDF58FB3221205CE007514DC /* recordTutorial2.mp3 in Resources */,
 				CDDD7F051FF1A64C009FA71D /* getHelp.gif in Resources */,
 				1CAC796A21FB63BA007F8704 /* hand_click_gesture.json in Resources */,
 				CDA652991FA0F5B700835624 /* Assets.xcassets in Resources */,
