@@ -13,9 +13,8 @@ import Lottie
 class TutorialController{
     private let vc:UIViewController
     
-    var tutorialLayers = [CAShapeLayer]()
     private var previousLayer = CAShapeLayer()
-    
+
     private let tutorialView = UIView(frame: .zero)
     private let handAnimationView = LOTAnimationView(name: "hand_click_gesture")
     
@@ -25,6 +24,8 @@ class TutorialController{
     private var gesture:UITapGestureRecognizer!
     
     var onComplete:()->Void = {}
+    
+    var steps = [()->()]()
     
     init(audio:TutorialAudio, vc:UIViewController){
         self.audio = audio
@@ -66,34 +67,22 @@ class TutorialController{
         self.onComplete = onComplete
         
         tutorialView.frame = vc.view.frame
-        
-        let handSize = vc.view.frame.width/5
-        handAnimationView.frame = CGRect(x: vc.view.frame.width/2 - handSize/2, y: vc.view.frame.height/2 - handSize/2, width: handSize, height: handSize)
-        
         vc.view.addSubview(tutorialView)
         
         tutorialView.alpha = 0
         
         UIView.animate(withDuration: 1) {
             self.tutorialView.alpha = 1
-            self.doNextStep()
+            self.steps.removeFirst()()
         }
     }
     
     private func doNextStep(){
-        if tutorialLayers.count > 0{
-            previousLayer.removeFromSuperlayer()
-            
-            let layer = tutorialLayers.remove(at: 0)
-            previousLayer = layer
-            tutorialView.layer.addSublayer(layer)
-            
-            tutorialView.bringSubview(toFront: handAnimationView)
-            
-            audio.playNextAudio()
-            
-            handAnimationView.play()
+        // still have more steps
+        if steps.count > 0{
+            steps.removeFirst()()
         }
+        // no more steps
         else{
             self.tutorialView.alpha = 1
             UIView.animate(withDuration: 1, animations: {
@@ -106,7 +95,16 @@ class TutorialController{
         }
     }
     
-    func highlightFrame(frame:CGRect){
+    func setHandAnimationPosition(frame:CGRect){
+        let handSize = vc.view.frame.width/5
+        UIView.animate(withDuration: 0.5) {
+            self.handAnimationView.frame = CGRect(x: frame.origin.x + frame.width/2 - handSize/2, y: frame.origin.y, width: handSize, height: handSize)
+        }
+    }
+    
+    func showHighlightFrame(frame:CGRect){
+        previousLayer.removeFromSuperlayer()
+        
         let path = UIBezierPath(rect: vc.view.frame)
         
         let highlightPath = UIBezierPath(roundedRect: frame, cornerRadius: 5)
@@ -122,7 +120,17 @@ class TutorialController{
         fillLayer.fillColor = UIColor.black.cgColor
         fillLayer.opacity = 0.8
         
-        tutorialLayers.append(fillLayer)
+        previousLayer = fillLayer
+        tutorialView.layer.addSublayer(fillLayer)
+        
+        runAnimation()
+    }
+    
+    private func runAnimation(){
+        tutorialView.bringSubview(toFront: handAnimationView)
+        
+        audio.playNextAudio()
+        handAnimationView.play()
     }
 }
 

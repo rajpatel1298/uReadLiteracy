@@ -1,8 +1,8 @@
 //
-//  RecordViewControllerTutorial.swift
+//  LearnViewControllerTutorial.swift
 //  uReadLiteracy
 //
-//  Created by Raj Patel on 1/26/19.
+//  Created by Raj Patel on 2/12/19.
 //  Copyright © 2019 AdaptConsulting. All rights reserved.
 //
 
@@ -11,15 +11,15 @@ import UIKit
 import Lottie
 
 // For other Tutorial Controller, just copied the same code, and change stuffs when noted
-class RecordViewControllerTutorial:TutorialController{
-    private let vc: RecordViewController
+class LearnViewControllerTutorial:TutorialController{
+    private let vc: LearnViewController
     
     
-    init(vc:RecordViewController){
+    init(vc:LearnViewController){
         self.vc = vc
         
         // Change based on the audio that you will use
-        super.init(audio: TutorialAudio(audioFiles: ["recordTutorial1","recordTutorial2"]), vc: vc)
+        super.init(audio: TutorialAudio(audioFiles: ["learnMoreTutorial1","learnMoreTutorial2"]), vc: vc)
         setHandAnimationColorBlack()
         //
     }
@@ -37,15 +37,14 @@ class RecordViewControllerTutorial:TutorialController{
     // Change based on what you want to highlight
     private func firstStep(){
         //let currGoalsFrame = vc.view.convert(vc.tableview.frame, from:vc.view)
-        let currGoalsFrame = vc.tableview.frame
-        showHighlightFrame(frame: currGoalsFrame)
-        setHandAnimationPosition(frame: currGoalsFrame)
+        let noWordsFrame = vc.tableview.frame
+        showHighlightFrame(frame: noWordsFrame)
+        setHandAnimationPosition(frame: noWordsFrame)
     }
     
     private func secondStep(){
-     //   let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.addNewGoalBtnUIView)
-        let recordListFrame = vc.tableview.frame
-        showHighlightFrame(frame: recordListFrame)
-        setHandAnimationPosition(frame: recordListFrame)
+        let noWordsFrame = vc.tableview.frame
+        showHighlightFrame(frame: noWordsFrame)
+        setHandAnimationPosition(frame: noWordsFrame)
     }
 }
