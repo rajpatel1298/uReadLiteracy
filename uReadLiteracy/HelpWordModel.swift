@@ -9,18 +9,17 @@
 import Foundation
 import CoreData
 
-class HelpWordModel:CoreDataModelHandler{
- 
-    private let word:String
+class HelpWordModel{
+
+    let word:String
     
-    private var beginningDifficult:Bool!
-    private var endingDifficult:Bool!
-    private var blendDifficult:Bool!
-    private var multisyllabicDifficult:Bool!
+    var beginningDifficult:Bool!
+    var endingDifficult:Bool!
+    var blendDifficult:Bool!
+    var multisyllabicDifficult:Bool!
     
     init(word:String){
         self.word = word
-        super.init()
     }
     init(word:String,beginningDifficult:Bool,endingDifficult:Bool,blendDifficult:Bool,multisyllabicDifficult:Bool){
         
@@ -29,7 +28,6 @@ class HelpWordModel:CoreDataModelHandler{
         self.endingDifficult = endingDifficult
         self.blendDifficult = blendDifficult
         self.multisyllabicDifficult = multisyllabicDifficult
-        super.init()
     }
     
     func getWord()->String{
@@ -106,29 +104,8 @@ class HelpWordModel:CoreDataModelHandler{
         return false
     }
     
-    override func save(){
-        let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
-        
-        let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
-        
-        getWordDifficultyIfNil()
     
-        wordObject.setValue(word, forKeyPath: "word")
-        wordObject.setValue(beginningDifficult, forKeyPath: "beginningDifficult")
-        wordObject.setValue(endingDifficult, forKeyPath: "endingDifficult")
-        wordObject.setValue(blendDifficult, forKeyPath: "blendDifficult")
-        wordObject.setValue(multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
-        
-    
-    
-    private func getWordDifficultyIfNil(){
+    func getWordDifficultyIfNil(){
         if(self.beginningDifficult == nil){
             beginningDifficult = self.beginningDifficult(word: word)
         }

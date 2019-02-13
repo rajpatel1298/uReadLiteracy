@@ -27,7 +27,7 @@ class BrowserSocialMediaViewController: UIViewController, UITableViewDelegate, U
     
     private var commentRef:DatabaseQuery?
     
-    let currentUser = CurrentUserModel()
+    let currentUser = MainUserModel()
     
     private var isShowing = false
 

@@ -12,14 +12,7 @@ import CoreData
 class ReadXArticlesGoalModel:GoalModel{
     
     
-    var articles:[ArticleModel] = [ArticleModel](){
-        didSet{
-            progress = Int(Float(articles.count/numberOfArticles)*100)
-            if progress == 99 {
-                progress = 100
-            }
-        }
-    }
+    var articles:[ArticleModel] = [ArticleModel]()
     
     var numberOfArticles:Int!
     var goalType:GoalType!
@@ -49,64 +42,13 @@ class ReadXArticlesGoalModel:GoalModel{
         self.showCompletionToUser = model.showCompletionToUser
     }
     
-    override func save(){
-        if progress == 99 {
-            progress = 100
-        }
-        
-        let model = find(name: name, date: date)
     
-        let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
-
-        if(model == nil){
-            let object = NSManagedObject(entity: entity, insertInto: managedContext)
-            object.setValue(name, forKeyPath: "name")
-            object.setValue(progress, forKeyPath: "progress")
-            object.setValue(goalType.rawValue, forKeyPath: "goalType")
-            object.setValue(date, forKeyPath: "date")
-            object.setValue(numberOfArticles, forKeyPath: "numberOfArticles")
-            
-            
-            object.setValue(ArticleManager.shared.getUrls(articles: articles), forKeyPath: "articles")
-            object.setValue(showCompletionToUser, forKeyPath: "showCompletionToUser")
-        }
-        else{
-            model?.articles = ArticleManager.shared.getUrls(articles: self.articles) as NSObject
-            model?.progress = Int16(self.progress)
-            model?.showCompletionToUser = self.showCompletionToUser
-        }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
     
     func find(name:String,date:Date)->ReadXArticlesCD?{
-        let model = ReadXArticlesGoalModel.find(name: name, date: date, goalType: goalType)
+        let model:ReadXArticlesCD? = CoreDataManager.shared.find(name: name, date: date, goalType: goalType)
         
         return model
     }
-    
-    static func find(name:String,date:Date, goalType:GoalType)->ReadXArticlesCD?{
-   
-        let goals:[ReadXArticlesCD] = CoreDataManager.shared.getList()
-        
-        for goal in goals{
-            
-            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
-            
-            
-            if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
-                return goal
-            }
-        }
-        
-        return nil
-    }
-    
-    
     
     override func getDescriptionWithProgress() -> String {
         return  "\(name): \(articles.count)/\(Int(numberOfArticles))"

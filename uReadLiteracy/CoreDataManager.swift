@@ -99,4 +99,70 @@ class CoreDataManager{
         
         return articles
     }
+    
+    func find(name:String,date:Date, goalType:GoalType)->ReadXArticlesCD?{
+        
+        let goals:[ReadXArticlesCD] = getList()
+        
+        for goal in goals{
+            
+            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
+            
+            
+            if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
+                return goal
+            }
+        }
+        
+        return nil
+    }
+    
+    func find(url:String)->ArticleCD?{
+        let articles:[ArticleCD] = getList()
+        
+        for article in articles{
+            if(article.url! == url){
+                return article
+            }
+        }
+        
+        return nil
+    }
+    
+    func find(path:String,title:String,date:Date)->AudioRecordCD?{
+        let list:[AudioRecordCD] = getList()
+        
+        for item in list{
+            if(item.path == path && item.title == title && (item.date! as Date) == date){
+                return item
+            }
+        }
+        
+        return nil
+    }
+    
+    func find(name:String,date:Date, goalType:GoalType)->ReadXMinutesCD?{
+        let goals:[ReadXMinutesCD] = CoreDataManager.shared.getList()
+        
+        for goal in goals{
+            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
+            
+            
+            if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
+                return goal
+            }
+        }
+        
+        return nil
+    }
+    
+    func getMainUser()->UserCD?{
+        let userFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCD")
+        let users = try! managedContext.fetch(userFetch)
+        
+        if(users.count > 0){
+            return users.first as! UserCD
+        }
+        return nil
+    }
 }

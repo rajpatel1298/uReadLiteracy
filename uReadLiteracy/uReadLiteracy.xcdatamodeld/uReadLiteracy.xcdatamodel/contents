@@ -44,16 +44,15 @@
         <attribute name="numArticlesRead" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="numLogins" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="screenName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeSpent" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="uid" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="ArticleCD" positionX="-63" positionY="54" width="128" height="105"/>
+        <element name="AudioRecordCD" positionX="-54" positionY="81" width="128" height="90"/>
         <element name="HelpWordCD" positionX="-63" positionY="54" width="128" height="120"/>
         <element name="ReadXArticlesCD" positionX="-54" positionY="63" width="128" height="150"/>
         <element name="ReadXMinutesCD" positionX="-54" positionY="72" width="128" height="150"/>
-        <element name="UserCD" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="AudioRecordCD" positionX="-54" positionY="81" width="128" height="90"/>
+        <element name="UserCD" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

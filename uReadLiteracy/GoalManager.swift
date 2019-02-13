@@ -90,7 +90,7 @@ class GoalManager{
                     goal.showCompletionToUser = true
                     GoalCompleteHelper.shared.show(goal: goal)
                 }
-                goal.save()
+                CoreDataGetter.shared.save(goalModel: goal)
             }
             
             
@@ -104,7 +104,7 @@ class GoalManager{
             if(goal.minutesRead > goal.totalMinutes){
                 goal.minutesRead = goal.totalMinutes
             }
-            goal.save()
+            CoreDataGetter.shared.save(goalModel: goal)
         }
     }
 }

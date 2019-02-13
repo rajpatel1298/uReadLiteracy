@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GoalModel:CoreDataModelHandler{
+class GoalModel{
     let name:String
     var progress:Int!
     let date:Date
@@ -32,10 +32,6 @@ class GoalModel:CoreDataModelHandler{
     
     func getDescriptionWithProgress()->String{
         return  "\(name): \(Int(progress))%"
-    }
-    
-    override func save(){
-        super.save()
     }
     
     func isCompleted()->Bool{

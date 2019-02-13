@@ -115,7 +115,7 @@ class ProfileViewController: BaseViewController {
     
     
     private func loadUserInfo(){
-        let user = CurrentUserModel()
+        let user = MainUserModel()
 
         if user.getImage() == nil{
             profileIV.image = #imageLiteral(resourceName: "profile_hd")

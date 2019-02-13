@@ -12,28 +12,25 @@ import CoreData
 import FirebaseAuth
 import FirebaseStorage
 
-class CurrentUserModel:CoreDataModelHandler{
-    private var image:UIImage?
-    private var nickname:String!
-    private var uid:String!
-    private var email:String!
-    private var password:String!
+class MainUserModel{
+    var image:UIImage?
+    var nickname:String!
+    var uid:String!
+    var email:String!
+    var password:String!
     
     private let storage = Storage.storage()
         
-    override init(){
-        super.init()
-        let userFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCD")
-        let users = try! managedContext.fetch(userFetch)
+    init(){
+        let user = CoreDataManager.shared.getMainUser()
         
-        if(users.count > 0){
-            let onlyUser = users.first as! UserCD
-            if onlyUser.image != nil{
-                image = UIImage(data: onlyUser.image as! Data)
+        if let user = user{
+            if user.image != nil{
+                image = UIImage(data: user.image! as Data)
             }
-            uid = onlyUser.uid
-            email = onlyUser.email!
-            nickname = onlyUser.nickname
+            uid = user.uid
+            email = user.email!
+            nickname = user.nickname
         }
     }
     
@@ -52,7 +49,7 @@ class CurrentUserModel:CoreDataModelHandler{
                 self.saveUserImageToFirebaseStorage(completionHandler: { (state) in
                     switch(state){
                     case .Success:
-                        self.save()
+                        CoreDataGetter.shared.save(model: self)
                         completionHandler(.Success)
                         break
                     case .Failure(let err):
@@ -67,28 +64,6 @@ class CurrentUserModel:CoreDataModelHandler{
             else{
                 completionHandler(.Failure((err?.localizedDescription)!))
             }
-        }
-    }
-    
-    internal override func save(){
-        let userEntity = NSEntityDescription.entity(forEntityName: "UserCD", in: managedContext)!
-        
-        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        
-        user.setValue(nickname, forKeyPath: "nickname")
-        user.setValue(uid, forKeyPath: "uid")
-        user.setValue(email, forKeyPath: "email")
-        user.setValue(password, forKeyPath: "password")
-        
-        if image != nil {
-            let data = UIImagePNGRepresentation(image!)
-            user.setValue(data, forKeyPath: "image")
-        }
-
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            fatalError("Could not save. \(error), \(error.userInfo)")
         }
     }
     
