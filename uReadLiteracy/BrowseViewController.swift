@@ -137,8 +137,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
             
             TopToolBarViewController.shared.enablePreviousAndRecordBtn()
             
-            popupManager.setMaxYOffset(value: CGFloat(maxBrowserOffset))
-            popupManager.setYOffsetsToShowPopup(showAtYOffsets: [ComprehensionPopupShowPoint(y: CGFloat(maxBrowserOffset)/2)])
+            popupManager.setMaxYOffset(newValue: CGFloat(maxBrowserOffset))
         }
             
         else{

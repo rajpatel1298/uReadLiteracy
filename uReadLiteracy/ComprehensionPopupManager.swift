@@ -11,13 +11,13 @@ import UIKit
 
 class ComprehensionPopupManager{
     private var maxYOffset:CGFloat!
-    private var showAtYOffsets:[ComprehensionPopupShowPoint]!
+    private var positionToShowPopup:[PositionToShowPopup]!
     private let popup:ComprehensionPopup
     private var didShowPopup:()->Void
   
     init(popup:ComprehensionPopup, didShowPopup:@escaping ()->Void){
-        showAtYOffsets = [ComprehensionPopupShowPoint]()
-        maxYOffset = 0
+        positionToShowPopup = [PositionToShowPopup]()
+        maxYOffset = 1
         self.popup = popup
         self.didShowPopup = didShowPopup
         
@@ -36,6 +36,10 @@ class ComprehensionPopupManager{
                 })
             }
         })
+        
+        // Change this to show popup at different parts of the screen
+        let position1 = PositionToShowPopup(y: CGFloat(maxYOffset)/2)
+        positionToShowPopup.append(position1)
     }
     
     
@@ -44,7 +48,7 @@ class ComprehensionPopupManager{
             return false
         }
         
-        for position in showAtYOffsets{
+        for position in positionToShowPopup{
             if  position.y.isLessThanOrEqualTo(currentYOffset) && currentYOffset.isLessThanOrEqualTo(position.y + maxYOffset/100*5)  && !position.isShowing(){
                 position.showPopup()
                 return true
@@ -53,16 +57,20 @@ class ComprehensionPopupManager{
         return false
     }
     
-    func setYOffsetsToShowPopup(showAtYOffsets:[ComprehensionPopupShowPoint]){
-        self.showAtYOffsets = showAtYOffsets
+    func setMaxYOffset(newValue:CGFloat){
+        let oldValue = maxYOffset
+        maxYOffset = newValue
+        updatePositionToShowPopup(oldValue: oldValue!, newValue: newValue)
     }
     
-    func setMaxYOffset(value:CGFloat){
-        maxYOffset = value
+    private func updatePositionToShowPopup(oldValue:CGFloat,newValue:CGFloat){
+        for position in positionToShowPopup{
+            position.y = newValue*position.y/oldValue
+        }
     }
     
     func reset(){
-        for position in showAtYOffsets{
+        for position in positionToShowPopup{
             position.reset()
         }
     }

@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class ComprehensionPopupShowPoint{
-    let y:CGFloat
+class PositionToShowPopup{
+    var y:CGFloat
     private var shown:Bool!
     
     init(y:CGFloat){
