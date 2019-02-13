@@ -133,6 +133,9 @@
 		1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A8220A456B0096DD90 /* 629-empty-box.json */; };
 		1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
+		CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */; };
+		CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */; };
+		CD03712A2213B93C007BC759 /* learnMoreTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */; };
 		CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */; };
 		CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */; };
 		CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */; };
@@ -297,6 +300,9 @@
 		1CAD87A6220A21190096DD90 /* NoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultViewController.swift; sourceTree = "<group>"; };
 		1CAD87A8220A456B0096DD90 /* 629-empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "629-empty-box.json"; sourceTree = "<group>"; };
 		1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = black_hand_click_gesture.json; sourceTree = "<group>"; };
+		CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewControllerTutorial.swift; sourceTree = "<group>"; };
+		CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial1.mp3; sourceTree = "<group>"; };
+		CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial2.mp3; sourceTree = "<group>"; };
 		CD03CC8F20F6E79A006D5D89 /* DynamicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5D1FF3564800FCDDB5 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		CD1DCA5F1FF3592D00FCDDB5 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -526,6 +532,8 @@
 		1C578F8E2205560C0077E1DD /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */,
+				CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */,
 				CDF58FB0221205C5007514DC /* recordTutorial1.mp3 */,
 				CDF58FB2221205CE007514DC /* recordTutorial2.mp3 */,
 				1CAC795E21FB637E007F8704 /* profileTutorial1.mp3 */,
@@ -629,6 +637,7 @@
 				1CAC795521FB62F2007F8704 /* ProfileViewControllerTutorial.swift */,
 				CD686C6721FD1F3E000482C0 /* RecordViewControllerTutorial.swift */,
 				CDF58FB422120A85007514DC /* BrowseViewControllerTutorial.swift */,
+				CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -892,6 +901,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD03712A2213B93C007BC759 /* learnMoreTutorial2.mp3 in Resources */,
 				1CAC797921FCB287007F8704 /* NokioSans-Bold.ttf in Resources */,
 				1CAC797A21FCB287007F8704 /* NokioSans-BoldItalic.ttf in Resources */,
 				1CAD87A5220A20DB0096DD90 /* 3227-error-404-facebook-style.json in Resources */,
@@ -946,6 +956,7 @@
 				CDA652991FA0F5B700835624 /* Assets.xcassets in Resources */,
 				1C578F882204D3750077E1DD /* img_4.png in Resources */,
 				1C578F822204D3750077E1DD /* img_1.png in Resources */,
+				CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */,
 				CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */,
 				1CAC796821FB63BA007F8704 /* message_arrow.json in Resources */,
 				1C578F94220563120077E1DD /* 3787-jumping-mic.json in Resources */,
@@ -1021,6 +1032,7 @@
 				1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */,
 				1CAC799421FE248C007F8704 /* CoreDataModelHandler.swift in Sources */,
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
+				CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */,
 				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
 				1CAC799921FF5617007F8704 /* AudioRecordsViewController.swift in Sources */,
