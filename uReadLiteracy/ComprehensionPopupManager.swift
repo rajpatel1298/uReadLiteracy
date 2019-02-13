@@ -12,6 +12,8 @@ import UIKit
 class ComprehensionPopupManager{
     private var maxYOffset:CGFloat!
     private var positionToShowPopup:[PositionToShowPopup]!
+    
+    // only one popup should be created, since only one will be shown at a time
     private let popup:ComprehensionPopup
     private var didShowPopup:()->Void
   
