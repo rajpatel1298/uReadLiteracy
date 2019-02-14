@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 import Lottie
 
-class GoalCompleteHelper{
+class GoalCompletePresenter{
     
     private let controller:GoalCompleteViewController
-    static let shared = GoalCompleteHelper()
+    static let shared = GoalCompletePresenter()
     
     init(){
         let storyboard = UIStoryboard.init(name: "Goal", bundle: Bundle.main)

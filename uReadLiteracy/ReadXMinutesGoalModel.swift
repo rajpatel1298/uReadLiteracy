@@ -37,7 +37,7 @@ class ReadXMinutesGoalModel:GoalModel{
     }
     
     func find(name:String,date:Date)->ReadXMinutesCD?{
-        let model:ReadXMinutesCD? = CoreDataManager.shared.find(name: name, date: date, goalType: goalType)
+        let model:ReadXMinutesCD? = CoreDataGetter.shared.find(name: name, date: date, goalType: goalType)
         
         return model
     }

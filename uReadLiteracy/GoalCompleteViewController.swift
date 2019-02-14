@@ -11,23 +11,17 @@ import Lottie
 import FBSDKShareKit
 import FacebookShare
 
+
+// This class should not be created. Create Goal Complete through GoalCompletePresenter
 class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
     
     @IBOutlet weak var twitterView: LOTAnimationView!
     @IBOutlet weak var facebookView: LOTAnimationView!
     @IBOutlet weak var nextView: LOTAnimationView!
-    
-    
     @IBOutlet weak var starView: LOTAnimationView!
-    
     @IBOutlet weak var optionView: UIView!
-    
     @IBOutlet weak var contentView: UIView!
-    
     @IBOutlet weak var goalDetailLabel: UILabel!
-    
-    
-    
     
     var goal:GoalModel!
     

@@ -56,7 +56,7 @@ class Recorder{
         recording = false
         
         let audio = AudioRecordModel(path: path, title: title, date: Date())
-        CoreDataGetter.shared.save(audioRecordModel: audio)
+        CoreDataSaver.shared.save(audioRecordModel: audio)
     }
     
     func isRecording()->Bool{

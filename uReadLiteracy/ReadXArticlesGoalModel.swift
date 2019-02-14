@@ -10,8 +10,6 @@ import Foundation
 import CoreData
 
 class ReadXArticlesGoalModel:GoalModel{
-    
-    
     var articles:[ArticleModel] = [ArticleModel]()
     
     var numberOfArticles:Int!
@@ -45,7 +43,7 @@ class ReadXArticlesGoalModel:GoalModel{
     
     
     func find(name:String,date:Date)->ReadXArticlesCD?{
-        let model:ReadXArticlesCD? = CoreDataManager.shared.find(name: name, date: date, goalType: goalType)
+        let model:ReadXArticlesCD? = CoreDataGetter.shared.find(name: name, date: date, goalType: goalType)
         
         return model
     }

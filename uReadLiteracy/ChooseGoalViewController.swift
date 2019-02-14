@@ -38,14 +38,14 @@ class ChooseGoalViewController: UITableViewController {
         if goal == GoalType.Daily{
             dailyGoals = [GoalModel]()
             
-            let read10Articles:ReadXArticlesCD? = CoreDataManager.shared.find(name: "Read 10 Articles", date: Date(), goalType: goal)
+            let read10Articles:ReadXArticlesCD? = CoreDataGetter.shared.find(name: "Read 10 Articles", date: Date(), goalType: goal)
             
             if read10Articles == nil{
                 let read10Articles = ReadXArticlesGoalModel(name: "Read 10 Articles", date: Date(), goalType: goal, numberOfArticles: 10)
                 dailyGoals.append(read10Articles)
             }
             
-            let readFor30Minutes:ReadXMinutesCD? = CoreDataManager.shared.find(name: "Read for 30 minutes", date: Date(), goalType: goal)
+            let readFor30Minutes:ReadXMinutesCD? = CoreDataGetter.shared.find(name: "Read for 30 minutes", date: Date(), goalType: goal)
             
             if readFor30Minutes == nil{
                 let readFor30Minutes = ReadXMinutesGoalModel(name: "Read for 30 minutes", date: Date(), goalType: goal, totalMinutes: 30)
@@ -60,14 +60,14 @@ class ChooseGoalViewController: UITableViewController {
         if goal == GoalType.Ongoing{
             ongoingGoals = [GoalModel]()
             
-            let read50Articles:ReadXArticlesCD? = CoreDataManager.shared.find(name: "Read 50 Articles", date: Date(), goalType: goal)
+            let read50Articles:ReadXArticlesCD? = CoreDataGetter.shared.find(name: "Read 50 Articles", date: Date(), goalType: goal)
             
             if read50Articles == nil{
                 let read50Articles = ReadXArticlesGoalModel(name: "Read 50 Articles", date: Date(), goalType: goal, numberOfArticles: 50)
                 ongoingGoals.append(read50Articles)
             }
             
-            let readFor120Minutes:ReadXMinutesCD? = CoreDataManager.shared.find(name: "Read for 2 hours", date: Date(), goalType: goal)
+            let readFor120Minutes:ReadXMinutesCD? = CoreDataGetter.shared.find(name: "Read for 2 hours", date: Date(), goalType: goal)
             
             if readFor120Minutes == nil{
                 let readFor120Minutes = ReadXMinutesGoalModel(name: "Read for 2 hours", date: Date(), goalType: goal, totalMinutes: 120)
@@ -112,10 +112,10 @@ class ChooseGoalViewController: UITableViewController {
             DispatchQueue.main.async {
                 switch(self.goal!){
                 case .Daily:
-                    CoreDataGetter.shared.save(goalModel: self.dailyGoals[indexPath.row])
+                    CoreDataSaver.shared.save(goalModel: self.dailyGoals[indexPath.row])
                     break
                 case .Ongoing:
-                    CoreDataGetter.shared.save(goalModel: self.ongoingGoals[indexPath.row])
+                    CoreDataSaver.shared.save(goalModel: self.ongoingGoals[indexPath.row])
                     break
                 }
   

@@ -61,7 +61,7 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func getHelpWords(){
-        helpList = CoreDataManager.shared.getList() 
+        helpList = CoreDataGetter.shared.getList() 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

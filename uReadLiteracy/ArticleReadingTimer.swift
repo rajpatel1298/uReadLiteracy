@@ -30,7 +30,7 @@ class ArticleReadingTimer{
     func stopRecordingTime(){
         timer.invalidate()
         article.totalTimeSpent += currentTimeSpent
-        CoreDataGetter.shared.save(articleModel: article)
+        CoreDataSaver.shared.save(articleModel: article)
         
         currentTimeSpent = 0
     }

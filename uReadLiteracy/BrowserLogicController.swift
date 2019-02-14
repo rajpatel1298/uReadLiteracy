@@ -41,7 +41,7 @@ class BrowserLogicController{
             
             if(self.onlyOneWordIsSelected(word: word)){
                 if let url = URL(string: "http://www.dictionary.com/browse/\(word)?s=t"){
-                    CoreDataGetter.shared.save(helpModel: HelpWordModel(word: word))
+                    CoreDataSaver.shared.save(helpModel: HelpWordModel(word: word))
                     completionHandler(.Success(url))
                 }
                 else{

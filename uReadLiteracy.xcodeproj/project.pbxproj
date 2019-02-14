@@ -67,7 +67,7 @@
 		1CAC792621FB5748007F8704 /* TopToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792521FB5748007F8704 /* TopToolBarViewController.swift */; };
 		1CAC792821FB5764007F8704 /* ActivityIndicatorWithDarkBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */; };
 		1CAC792A21FB57B0007F8704 /* GoalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792921FB57B0007F8704 /* GoalManager.swift */; };
-		1CAC792C21FB57D9007F8704 /* GoalCompleteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792B21FB57D9007F8704 /* GoalCompleteHelper.swift */; };
+		1CAC792C21FB57D9007F8704 /* GoalCompletePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792B21FB57D9007F8704 /* GoalCompletePresenter.swift */; };
 		1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */; };
 		1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793021FB5906007F8704 /* AudioPlayer.swift */; };
 		1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */; };
@@ -114,7 +114,7 @@
 		1CAC798E21FCB425007F8704 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC798D21FCB425007F8704 /* Recorder.swift */; };
 		1CAC799121FE241E007F8704 /* AudioRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799021FE241E007F8704 /* AudioRecordModel.swift */; };
 		1CAC799621FE4995007F8704 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799521FE4995007F8704 /* UIImageExtension.swift */; };
-		1CAC799721FEA75D007F8704 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C77552194BFBF002ADA76 /* CoreDataManager.swift */; };
+		1CAC799721FEA75D007F8704 /* CoreDataGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C77552194BFBF002ADA76 /* CoreDataGetter.swift */; };
 		1CAC799921FF5617007F8704 /* AudioRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799821FF5617007F8704 /* AudioRecordsViewController.swift */; };
 		1CAC799B21FF5648007F8704 /* AudioRecordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC799A21FF5648007F8704 /* AudioRecordsCell.swift */; };
 		1CAC79A221FFB0CD007F8704 /* AudioObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC79A121FFB0CD007F8704 /* AudioObserver.swift */; };
@@ -143,7 +143,7 @@
 		1CCF98B922129ECC00C491A8 /* BrowserVCAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */; };
 		1CCF98C02213CA8E00C491A8 /* recordTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */; };
 		1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */; };
-		1CCF98C32214C56100C491A8 /* CoreDataGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98C22214C56100C491A8 /* CoreDataGetter.swift */; };
+		1CCF98C32214C56100C491A8 /* CoreDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */; };
 		CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */; };
@@ -235,7 +235,7 @@
 		1C870F7E21AA49D100FF296E /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
 		1C870F8021AA4CFA00FF296E /* ChoosingGoalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingGoalAlert.swift; sourceTree = "<group>"; };
 		1C870F8821B2D9E700FF296E /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
-		1C9C77552194BFBF002ADA76 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		1C9C77552194BFBF002ADA76 /* CoreDataGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGetter.swift; sourceTree = "<group>"; };
 		1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoTableViewCell.swift; sourceTree = "<group>"; };
 		1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadXArticlesGoalModel.swift; sourceTree = "<group>"; };
 		1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadXMinutesGoalModel.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 		1CAC792521FB5748007F8704 /* TopToolBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopToolBarViewController.swift; sourceTree = "<group>"; };
 		1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWithDarkBackground.swift; sourceTree = "<group>"; };
 		1CAC792921FB57B0007F8704 /* GoalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalManager.swift; sourceTree = "<group>"; };
-		1CAC792B21FB57D9007F8704 /* GoalCompleteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompleteHelper.swift; sourceTree = "<group>"; };
+		1CAC792B21FB57D9007F8704 /* GoalCompletePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompletePresenter.swift; sourceTree = "<group>"; };
 		1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompleteViewController.swift; sourceTree = "<group>"; };
 		1CAC793021FB5906007F8704 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupManager.swift; sourceTree = "<group>"; };
@@ -321,7 +321,7 @@
 		1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserVCAlerts.swift; sourceTree = "<group>"; };
 		1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial2.mp3; sourceTree = "<group>"; };
 		1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial1.mp3; sourceTree = "<group>"; };
-		1CCF98C22214C56100C491A8 /* CoreDataGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGetter.swift; sourceTree = "<group>"; };
+		1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSaver.swift; sourceTree = "<group>"; };
 		CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial1.mp3; sourceTree = "<group>"; };
 		CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial2.mp3; sourceTree = "<group>"; };
@@ -617,6 +617,8 @@
 				1C578F6C22028F5E0077E1DD /* FileHelper.swift */,
 				1CCF98AE22120C9300C491A8 /* ArticleManager.swift */,
 				1CCF98B022120DEE00C491A8 /* ArticleReadingTimer.swift */,
+				1C9C77552194BFBF002ADA76 /* CoreDataGetter.swift */,
+				1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -672,7 +674,7 @@
 		1CAC792D21FB5807007F8704 /* Goal Complete */ = {
 			isa = PBXGroup;
 			children = (
-				1CAC792B21FB57D9007F8704 /* GoalCompleteHelper.swift */,
+				1CAC792B21FB57D9007F8704 /* GoalCompletePresenter.swift */,
 				1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */,
 			);
 			name = "Goal Complete";
@@ -730,8 +732,6 @@
 		1CAC799221FE242B007F8704 /* Core Data Model Handler */ = {
 			isa = PBXGroup;
 			children = (
-				1C9C77552194BFBF002ADA76 /* CoreDataManager.swift */,
-				1CCF98C22214C56100C491A8 /* CoreDataGetter.swift */,
 				1C28737F21A7B42B00B790A4 /* MainUserModel.swift */,
 				1C28738121A7B77A00B790A4 /* HelpWordModel.swift */,
 				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
@@ -1059,12 +1059,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C578F6E2202A4830077E1DD /* RecordViewControllerTutorial.swift in Sources */,
-				1CAC799721FEA75D007F8704 /* CoreDataManager.swift in Sources */,
+				1CAC799721FEA75D007F8704 /* CoreDataGetter.swift in Sources */,
 				1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */,
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */,
 				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
-				1CCF98C32214C56100C491A8 /* CoreDataGetter.swift in Sources */,
+				1CCF98C32214C56100C491A8 /* CoreDataSaver.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
 				1CAC799921FF5617007F8704 /* AudioRecordsViewController.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
@@ -1121,7 +1121,7 @@
 				1CCF98AB2211E72B00C491A8 /* GoalProgressView.swift in Sources */,
 				1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */,
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
-				1CAC792C21FB57D9007F8704 /* GoalCompleteHelper.swift in Sources */,
+				1CAC792C21FB57D9007F8704 /* GoalCompletePresenter.swift in Sources */,
 				1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */,
 				1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */,
 				1CCF98B122120DEE00C491A8 /* ArticleReadingTimer.swift in Sources */,

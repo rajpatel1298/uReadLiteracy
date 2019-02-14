@@ -56,7 +56,7 @@ class ArticleModel{
     
     func incrementReadCount(){
         readCount = readCount + 1
-        CoreDataGetter.shared.save(articleModel: self)
+        CoreDataSaver.shared.save(articleModel: self)
     }
     
     func equal(article:ArticleModel)->Bool{

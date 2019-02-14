@@ -20,7 +20,7 @@ class ArticleManager{
     }
     
     func find(url:String)->ArticleModel?{
-        let articles:[ArticleCD] = CoreDataManager.shared.getList()
+        let articles:[ArticleCD] = CoreDataGetter.shared.getList()
         
         for article in articles{
             if(article.url! == url){

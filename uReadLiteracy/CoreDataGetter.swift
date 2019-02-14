@@ -1,9 +1,9 @@
 //
-//  CoreManagerSaver.swift
+//  CoreDataHelper.swift
 //  uReadLiteracy
 //
-//  Created by Duy Le 2 on 2/13/19.
-//  Copyright © 2019 AdaptConsulting. All rights reserved.
+//  Created by Duy Le 2 on 11/8/18.
+//  Copyright © 2018 AdaptConsulting. All rights reserved.
 //
 
 import Foundation
@@ -21,177 +21,148 @@ class CoreDataGetter{
         managedContext = appDelegate.persistentContainer.viewContext
     }
     
-    func save(goalModel:ReadXArticlesGoalModel){
-        if goalModel.articles.count == goalModel.numberOfArticles {
-            goalModel.progress = 100
+    func getList() -> [ReadXArticlesGoalModel] {
+        let goals:[ReadXArticlesCD] = getList()
+    
+        var arr = [ReadXArticlesGoalModel]()
+        
+        for goal in goals{
+            let model = ReadXArticlesGoalModel(model: goal)
+            arr.append(model)
         }
-        
-        
-        let model:ReadXArticlesCD? = CoreDataManager.shared.find(name: goalModel.name, date: goalModel.date, goalType: goalModel.goalType)
-        
-        let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
-        
-        if(model == nil){
-            let object = NSManagedObject(entity: entity, insertInto: managedContext)
-            object.setValue(goalModel.name, forKeyPath: "name")
-            object.setValue(goalModel.progress, forKeyPath: "progress")
-            object.setValue(goalModel.goalType.rawValue, forKeyPath: "goalType")
-            object.setValue(goalModel.date, forKeyPath: "date")
-            object.setValue(goalModel.numberOfArticles, forKeyPath: "numberOfArticles")
-            
-            let articles = ArticleManager.shared.getUrls(articles: goalModel.articles)
-            
-            object.setValue(articles, forKeyPath: "articles")
-            object.setValue(goalModel.showCompletionToUser, forKeyPath: "showCompletionToUser")
-        }
-        else{
-            model?.articles = ArticleManager.shared.getUrls(articles: goalModel.articles) as NSObject
-            model?.progress = Int16(goalModel.progress)
-            model?.showCompletionToUser = goalModel.showCompletionToUser
-        }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        return arr
     }
     
-    func save(articleModel:ArticleModel){
-        let model:ArticleCD? = CoreDataManager.shared.find(url: articleModel.url)
+    func getList() -> [ReadXArticlesCD] {
+        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticlesCD")
         
-        if(model == nil){
-            let articleEntity = NSEntityDescription.entity(forEntityName: "ArticleCD", in: managedContext)!
-            let articleObject = NSManagedObject(entity: articleEntity, insertInto: managedContext)
-            
-            articleObject.setValue(articleModel.name, forKeyPath: "name")
-            articleObject.setValue(articleModel.readCount, forKeyPath: "readCount")
-            articleObject.setValue(articleModel.totalTimeSpent, forKeyPath: "timeSpent")
-            articleObject.setValue(articleModel.url, forKeyPath: "url")
-        }
-        else{
-            model?.name = articleModel.name
-            model?.timeSpent = articleModel.totalTimeSpent
-            model?.readCount = articleModel.readCount
-        }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticlesCD]
+        return goals
     }
     
-    func save(audioRecordModel:AudioRecordModel){
-        let model:AudioRecordCD? = nil
+    func getList() -> [ReadXMinutesGoalModel] {
+        let goals : [ReadXMinutesCD] = getList()
         
-        if(model == nil){
-            let entity = NSEntityDescription.entity(forEntityName: "AudioRecordCD", in: managedContext)!
-            let object = NSManagedObject(entity: entity, insertInto: managedContext)
-            
-            object.setValue(audioRecordModel.path, forKeyPath: "path")
-            object.setValue(audioRecordModel.title, forKeyPath: "title")
-            object.setValue(audioRecordModel.date, forKeyPath: "date")
-        }
-        else{
-            model?.path = audioRecordModel.path
-            model?.title = audioRecordModel.title
-            model?.date = audioRecordModel.date as! NSDate
-        }
+        var arr = [ReadXMinutesGoalModel]()
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        for goal in goals{
+            let model = ReadXMinutesGoalModel(model: goal)
+            arr.append(model)
         }
+        return arr
     }
     
-    func save(helpModel:HelpWordModel){
-        let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
+    func getList()->[ReadXMinutesCD]{
+        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
         
-        let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
-        
-        helpModel.getWordDifficultyIfNil()
-        
-        wordObject.setValue(helpModel.word, forKeyPath: "word")
-        wordObject.setValue(helpModel.beginningDifficult, forKeyPath: "beginningDifficult")
-        wordObject.setValue(helpModel.endingDifficult, forKeyPath: "endingDifficult")
-        wordObject.setValue(helpModel.blendDifficult, forKeyPath: "blendDifficult")
-        wordObject.setValue(helpModel.multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
+        return goals
     }
     
-    func save(goalModel:ReadXMinutesGoalModel){
-        let model:ReadXMinutesCD? = CoreDataManager.shared.find(name: goalModel.name, date: goalModel.date, goalType:goalModel.goalType)
+    func getList()->[HelpWordModel]{
+        let wordFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "HelpWordCD")
+        let words = try! managedContext.fetch(wordFetch) as! [HelpWordCD]
         
-        let entity = NSEntityDescription.entity(forEntityName: "ReadXMinutesCD", in: managedContext)!
+        var list = [HelpWordModel]()
         
-        if goalModel.totalMinutes == goalModel.minutesRead{
-            goalModel.progress = 100
+        for word in words{
+            let w = HelpWordModel(word: word.word!, beginningDifficult: word.beginningDifficult, endingDifficult: word.endingDifficult, blendDifficult: word.blendDifficult, multisyllabicDifficult: word.multisyllabicDifficult)
+            list.append(w)
         }
         
-        if(model == nil){
-            let object = NSManagedObject(entity: entity, insertInto: managedContext)
-            object.setValue(goalModel.name, forKeyPath: "name")
-            object.setValue(goalModel.progress, forKeyPath: "progress")
-            object.setValue(goalModel.goalType.rawValue, forKeyPath: "goalType")
-            object.setValue(goalModel.date, forKeyPath: "date")
-            object.setValue(goalModel.totalMinutes, forKeyPath: "totalMinutes")
-            object.setValue(goalModel.minutesRead, forKeyPath: "minutesRead")
-            object.setValue(goalModel.showCompletionToUser, forKeyPath: "showCompletionToUser")
+        return list
+    }
+    
+    func getList() -> [AudioRecordCD] {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "AudioRecordCD")
+        
+        let list = try! managedContext.fetch(fetch) as! [AudioRecordCD]
+        return list
+    }
+    
+    func getList() -> [AudioRecordModel] {
+        let list:[AudioRecordCD] = getList()
+        
+        var models = [AudioRecordModel]()
+        for item in list{
+            let model = AudioRecordModel(path: item.path!, title: item.title!, date: (item.date! as Date))
+            models.append(model)
         }
-        else{
-            model?.minutesRead = Int16(goalModel.minutesRead)
+        
+        return models
+    }
+    
+    func getList() -> [ArticleCD] {
+        let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
+        
+        let articles = try! managedContext.fetch(articleFetch) as! [ArticleCD]
+        
+        return articles
+    }
+    
+    func find(name:String,date:Date, goalType:GoalType)->ReadXArticlesCD?{
+        
+        let goals:[ReadXArticlesCD] = getList()
+        
+        for goal in goals{
             
-            var progress = Int(Float(goalModel.minutesRead/goalModel.totalMinutes)*100)
-            if goalModel.totalMinutes == goalModel.minutesRead{
-                goalModel.progress = 100
+            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
+            
+            
+            if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
+                return goal
             }
+        }
+        
+        return nil
+    }
+    
+    func find(url:String)->ArticleCD?{
+        let articles:[ArticleCD] = getList()
+        
+        for article in articles{
+            if(article.url! == url){
+                return article
+            }
+        }
+        
+        return nil
+    }
+    
+    func find(path:String,title:String,date:Date)->AudioRecordCD?{
+        let list:[AudioRecordCD] = getList()
+        
+        for item in list{
+            if(item.path == path && item.title == title && (item.date! as Date) == date){
+                return item
+            }
+        }
+        
+        return nil
+    }
+    
+    func find(name:String,date:Date, goalType:GoalType)->ReadXMinutesCD?{
+        let goals:[ReadXMinutesCD] = CoreDataGetter.shared.getList()
+        
+        for goal in goals{
+            let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
             
-            model?.progress = Int16(goalModel.progress)
-            model?.showCompletionToUser = goalModel.showCompletionToUser
+            
+            if(goal.name == name && components.year == 0 && components.month == 0 && components.day == 0){
+                return goal
+            }
         }
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        return nil
     }
     
-    func save(goalModel:GoalModel){
-        if let goalModel = goalModel as? ReadXMinutesGoalModel{
-            save(goalModel: goalModel)
-        }
-        if let goalModel = goalModel as? ReadXArticlesGoalModel{
-            save(goalModel: goalModel)
-        }
-    }
-    
-    func save(model:MainUserModel){
-        let userEntity = NSEntityDescription.entity(forEntityName: "UserCD", in: managedContext)!
+    func getMainUser()->UserCD?{
+        let userFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCD")
+        let users = try! managedContext.fetch(userFetch)
         
-        let user = NSManagedObject(entity: userEntity, insertInto: managedContext)
-        
-        user.setValue(model.nickname, forKeyPath: "nickname")
-        user.setValue(model.uid, forKeyPath: "uid")
-        user.setValue(model.email, forKeyPath: "email")
-        user.setValue(model.password, forKeyPath: "password")
-        
-        if model.image != nil {
-            let data = UIImagePNGRepresentation(model.image!)
-            user.setValue(data, forKeyPath: "image")
+        if(users.count > 0){
+            return users.first as! UserCD
         }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            fatalError("Could not save. \(error), \(error.userInfo)")
-        }
+        return nil
     }
 }

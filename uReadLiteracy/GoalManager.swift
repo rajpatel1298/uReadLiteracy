@@ -14,8 +14,8 @@ class GoalManager{
     private var lastTimeUpdated = Date()
     
     func getDailyGoals()->[GoalModel]{
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataManager.shared.getList()
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataManager.shared.getList()
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataGetter.shared.getList()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataGetter.shared.getList()
         
         var dailyGoals = [GoalModel]()
         
@@ -35,24 +35,24 @@ class GoalManager{
     }
     
     func getOngoingGoals()->[GoalModel]{
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataManager.shared.getList()
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataManager.shared.getList()
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataGetter.shared.getList()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataGetter.shared.getList()
         
-        var dailyGoals = [GoalModel]()
+        var ongoingGoals = [GoalModel]()
         
         for goal in readXArticlesGoals{
             if goal.goalType == GoalType.Ongoing{
-                dailyGoals.append(goal)
+                ongoingGoals.append(goal)
             }
         }
         
         for goal in readXMinutesGoals{
             if goal.goalType == GoalType.Ongoing{
-                dailyGoals.append(goal)
+                ongoingGoals.append(goal)
             }
         }
         
-        return dailyGoals
+        return ongoingGoals
     }
     
     func updateGoals(article:ArticleModel){
@@ -69,7 +69,7 @@ class GoalManager{
     }
     
     private func updateReadXArticlesGoals(article:ArticleModel){
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataManager.shared.getList()
+        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataGetter.shared.getList()
         
         for goal in readXArticlesGoals{
             if goal.isCompleted(){
@@ -88,23 +88,27 @@ class GoalManager{
                 
                 if  !goal.showCompletionToUser{
                     goal.showCompletionToUser = true
-                    GoalCompleteHelper.shared.show(goal: goal)
+                    GoalCompletePresenter.shared.show(goal: goal)
                 }
-                CoreDataGetter.shared.save(goalModel: goal)
+                CoreDataSaver.shared.save(goalModel: goal)
             }
-            
-            
         }
     }
     
     private func updateReadXMinutesGoals(article:ArticleModel){
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataManager.shared.getList()
+        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataGetter.shared.getList()
         for goal in readXMinutesGoals{
             goal.minutesRead = Int(article.totalTimeSpent)
             if(goal.minutesRead > goal.totalMinutes){
                 goal.minutesRead = goal.totalMinutes
             }
-            CoreDataGetter.shared.save(goalModel: goal)
+            
+            if  !goal.showCompletionToUser{
+                goal.showCompletionToUser = true
+                GoalCompletePresenter.shared.show(goal: goal)
+            }
+            
+            CoreDataSaver.shared.save(goalModel: goal)
         }
     }
 }

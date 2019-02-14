@@ -52,7 +52,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     private func getListTitleWithoutDuplicate(){
         list.removeAll()
         
-        let models:[AudioRecordModel] = CoreDataManager.shared.getList()
+        let models:[AudioRecordModel] = CoreDataGetter.shared.getList()
         
         for model in models{
             if list[model.getTitle()] == nil{

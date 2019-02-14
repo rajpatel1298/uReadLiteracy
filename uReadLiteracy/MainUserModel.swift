@@ -22,7 +22,7 @@ class MainUserModel{
     private let storage = Storage.storage()
         
     init(){
-        let user = CoreDataManager.shared.getMainUser()
+        let user = CoreDataGetter.shared.getMainUser()
         
         if let user = user{
             if user.image != nil{
@@ -49,7 +49,7 @@ class MainUserModel{
                 self.saveUserImageToFirebaseStorage(completionHandler: { (state) in
                     switch(state){
                     case .Success:
-                        CoreDataGetter.shared.save(model: self)
+                        CoreDataSaver.shared.save(model: self)
                         completionHandler(.Success)
                         break
                     case .Failure(let err):
