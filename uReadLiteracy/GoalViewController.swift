@@ -207,10 +207,10 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ChooseGoalViewController{
             if(dailyGoals.count == 0){
-                destination.goal = GoalType.Daily
+                destination.goalType = GoalType.Daily
             }
             else if(ongoingGoals.count == 0){
-                destination.goal = GoalType.Ongoing
+                destination.goalType = GoalType.Ongoing
             }
         }
     }

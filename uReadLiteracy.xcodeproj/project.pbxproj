@@ -21,9 +21,8 @@
 		1C4C67DE218C004A00D5383D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67DD218C004A00D5383D /* ProfileViewController.swift */; };
 		1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67E1218D27EE00D5383D /* InfoAlert.swift */; };
 		1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67E8218D321F00D5383D /* ReportAlert.swift */; };
-		1C4C67EE218D3E6C00D5383D /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67ED218D3E6C00D5383D /* State.swift */; };
 		1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67EF218D400500D5383D /* HelpFunctionError.swift */; };
-		1C4C67F8218E5D6D00D5383D /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67F7218E5D6D00D5383D /* UIState.swift */; };
+		1C4C67F8218E5D6D00D5383D /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C67F7218E5D6D00D5383D /* State.swift */; };
 		1C4C67FC218E64B300D5383D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C4C67FB218E64B300D5383D /* GoogleService-Info.plist */; };
 		1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C680921912A3000D5383D /* AddUserInfoViewController.swift */; };
 		1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C513A5A21801B7E00FFDC82 /* ParentWebPage.swift */; };
@@ -128,6 +127,9 @@
 		1CAD87A5220A20DB0096DD90 /* 3227-error-404-facebook-style.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */; };
 		1CAD87A7220A21190096DD90 /* NoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A6220A21190096DD90 /* NoResultViewController.swift */; };
 		1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A8220A456B0096DD90 /* 629-empty-box.json */; };
+		1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */; };
+		1CC1986B22161C300021BAFC /* CoreDataGoalGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1986A22161C300021BAFC /* CoreDataGoalGetter.swift */; };
+		1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */; };
 		1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */; };
 		1CCF9885220FB68100C491A8 /* 3151-books.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF9884220FB68100C491A8 /* 3151-books.json */; };
 		1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */; };
@@ -194,9 +196,8 @@
 		1C4C67DD218C004A00D5383D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1C4C67E1218D27EE00D5383D /* InfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlert.swift; sourceTree = "<group>"; };
 		1C4C67E8218D321F00D5383D /* ReportAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAlert.swift; sourceTree = "<group>"; };
-		1C4C67ED218D3E6C00D5383D /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		1C4C67EF218D400500D5383D /* HelpFunctionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpFunctionError.swift; sourceTree = "<group>"; };
-		1C4C67F7218E5D6D00D5383D /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
+		1C4C67F7218E5D6D00D5383D /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		1C4C67FB218E64B300D5383D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C4C680921912A3000D5383D /* AddUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserInfoViewController.swift; sourceTree = "<group>"; };
 		1C513A5A21801B7E00FFDC82 /* ParentWebPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentWebPage.swift; sourceTree = "<group>"; };
@@ -306,6 +307,9 @@
 		1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3227-error-404-facebook-style.json"; sourceTree = "<group>"; };
 		1CAD87A6220A21190096DD90 /* NoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultViewController.swift; sourceTree = "<group>"; };
 		1CAD87A8220A456B0096DD90 /* 629-empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "629-empty-box.json"; sourceTree = "<group>"; };
+		1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGoalsGetter.swift; sourceTree = "<group>"; };
+		1CC1986A22161C300021BAFC /* CoreDataGoalGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGoalGetter.swift; sourceTree = "<group>"; };
+		1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingGoalGetter.swift; sourceTree = "<group>"; };
 		1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = black_hand_click_gesture.json; sourceTree = "<group>"; };
 		1CCF9884220FB68100C491A8 /* 3151-books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3151-books.json"; sourceTree = "<group>"; };
 		1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
@@ -494,11 +498,10 @@
 			isa = PBXGroup;
 			children = (
 				1CAC79A021FFB0B9007F8704 /* Audio */,
-				1CAC799221FE242B007F8704 /* Core Data Model Handler */,
+				1CAC799221FE242B007F8704 /* Core Data Model */,
 				CDA652951FA0F5B700835624 /* uReadLiteracy.xcdatamodeld */,
 				1C4C67EC218D3E5100D5383D /* Web */,
-				1C4C67ED218D3E6C00D5383D /* State.swift */,
-				1C4C67F7218E5D6D00D5383D /* UIState.swift */,
+				1C4C67F7218E5D6D00D5383D /* State.swift */,
 				1C4C67EF218D400500D5383D /* HelpFunctionError.swift */,
 				1CAC791C21FB5693007F8704 /* ArticleComment.swift */,
 				1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */,
@@ -618,7 +621,10 @@
 				1CCF98AE22120C9300C491A8 /* ArticleManager.swift */,
 				1CCF98B022120DEE00C491A8 /* ArticleReadingTimer.swift */,
 				1C9C77552194BFBF002ADA76 /* CoreDataGetter.swift */,
+				1CC1986A22161C300021BAFC /* CoreDataGoalGetter.swift */,
 				1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */,
+				1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */,
+				1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -729,7 +735,7 @@
 			name = "Record Page";
 			sourceTree = "<group>";
 		};
-		1CAC799221FE242B007F8704 /* Core Data Model Handler */ = {
+		1CAC799221FE242B007F8704 /* Core Data Model */ = {
 			isa = PBXGroup;
 			children = (
 				1C28737F21A7B42B00B790A4 /* MainUserModel.swift */,
@@ -738,7 +744,7 @@
 				1CAC799021FE241E007F8704 /* AudioRecordModel.swift */,
 				1CAC791B21FB5666007F8704 /* Goal */,
 			);
-			name = "Core Data Model Handler";
+			name = "Core Data Model";
 			sourceTree = "<group>";
 		};
 		1CAC79A021FFB0B9007F8704 /* Audio */ = {
@@ -1083,12 +1089,13 @@
 				1CAD87A1220A07970096DD90 /* UIViewControllerExtension.swift in Sources */,
 				1CAC79A621FFB0DE007F8704 /* AudioSlider.swift in Sources */,
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
+				1CC1986B22161C300021BAFC /* CoreDataGoalGetter.swift in Sources */,
 				CD1DCA601FF3592D00FCDDB5 /* WalkthroughPageViewController.swift in Sources */,
 				1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */,
 				1CCF98A72211E50100C491A8 /* RoundedButton.swift in Sources */,
 				1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */,
 				1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */,
-				1C4C67F8218E5D6D00D5383D /* UIState.swift in Sources */,
+				1C4C67F8218E5D6D00D5383D /* State.swift in Sources */,
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
 				1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */,
@@ -1101,7 +1108,6 @@
 				1CAC792821FB5764007F8704 /* ActivityIndicatorWithDarkBackground.swift in Sources */,
 				1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */,
 				CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */,
-				1C4C67EE218D3E6C00D5383D /* State.swift in Sources */,
 				1CAC791821FB5590007F8704 /* ReadXMinutesGoalModel.swift in Sources */,
 				1C28739121AA12A500B790A4 /* GoalModel.swift in Sources */,
 				1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */,
@@ -1109,6 +1115,7 @@
 				1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */,
 				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
 				1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */,
+				1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */,
 				1CCF98B922129ECC00C491A8 /* BrowserVCAlerts.swift in Sources */,
 				1C28737C21A50B6500B790A4 /* BrowserController.swift in Sources */,
 				CD704F4E2019A1B700E1E4F8 /* BrowseViewController.swift in Sources */,
@@ -1139,6 +1146,7 @@
 				1CCF98B622122A6C00C491A8 /* Observer.swift in Sources */,
 				1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */,
 				1C578F6922023D3A0077E1DD /* PlayButton.swift in Sources */,
+				1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */,
 				1CAC795621FB62F2007F8704 /* ProfileViewControllerTutorial.swift in Sources */,
 				1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,

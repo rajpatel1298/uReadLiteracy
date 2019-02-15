@@ -31,7 +31,7 @@ class BrowserLogicController{
         return false
     }
     
-    func helpFunction(webView: WKWebviewWithHelpMenu, completionHandler:@escaping (_ state:State)->Void){
+    func helpFunction(webView: WKWebviewWithHelpMenu, completionHandler:@escaping (_ state:State,_ error:HelpFunctionError?, _ url:URL?)->Void){
         webView.evaluateJavaScript("window.getSelection().toString()", completionHandler: {
             (selectedWord: Any?, error: Error?) in
             
@@ -42,14 +42,14 @@ class BrowserLogicController{
             if(self.onlyOneWordIsSelected(word: word)){
                 if let url = URL(string: "http://www.dictionary.com/browse/\(word)?s=t"){
                     CoreDataSaver.shared.save(helpModel: HelpWordModel(word: word))
-                    completionHandler(.Success(url))
+                    completionHandler(.Success, nil, url)
                 }
                 else{
-                    completionHandler(.Failure(HelpFunctionError.UnknownError))
+                    completionHandler(.Failure(""),HelpFunctionError.UnknownError,nil)
                 }
             }
             else{
-                completionHandler(.Failure(HelpFunctionError.MoreThanOneWord))
+                completionHandler(.Failure(""),HelpFunctionError.MoreThanOneWord,nil)
             }
         })
     }

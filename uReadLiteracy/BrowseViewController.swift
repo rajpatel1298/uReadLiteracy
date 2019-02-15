@@ -146,19 +146,26 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     }
 
     func helpFunction(){
-        logicController.helpFunction(webView: webView) { [weak self] (state) in
+        logicController.helpFunction(webView: webView) { [weak self] (state, error, url) in
             guard let strongSelf = self else{
                 return
             }
             
             switch(state){
-            case .Success(let url):
-                strongSelf.urlSegue = url as! URL
+            case .Success():
+                guard let url = url else{
+                    return
+                }
+                strongSelf.urlSegue = url
                 strongSelf.performSegue(withIdentifier: "BrowserToDictionaryWebViewSegue", sender: self)
                 break
-            case .Failure(let helpFunctionError):
-                let helpFunctionError = helpFunctionError as! HelpFunctionError
+            case .Failure(let _):
+                guard let helpFunctionError = error else{
+                    return
+                }
                 strongSelf.handleHelpError(helpFunctionError: helpFunctionError)
+            default:
+                break
             }
         }
     }

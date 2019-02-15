@@ -34,7 +34,7 @@ class MainUserModel{
         }
     }
     
-    func createUser(image:UIImage?, nickname: String, completionHandler:@escaping (_ state:UIState)->Void){
+    func createUser(image:UIImage?, nickname: String, completionHandler:@escaping (_ state:State)->Void){
         self.nickname = nickname
         self.image = image
         
@@ -67,7 +67,7 @@ class MainUserModel{
         }
     }
     
-    private func saveUserImageToFirebaseStorage(completionHandler:@escaping (_ state:UIState)->Void){
+    private func saveUserImageToFirebaseStorage(completionHandler:@escaping (_ state:State)->Void){
         if image == nil {
             completionHandler(.Success)
             return

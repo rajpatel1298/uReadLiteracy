@@ -32,9 +32,4 @@ class AudioRecordModel{
         return path
     }
     
-    
-    
-    
-    
-    
 }

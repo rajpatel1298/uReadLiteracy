@@ -31,7 +31,7 @@ class ChooseGoalTypeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ChooseGoalViewController{
-            destination.goal = goalTypeSegue
+            destination.goalType = goalTypeSegue
         }
     }
     
