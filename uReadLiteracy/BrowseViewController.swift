@@ -34,6 +34,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     var previousBtn:UIButton!
     
+    var questionManager: ComprehensionQuestionManager!
+    
     fileprivate var popupManager:ComprehensionPopupManager!
     fileprivate var popup:ComprehensionPopup!
     fileprivate var alerts:BrowserVCAlerts!

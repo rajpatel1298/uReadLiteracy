@@ -16,11 +16,17 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
     private var onSkip:(()->Void)?
     
     private var answer = ""
+    
     let animationDuration = TimeInterval(0.5)
     
     private let topBackgroundIV = UIImageView(frame: .zero)
     private let popupView = UIStackView(frame: .zero)
     private let popupViewBackground = UIView(frame: .zero)
+    
+    private var questionsList = ["Is this fiction (made up) or non-fiction (true, facts)?",
+                                 "What’s interesting to me about this?  Why do I want to read it?",
+                                  "What do I notice about the text before I even start to read?"]
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -121,7 +127,7 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
     
     private func getQuestionLabel()->UILabel{
         let questionLabel = UILabel(frame: .zero)
-        questionLabel.text = "Question: What is the meaning of life?"
+        questionLabel.text = questionsList.randomElement()
         questionLabel.font = UIFont(name: "NokioSansAlt-Medium", size: 23)
         questionLabel.textAlignment = .center
         questionLabel.numberOfLines = 3
