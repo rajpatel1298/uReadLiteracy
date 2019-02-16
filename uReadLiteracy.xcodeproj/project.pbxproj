@@ -411,6 +411,7 @@
 				1CCF98B22212211200C491A8 /* BrowserLogicController.swift */,
 				1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */,
 				1C28737D21A5ABFF00B790A4 /* DictionaryWebViewController.swift */,
+				1CAC793621FB5978007F8704 /* Comprehension Popup */,
 			);
 			name = Browser;
 			sourceTree = "<group>";
@@ -795,7 +796,6 @@
 				1C9C775A219A90A5002ADA76 /* Learn More */,
 				1C28738721A855D200B790A4 /* Goal */,
 				1CAC792D21FB5807007F8704 /* Goal Complete */,
-				1CAC793621FB5978007F8704 /* Comprehension Popup */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

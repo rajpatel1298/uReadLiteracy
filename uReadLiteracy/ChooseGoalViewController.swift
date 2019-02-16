@@ -9,7 +9,7 @@
 import UIKit
 import Lottie
 
-class ChooseGoalViewController: UITableViewController {
+class ChooseGoalViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var dailyGoals = [GoalModel]()
     var ongoingGoals = [GoalModel]()
@@ -17,16 +17,23 @@ class ChooseGoalViewController: UITableViewController {
     var goalType:GoalType!
     
     private var addGoalCompleteAnimationView:CompletionAnimationView!
+    private var noResultVC:NoResultViewController!
+    
+    @IBOutlet var tableview: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "library (1)"))
-        tableView.backgroundView?.alpha = 0.05
+        tableview.backgroundView = UIImageView(image: #imageLiteral(resourceName: "library (1)"))
+        tableview.backgroundView?.alpha = 0.05
         
-        tableView.reloadData()
+        tableview.reloadData()
         
         addGoalCompleteAnimationView = CompletionAnimationView(frame: .zero)
         view.addSubview(addGoalCompleteAnimationView)
+        
+        noResultVC = (storyboard!.instantiateViewController(withIdentifier: "NoResultViewController") as! NoResultViewController)
+        noResultVC.inject(title: "We Are Out of Goals For Now", actionStr: "", action: {})
+        add(noResultVC)
     }
     
     override func viewDidLayoutSubviews() {
@@ -35,6 +42,7 @@ class ChooseGoalViewController: UITableViewController {
         let size = view.frame.width
         
         addGoalCompleteAnimationView.frame = CGRect(x: 0, y: view.frame.height/2 - size, width: size, height: size)
+        noResultVC.view.frame = view.frame
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +55,15 @@ class ChooseGoalViewController: UITableViewController {
         }
         getGoals()
         addGoalCompleteAnimationView.isHidden = true
+        
+        if (goalType == GoalType.Daily && dailyGoals.count == 0) || (goalType == GoalType.Ongoing && ongoingGoals.count == 0){
+            noResultVC.view.isHidden = false
+            tableview.isHidden = true
+        }
+        else{
+            noResultVC.view.isHidden = true
+            tableview.isHidden = false
+        }
     }
     
     func getGoals(){
@@ -61,11 +78,8 @@ class ChooseGoalViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(goalType!){
         case .Daily:
             return dailyGoals.count
@@ -75,7 +89,7 @@ class ChooseGoalViewController: UITableViewController {
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseGoalCell", for: indexPath) as! ChooseGoalCell
         cell.backgroundColor = UIColor.clear
 
@@ -89,8 +103,7 @@ class ChooseGoalViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = ChoosingGoalAlert(viewcontroller: self) {
             DispatchQueue.main.async {
                 switch(self.goalType!){

@@ -694,51 +694,69 @@
             </objects>
             <point key="canvasLocation" x="4977" y="-643"/>
         </scene>
-        <!--Choose ? Goal-->
-        <scene sceneID="Ih9-pk-4Mw">
+        <!--Choose Goal View Controller-->
+        <scene sceneID="Q1L-Vc-x4g">
             <objects>
-                <tableViewController id="PTJ-cV-5MB" customClass="ChooseGoalViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="36l-Sn-8qE">
+                <viewController id="LHQ-Qw-w1T" customClass="ChooseGoalViewController" customModule="uReadLiteracy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jGn-Fg-thE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vq5-Ov-gPS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xeg-Hm-NK5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChooseGoalCell" rowHeight="100" id="x8d-11-QdC" customClass="ChooseGoalCell" customModule="uReadLiteracy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x8d-11-QdC" id="Jf8-PC-ySR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read 10 articles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grD-ys-gSZ">
-                                            <rect key="frame" x="16" y="11" width="343" height="78"/>
-                                            <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="grD-ys-gSZ" secondAttribute="bottom" id="0UK-Qz-l7E"/>
-                                        <constraint firstItem="grD-ys-gSZ" firstAttribute="leading" secondItem="Jf8-PC-ySR" secondAttribute="leadingMargin" id="FFM-EL-jt0"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="grD-ys-gSZ" secondAttribute="trailing" id="Ffb-1J-rCB"/>
-                                        <constraint firstItem="grD-ys-gSZ" firstAttribute="top" secondItem="Jf8-PC-ySR" secondAttribute="topMargin" id="Qck-CP-GCk"/>
-                                    </constraints>
-                                </tableViewCellContentView>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="agB-bP-ev8">
+                                <rect key="frame" x="16" y="64" width="343" height="479"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChooseGoalCell" rowHeight="100" id="2ox-qT-HoA" customClass="ChooseGoalCell" customModule="uReadLiteracy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ox-qT-HoA" id="IEo-2i-O1p">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read 10 articles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fQ-eZ-M6j">
+                                                    <rect key="frame" x="15" y="11" width="313" height="78"/>
+                                                    <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3fQ-eZ-M6j" firstAttribute="leading" secondItem="IEo-2i-O1p" secondAttribute="leadingMargin" id="Adl-dG-afI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="3fQ-eZ-M6j" secondAttribute="bottom" id="Z4g-JF-Avq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3fQ-eZ-M6j" secondAttribute="trailing" id="iLA-0I-coV"/>
+                                                <constraint firstItem="3fQ-eZ-M6j" firstAttribute="top" secondItem="IEo-2i-O1p" secondAttribute="topMargin" id="vbR-Ry-Pv8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="3fQ-eZ-M6j" id="cjA-vP-iI5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="nameLabel" destination="grD-ys-gSZ" id="LdL-hb-yE1"/>
+                                    <outlet property="dataSource" destination="LHQ-Qw-w1T" id="hva-mN-3PY"/>
+                                    <outlet property="delegate" destination="LHQ-Qw-w1T" id="AV1-v1-kfQ"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="PTJ-cV-5MB" id="CeR-Rg-Ru2"/>
-                            <outlet property="delegate" destination="PTJ-cV-5MB" id="DfV-J2-Z9m"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Choose ? Goal" id="Yi5-et-id5"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="faI-TZ-lQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="agB-bP-ev8" secondAttribute="trailing" id="Cva-fV-L5R"/>
+                            <constraint firstItem="Vq5-Ov-gPS" firstAttribute="top" secondItem="agB-bP-ev8" secondAttribute="bottom" id="Ep6-dy-5o5"/>
+                            <constraint firstItem="agB-bP-ev8" firstAttribute="leading" secondItem="Xeg-Hm-NK5" secondAttribute="leadingMargin" id="F7W-Po-6wm"/>
+                            <constraint firstItem="agB-bP-ev8" firstAttribute="top" secondItem="jGn-Fg-thE" secondAttribute="bottom" id="Fe6-2G-tow"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="agB-bP-ev8" id="Svm-em-1mc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qKU-eI-WhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5772" y="-1380"/>
+            <point key="canvasLocation" x="5858" y="-1379"/>
         </scene>
         <!--Goal Type-->
         <scene sceneID="zSB-zu-jyS">
@@ -826,7 +844,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Goal Type" id="SQ3-RS-gHR"/>
                     <connections>
-                        <segue destination="PTJ-cV-5MB" kind="show" identifier="ChooseGoalTypeToChooseGoalSegue" id="Kjr-3f-2ix"/>
+                        <segue destination="LHQ-Qw-w1T" kind="show" identifier="ChooseGoalTypeToChooseGoalSegue" id="XiL-0l-OnR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHL-qS-qWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
