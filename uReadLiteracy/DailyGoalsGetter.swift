@@ -24,11 +24,15 @@ class DailyGoalsGetter{
         var result = [GoalModel]()
         
         for goal in list{
-            if let _:ReadXMinutesCD = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType){
-                result.append(goal)
-            }
-            if let _:ReadXArticlesCD = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType){
-                result.append(goal)
+            let readXMinutesCD:ReadXMinutesCD? = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType)
+            let readXArticlesCD:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType)
+            
+            if readXMinutesCD == nil && readXMinutesCD == nil{
+                let components = Calendar.current.dateComponents([.day], from: goal.date, to: Date())
+                
+                if(components.day! != 0 ){
+                    result.append(goal)
+                }
             }
         }
         return result

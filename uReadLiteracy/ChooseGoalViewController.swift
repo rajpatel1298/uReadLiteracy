@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class ChooseGoalViewController: UITableViewController {
 
@@ -15,12 +16,25 @@ class ChooseGoalViewController: UITableViewController {
     
     var goalType:GoalType!
     
+    private var addGoalCompleteAnimationView:CompletionAnimationView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "library (1)"))
         tableView.backgroundView?.alpha = 0.05
         
         tableView.reloadData()
+        
+        addGoalCompleteAnimationView = CompletionAnimationView(frame: .zero)
+        view.addSubview(addGoalCompleteAnimationView)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let size = view.frame.width
+        
+        addGoalCompleteAnimationView.frame = CGRect(x: 0, y: view.frame.height/2 - size, width: size, height: size)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +46,7 @@ class ChooseGoalViewController: UITableViewController {
             navigationItem.title = "Chose Going Goal"
         }
         getGoals()
+        addGoalCompleteAnimationView.isHidden = true
     }
     
     func getGoals(){
@@ -75,6 +90,7 @@ class ChooseGoalViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let alert = ChoosingGoalAlert(viewcontroller: self) {
             DispatchQueue.main.async {
                 switch(self.goalType!){
@@ -102,7 +118,15 @@ class ChooseGoalViewController: UITableViewController {
         }
         
         alert.setMessage(message: message)
-        alert.show()
+        
+        AudioPlayer.shared.playSound(soundName: "goalAdded", audioExtension: "mp3")
+        
+        addGoalCompleteAnimationView.isHidden = false
+        addGoalCompleteAnimationView.play { (completed) in
+            if completed{
+                alert.show()
+            }
+        }
     }
 
     /*

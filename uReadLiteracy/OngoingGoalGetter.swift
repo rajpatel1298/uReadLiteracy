@@ -24,10 +24,10 @@ class OngoingGoalGetter{
         var result = [GoalModel]()
         
         for goal in list{
-            if let _:ReadXMinutesCD = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType){
-                result.append(goal)
-            }
-            if let _:ReadXArticlesCD = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType){
+            let readXMinutesCD:ReadXMinutesCD? = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType)
+            let readXArticlesCD:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType)
+            
+            if readXMinutesCD == nil && readXArticlesCD == nil{
                 result.append(goal)
             }
         }

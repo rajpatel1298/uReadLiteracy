@@ -1185,6 +1185,9 @@
                                 <state key="normal" title="Add New Goal">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="4u0-aE-SB7" kind="show" id="iA3-hq-rlE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -7656,4 +7659,7 @@ AAAAAFkAAAAAAAAAAAAAAAAABZrRA
         <image name="teacher" width="25" height="25"/>
         <image name="uReadLoginBook" width="1000" height="780"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iA3-hq-rlE"/>
+    </inferredMetricsTieBreakers>
 </document>

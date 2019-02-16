@@ -131,6 +131,10 @@ class ProfileViewController: BaseViewController {
     }
     
     
+    @IBAction func addNewGoalBtnPressed(_ sender: Any) {
+    }
+    
+    
     
 
     /*
