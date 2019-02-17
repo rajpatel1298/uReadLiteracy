@@ -168,6 +168,8 @@
 		CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E1E15205C5CF500AC2D1A /* LearnCell.swift */; };
 		CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6462B91FF33A88007AF08A /* First Time.storyboard */; };
 		CD704F4E2019A1B700E1E4F8 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */; };
+		CD7DC5F22218AB280077BEE5 /* generalQuestionsBeginning.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD7DC5F12218AB280077BEE5 /* generalQuestionsBeginning.txt */; };
+		CD7DC5F42218ABE70077BEE5 /* ComprehensionQuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7DC5F32218ABE70077BEE5 /* ComprehensionQuestionManager.swift */; };
 		CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */; };
 		CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6528E1FA0F5B700835624 /* AppDelegate.swift */; };
 		CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA652901FA0F5B700835624 /* StartViewController.swift */; };
@@ -355,6 +357,8 @@
 		CD6462B91FF33A88007AF08A /* First Time.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "First Time.storyboard"; sourceTree = "<group>"; };
 		CD686C6721FD1F3E000482C0 /* RecordViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
+		CD7DC5F12218AB280077BEE5 /* generalQuestionsBeginning.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = generalQuestionsBeginning.txt; sourceTree = "<group>"; };
+		CD7DC5F32218ABE70077BEE5 /* ComprehensionQuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionQuestionManager.swift; sourceTree = "<group>"; };
 		CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		CDA6528B1FA0F5B700835624 /* uReadLiteracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uReadLiteracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA6528E1FA0F5B700835624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -529,6 +533,7 @@
 		1C513A8F218662A700FFDC82 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				CD7DC5F02218AAF20077BEE5 /* Comprehension Questions */,
 				1CAC796221FB63A3007F8704 /* Lottie Animations */,
 				1CAC795721FB635A007F8704 /* Sound */,
 				1C4C67FB218E64B300D5383D /* GoogleService-Info.plist */,
@@ -702,6 +707,7 @@
 				1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */,
 				1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */,
 				1CC1987C2218CB910021BAFC /* PopupLocation.swift */,
+				CD7DC5F32218ABE70077BEE5 /* ComprehensionQuestionManager.swift */,
 			);
 			name = "Comprehension Popup";
 			sourceTree = "<group>";
@@ -854,6 +860,14 @@
 				1CAC797721FBC7BC007F8704 /* ReadTab.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		CD7DC5F02218AAF20077BEE5 /* Comprehension Questions */ = {
+			isa = PBXGroup;
+			children = (
+				CD7DC5F12218AB280077BEE5 /* generalQuestionsBeginning.txt */,
+			);
+			name = "Comprehension Questions";
 			sourceTree = "<group>";
 		};
 		CDA652821FA0F5B700835624 = {
@@ -1013,6 +1027,7 @@
 				1CAC796C21FB63BA007F8704 /* facebook.json in Resources */,
 				1C578F852204D3750077E1DD /* img_3.png in Resources */,
 				1C578F812204D3750077E1DD /* 1552-microphone.json in Resources */,
+				CD7DC5F22218AB280077BEE5 /* generalQuestionsBeginning.txt in Resources */,
 				1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
 				1C578F892204D3750077E1DD /* img_5.png in Resources */,
@@ -1126,6 +1141,7 @@
 				1CAC797021FB65AC007F8704 /* ChooseGoalTypeViewController.swift in Sources */,
 				1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */,
 				1C578F6B22023E020077E1DD /* PlayerState.swift in Sources */,
+				CD7DC5F42218ABE70077BEE5 /* ComprehensionQuestionManager.swift in Sources */,
 				1CAC79AD21FFB396007F8704 /* AudioPlayerWithTimer.swift in Sources */,
 				1CAD87A1220A07970096DD90 /* UIViewControllerExtension.swift in Sources */,
 				1CAC79A621FFB0DE007F8704 /* AudioSlider.swift in Sources */,

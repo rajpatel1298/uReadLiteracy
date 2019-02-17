@@ -25,6 +25,11 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
     fileprivate let darkBackground = CALayer()
     fileprivate var questionLabel:QuestionLabel!
     
+    private var questionsList = ["Is this fiction (made up) or non-fiction (true, facts)?",
+                                 "What’s interesting to me about this?  Why do I want to read it?",
+                                  "What do I notice about the text before I even start to read?"]
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupDarkGrayBackground()
