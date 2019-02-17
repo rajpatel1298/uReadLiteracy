@@ -526,6 +526,8 @@
 				1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */,
 				1CCF98B422122A6B00C491A8 /* Observer.swift */,
 				1CCF98B522122A6B00C491A8 /* Subject.swift */,
+				1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */,
+				1CC1987C2218CB910021BAFC /* PopupLocation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -705,8 +707,6 @@
 			isa = PBXGroup;
 			children = (
 				1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */,
-				1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */,
-				1CC1987C2218CB910021BAFC /* PopupLocation.swift */,
 				CD7DC5F32218ABE70077BEE5 /* ComprehensionQuestionManager.swift */,
 			);
 			name = "Comprehension Popup";
