@@ -12,15 +12,18 @@ import UIKit
 class ComprehensionPopup:UIView,UITextViewDelegate{
     
     
-    private var onAccept:((_ answer:String)->Void)?
-    private var onSkip:(()->Void)?
+    fileprivate var onAccept:((_ answer:String)->Void)?
+    fileprivate var onSkip:(()->Void)?
     
-    private var answer = ""
+    fileprivate var answer = ""
     let animationDuration = TimeInterval(0.5)
     
-    private let topBackgroundIV = UIImageView(frame: .zero)
-    private let popupView = UIStackView(frame: .zero)
-    private let popupViewBackground = UIView(frame: .zero)
+    fileprivate let topBackgroundIV = UIImageView(frame: .zero)
+    fileprivate let popupView = UIStackView(frame: .zero)
+    fileprivate let popupViewBackground = UIView(frame: .zero)
+    
+    fileprivate let darkBackground = CALayer()
+    fileprivate var questionLabel:QuestionLabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,107 +41,6 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         setSubviewsLocation()
     }
     
-    func setupClosure(onAccept:@escaping (_ answer:String)->Void, onSkip:@escaping ()->Void){
-        self.onAccept = onAccept
-        self.onSkip = onSkip
-    }
-    
-    private func setupDarkGrayBackground(){
-        let darkBackground = CALayer()
-        darkBackground.frame = self.frame
-        darkBackground.backgroundColor = UIColor.black.cgColor
-        darkBackground.opacity = 0.5
-        self.layer.addSublayer(darkBackground)
-    }
-    
-    private func setupPopupView(){
-        popupView.alignment = .fill
-        popupView.distribution = .fillEqually
-        popupView.axis = .vertical
-        popupView.spacing = 10
-        
-        
-        popupViewBackground.backgroundColor = UIColor.white
-        addSubview(popupViewBackground)
-        
-        let questionLabel = getQuestionLabel()
-        popupView.addArrangedSubview(questionLabel)
-        let responseTV = getResponseTextView()
-        popupView.addArrangedSubview(responseTV)
-        
-        let optionView = getOptionView()
-        popupView.addArrangedSubview(optionView)
-        
-        let skipBtn = getSkipBtn()
-        optionView.addArrangedSubview(skipBtn)
-        
-        let answerBtn = getAnswerBtn()
-        optionView.addArrangedSubview(answerBtn)
-        
-        let dashedBorder = CAShapeLayer()
-        dashedBorder.strokeColor = UIColor.black.cgColor
-        dashedBorder.lineDashPattern = [8, 4]
-        dashedBorder.lineWidth = 1
-        dashedBorder.frame = responseTV.bounds
-        
-        dashedBorder.fillColor = nil
-        dashedBorder.path = UIBezierPath(rect: responseTV.frame).cgPath
-        popupView.layer.addSublayer(dashedBorder)
-        
-        addSubview(popupView)
-    }
-    
-    private func getAnswerBtn()->UIButton{
-        let answerBtn = UIButton(frame: .zero)
-        answerBtn.setTitle("Answer", for: .normal)
-        answerBtn.setTitleColor(UIColor.white, for: .normal)
-        answerBtn.backgroundColor = UIColor.init(red: 255/255, green: 140/255, blue: 0/255, alpha: 1)
-        answerBtn.layer.cornerRadius = 10
-        answerBtn.layer.masksToBounds = true
-        answerBtn.addTarget(self, action: #selector(acceptBtnPressed), for: .touchDown)
-        return answerBtn
-    }
-    
-    private func getSkipBtn()->UIButton{
-        let skipBtn = UIButton(frame: .zero)
-        skipBtn.setTitle("Skip", for: .normal)
-        skipBtn.setTitleColor(UIColor.lightGray, for: .normal)
-        skipBtn.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
-        skipBtn.layer.cornerRadius = 10
-        skipBtn.layer.masksToBounds = true
-        skipBtn.addTarget(self, action: #selector(skipBtnPressed), for: .touchDown)
-        return skipBtn
-    }
-    
-    private func getOptionView()->UIStackView{
-        let optionView = UIStackView(frame: .zero)
-        optionView.alignment = .center
-        optionView.distribution = .fillEqually
-        optionView.axis = .horizontal
-        optionView.spacing = 10
-        return optionView
-    }
-    
-    private func getQuestionLabel()->UILabel{
-        let questionLabel = UILabel(frame: .zero)
-        questionLabel.text = "Question: What is the meaning of life?"
-        questionLabel.font = UIFont(name: "NokioSansAlt-Medium", size: 23)
-        questionLabel.textAlignment = .center
-        questionLabel.numberOfLines = 3
-        
-        return questionLabel
-    }
-    
-    private func getResponseTextView()->UITextView{
-        let responseTV = UITextView(frame: .zero)
-        responseTV.text = "Type Your Answer"
-        responseTV.textColor = UIColor.lightGray
-        responseTV.backgroundColor = UIColor.init(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
-        responseTV.isEditable = true
-        responseTV.delegate = self
-        return responseTV
-    }
-    
     private func setSubviewsLocation(){
         let XMid = frame.width/2
         let popupWidth = frame.width*5/6
@@ -151,7 +53,7 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         topBackgroundIV.frame = CGRect(x: XMid-popupWidth/2, y: YMid - popupHeight/2 , width: popupWidth, height: popupHeight*2/5)
         
        // topBackgroundIV.contentMode = .scaleAspectFill
-        
+        darkBackground.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         
         
         let popViewFrame = CGRect(x: XMid-popupWidth/2 + XPadding, y: topBackgroundIV.frame.origin.y + topBackgroundIV.frame.height, width: popupWidth - XPadding*2, height: popupHeight*2/3)
@@ -165,7 +67,7 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         
     }
     
-    @objc private func acceptBtnPressed(sender: UIButton!) {
+    @objc fileprivate func acceptBtnPressed(sender: UIButton!) {
         if onAccept == nil{
             fatalError("Did not call setupClosure")
         }
@@ -174,13 +76,17 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         }
     }
     
-    @objc private func skipBtnPressed(sender: UIButton!) {
+    @objc fileprivate func skipBtnPressed(sender: UIButton!) {
         if onSkip == nil{
             fatalError("Did not call setupClosure")
         }
         else{
             onSkip!()
         }
+    }
+    
+    func setQuestionText(question:String){
+        questionLabel.text = question
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -207,4 +113,70 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         super.init(coder: aDecoder)
     }
     
+}
+
+
+// MARK: Setup
+extension ComprehensionPopup{
+    func setupClosure(onAccept:@escaping (_ answer:String)->Void, onSkip:@escaping ()->Void){
+        self.onAccept = onAccept
+        self.onSkip = onSkip
+    }
+    
+    fileprivate func setupDarkGrayBackground(){
+        darkBackground.frame = self.frame
+        darkBackground.backgroundColor = UIColor.black.cgColor
+        darkBackground.opacity = 0.5
+        self.layer.addSublayer(darkBackground)
+    }
+    
+    fileprivate func setupPopupView(){
+        popupView.alignment = .fill
+        popupView.distribution = .fillEqually
+        popupView.axis = .vertical
+        popupView.spacing = 10
+        
+        popupViewBackground.backgroundColor = UIColor.white
+        addSubview(popupViewBackground)
+        
+        questionLabel = QuestionLabel()
+        questionLabel.text = "No Question Available"
+        popupView.addArrangedSubview(questionLabel)
+        
+        let responseTV = ResponseTextView()
+        responseTV.delegate = self
+        popupView.addArrangedSubview(responseTV)
+        
+        let optionView = getOptionView()
+        popupView.addArrangedSubview(optionView)
+        
+        let skipBtn = SkipButton()
+        skipBtn.addTarget(self, action: #selector(skipBtnPressed), for: .touchDown)
+        optionView.addArrangedSubview(skipBtn)
+        
+        let answerBtn = AnswerButton()
+        answerBtn.addTarget(self, action: #selector(acceptBtnPressed), for: .touchDown)
+        optionView.addArrangedSubview(answerBtn)
+        
+        let dashedBorder = CAShapeLayer()
+        dashedBorder.strokeColor = UIColor.black.cgColor
+        dashedBorder.lineDashPattern = [8, 4]
+        dashedBorder.lineWidth = 1
+        dashedBorder.frame = responseTV.bounds
+        
+        dashedBorder.fillColor = nil
+        dashedBorder.path = UIBezierPath(rect: responseTV.frame).cgPath
+        popupView.layer.addSublayer(dashedBorder)
+        
+        addSubview(popupView)
+    }
+
+    private func getOptionView()->UIStackView{
+        let optionView = UIStackView(frame: .zero)
+        optionView.alignment = .center
+        optionView.distribution = .fillEqually
+        optionView.axis = .horizontal
+        optionView.spacing = 10
+        return optionView
+    }
 }

@@ -70,7 +70,7 @@
 		1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */; };
 		1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793021FB5906007F8704 /* AudioPlayer.swift */; };
 		1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */; };
-		1CAC793521FB594D007F8704 /* PositionToShowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793421FB594D007F8704 /* PositionToShowPopup.swift */; };
+		1CAC793521FB594D007F8704 /* ComprehensionPopupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */; };
 		1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */; };
 		1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */; };
 		1CAC793E21FB5A54007F8704 /* TutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */; };
@@ -132,6 +132,11 @@
 		1CC198732217C4C70021BAFC /* CompletionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */; };
 		1CC198792217CC2F0021BAFC /* 3779-starts-transparent.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CC198782217CC2F0021BAFC /* 3779-starts-transparent.json */; };
 		1CC1987B2218795C0021BAFC /* goalAdded.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1987A2218795C0021BAFC /* goalAdded.mp3 */; };
+		1CC1987D2218CB910021BAFC /* PopupLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1987C2218CB910021BAFC /* PopupLocation.swift */; };
+		1CC198802218D0CC0021BAFC /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1987F2218D0CC0021BAFC /* AnswerButton.swift */; };
+		1CC198822218D15E0021BAFC /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198812218D15E0021BAFC /* SkipButton.swift */; };
+		1CC198842218D1BD0021BAFC /* QuestionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198832218D1BD0021BAFC /* QuestionLabel.swift */; };
+		1CC198862218D24C0021BAFC /* ResponseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198852218D24C0021BAFC /* ResponseTextView.swift */; };
 		1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */; };
 		1CCF9885220FB68100C491A8 /* 3151-books.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF9884220FB68100C491A8 /* 3151-books.json */; };
 		1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */; };
@@ -253,7 +258,7 @@
 		1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompleteViewController.swift; sourceTree = "<group>"; };
 		1CAC793021FB5906007F8704 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupManager.swift; sourceTree = "<group>"; };
-		1CAC793421FB594D007F8704 /* PositionToShowPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionToShowPopup.swift; sourceTree = "<group>"; };
+		1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupModel.swift; sourceTree = "<group>"; };
 		1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewControllerTutorial.swift; sourceTree = "<group>"; };
 		1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopup.swift; sourceTree = "<group>"; };
 		1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialAudio.swift; sourceTree = "<group>"; };
@@ -314,6 +319,11 @@
 		1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionAnimationView.swift; sourceTree = "<group>"; };
 		1CC198782217CC2F0021BAFC /* 3779-starts-transparent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3779-starts-transparent.json"; sourceTree = "<group>"; };
 		1CC1987A2218795C0021BAFC /* goalAdded.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalAdded.mp3; sourceTree = "<group>"; };
+		1CC1987C2218CB910021BAFC /* PopupLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupLocation.swift; sourceTree = "<group>"; };
+		1CC1987F2218D0CC0021BAFC /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
+		1CC198812218D15E0021BAFC /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
+		1CC198832218D1BD0021BAFC /* QuestionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLabel.swift; sourceTree = "<group>"; };
+		1CC198852218D24C0021BAFC /* ResponseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTextView.swift; sourceTree = "<group>"; };
 		1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = black_hand_click_gesture.json; sourceTree = "<group>"; };
 		1CCF9884220FB68100C491A8 /* 3151-books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3151-books.json"; sourceTree = "<group>"; };
 		1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
@@ -532,6 +542,7 @@
 		1C513AA3218675FA00FFDC82 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1CC1987E2218D0C00021BAFC /* ComprehensionPopup */,
 				1CAC79AB21FFB1F9007F8704 /* Audio Player */,
 				1C769CE221D336E300034EB3 /* Goal Progress */,
 				1C4C67E7218D321300D5383D /* Alert */,
@@ -689,7 +700,8 @@
 			isa = PBXGroup;
 			children = (
 				1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */,
-				1CAC793421FB594D007F8704 /* PositionToShowPopup.swift */,
+				1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */,
+				1CC1987C2218CB910021BAFC /* PopupLocation.swift */,
 			);
 			name = "Comprehension Popup";
 			sourceTree = "<group>";
@@ -779,6 +791,17 @@
 				1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		1CC1987E2218D0C00021BAFC /* ComprehensionPopup */ = {
+			isa = PBXGroup;
+			children = (
+				1CC1987F2218D0CC0021BAFC /* AnswerButton.swift */,
+				1CC198812218D15E0021BAFC /* SkipButton.swift */,
+				1CC198832218D1BD0021BAFC /* QuestionLabel.swift */,
+				1CC198852218D24C0021BAFC /* ResponseTextView.swift */,
+			);
+			name = ComprehensionPopup;
 			sourceTree = "<group>";
 		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
@@ -1084,7 +1107,9 @@
 				1CAC799721FEA75D007F8704 /* CoreDataGetter.swift in Sources */,
 				1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */,
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
+				1CC198842218D1BD0021BAFC /* QuestionLabel.swift in Sources */,
 				CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */,
+				1CC1987D2218CB910021BAFC /* PopupLocation.swift in Sources */,
 				1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */,
 				1CCF98C32214C56100C491A8 /* CoreDataSaver.swift in Sources */,
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
@@ -1128,6 +1153,7 @@
 				1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */,
 				CD1DCA621FF4A2D200FCDDB5 /* WalkthroughViewController.swift in Sources */,
 				1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */,
+				1CC198862218D24C0021BAFC /* ResponseTextView.swift in Sources */,
 				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
 				1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */,
 				1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */,
@@ -1155,11 +1181,13 @@
 				1C4C67DE218C004A00D5383D /* ProfileViewController.swift in Sources */,
 				1CAD87A7220A21190096DD90 /* NoResultViewController.swift in Sources */,
 				1C28738621A855A200B790A4 /* GoalTableViewCell.swift in Sources */,
+				1CC198822218D15E0021BAFC /* SkipButton.swift in Sources */,
 				1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */,
 				1C578F9622056D770077E1DD /* WKWebviewWithHelpMenu.swift in Sources */,
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
 				1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */,
 				1CCF98B622122A6C00C491A8 /* Observer.swift in Sources */,
+				1CC198802218D0CC0021BAFC /* AnswerButton.swift in Sources */,
 				1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */,
 				1C578F6922023D3A0077E1DD /* PlayButton.swift in Sources */,
 				1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */,
@@ -1179,7 +1207,7 @@
 				1CAC79A221FFB0CD007F8704 /* AudioObserver.swift in Sources */,
 				1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */,
 				CDA652971FA0F5B700835624 /* uReadLiteracy.xcdatamodeld in Sources */,
-				1CAC793521FB594D007F8704 /* PositionToShowPopup.swift in Sources */,
+				1CAC793521FB594D007F8704 /* ComprehensionPopupModel.swift in Sources */,
 				1CAC794021FB5A7E007F8704 /* SocialMediaQuote.swift in Sources */,
 				1CAC79A821FFB0E5007F8704 /* AudioSubject.swift in Sources */,
 			);

@@ -35,7 +35,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     var previousBtn:UIButton!
     
     fileprivate var popupManager:ComprehensionPopupManager!
-    fileprivate var popup:ComprehensionPopup!
     fileprivate var alerts:BrowserVCAlerts!
     
     override func viewDidLoad() {
@@ -48,8 +47,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
         webView.frame = view.frame
         socialMediaView.frame = CGRect(x: view.frame.origin.x, y: view.frame.height/2, width: view.frame.width, height: view.frame.height/2)
-        
-        popup.frame = view.frame
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +58,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         TopToolBarViewController.currentController = self
         TopToolBarViewController.shared.onPreviousBtnPressed = {
             self.webView.goBack()
+            self.popupManager.resetPopupShownStatus()
         }
         TopToolBarViewController.shared.onRecordBtnPressed = {
             if self.recorder.isRecording() {
@@ -103,7 +101,24 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         let y = scrollView.contentOffset.y
         
         if logicController.isCurrentURLAnArticle(url: url){
-            popupManager.updateScrollPosition(position: y)
+
+            popupManager.updateScrollPosition(position: y, popupToAddToView: { (popup) in
+                
+                DispatchQueue.main.async {
+                    popup.frame = self.view.frame
+                    popup.alpha = 0
+                    self.view.addSubview(popup)
+                    self.view.layoutIfNeeded()
+     
+                    UIView.animate(withDuration: popup.animationDuration) {
+                        popup.alpha = 1
+                    }
+                    
+                    self.webView.scrollView.setContentOffset(CGPoint(x: self.webView.scrollView.contentOffset.x, y: self.webView.scrollView.contentOffset.y), animated: true)
+                }
+                
+            })
+            
             browserSocialMediaVC.updateScrollPosition(position: y, maxOffset: maxBrowserOffset, url: url, didShow: {
                 DispatchQueue.main.async {
                     self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
@@ -227,17 +242,10 @@ extension BrowseViewController{
     }
     
     fileprivate func setupComprehensionPopup(){
-        popup = ComprehensionPopup(frame: view.frame)
+        let position1 = ComprehensionPopupModel(popupLocation: .Middle, question: "What is Love? Baby don't hurt me, no more!")
+        let position2 = ComprehensionPopupModel(popupLocation: .Top, question: "Test Top")
         
-        view.addSubview(popup)
-        popup.isHidden = true
-        view.sendSubview(toBack: popup)
-        
-        popupManager = ComprehensionPopupManager(popup: popup, didShowPopup: {
-            DispatchQueue.main.async {
-                self.webView.scrollView.setContentOffset(CGPoint(x: self.webView.scrollView.contentOffset.x, y: self.webView.scrollView.contentOffset.y), animated: true)
-            }
-        })
+        popupManager = ComprehensionPopupManager(popupModels: [position1,position2])
     }
     
     fileprivate func setupSocialMedia(){
