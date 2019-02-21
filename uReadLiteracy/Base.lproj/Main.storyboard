@@ -24,6 +24,9 @@
         <array key="NokioSans-Regular.ttf">
             <string>NokioSans-Regular</string>
         </array>
+        <array key="NokioSansAlt-Bold.ttf">
+            <string>NokioSansAlt-Bold</string>
+        </array>
         <array key="NokioSansAlt-Medium.ttf">
             <string>NokioSansAlt-Medium</string>
         </array>
@@ -453,21 +456,21 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="479"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cE1-Qm-Eza">
-                                <rect key="frame" x="16" y="64" width="343" height="42"/>
+                                <rect key="frame" x="16" y="64" width="343" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXN-nV-f1N">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="25"/>
                                         <state key="normal" title="Daily"/>
                                         <connections>
                                             <action selector="dailyTabBtnPressed:" destination="qez-kt-Azv" eventType="touchUpInside" id="sdK-bv-DYm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rh-eh-ATL">
-                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="42"/>
+                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="25"/>
                                         <state key="normal" title="Ongoing"/>
                                         <connections>
                                             <action selector="ongoingTabBtnPressed:" destination="qez-kt-Azv" eventType="touchUpInside" id="9q6-Gk-7je"/>
@@ -477,10 +480,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ET-Bf-8ud">
-                                <rect key="frame" x="16" y="116" width="343" height="342"/>
+                                <rect key="frame" x="16" y="119" width="343" height="339"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lh0-J9-t1j">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="342"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="339"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTableViewCell" rowHeight="60" id="GGB-0n-nQr" customClass="GoalTableViewCell" customModule="uReadLiteracy" customModuleProvider="target">
@@ -545,7 +548,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="k6h-aw-2Yd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="NokioSansAlt-Bold" family="NokioSansAlt-Bold" pointSize="20"/>
                                 <state key="normal" title="Add New Goal">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1199,7 +1202,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bHI-Ry-742"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="NokioSansAlt-Bold" family="NokioSansAlt-Bold" pointSize="20"/>
                                 <state key="normal" title="Add New Goal">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>

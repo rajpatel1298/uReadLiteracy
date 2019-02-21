@@ -55,20 +55,20 @@ class GoalManager{
         return ongoingGoals
     }
     
-    func updateGoals(article:ArticleModel){
+    func updateGoals(article:ArticleModel, showGoalComplete:(_ goal:GoalModel)->Void){
         let components = Calendar.current.dateComponents([.day,.hour,.minute], from: lastTimeUpdated, to: Date())
         
         if(components.day! == 0 && components.hour! == 0 && components.minute! < 1){
             return
         }
         
-        updateReadXMinutesGoals(article: article)
-        updateReadXArticlesGoals(article: article)
+        updateReadXMinutesGoals(article: article, showGoalComplete: showGoalComplete)
+        updateReadXArticlesGoals(article: article, showGoalComplete: showGoalComplete)
         
         lastTimeUpdated = Date()
     }
     
-    private func updateReadXArticlesGoals(article:ArticleModel){
+    private func updateReadXArticlesGoals(article:ArticleModel,showGoalComplete:(_ goal:GoalModel)->Void){
         let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataGetter.shared.getList()
         
         for goal in readXArticlesGoals{
@@ -88,14 +88,14 @@ class GoalManager{
                 
                 if  !goal.showCompletionToUser{
                     goal.showCompletionToUser = true
-                    GoalCompletePresenter.shared.show(goal: goal)
+                    showGoalComplete(goal)
                 }
                 CoreDataSaver.shared.save(goalModel: goal)
             }
         }
     }
     
-    private func updateReadXMinutesGoals(article:ArticleModel){
+    private func updateReadXMinutesGoals(article:ArticleModel,showGoalComplete:(_ goal:GoalModel)->Void){
         let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataGetter.shared.getList()
         for goal in readXMinutesGoals{
             goal.minutesRead = Int(article.totalTimeSpent)
@@ -105,7 +105,7 @@ class GoalManager{
             
             if  !goal.showCompletionToUser{
                 goal.showCompletionToUser = true
-                GoalCompletePresenter.shared.show(goal: goal)
+                showGoalComplete(goal)
             }
             
             CoreDataSaver.shared.save(goalModel: goal)

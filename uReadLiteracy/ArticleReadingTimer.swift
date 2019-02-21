@@ -12,13 +12,7 @@ class ArticleReadingTimer{
     // 1 unit = 1 second
     private var currentTimeSpent = 0.0
     private var timer = Timer()
-    
-    private let article:ArticleModel
-    
-    init(timerOn article:ArticleModel){
-        self.article = article
-    }
-    
+        
     func startRecordingTime(){
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(self.updateTimeSpent), userInfo: nil, repeats: true)
     }
@@ -27,7 +21,7 @@ class ArticleReadingTimer{
         currentTimeSpent = currentTimeSpent + 1
     }
     
-    func stopRecordingTime(){
+    func stopRecordingTime(article:ArticleModel){
         timer.invalidate()
         article.totalTimeSpent += currentTimeSpent
         CoreDataSaver.shared.save(articleModel: article)

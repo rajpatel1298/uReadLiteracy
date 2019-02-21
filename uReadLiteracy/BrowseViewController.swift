@@ -21,7 +21,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     var urlSegue:URL!
     let mainUrl = "http://www.manythings.org/voa/stories/"
     
-    var controller:BrowserController!
     var logicController:BrowserLogicController!
     
     fileprivate var browserSocialMediaVC:BrowserSocialMediaViewController!
@@ -38,6 +37,15 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     fileprivate var popupManager:ComprehensionPopupManager!
     fileprivate var alerts:BrowserVCAlerts!
+    
+    var currentArticle:ArticleModel! {
+        didSet{
+            currentArticle.incrementReadCount()
+            
+        }
+    }
+    
+    var articleReadingTimer = ArticleReadingTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,26 +65,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         socialMediaView.isHidden = true
         webView.frame = view.frame
         
-        TopToolBarViewController.currentController = self
-        TopToolBarViewController.shared.onPreviousBtnPressed = {
-            self.webView.goBack()
-            self.popupManager.resetPopupShownStatus()
-        }
-        TopToolBarViewController.shared.onRecordBtnPressed = {
-            if self.recorder.isRecording() {
-                self.recorder.stopRecording()
-            }
-            else {
-                self.recorder.startRecording(filename: (self.controller.currentArticle?.getTitle())!) { (errStr) in
-                    DispatchQueue.main.async {
-                        self.alerts.showRecordErrorAlert()
-                        print(errStr)
-                    }
-                }
-            }
-        }
-        
-        
+        setupTopBar()
         TopToolBarViewController.shared.disablePreviousAndRecordBtn()
 
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -147,14 +136,16 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
-            controller.currentArticle = ArticleModel(name: webView.title!, url: url!)
-            browserSocialMediaVC.currentArticle = controller.currentArticle
+            currentArticle = ArticleModel(name: webView.title!, url: url!)
+            browserSocialMediaVC.currentArticle = currentArticle
             
             maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
             
             TopToolBarViewController.shared.enablePreviousAndRecordBtn()
             
             popupManager.setMaxYOffset(newValue: CGFloat(maxBrowserOffset))
+            
+            articleReadingTimer.startRecordingTime()
         }
             
         else{
@@ -214,9 +205,11 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         let currentYOffset = webView.scrollView.contentOffset.y
 
         if logicController.atTheEndOfArticle(position: currentYOffset, maxOffset: maxBrowserOffset){
-            if(controller.currentArticle != nil){
-                controller.articleReadingTimer.stopRecordingTime()
-                GoalManager.shared.updateGoals(article: controller.currentArticle)
+            if(currentArticle != nil){
+                articleReadingTimer.stopRecordingTime(article: currentArticle)
+                GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
+                    GoalCompletePresenter.shared.show(goal: goal)
+                }
             }
         }
     }
@@ -231,7 +224,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
 // MARK: Setup
 extension BrowseViewController{
     fileprivate func setup(){
-        controller = BrowserController(webView: webView, url: mainUrl, vc: self)
         logicController = BrowserLogicController(mainURL: mainUrl)
         
         setupWebview()
@@ -259,6 +251,27 @@ extension BrowseViewController{
     fileprivate func setupWebview(){
         webView.navigationDelegate = self
         webView.scrollView.delegate = self
+    }
+    
+    fileprivate func setupTopBar(){
+        TopToolBarViewController.currentController = self
+        TopToolBarViewController.shared.onPreviousBtnPressed = {
+            self.webView.goBack()
+            self.popupManager.resetPopupShownStatus()
+        }
+        TopToolBarViewController.shared.onRecordBtnPressed = {
+            if self.recorder.isRecording() {
+                self.recorder.stopRecording()
+            }
+            else {
+                self.recorder.startRecording(filename: (self.currentArticle?.getTitle())!) { (errStr) in
+                    DispatchQueue.main.async {
+                        self.alerts.showRecordErrorAlert()
+                        print(errStr)
+                    }
+                }
+            }
+        }
     }
 }
 

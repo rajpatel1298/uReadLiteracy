@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28737721A5070400B790A4 /* HtmlStringExtension.swift */; };
-		1C28737C21A50B6500B790A4 /* BrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28737B21A50B6500B790A4 /* BrowserController.swift */; };
 		1C28737E21A5AC0000B790A4 /* DictionaryWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28737D21A5ABFF00B790A4 /* DictionaryWebViewController.swift */; };
 		1C28738021A7B42B00B790A4 /* MainUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28737F21A7B42B00B790A4 /* MainUserModel.swift */; };
 		1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738121A7B77A00B790A4 /* HelpWordModel.swift */; };
@@ -192,7 +191,6 @@
 /* Begin PBXFileReference section */
 		198A7836A988EE4B2985A501 /* Pods-uReadLiteracy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uReadLiteracy.release.xcconfig"; path = "Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy.release.xcconfig"; sourceTree = "<group>"; };
 		1C28737721A5070400B790A4 /* HtmlStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlStringExtension.swift; sourceTree = "<group>"; };
-		1C28737B21A50B6500B790A4 /* BrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserController.swift; sourceTree = "<group>"; };
 		1C28737D21A5ABFF00B790A4 /* DictionaryWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryWebViewController.swift; sourceTree = "<group>"; };
 		1C28737F21A7B42B00B790A4 /* MainUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserModel.swift; sourceTree = "<group>"; };
 		1C28738121A7B77A00B790A4 /* HelpWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpWordModel.swift; sourceTree = "<group>"; };
@@ -420,7 +418,6 @@
 			isa = PBXGroup;
 			children = (
 				CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */,
-				1C28737B21A50B6500B790A4 /* BrowserController.swift */,
 				1CAC791921FB55DF007F8704 /* BrowserSocialMediaViewController.swift */,
 				1CCF98B22212211200C491A8 /* BrowserLogicController.swift */,
 				1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */,
@@ -638,10 +635,7 @@
 		1C9C7757219A8C1B002ADA76 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				1CAC792921FB57B0007F8704 /* GoalManager.swift */,
 				1C578F6C22028F5E0077E1DD /* FileHelper.swift */,
-				1CCF98AE22120C9300C491A8 /* ArticleManager.swift */,
-				1CCF98B022120DEE00C491A8 /* ArticleReadingTimer.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -795,6 +789,9 @@
 				1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */,
 				1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */,
 				1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */,
+				1CCF98B022120DEE00C491A8 /* ArticleReadingTimer.swift */,
+				1CCF98AE22120C9300C491A8 /* ArticleManager.swift */,
+				1CAC792921FB57B0007F8704 /* GoalManager.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -1174,7 +1171,6 @@
 				1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */,
 				1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */,
 				1CCF98B922129ECC00C491A8 /* BrowserVCAlerts.swift in Sources */,
-				1C28737C21A50B6500B790A4 /* BrowserController.swift in Sources */,
 				CD704F4E2019A1B700E1E4F8 /* BrowseViewController.swift in Sources */,
 				1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */,
 				1C578F6D22028F5E0077E1DD /* FileHelper.swift in Sources */,
