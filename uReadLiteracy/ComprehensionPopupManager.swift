@@ -35,6 +35,10 @@ class ComprehensionPopupManager{
         })
     }
     
+    func isPopupShowing()->Bool{
+        return popup.superview != nil
+    }
+    
     
     private func getModelIfShouldShowPopup(currentYOffset:CGFloat)->ComprehensionPopupModel?{
         if maxYOffset == 0{

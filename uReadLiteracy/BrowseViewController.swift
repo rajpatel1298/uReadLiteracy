@@ -83,6 +83,10 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    private var oldScrollX:CGFloat = 0
+    private var oldScrollY:CGFloat = 0
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let webview = webView else{
             return
@@ -94,23 +98,33 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         let y = scrollView.contentOffset.y
         
         if logicController.isCurrentURLAnArticle(url: url){
-
-            popupManager.updateScrollPosition(position: y, popupToAddToView: { (popup) in
+            popupManager.updateScrollPosition(position: y, popupToAddToView: { [weak self] (popup) in
+                
+                guard let strongself = self else{
+                    return
+                }
                 
                 DispatchQueue.main.async {
-                    popup.frame = self.view.frame
+                    popup.frame = strongself.view.frame
                     popup.alpha = 0
-                    self.view.addSubview(popup)
-                    self.view.layoutIfNeeded()
+                    strongself.view.addSubview(popup)
+                    strongself.view.layoutIfNeeded()
      
                     UIView.animate(withDuration: popup.animationDuration) {
                         popup.alpha = 1
                     }
                     
-                    self.webView.scrollView.setContentOffset(CGPoint(x: self.webView.scrollView.contentOffset.x, y: self.webView.scrollView.contentOffset.y), animated: true)
+                    strongself.oldScrollX = strongself.webView.scrollView.contentOffset.x
+                    strongself.oldScrollY = strongself.webView.scrollView.contentOffset.y
+                    
+                    strongself.webView.scrollView.setContentOffset(CGPoint(x: strongself.webView.scrollView.contentOffset.x, y: strongself.webView.scrollView.contentOffset.y), animated: true)
                 }
                 
             })
+            
+            if(popupManager.isPopupShowing()){
+                webView.scrollView.setContentOffset(CGPoint(x: oldScrollX, y: oldScrollY), animated: true)
+            }
             
             browserSocialMediaVC.updateScrollPosition(position: y, maxOffset: maxBrowserOffset, url: url, didShow: {
                 DispatchQueue.main.async {
@@ -138,6 +152,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
         actitvityIndicator.isHidden = false
         actitvityIndicator.startAnimating()
+        webView.scrollView.isScrollEnabled = false
         
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
@@ -161,6 +176,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         actitvityIndicator.stopAnimating()
         actitvityIndicator.isHidden = true
+        webView.scrollView.isScrollEnabled = true
     }
 
     func helpFunction(){

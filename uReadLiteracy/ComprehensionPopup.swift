@@ -137,9 +137,8 @@ extension ComprehensionPopup{
     
     fileprivate func setupPopupView(){
         popupView.alignment = .fill
-        popupView.distribution = .
+        popupView.distribution = .fillEqually
         popupView.axis = .vertical
-        popupView.spacing = 10
         
         popupViewBackground.backgroundColor = UIColor.white
         addSubview(popupViewBackground)
@@ -152,7 +151,7 @@ extension ComprehensionPopup{
         responseTV.delegate = self
         popupView.addArrangedSubview(responseTV)
         
-        let optionView = getOptionView()
+        let optionView = OptionView()
         popupView.addArrangedSubview(optionView)
         
         let skipBtn = SkipButton()
@@ -174,14 +173,5 @@ extension ComprehensionPopup{
         popupView.layer.addSublayer(dashedBorder)
         
         addSubview(popupView)
-    }
-
-    private func getOptionView()->UIStackView{
-        let optionView = UIStackView(frame: .zero)
-        optionView.alignment = .center
-        optionView.distribution = .fillEqually
-        optionView.axis = .horizontal
-        optionView.spacing = 10
-        return optionView
     }
 }
