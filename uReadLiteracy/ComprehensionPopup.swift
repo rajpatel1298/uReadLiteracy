@@ -137,7 +137,7 @@ extension ComprehensionPopup{
     
     fileprivate func setupPopupView(){
         popupView.alignment = .fill
-        popupView.distribution = .fillEqually
+        popupView.distribution = .
         popupView.axis = .vertical
         popupView.spacing = 10
         

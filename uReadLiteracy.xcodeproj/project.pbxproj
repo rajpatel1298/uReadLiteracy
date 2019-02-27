@@ -554,7 +554,6 @@
 				1C769CF221D4352300034EB3 /* BouncingLabel.swift */,
 				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
 				1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */,
-				1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */,
 				1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */,
 				1CCF98A62211E50100C491A8 /* RoundedButton.swift */,
 				1CCF98A82211E55C00C491A8 /* ProfileBackgroundImageView.swift */,
@@ -803,6 +802,7 @@
 				1CC198812218D15E0021BAFC /* SkipButton.swift */,
 				1CC198832218D1BD0021BAFC /* QuestionLabel.swift */,
 				1CC198852218D24C0021BAFC /* ResponseTextView.swift */,
+				1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */,
 			);
 			name = ComprehensionPopup;
 			sourceTree = "<group>";

@@ -14,5 +14,4 @@ enum PopupLocation{
     case Middle
     case MiddleBottom
     case Bottom
-    
 }

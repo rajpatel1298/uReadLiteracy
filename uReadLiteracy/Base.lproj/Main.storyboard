@@ -152,12 +152,20 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="S8K-Le-7b9">
+                                <rect key="frame" x="177.5" y="286" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S8K-Le-7b9" firstAttribute="centerX" secondItem="eH2-U3-bjs" secondAttribute="centerX" id="GCf-9m-J4P"/>
+                            <constraint firstItem="S8K-Le-7b9" firstAttribute="centerY" secondItem="eH2-U3-bjs" secondAttribute="centerY" id="JQh-IU-z3X"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Browse" image="internet" id="zRs-ZR-CNV"/>
                     <navigationItem key="navigationItem" id="qOD-5V-Z1i"/>
                     <connections>
+                        <outlet property="actitvityIndicator" destination="S8K-Le-7b9" id="L5M-GC-Uwz"/>
                         <outlet property="socialMediaView" destination="IdP-j2-LOW" id="uzL-w8-kbp"/>
                         <outlet property="webView" destination="NUa-9g-zLY" id="VUv-zr-Jc3"/>
                         <segue destination="Nu5-x2-xEc" kind="show" identifier="BrowserToDictionaryWebViewSegue" id="Vt5-9T-Pmv"/>

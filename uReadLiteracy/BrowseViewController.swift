@@ -18,6 +18,8 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
     @IBOutlet weak var socialMediaView: UIView!
     
+    @IBOutlet weak var actitvityIndicator: UIActivityIndicatorView!
+    
     var urlSegue:URL!
     let mainUrl = "http://www.manythings.org/voa/stories/"
     
@@ -134,6 +136,9 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         
+        actitvityIndicator.isHidden = false
+        actitvityIndicator.startAnimating()
+        
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
             currentArticle = ArticleModel(name: webView.title!, url: url!)
@@ -151,6 +156,11 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         else{
             TopToolBarViewController.shared.disablePreviousAndRecordBtn()
         }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        actitvityIndicator.stopAnimating()
+        actitvityIndicator.isHidden = true
     }
 
     func helpFunction(){
