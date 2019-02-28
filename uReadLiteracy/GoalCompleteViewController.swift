@@ -61,7 +61,7 @@ class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
 
     
     @objc func facebookShareBtnPressed(_ sender: UITapGestureRecognizer) {
-        /*let content = FBSDKShareLinkContent()
+        let content = FBSDKShareLinkContent()
         content.contentURL = URL(string: "https://www.google.com/")
         content.hashtag = FBSDKHashtag(string: "#Uread #FeelsGood")
         content.quote = SocialMediaQuote.get(goal: goal)
@@ -77,16 +77,18 @@ class GoalCompleteViewController: UIViewController,FBSDKSharingDelegate {
         if !dialog.canShow {
             dialog.mode = FBSDKShareDialogMode.automatic
         }
-        dialog.show()*/
+        dialog.show()
         
-        let content = LinkShareContent(url: URL(string: "https://www.google.com/")!)
+        /*var content = LinkShareContent(url: URL(string: "https://www.google.com/")!)
+        content.quote = SocialMediaQuote.get(goal: goal)
+        content.hashtag = Hashtag("#Uread #FeelsGood")
         
         do {
             try ShareDialog.show(from: self, content: content)
         }
         catch{
-            
-        }
+            print(error)
+        }*/
     }
     
     @objc func twitterShareBtnPressed(_ sender: UITapGestureRecognizer) {

@@ -53,7 +53,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Have Completed &quot;Read 2 Articles&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pv0-SK-435">
                                                 <rect key="frame" x="0.0" y="166.5" width="312.5" height="83.5"/>
-                                                <fontDescription key="fontDescription" name="NokioSansAlt-Regular" family="NokioSansAlt-Regular" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="NokioSansAlt-Regular" family="NokioSansAlt-Regular" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

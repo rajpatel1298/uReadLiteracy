@@ -104,16 +104,19 @@ class ChooseGoalViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch(self.goalType!){
+        case .Daily:
+            CoreDataSaver.shared.save(goalModel: self.dailyGoals[indexPath.row])
+            break
+        case .Ongoing:
+            CoreDataSaver.shared.save(goalModel: self.ongoingGoals[indexPath.row])
+            break
+        }
+        
         let alert = ChoosingGoalAlert(viewcontroller: self) {
             DispatchQueue.main.async {
-                switch(self.goalType!){
-                case .Daily:
-                    CoreDataSaver.shared.save(goalModel: self.dailyGoals[indexPath.row])
-                    break
-                case .Ongoing:
-                    CoreDataSaver.shared.save(goalModel: self.ongoingGoals[indexPath.row])
-                    break
-                }
+                
   
                 self.navigationController?.popToRootViewController(animated: true)
             }

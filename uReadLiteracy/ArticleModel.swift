@@ -14,15 +14,14 @@ class ArticleModel{
     var readCount:Double
     
     // 1 unit = 1 second
-    var totalTimeSpent:Double
+    var timeSpent:Double = 0
     
     let url:String
 
   
-    init(name:String,readCount:Double,timeSpent:Double,url:String){
+    init(name:String,readCount:Double,url:String){
         self.name = name
         self.readCount = readCount
-        self.totalTimeSpent = timeSpent
         self.url = url
         
         fixNameParsing()
@@ -36,11 +35,9 @@ class ArticleModel{
         
         if(model == nil){
             self.readCount = 0
-            self.totalTimeSpent = 0
         }
         else{
             self.readCount = (model?.readCount)!
-            self.totalTimeSpent = (model?.totalTimeSpent)!
         }
         
         fixNameParsing()

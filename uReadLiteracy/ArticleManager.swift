@@ -24,7 +24,7 @@ class ArticleManager{
         
         for article in articles{
             if(article.url! == url){
-                return ArticleModel(name: article.name!, readCount: article.readCount, timeSpent: article.timeSpent, url: article.url!)
+                return ArticleModel(name: article.name!, readCount: article.readCount, url: article.url!)
             }
         }
         

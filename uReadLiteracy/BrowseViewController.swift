@@ -16,7 +16,9 @@ import FirebaseAuth
 class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate{
     
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
-    @IBOutlet weak var socialMediaView: UIView!
+    
+    @IBOutlet weak var commentSectionView: UIView!
+    fileprivate var browserCommentSectionVC:BrowserCommentSectionViewController!
     
     @IBOutlet weak var actitvityIndicator: UIActivityIndicatorView!
     
@@ -25,7 +27,6 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     var logicController:BrowserLogicController!
     
-    fileprivate var browserSocialMediaVC:BrowserSocialMediaViewController!
     
     var maxBrowserOffset:Int!
     
@@ -40,14 +41,9 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     fileprivate var popupManager:ComprehensionPopupManager!
     fileprivate var alerts:BrowserVCAlerts!
     
-    var currentArticle:ArticleModel! {
-        didSet{
-            currentArticle.incrementReadCount()
-            
-        }
-    }
+    var currentArticle:ArticleModel!
     
-    var articleReadingTimer = ArticleReadingTimer()
+    var articleReadingStopwatch = ArticleReadingStopwatch()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,13 +54,13 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         super.viewDidLayoutSubviews()
         
         webView.frame = view.frame
-        socialMediaView.frame = CGRect(x: view.frame.origin.x, y: view.frame.height/2, width: view.frame.width, height: view.frame.height/2)
+        commentSectionView.frame = CGRect(x: view.frame.origin.x, y: view.frame.height/2, width: view.frame.width, height: view.frame.height/2)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadMainPage()
-        socialMediaView.isHidden = true
+        commentSectionView.isHidden = true
         webView.frame = view.frame
         
         setupTopBar()
@@ -77,7 +73,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         super.viewWillDisappear(animated)
         webView.frame = view.frame
         loadMainPage()
-        socialMediaView.isHidden = true
+        commentSectionView.isHidden = true
         TopToolBarViewController.shared.disablePreviousAndRecordBtn()
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -126,7 +122,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
                 webView.scrollView.setContentOffset(CGPoint(x: oldScrollX, y: oldScrollY), animated: true)
             }
             
-            browserSocialMediaVC.updateScrollPosition(position: y, maxOffset: maxBrowserOffset, url: url, didShow: {
+            browserCommentSectionVC.updateScrollPosition(position: y, maxOffset: maxBrowserOffset, url: url, didShow: {
                 DispatchQueue.main.async {
                     self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
                 }
@@ -156,16 +152,11 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
-            currentArticle = ArticleModel(name: webView.title!, url: url!)
-            browserSocialMediaVC.currentArticle = currentArticle
-            
             maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
             
             TopToolBarViewController.shared.enablePreviousAndRecordBtn()
-            
+        
             popupManager.setMaxYOffset(newValue: CGFloat(maxBrowserOffset))
-            
-            articleReadingTimer.startRecordingTime()
         }
             
         else{
@@ -177,6 +168,15 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         actitvityIndicator.stopAnimating()
         actitvityIndicator.isHidden = true
         webView.scrollView.isScrollEnabled = true
+        
+        let url = webView.url?.absoluteString
+        if logicController.isCurrentURLAnArticle(url: url!){
+            currentArticle = ArticleModel(name: webView.title!, url: url!)
+            browserCommentSectionVC.currentArticle = currentArticle
+            currentArticle.incrementReadCount()
+            
+            articleReadingStopwatch.start()
+        }
     }
 
     func helpFunction(){
@@ -232,7 +232,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
 
         if logicController.atTheEndOfArticle(position: currentYOffset, maxOffset: maxBrowserOffset){
             if(currentArticle != nil){
-                articleReadingTimer.stopRecordingTime(article: currentArticle)
+                articleReadingStopwatch.stop(article: currentArticle)
                 GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
                     GoalCompletePresenter.shared.show(goal: goal)
                 }
@@ -254,6 +254,7 @@ extension BrowseViewController{
         
         setupWebview()
         setupSocialMedia()
+        setupHelpFunctionInMenuBar()
         
         recorder = Recorder(delegate:self)
         setupComprehensionPopup()
@@ -269,9 +270,9 @@ extension BrowseViewController{
     }
     
     fileprivate func setupSocialMedia(){
-        browserSocialMediaVC = (childViewControllers.first as! BrowserSocialMediaViewController)
-        add(browserSocialMediaVC)
-        socialMediaView = browserSocialMediaVC.view
+        browserCommentSectionVC = (childViewControllers.first as! BrowserCommentSectionViewController)
+        add(browserCommentSectionVC)
+        commentSectionView = browserCommentSectionVC.view
     }
     
     fileprivate func setupWebview(){

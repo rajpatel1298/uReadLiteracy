@@ -59,7 +59,7 @@
 		1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */; };
 		1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */; };
 		1CAC791821FB5590007F8704 /* ReadXMinutesGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */; };
-		1CAC791A21FB55DF007F8704 /* BrowserSocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791921FB55DF007F8704 /* BrowserSocialMediaViewController.swift */; };
+		1CAC791A21FB55DF007F8704 /* BrowserCommentSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791921FB55DF007F8704 /* BrowserCommentSectionViewController.swift */; };
 		1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791C21FB5693007F8704 /* ArticleComment.swift */; };
 		1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791E21FB56C7007F8704 /* DateExtension.swift */; };
 		1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */; };
@@ -145,7 +145,7 @@
 		1CCF98AB2211E72B00C491A8 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */; };
 		1CCF98AD221204F500C491A8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AC221204F500C491A8 /* BaseViewController.swift */; };
 		1CCF98AF22120C9300C491A8 /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AE22120C9300C491A8 /* ArticleManager.swift */; };
-		1CCF98B122120DEE00C491A8 /* ArticleReadingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B022120DEE00C491A8 /* ArticleReadingTimer.swift */; };
+		1CCF98B122120DEE00C491A8 /* ArticleReadingStopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */; };
 		1CCF98B32212211200C491A8 /* BrowserLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B22212211200C491A8 /* BrowserLogicController.swift */; };
 		1CCF98B622122A6C00C491A8 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B422122A6B00C491A8 /* Observer.swift */; };
 		1CCF98B722122A6C00C491A8 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B522122A6B00C491A8 /* Subject.swift */; };
@@ -249,7 +249,7 @@
 		1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoTableViewCell.swift; sourceTree = "<group>"; };
 		1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadXArticlesGoalModel.swift; sourceTree = "<group>"; };
 		1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadXMinutesGoalModel.swift; sourceTree = "<group>"; };
-		1CAC791921FB55DF007F8704 /* BrowserSocialMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserSocialMediaViewController.swift; sourceTree = "<group>"; };
+		1CAC791921FB55DF007F8704 /* BrowserCommentSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserCommentSectionViewController.swift; sourceTree = "<group>"; };
 		1CAC791C21FB5693007F8704 /* ArticleComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleComment.swift; sourceTree = "<group>"; };
 		1CAC791E21FB56C7007F8704 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaUserCell.swift; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 		1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
 		1CCF98AC221204F500C491A8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1CCF98AE22120C9300C491A8 /* ArticleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
-		1CCF98B022120DEE00C491A8 /* ArticleReadingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleReadingTimer.swift; sourceTree = "<group>"; };
+		1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleReadingStopwatch.swift; sourceTree = "<group>"; };
 		1CCF98B22212211200C491A8 /* BrowserLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserLogicController.swift; sourceTree = "<group>"; };
 		1CCF98B422122A6B00C491A8 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		1CCF98B522122A6B00C491A8 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
@@ -420,7 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */,
-				1CAC791921FB55DF007F8704 /* BrowserSocialMediaViewController.swift */,
+				1CAC791921FB55DF007F8704 /* BrowserCommentSectionViewController.swift */,
 				1CCF98B22212211200C491A8 /* BrowserLogicController.swift */,
 				1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */,
 				1C28737D21A5ABFF00B790A4 /* DictionaryWebViewController.swift */,
@@ -789,7 +789,7 @@
 				1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */,
 				1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */,
 				1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */,
-				1CCF98B022120DEE00C491A8 /* ArticleReadingTimer.swift */,
+				1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */,
 				1CCF98AE22120C9300C491A8 /* ArticleManager.swift */,
 				1CAC792921FB57B0007F8704 /* GoalManager.swift */,
 				1CAC793621FB5978007F8704 /* Comprehension Popup */,
@@ -1072,19 +1072,35 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
@@ -1188,7 +1204,7 @@
 				1CAC792C21FB57D9007F8704 /* GoalCompletePresenter.swift in Sources */,
 				1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */,
 				1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */,
-				1CCF98B122120DEE00C491A8 /* ArticleReadingTimer.swift in Sources */,
+				1CCF98B122120DEE00C491A8 /* ArticleReadingStopwatch.swift in Sources */,
 				CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */,
 				CD03CC9020F6E79A006D5D89 /* DynamicVideoViewController.swift in Sources */,
 				1CAC79AA21FFB0EB007F8704 /* AudioTimeLabel.swift in Sources */,
@@ -1218,7 +1234,7 @@
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
 				1CAC799621FE4995007F8704 /* UIImageExtension.swift in Sources */,
 				CDF58FB522120A85007514DC /* BrowseViewControllerTutorial.swift in Sources */,
-				1CAC791A21FB55DF007F8704 /* BrowserSocialMediaViewController.swift in Sources */,
+				1CAC791A21FB55DF007F8704 /* BrowserCommentSectionViewController.swift in Sources */,
 				1CAD879F220A06D70096DD90 /* NoGoalListViewController.swift in Sources */,
 				1CAC79A221FFB0CD007F8704 /* AudioObserver.swift in Sources */,
 				1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */,

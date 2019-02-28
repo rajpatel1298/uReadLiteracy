@@ -45,16 +45,18 @@ class ArticleComment{
         }
     }
     
-    func getImage(completionHandler:@escaping (_ image:UIImage)->Void){
+    func getImage(completionHandler:@escaping (_ image:UIImage?)->Void){
         let imageRef = storageRef.child("profile/\(uid!).jpg")
         
         // Download in memory with a maximum allowed size of 10MB (10 * 1024 * 1024 bytes)
         imageRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
             if let error = error {
                 print(error.localizedDescription)
-            } else {
+                completionHandler(nil)
+            }
+            else{
                 let image = UIImage(data: data!)
-                completionHandler(image!)
+                completionHandler(image)
             }
         }
         

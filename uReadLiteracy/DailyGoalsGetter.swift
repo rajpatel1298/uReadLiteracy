@@ -17,7 +17,8 @@ class DailyGoalsGetter{
     init() {
         let read10Articles = ReadXArticlesGoalModel(name: "Read 10 Articles", date: Date(), goalType: goalType, numberOfArticles: 10)
         let readFor30Minutes = ReadXMinutesGoalModel(name: "Read for 30 minutes", date: Date(), goalType: goalType, totalMinutes: 30)
-        list = [read10Articles,readFor30Minutes]
+        let read1Articles = ReadXArticlesGoalModel(name: "Test: Read 1 Articles", date: Date(), goalType: goalType, numberOfArticles: 1)
+        list = [read10Articles,readFor30Minutes,read1Articles]
     }
     
     func getOnlyNewGoals()->[GoalModel]{
@@ -27,12 +28,14 @@ class DailyGoalsGetter{
             let readXMinutesCD:ReadXMinutesCD? = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType)
             let readXArticlesCD:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType)
             
-            if readXMinutesCD == nil && readXMinutesCD == nil{
+            if readXMinutesCD == nil && readXArticlesCD == nil{
                 let components = Calendar.current.dateComponents([.day], from: goal.date, to: Date())
                 
-                if(components.day! != 0 ){
+                
+                
+                //if(components.day! != 0 ){
                     result.append(goal)
-                }
+                //}
             }
         }
         return result

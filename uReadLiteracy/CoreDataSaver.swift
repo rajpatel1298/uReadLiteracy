@@ -66,12 +66,10 @@ class CoreDataSaver{
             
             articleObject.setValue(articleModel.name, forKeyPath: "name")
             articleObject.setValue(articleModel.readCount, forKeyPath: "readCount")
-            articleObject.setValue(articleModel.totalTimeSpent, forKeyPath: "timeSpent")
             articleObject.setValue(articleModel.url, forKeyPath: "url")
         }
         else{
             model?.name = articleModel.name
-            model?.timeSpent = articleModel.totalTimeSpent
             model?.readCount = articleModel.readCount
         }
         

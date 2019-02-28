@@ -25,7 +25,7 @@ class BrowserLogicController{
     }
     
     func atTheEndOfArticle(position:CGFloat, maxOffset:Int)->Bool{
-        if Int(position) >= maxOffset*90/100 {
+        if Int(position) >= maxOffset*80/100 {
             return true
         }
         return false

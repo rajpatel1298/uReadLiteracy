@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ArticleReadingTimer{
+class ArticleReadingStopwatch{
     // 1 unit = 1 second
     private var currentTimeSpent = 0.0
     private var timer = Timer()
