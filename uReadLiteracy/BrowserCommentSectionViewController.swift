@@ -170,7 +170,7 @@ class BrowserCommentSectionViewController: UIViewController, UITableViewDelegate
     @IBAction func postBtnPressed(_ sender: Any) {
         if (currentArticle != nil){
             let comment = ArticleComment(articleName: (currentArticle?.getTitle())!, uid: currentUser.getUid(), username: currentUser.getNickname(), comment: userCommentTV.text)
-            comment.uploadToFirebase()
+            FirebaseUploader.shared.upload(comment: comment)
         }
     }
     
@@ -184,7 +184,7 @@ class BrowserCommentSectionViewController: UIViewController, UITableViewDelegate
         
         let comment = commentList[indexPath.row]
         if comment.userImage == nil{
-            comment.getImage { (image) in
+            FirebaseDownloader.shared.getImage(fromComment: comment) { (image) in
                 comment.userImage = image
                 DispatchQueue.main.async {
                     if(image == nil){
@@ -194,7 +194,6 @@ class BrowserCommentSectionViewController: UIViewController, UITableViewDelegate
                         cell.imageview.image = image
                     }
                 }
-                
             }
         }
         else{

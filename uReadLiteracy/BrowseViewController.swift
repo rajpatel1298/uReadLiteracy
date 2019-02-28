@@ -75,6 +75,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
         loadMainPage()
         commentSectionView.isHidden = true
         TopToolBarViewController.shared.disablePreviousAndRecordBtn()
+        browserCommentSectionVC.view.frame = .zero
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
@@ -134,6 +135,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
                 
             })
             
+       
             updateGoalIfNeeded()
         }
     }
