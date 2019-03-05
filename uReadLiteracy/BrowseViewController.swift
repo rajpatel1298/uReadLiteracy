@@ -72,10 +72,12 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         webView.frame = view.frame
+        
         loadMainPage()
         commentSectionView.isHidden = true
         TopToolBarViewController.shared.disablePreviousAndRecordBtn()
-        browserCommentSectionVC.view.frame = .zero
+        
+        popupManager.resetPopupShownStatus()
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }

@@ -60,6 +60,7 @@ class ComprehensionPopupManager{
         for model in popupModels{
             model.resetShowingStatus()
         }
+        popup.removeFromSuperview()
     }
     
     func setMaxYOffset(newValue:CGFloat){
