@@ -37,7 +37,6 @@ class ReadXArticlesGoalModel:GoalModel{
         }
         self.goalType = GoalType(rawValue: model.goalType!)
         self.numberOfArticles = Int(model.numberOfArticles)
-        self.showCompletionToUser = model.showCompletionToUser
     }
     
     

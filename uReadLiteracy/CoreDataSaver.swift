@@ -40,11 +40,7 @@ class CoreDataSaver{
             model?.readCount = articleModel.readCount
         }
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        save()
     }
     
     func save(audioRecordModel:AudioRecordModel){
@@ -64,11 +60,7 @@ class CoreDataSaver{
             model?.date = audioRecordModel.date as! NSDate
         }
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        save()
     }
     
     func save(helpModel:HelpWordModel){
@@ -84,11 +76,7 @@ class CoreDataSaver{
         wordObject.setValue(helpModel.blendDifficult, forKeyPath: "blendDifficult")
         wordObject.setValue(helpModel.multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        save()
     }
     
     func save(goalModel:ReadXArticlesGoalModel){
@@ -117,16 +105,9 @@ class CoreDataSaver{
         else{
             model?.articles = ArticleManager.shared.getUrls(articles: goalModel.articles) as NSObject
             model?.progress = Int16(goalModel.progress)
-            model?.showCompletionToUser = goalModel.showCompletionToUser
         }
         
-        DispatchQueue.main.async {
-            do {
-                try self.managedContext.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        }
+        save()
     }
     
     func save(goalModel:ReadXMinutesGoalModel){
@@ -157,21 +138,9 @@ class CoreDataSaver{
             }
             
             model?.progress = Int16(goalModel.progress)
-            model?.showCompletionToUser = goalModel.showCompletionToUser
         }
         
-        let a = model?.isUpdated
-        
-        
-        DispatchQueue.main.async {
-            do {
-                try self.managedContext.save()
-                
-                let b = model?.isUpdated
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        }
+        save()
     }
     
     func save(goalModel:GoalModel){
@@ -198,8 +167,13 @@ class CoreDataSaver{
             user.setValue(data, forKeyPath: "image")
         }
         
+        save()
+    }
+    
+    private func save(){
         do {
             try managedContext.save()
+            appDelegate.saveContext()
         } catch let error as NSError {
             fatalError("Could not save. \(error), \(error.userInfo)")
         }

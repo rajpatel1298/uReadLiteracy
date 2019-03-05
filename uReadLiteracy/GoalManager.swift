@@ -87,8 +87,7 @@ class GoalManager{
                 if !articleExist{
                     goal.articles.append(article)
                     
-                    if  !goal.showCompletionToUser{
-                        goal.showCompletionToUser = true
+                    if  goal.isCompleted(){
                         showGoalComplete(goal)
                     }
                     CoreDataSaver.shared.save(goalModel: goal)
@@ -102,13 +101,16 @@ class GoalManager{
         DispatchQueue.main.async {
             let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataGetter.shared.getList()
             for goal in readXMinutesGoals{
+                if goal.isCompleted(){
+                    continue
+                }
+                
                 goal.minutesRead += Int(article.timeSpent)
                 if(goal.minutesRead > goal.totalMinutes){
                     goal.minutesRead = goal.totalMinutes
                 }
                 
-                if  !goal.showCompletionToUser{
-                    goal.showCompletionToUser = true
+                if  goal.isCompleted(){
                     showGoalComplete(goal)
                 }
                 
