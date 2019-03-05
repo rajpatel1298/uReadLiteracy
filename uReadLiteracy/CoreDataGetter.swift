@@ -145,15 +145,19 @@ class CoreDataGetter{
     }
     
     func getList() -> [ReadXArticlesCD] {
+        managedContext.refreshAllObjects()
         let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticlesCD")
+        goalFetch.shouldRefreshRefetchedObjects = true
         
         let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticlesCD]
         return goals
     }
     
     func getList()->[ReadXMinutesCD]{
+        managedContext.refreshAllObjects()
         let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
-        
+        goalFetch.shouldRefreshRefetchedObjects = true
+      
         let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
         return goals
     }

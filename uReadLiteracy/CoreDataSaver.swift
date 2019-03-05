@@ -19,43 +19,10 @@ class CoreDataSaver{
     init(){
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         managedContext = appDelegate.persistentContainer.viewContext
+        managedContext.automaticallyMergesChangesFromParent = true
     }
     
-    func save(goalModel:ReadXArticlesGoalModel){
-        if goalModel.articles.count == goalModel.numberOfArticles {
-            goalModel.progress = 100
-        }
-        
-        
-        let model:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType: goalModel.goalType)
-        
-        let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
-        
-        if(model == nil){
-            let object = NSManagedObject(entity: entity, insertInto: managedContext)
-            object.setValue(goalModel.name, forKeyPath: "name")
-            object.setValue(goalModel.progress, forKeyPath: "progress")
-            object.setValue(goalModel.goalType.rawValue, forKeyPath: "goalType")
-            object.setValue(goalModel.date, forKeyPath: "date")
-            object.setValue(goalModel.numberOfArticles, forKeyPath: "numberOfArticles")
-            
-            let articles = ArticleManager.shared.getUrls(articles: goalModel.articles)
-            
-            object.setValue(articles, forKeyPath: "articles")
-            object.setValue(goalModel.showCompletionToUser, forKeyPath: "showCompletionToUser")
-        }
-        else{
-            model?.articles = ArticleManager.shared.getUrls(articles: goalModel.articles) as NSObject
-            model?.progress = Int16(goalModel.progress)
-            model?.showCompletionToUser = goalModel.showCompletionToUser
-        }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
+    
     
     func save(articleModel:ArticleModel){
         let model:ArticleCD? = CoreDataGetter.shared.find(url: articleModel.url)
@@ -124,6 +91,44 @@ class CoreDataSaver{
         }
     }
     
+    func save(goalModel:ReadXArticlesGoalModel){
+        if goalModel.articles.count == goalModel.numberOfArticles {
+            goalModel.progress = 100
+        }
+        
+        
+        let model:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType: goalModel.goalType)
+        
+        let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
+        
+        if(model == nil){
+            let object = NSManagedObject(entity: entity, insertInto: managedContext)
+            object.setValue(goalModel.name, forKeyPath: "name")
+            object.setValue(goalModel.progress, forKeyPath: "progress")
+            object.setValue(goalModel.goalType.rawValue, forKeyPath: "goalType")
+            object.setValue(goalModel.date, forKeyPath: "date")
+            object.setValue(goalModel.numberOfArticles, forKeyPath: "numberOfArticles")
+            
+            let articles = ArticleManager.shared.getUrls(articles: goalModel.articles)
+            
+            object.setValue(articles, forKeyPath: "articles")
+            object.setValue(goalModel.showCompletionToUser, forKeyPath: "showCompletionToUser")
+        }
+        else{
+            model?.articles = ArticleManager.shared.getUrls(articles: goalModel.articles) as NSObject
+            model?.progress = Int16(goalModel.progress)
+            model?.showCompletionToUser = goalModel.showCompletionToUser
+        }
+        
+        DispatchQueue.main.async {
+            do {
+                try self.managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
     func save(goalModel:ReadXMinutesGoalModel){
         let model:ReadXMinutesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType:goalModel.goalType)
         
@@ -155,10 +160,17 @@ class CoreDataSaver{
             model?.showCompletionToUser = goalModel.showCompletionToUser
         }
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        let a = model?.isUpdated
+        
+        
+        DispatchQueue.main.async {
+            do {
+                try self.managedContext.save()
+                
+                let b = model?.isUpdated
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
         }
     }
     
@@ -171,7 +183,7 @@ class CoreDataSaver{
         }
     }
     
-    func save(model:MainUserModel){
+    func save(model:CurrentUser){
         let userEntity = NSEntityDescription.entity(forEntityName: "UserCD", in: managedContext)!
         
         let user = NSManagedObject(entity: userEntity, insertInto: managedContext)

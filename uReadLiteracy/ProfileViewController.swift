@@ -115,7 +115,7 @@ class ProfileViewController: BaseViewController {
     
     
     private func loadUserInfo(){
-        let user = MainUserModel()
+        let user = CurrentUser.shared
 
         if user.getImage() == nil{
             profileIV.image = #imageLiteral(resourceName: "profile_hd")
@@ -125,7 +125,6 @@ class ProfileViewController: BaseViewController {
             profileIV.image = user.getImage()
             backgroundProfileIV.image = user.getImage()
         }
-        
         
         welcomeLabel.text = "Welcome \(user.getNickname())"
     }

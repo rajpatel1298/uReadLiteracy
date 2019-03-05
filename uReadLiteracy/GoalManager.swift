@@ -55,7 +55,7 @@ class GoalManager{
         return ongoingGoals
     }
     
-    func updateGoals(article:ArticleModel, showGoalComplete:(_ goal:GoalModel)->Void){
+    func updateGoals(article:ArticleModel, showGoalComplete:@escaping (_ goal:GoalModel)->Void){
         let components = Calendar.current.dateComponents([.day,.hour,.minute], from: lastTimeUpdated, to: Date())
         
         if(components.day! == 0 && components.hour! == 0 && components.minute! < 1){
@@ -68,47 +68,53 @@ class GoalManager{
         lastTimeUpdated = Date()
     }
     
-    private func updateReadXArticlesGoals(article:ArticleModel,showGoalComplete:(_ goal:GoalModel)->Void){
-        let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataGetter.shared.getList()
-        
-        for goal in readXArticlesGoals{
-            if goal.isCompleted(){
-                continue
-            }
+    private func updateReadXArticlesGoals(article:ArticleModel,showGoalComplete:@escaping (_ goal:GoalModel)->Void){
+        DispatchQueue.main.async {
+            let readXArticlesGoals:[ReadXArticlesGoalModel] = CoreDataGetter.shared.getList()
             
-            var articleExist = false
-            for articleItem in goal.articles{
-                if articleItem.equal(article: article){
-                    articleExist = true
+            for goal in readXArticlesGoals{
+                if goal.isCompleted(){
+                    continue
+                }
+                
+                var articleExist = false
+                for articleItem in goal.articles{
+                    if articleItem.equal(article: article){
+                        articleExist = true
+                    }
+                }
+                
+                if !articleExist{
+                    goal.articles.append(article)
+                    
+                    if  !goal.showCompletionToUser{
+                        goal.showCompletionToUser = true
+                        showGoalComplete(goal)
+                    }
+                    CoreDataSaver.shared.save(goalModel: goal)
                 }
             }
-            
-            if !articleExist{
-                goal.articles.append(article)
+        }
+        
+    }
+    
+    private func updateReadXMinutesGoals(article:ArticleModel,showGoalComplete:@escaping (_ goal:GoalModel)->Void){
+        DispatchQueue.main.async {
+            let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataGetter.shared.getList()
+            for goal in readXMinutesGoals{
+                goal.minutesRead += Int(article.timeSpent)
+                if(goal.minutesRead > goal.totalMinutes){
+                    goal.minutesRead = goal.totalMinutes
+                }
                 
                 if  !goal.showCompletionToUser{
                     goal.showCompletionToUser = true
                     showGoalComplete(goal)
                 }
+                
                 CoreDataSaver.shared.save(goalModel: goal)
             }
         }
-    }
-    
-    private func updateReadXMinutesGoals(article:ArticleModel,showGoalComplete:(_ goal:GoalModel)->Void){
-        let readXMinutesGoals:[ReadXMinutesGoalModel] = CoreDataGetter.shared.getList()
-        for goal in readXMinutesGoals{
-            goal.minutesRead += Int(article.timeSpent)
-            if(goal.minutesRead > goal.totalMinutes){
-                goal.minutesRead = goal.totalMinutes
-            }
-            
-            if  !goal.showCompletionToUser{
-                goal.showCompletionToUser = true
-                showGoalComplete(goal)
-            }
-            
-            CoreDataSaver.shared.save(goalModel: goal)
-        }
+
     }
 }

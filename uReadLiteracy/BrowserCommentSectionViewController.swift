@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Lottie
 
 class BrowserCommentSectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
@@ -17,9 +18,39 @@ class BrowserCommentSectionViewController: UIViewController, UITableViewDelegate
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var tableview: UITableView!
     
+    @IBOutlet weak var emptyAnimationView: LOTAnimationView!
+    
+    
     var currentArticle:ArticleModel? {
         didSet{
-            observeComments()
+            if currentArticle == nil{
+                fatalError()
+            }
+            
+            let articleName = (currentArticle?.getTitle())!
+            
+            firebaseObserver.observeComment(articleName: articleName) {[weak self] (list) in
+                guard let strongself = self else{
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    strongself.commentList = list
+                    strongself.tableview.reloadData()
+                    
+                    if(list.count == 0){
+                        strongself.tableview.isHidden = true
+                        strongself.emptyAnimationView.isHidden = false
+                        strongself.emptyAnimationView.play()
+                        
+                    }
+                    else{
+                        strongself.tableview.isHidden = false
+                        strongself.emptyAnimationView.isHidden = true
+                        strongself.emptyAnimationView.stop()
+                    }
+                }
+            }
         }
     }
     
@@ -27,9 +58,11 @@ class BrowserCommentSectionViewController: UIViewController, UITableViewDelegate
     
     private var commentRef:DatabaseQuery?
     
-    let currentUser = MainUserModel()
+    let currentUser = CurrentUser.shared
     
     private var isShowing = false
+    
+    private let firebaseObserver = FirebaseObserver()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +71,14 @@ class BrowserCommentSectionViewController: UIViewController, UITableViewDelegate
         
         userCommentTV.text = "Type Your Comment"
         userCommentTV.textColor = UIColor.lightGray
+        
+        emptyAnimationView.loopAnimation = true
     }
     
     func updateScrollPosition(position:CGFloat, maxOffset:Int, url:String, didShow:@escaping ()->Void, didHide:@escaping ()->Void){
         let currentYOffset = Int(position)
    
-        if currentYOffset >= maxOffset*90/100 && maxOffset > 0{
+        if currentYOffset >= maxOffset*80/100 && maxOffset > 0{
             if !isShowing{
                 view.isHidden = false
                 isShowing = true
@@ -114,50 +149,6 @@ class BrowserCommentSectionViewController: UIViewController, UITableViewDelegate
         else{
             userIV.image =  currentUser.getImage()
         }
-    }
-    
-    private func observeComments(){
-        if currentArticle == nil{
-            fatalError()
-        }
-        
-        let articleName = (currentArticle?.getTitle())!
-        
-        commentRef = Database.database().reference().child(articleName).queryOrderedByKey()
-        
-        commentRef!.observe(.value, with: { snapshot in
-            self.commentList.removeAll()
-    
-            let snapshotDic = snapshot.value as? [String:Any]
-            
-            if snapshotDic == nil{
-                return
-            }
-            
-            for (key,value) in snapshotDic! {
-                let commentUid = key
-                
-                let dict = value as! [String:[String:String]]
-                
-                for (dateAsString,commentDetail) in dict{
-                    let commentString = commentDetail["comment"]
-                    let username = commentDetail["username"]
-                    
-                    let comment = ArticleComment(articleName: (self.currentArticle?.getTitle())!, uid: commentUid, username: username!, comment: commentString!, date: Date.get(string: dateAsString))
-                    
-                    self.commentList.append(comment)
-                }
-            }
-            
-            self.commentList.sort(by: { (c1, c2) -> Bool in
-                return c1.date! > c2.date!
-            })
-            
-            DispatchQueue.main.async {
-                self.tableview.reloadData()
-            }
-            
-        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {

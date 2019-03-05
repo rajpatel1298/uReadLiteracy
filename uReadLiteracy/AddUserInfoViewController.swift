@@ -127,16 +127,26 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
                 image = userIV.image!
             }
             
-            let currentUser = MainUserModel()
-      
-            currentUser.createUser(image: image, nickname: nicknameTF.text!) { (state) in
+            let currentUser = CurrentUser.shared
+            currentUser.nickname = nicknameTF.text!
+            currentUser.image = image
+            
+            let tempId = UUID().uuidString
+            currentUser.email = "\(tempId)@gmail.com"
+            currentUser.password = tempId
+            
+            FirebaseAuthService.shared.createUser(user: currentUser) { [weak self] (state) in
+                
+                guard let strongself = self else{
+                    return
+                }
                 
                 DispatchQueue.main.async {
-                    self.stopLoading()
+                    strongself.stopLoading()
                     
                     switch(state){
                     case .Success:
-                        self.performSegue(withIdentifier: "AddUserInfoToWalkthroughSegue", sender: self)
+                        strongself.performSegue(withIdentifier: "AddUserInfoToWalkthroughSegue", sender: strongself)
                         break
                     case .Failure(let err):
                         fatalError("Handle err")
@@ -145,7 +155,6 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
                         break
                     }
                 }
-                
             }
         }
     }
