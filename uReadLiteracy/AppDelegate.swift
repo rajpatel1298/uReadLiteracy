@@ -13,6 +13,7 @@ import FacebookCore
 import FacebookLogin
 import FacebookShare
 import UserNotifications
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             print("granted : \(granted)")
         }
-        
+        IQKeyboardManager.shared().isEnabled = true
         return true
     }
     
