@@ -244,10 +244,9 @@ extension BrowseViewController{
     }
     
     fileprivate func setupComprehensionPopup(){
-        let position1 = ComprehensionPopupModel(popupLocation: .Middle, question: "What is Love? Baby don't hurt me, no more!")
-        let position2 = ComprehensionPopupModel(popupLocation: .Top, question: "Test Top")
-        
-        popupManager = ComprehensionPopupManager(popupModels: [position1,position2])
+        questionManager.populateGeneralQuestions()
+        let position2 = ComprehensionPopupModel(popupLocation: .Top, question: questionManager.selectRandomGeneralQuestion())
+        popupManager = ComprehensionPopupManager(popupModels: [position2])
     }
     
     fileprivate func setupSocialMedia(){
