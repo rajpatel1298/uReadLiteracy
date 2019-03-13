@@ -34,7 +34,7 @@ class BrowseViewController: UIViewController, WKNavigationDelegate,UIScrollViewD
     
     var previousBtn:UIButton!
     
-    var questionManager: ComprehensionQuestionManager!
+    let questionManager = ComprehensionQuestionManager()
     
     fileprivate var popupManager:ComprehensionPopupManager!
     fileprivate var alerts:BrowserVCAlerts!
@@ -245,8 +245,18 @@ extension BrowseViewController{
     
     fileprivate func setupComprehensionPopup(){
         questionManager.populateGeneralQuestions()
-        let position2 = ComprehensionPopupModel(popupLocation: .Top, question: questionManager.selectRandomGeneralQuestion())
-        popupManager = ComprehensionPopupManager(popupModels: [position2])
+        questionManager.populateFictionBeginning()
+        questionManager.populateFictionPeriodic()
+        questionManager.populateFictionEnd()
+        
+        let position1 = ComprehensionPopupModel(popupLocation: .Top, question: questionManager.selectRandomFictionBeginningQuestion())
+        let position2 = ComprehensionPopupModel(popupLocation: .MiddleTop, question: questionManager.selectRandomFictionPeriodicQuestion())
+        let position3 = ComprehensionPopupModel(popupLocation: .Middle, question: questionManager.selectRandomFictionPeriodicQuestion())
+        let position4 = ComprehensionPopupModel(popupLocation: .MiddleBottom, question: questionManager.selectRandomFictionPeriodicQuestion())
+        let position5 = ComprehensionPopupModel(popupLocation: .Bottom, question: questionManager.selectRandomFictionEndQuestion())
+        
+        
+        popupManager = ComprehensionPopupManager(popupModels: [position1, position2, position3, position4, position5])
     }
     
     fileprivate func setupSocialMedia(){

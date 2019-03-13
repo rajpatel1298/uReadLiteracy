@@ -166,6 +166,12 @@
 		CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */ = {isa = PBXBuildFile; fileRef = CD1DCA691FF4ACD900FCDDB5 /* share.gif */; };
 		CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E1E13205C5AC200AC2D1A /* LearnViewController.swift */; };
 		CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E1E15205C5CF500AC2D1A /* LearnCell.swift */; };
+		CD42598E2239C4400089C3FB /* fictionQuestionsBeginning.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD42598D2239C4400089C3FB /* fictionQuestionsBeginning.txt */; };
+		CD4259902239C4E10089C3FB /* fictionQuestionsPeriodic.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD42598F2239C4E10089C3FB /* fictionQuestionsPeriodic.txt */; };
+		CD4259922239C5A70089C3FB /* fictionQuestionsEnd.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD4259912239C5A70089C3FB /* fictionQuestionsEnd.txt */; };
+		CD4259942239C64E0089C3FB /* nonFictionQuestionsBeginning.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD4259932239C64E0089C3FB /* nonFictionQuestionsBeginning.txt */; };
+		CD4259962239C8010089C3FB /* nonFictionQuestionsPeriodic.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD4259952239C8010089C3FB /* nonFictionQuestionsPeriodic.txt */; };
+		CD4259982239C8840089C3FB /* nonFictionQuestionsEnd.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD4259972239C8840089C3FB /* nonFictionQuestionsEnd.txt */; };
 		CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6462B91FF33A88007AF08A /* First Time.storyboard */; };
 		CD704F4E2019A1B700E1E4F8 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */; };
 		CD7DC5F22218AB280077BEE5 /* generalQuestionsBeginning.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD7DC5F12218AB280077BEE5 /* generalQuestionsBeginning.txt */; };
@@ -354,6 +360,12 @@
 		CD1DCA691FF4ACD900FCDDB5 /* share.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = share.gif; sourceTree = "<group>"; };
 		CD3E1E13205C5AC200AC2D1A /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		CD3E1E15205C5CF500AC2D1A /* LearnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnCell.swift; sourceTree = "<group>"; };
+		CD42598D2239C4400089C3FB /* fictionQuestionsBeginning.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fictionQuestionsBeginning.txt; sourceTree = "<group>"; };
+		CD42598F2239C4E10089C3FB /* fictionQuestionsPeriodic.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fictionQuestionsPeriodic.txt; sourceTree = "<group>"; };
+		CD4259912239C5A70089C3FB /* fictionQuestionsEnd.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fictionQuestionsEnd.txt; sourceTree = "<group>"; };
+		CD4259932239C64E0089C3FB /* nonFictionQuestionsBeginning.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nonFictionQuestionsBeginning.txt; sourceTree = "<group>"; };
+		CD4259952239C8010089C3FB /* nonFictionQuestionsPeriodic.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nonFictionQuestionsPeriodic.txt; sourceTree = "<group>"; };
+		CD4259972239C8840089C3FB /* nonFictionQuestionsEnd.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nonFictionQuestionsEnd.txt; sourceTree = "<group>"; };
 		CD6462B91FF33A88007AF08A /* First Time.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "First Time.storyboard"; sourceTree = "<group>"; };
 		CD686C6721FD1F3E000482C0 /* RecordViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CD704F4D2019A1B700E1E4F8 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
@@ -866,6 +878,12 @@
 			isa = PBXGroup;
 			children = (
 				CD7DC5F12218AB280077BEE5 /* generalQuestionsBeginning.txt */,
+				CD42598D2239C4400089C3FB /* fictionQuestionsBeginning.txt */,
+				CD42598F2239C4E10089C3FB /* fictionQuestionsPeriodic.txt */,
+				CD4259912239C5A70089C3FB /* fictionQuestionsEnd.txt */,
+				CD4259932239C64E0089C3FB /* nonFictionQuestionsBeginning.txt */,
+				CD4259952239C8010089C3FB /* nonFictionQuestionsPeriodic.txt */,
+				CD4259972239C8840089C3FB /* nonFictionQuestionsEnd.txt */,
 			);
 			name = "Comprehension Questions";
 			sourceTree = "<group>";
@@ -1005,6 +1023,7 @@
 				1CAC798321FCB287007F8704 /* NokioSansAlt-Bold.ttf in Resources */,
 				1CAC798421FCB287007F8704 /* NokioSansAlt-BoldItalic.ttf in Resources */,
 				1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */,
+				CD4259902239C4E10089C3FB /* fictionQuestionsPeriodic.txt in Resources */,
 				1CAC798521FCB287007F8704 /* NokioSansAlt-ExtraLight.ttf in Resources */,
 				1CAC798621FCB287007F8704 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
 				1CCF9885220FB68100C491A8 /* 3151-books.json in Resources */,
@@ -1022,7 +1041,9 @@
 				1CAC798C21FCB287007F8704 /* NokioSansAlt-RegularItalic.ttf in Resources */,
 				1CAC796121FB637E007F8704 /* TextTo.mp3 in Resources */,
 				CD1DCA661FF4ACCD00FCDDB5 /* progress.gif in Resources */,
+				CD4259942239C64E0089C3FB /* nonFictionQuestionsBeginning.txt in Resources */,
 				1CAC797821FBC7BC007F8704 /* ReadTab.storyboard in Resources */,
+				CD42598E2239C4400089C3FB /* fictionQuestionsBeginning.txt in Resources */,
 				1CAC795D21FB636C007F8704 /* goalTutorial1.mp3 in Resources */,
 				1CAC796C21FB63BA007F8704 /* facebook.json in Resources */,
 				1C578F852204D3750077E1DD /* img_3.png in Resources */,
@@ -1051,13 +1072,16 @@
 				1CAC796821FB63BA007F8704 /* message_arrow.json in Resources */,
 				1C578F94220563120077E1DD /* 3787-jumping-mic.json in Resources */,
 				1C578F90220556250077E1DD /* prerecording.mp3 in Resources */,
+				CD4259982239C8840089C3FB /* nonFictionQuestionsEnd.txt in Resources */,
 				1CAC796921FB63BA007F8704 /* twitter_icon.json in Resources */,
 				1C578F842204D3750077E1DD /* img_2.png in Resources */,
 				CD1DCA681FF4ACD300FCDDB5 /* learnMore.gif in Resources */,
 				1C4C67FC218E64B300D5383D /* GoogleService-Info.plist in Resources */,
+				CD4259922239C5A70089C3FB /* fictionQuestionsEnd.txt in Resources */,
 				CDA652941FA0F5B700835624 /* Main.storyboard in Resources */,
 				CDF58FBA22121379007514DC /* browseTutorial1.mp3 in Resources */,
 				1CC1987B2218795C0021BAFC /* goalAdded.mp3 in Resources */,
+				CD4259962239C8010089C3FB /* nonFictionQuestionsPeriodic.txt in Resources */,
 				1C578F92220556590077E1DD /* postrecording.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
