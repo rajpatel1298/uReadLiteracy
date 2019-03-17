@@ -1,5 +1,5 @@
 //
-//  AudioRecordsViewController.swift
+//  RecordsDetailViewController.swift
 //  uReadLiteracy
 //
 //  Created by Duy Le 2 on 1/28/19.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class AudioRecordsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecordsDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var playPauseBtn: PlayButton!
@@ -83,7 +83,7 @@ class AudioRecordsViewController: UIViewController, UITableViewDelegate, UITable
 }
 
 // MARK: Audio Slider
-extension AudioRecordsViewController{
+extension RecordsDetailViewController{
     func setupAudioSlider(){
         audioPlayer = AudioPlayerWithTimer()
         
@@ -110,7 +110,7 @@ extension AudioRecordsViewController{
 }
 
 // MARK: TableView
-extension AudioRecordsViewController{
+extension RecordsDetailViewController{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return audioRecords.count
     }

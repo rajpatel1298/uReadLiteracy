@@ -12,8 +12,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     
     @IBOutlet weak var tableview: UITableView!
     
-    private var list = [String:[AudioRecordModel]]()
-    private var titles = [String]()
+    private var titlesWithModels = [String:[AudioRecordModel]]()
     
     private var selectedTitle:[AudioRecordModel]!
 
@@ -39,7 +38,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     }
     
     func showNoResultControllerIfNeeded(){
-        if list.count == 0{
+        if titlesWithModels.count == 0{
             noResultController.view.isHidden = false
             tableview.isHidden = true
         }
@@ -50,43 +49,42 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     }
         
     private func getListTitleWithoutDuplicate(){
-        list.removeAll()
+        titlesWithModels.removeAll()
         
         let models:[AudioRecordModel] = CoreDataGetter.shared.getList()
         
         for model in models{
-            if list[model.getTitle()] == nil{
-                list[model.getTitle()] = [AudioRecordModel]()
-                list[model.getTitle()]?.append(model)
+            if titlesWithModels[model.getTitle()] == nil{
+                titlesWithModels[model.getTitle()] = [AudioRecordModel]()
+                titlesWithModels[model.getTitle()]?.append(model)
             }
             else{
-                list[model.getTitle()]?.append(model)
+                titlesWithModels[model.getTitle()]?.append(model)
             }
         }
-        
-        titles = list.keys.sorted()
     }
 
     //setting up table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return titlesWithModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath) as! RecordCell
-        cell.titleLabel?.text = titles[indexPath.row]
+        cell.titleLabel?.text = titlesWithModels.keys.sorted()[indexPath.row]
         return cell
     }
     
     //listen to the selected row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedTitle = list[titles[indexPath.row]]
+        let titles = titlesWithModels.keys.sorted()
+        selectedTitle = titlesWithModels[titles[indexPath.row]]
         performSegue(withIdentifier: "RecordToAudioRecordsSegue", sender: self)
     }
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? AudioRecordsViewController{
+        if let destination = segue.destination as? RecordsDetailViewController{
             destination.audioRecords = selectedTitle
         }
     }

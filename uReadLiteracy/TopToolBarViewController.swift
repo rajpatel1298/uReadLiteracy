@@ -28,7 +28,7 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     
     static var currentController:UIViewController!{
         didSet{
-            if currentController is BrowseViewController{
+            if currentController is ReadViewController{
                 shared.previousBtn.isHidden = false
                 shared.recordLOTView.isHidden = false
             }
@@ -83,25 +83,25 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     @IBAction func recordBtnPressed(_ sender: Any) {
-        recording = !recording
-        
-        if recording{
+        if !recording{
             AudioPlayer.shared.playSound(soundName: "prerecording", audioExtension: "mp3", delegate: self)
         }
         else{
             onRecordBtnPressed()
             AudioPlayer.shared.playSound(soundName: "postrecording", audioExtension: "mp3", delegate: self)
-            recordLOTView.animation = "3787-jumping-mic"
+            recordLOTView.animation = "notRecordingMicrophone"
             recordLOTView.loopAnimation = true
             recordLOTView.play()
         }
+        
+        recording = !recording
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag{
             if recording{
                 onRecordBtnPressed()
-                recordLOTView.animation = "1552-microphone"
+                recordLOTView.animation = "recordingMicrophone"
                 recordLOTView.loopAnimation = true
                 recordLOTView.play()
             }
@@ -155,8 +155,8 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
             }
             tutorialBtn.isEnabled = false
             break
-        case is BrowseViewController:
-            let vc = TopToolBarViewController.currentController as! BrowseViewController
+        case is ReadViewController:
+            let vc = TopToolBarViewController.currentController as! ReadViewController
             
             tutorial = BrowseViewControllerTutorial(vc: vc)
             tutorial.addGesture(gesture: gesture)

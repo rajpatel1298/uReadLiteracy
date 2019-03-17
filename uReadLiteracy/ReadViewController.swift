@@ -18,14 +18,14 @@ class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDel
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
     
     @IBOutlet weak var commentSectionView: UIView!
-    fileprivate var browserCommentSectionVC:BrowserCommentSectionViewController!
+    fileprivate var commentSectionVC:CommentSectionViewController!
     
     @IBOutlet weak var actitvityIndicator: UIActivityIndicatorView!
     
     var urlSegue:URL!
     let mainUrl = "http://www.manythings.org/voa/stories/"
     
-    var logicController:BrowserLogicController!
+    var logicController:ReadLogicController!
     
     
     var maxBrowserOffset:Int!
@@ -125,7 +125,7 @@ class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDel
                 webView.scrollView.setContentOffset(CGPoint(x: oldScrollX, y: oldScrollY), animated: true)
             }
             
-            browserCommentSectionVC.updateScrollPosition(position: y, maxOffset: maxBrowserOffset, url: url, didShow: {
+            commentSectionVC.updateScrollPosition(position: y, maxOffset: maxBrowserOffset, url: url, didShow: {
                 DispatchQueue.main.async {
                     self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
                 }
@@ -176,7 +176,7 @@ class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDel
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
             currentArticle = ArticleModel(name: webView.title!, url: url!)
-            browserCommentSectionVC.currentArticle = currentArticle
+            commentSectionVC.currentArticle = currentArticle
             currentArticle.incrementReadCount()
             
             articleReadingStopwatch.start()
@@ -254,7 +254,7 @@ class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDel
 // MARK: Setup
 extension ReadViewController{
     fileprivate func setup(){
-        logicController = BrowserLogicController(mainURL: mainUrl)
+        logicController = ReadLogicController(mainURL: mainUrl)
         
         setupWebview()
         setupSocialMedia()
@@ -274,9 +274,9 @@ extension ReadViewController{
     }
     
     fileprivate func setupSocialMedia(){
-        browserCommentSectionVC = (childViewControllers.first as! BrowserCommentSectionViewController)
-        add(browserCommentSectionVC)
-        commentSectionView = browserCommentSectionVC.view
+        commentSectionVC = (childViewControllers.first as! CommentSectionViewController)
+        add(commentSectionVC)
+        commentSectionView = commentSectionVC.view
     }
     
     fileprivate func setupWebview(){

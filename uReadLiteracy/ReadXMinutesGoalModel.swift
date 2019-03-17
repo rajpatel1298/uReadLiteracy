@@ -33,7 +33,6 @@ class ReadXMinutesGoalModel:GoalModel{
         self.totalMinutes = Int(model.totalMinutes)
         self.minutesRead = Int(model.minutesRead)
         self.goalType = GoalType(rawValue: model.goalType!)
-        self.showCompletionToUser = showCompletionToUser
     }
     
     func find(name:String,date:Date)->ReadXMinutesCD?{

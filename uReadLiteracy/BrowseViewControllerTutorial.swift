@@ -12,10 +12,10 @@ import Lottie
 
 // For other Tutorial Controller, just copied the same code, and change stuffs when noted
 class BrowseViewControllerTutorial:TutorialController{
-    private let vc: BrowseViewController
+    private let vc: ReadViewController
     
     
-    init(vc:BrowseViewController){
+    init(vc:ReadViewController){
         self.vc = vc
         
         // Change based on the audio that you will use

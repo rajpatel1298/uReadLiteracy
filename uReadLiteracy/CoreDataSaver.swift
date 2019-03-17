@@ -100,7 +100,6 @@ class CoreDataSaver{
             let articles = ArticleManager.shared.getUrls(articles: goalModel.articles)
             
             object.setValue(articles, forKeyPath: "articles")
-            object.setValue(goalModel.showCompletionToUser, forKeyPath: "showCompletionToUser")
         }
         else{
             model?.articles = ArticleManager.shared.getUrls(articles: goalModel.articles) as NSObject
@@ -127,7 +126,6 @@ class CoreDataSaver{
             object.setValue(goalModel.date, forKeyPath: "date")
             object.setValue(goalModel.totalMinutes, forKeyPath: "totalMinutes")
             object.setValue(goalModel.minutesRead, forKeyPath: "minutesRead")
-            object.setValue(goalModel.showCompletionToUser, forKeyPath: "showCompletionToUser")
         }
         else{
             model?.minutesRead = Int16(goalModel.minutesRead)

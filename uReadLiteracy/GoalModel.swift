@@ -12,7 +12,6 @@ class GoalModel{
     let name:String
     var progress:Int!
     let date:Date
-    var showCompletionToUser = false
     
     init(name:String,date:Date){
         self.name = name

@@ -1,5 +1,5 @@
 //
-//  BrowserLogicController.swift
+//  ReadLogicController.swift
 //  uReadLiteracy
 //
 //  Created by Duy Le 2 on 2/11/19.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BrowserLogicController{
+class ReadLogicController{
     
     private let mainURL:String
     
