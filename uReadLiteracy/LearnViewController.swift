@@ -13,23 +13,14 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableview: UITableView!
     
-    var helpList = [HelpWordModel]()
-    var loginLoadingIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
-    var sendHelpWord: HelpWordModel!
+    private var helpList = [HelpWordModel]()
+    private var sendHelpWord: HelpWordModel!
     
-    var noResultController:NoResultViewController!
+    private var noResultController:NoResultViewController!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(helpList)
-        
-        self.loginLoadingIndicator.center = CGPoint(x: self.view.frame.size.width / 2.0, y: (self.view.frame.size.height - 100));
-        //change center to top of the tableview or first cell^
-        self.loginLoadingIndicator.hidesWhenStopped = true
-        self.loginLoadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(loginLoadingIndicator)
-    
         noResultController = (storyboard!.instantiateViewController(withIdentifier: "NoResultViewController") as! NoResultViewController)
         noResultController.inject(title: "There is no word to learn!", actionStr: "Read Articles to Learn More Words", action: {
             DispatchQueue.main.async {
