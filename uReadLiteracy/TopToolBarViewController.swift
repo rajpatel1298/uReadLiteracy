@@ -74,11 +74,23 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     func disablePreviousAndRecordBtn(){
         disableRecordBtn()
         disablePreviousBtn()
+        showPreviousAndRecordBtn()
     }
     
     func enablePreviousAndRecordBtn(){
         enableRecordBtn()
         enablePreviousBtn()
+        showPreviousAndRecordBtn()
+    }
+    
+    func showPreviousAndRecordBtn(){
+        recordBtn.isHidden = false
+        recordLOTView.isHidden = false
+    }
+    
+    func hidePreviousAndRecordBtn(){
+        recordBtn.isHidden = true
+        recordLOTView.isHidden = true
     }
     
     

@@ -1,5 +1,5 @@
 //
-//  BrowserVCAlerts.swift
+//  ReadAlerts.swift
 //  uReadLiteracy
 //
 //  Created by Duy Le 2 on 2/12/19.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BrowserVCAlerts{
+class ReadAlerts{
     private var onlyOneWordAlert:InfoAlert!
     private var cannotUseHelpFunctionAlert:ReportAlert!
     private var recordErrorAlert:InfoAlert!

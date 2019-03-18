@@ -29,12 +29,10 @@ class ReadViewController: UIViewController{
     fileprivate var webviewManager:WebViewManager!
     fileprivate var popupManager:ComprehensionPopupManager!
     
-    
     fileprivate var recorder:Recorder!
     fileprivate var player:AVAudioPlayer!
-    fileprivate var alerts:BrowserVCAlerts!
+    fileprivate var alerts:ReadAlerts!
     fileprivate var articleReadingStopwatch = ArticleReadingStopwatch()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -233,7 +231,7 @@ extension ReadViewController{
         recorder = Recorder(delegate:self)
         setupComprehensionPopup()
         
-        alerts = BrowserVCAlerts(viewcontroller: self)
+        alerts = ReadAlerts(viewcontroller: self)
         webviewManager = WebViewManager(webview: webView)
         actitvityIndicator.hidesWhenStopped = true
     }

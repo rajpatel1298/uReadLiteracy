@@ -152,7 +152,7 @@
 		1CCF98B32212211200C491A8 /* ReadLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B22212211200C491A8 /* ReadLogicController.swift */; };
 		1CCF98B622122A6C00C491A8 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B422122A6B00C491A8 /* Observer.swift */; };
 		1CCF98B722122A6C00C491A8 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B522122A6B00C491A8 /* Subject.swift */; };
-		1CCF98B922129ECC00C491A8 /* BrowserVCAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */; };
+		1CCF98B922129ECC00C491A8 /* ReadAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B822129ECC00C491A8 /* ReadAlerts.swift */; };
 		1CCF98C02213CA8E00C491A8 /* recordTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */; };
 		1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */; };
 		1CCF98C32214C56100C491A8 /* CoreDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */; };
@@ -167,7 +167,6 @@
 		1CD1A27C223EDCBC00502A67 /* DictionaryAdjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A27B223EDCBC00502A67 /* DictionaryAdjective.swift */; };
 		1CD1A282223EE4CD00502A67 /* YoutubeURLRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */; };
 		1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A283223F0F1E00502A67 /* WebViewManager.swift */; };
-		1CD1A286223F140100502A67 /* ReadVCSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A285223F140100502A67 /* ReadVCSetup.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */; };
 		CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */; };
@@ -356,7 +355,7 @@
 		1CCF98B22212211200C491A8 /* ReadLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLogicController.swift; sourceTree = "<group>"; };
 		1CCF98B422122A6B00C491A8 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		1CCF98B522122A6B00C491A8 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
-		1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserVCAlerts.swift; sourceTree = "<group>"; };
+		1CCF98B822129ECC00C491A8 /* ReadAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadAlerts.swift; sourceTree = "<group>"; };
 		1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial2.mp3; sourceTree = "<group>"; };
 		1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial1.mp3; sourceTree = "<group>"; };
 		1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSaver.swift; sourceTree = "<group>"; };
@@ -371,7 +370,6 @@
 		1CD1A27B223EDCBC00502A67 /* DictionaryAdjective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAdjective.swift; sourceTree = "<group>"; };
 		1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeURLRequestManager.swift; sourceTree = "<group>"; };
 		1CD1A283223F0F1E00502A67 /* WebViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewManager.swift; sourceTree = "<group>"; };
-		1CD1A285223F140100502A67 /* ReadVCSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadVCSetup.swift; sourceTree = "<group>"; };
 		CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial1.mp3; sourceTree = "<group>"; };
 		CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial2.mp3; sourceTree = "<group>"; };
@@ -452,8 +450,7 @@
 				CD704F4D2019A1B700E1E4F8 /* ReadViewController.swift */,
 				1CAC791921FB55DF007F8704 /* CommentSectionViewController.swift */,
 				1CCF98B22212211200C491A8 /* ReadLogicController.swift */,
-				1CCF98B822129ECC00C491A8 /* BrowserVCAlerts.swift */,
-				1CD1A285223F140100502A67 /* ReadVCSetup.swift */,
+				1CCF98B822129ECC00C491A8 /* ReadAlerts.swift */,
 			);
 			name = "Read ";
 			sourceTree = "<group>";
@@ -1220,7 +1217,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CD1A286223F140100502A67 /* ReadVCSetup.swift in Sources */,
 				1C578F6E2202A4830077E1DD /* RecordViewControllerTutorial.swift in Sources */,
 				1CAC799721FEA75D007F8704 /* CoreDataGetter.swift in Sources */,
 				1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */,
@@ -1281,7 +1277,7 @@
 				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
 				1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */,
 				1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */,
-				1CCF98B922129ECC00C491A8 /* BrowserVCAlerts.swift in Sources */,
+				1CCF98B922129ECC00C491A8 /* ReadAlerts.swift in Sources */,
 				CD704F4E2019A1B700E1E4F8 /* ReadViewController.swift in Sources */,
 				1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */,
 				1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */,
