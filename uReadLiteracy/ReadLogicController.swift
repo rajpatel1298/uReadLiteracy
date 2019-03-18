@@ -31,7 +31,7 @@ class ReadLogicController{
         return false
     }
     
-    func helpFunction(webView: WKWebviewWithHelpMenu, completionHandler:@escaping (_ state:State,_ error:HelpFunctionError?, _ url:URL?)->Void){
+    func helpFunction(webView: WKWebviewWithHelpMenu, completionHandler:@escaping (_ state:State,_ error:HelpFunctionError?, _ word:HelpWordModel?)->Void){
         webView.evaluateJavaScript("window.getSelection().toString()", completionHandler: {
             (selectedWord: Any?, error: Error?) in
             
@@ -40,13 +40,9 @@ class ReadLogicController{
             }
             
             if(self.onlyOneWordIsSelected(word: word)){
-                if let url = URL(string: "http://www.dictionary.com/browse/\(word)?s=t"){
-                    CoreDataSaver.shared.save(helpModel: HelpWordModel(word: word))
-                    completionHandler(.Success, nil, url)
-                }
-                else{
-                    completionHandler(.Failure(""),HelpFunctionError.UnknownError,nil)
-                }
+                let helpWord = HelpWordModel(word: word)
+                CoreDataSaver.shared.save(helpModel: helpWord)
+                completionHandler(.Success, nil, helpWord)
             }
             else{
                 completionHandler(.Failure(""),HelpFunctionError.MoreThanOneWord,nil)

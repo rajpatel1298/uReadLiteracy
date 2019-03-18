@@ -13,37 +13,28 @@ import SwiftSoup
 import AVFoundation
 import FirebaseAuth
 
-class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate{
+class ReadViewController: UIViewController{
     
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
-    
     @IBOutlet weak var commentSectionView: UIView!
     fileprivate var commentSectionVC:CommentSectionViewController!
-    
     @IBOutlet weak var actitvityIndicator: UIActivityIndicatorView!
     
-    var urlSegue:URL!
+    var helpWordSegue:HelpWordModel!
     let mainUrl = "http://www.manythings.org/voa/stories/"
-    
-    var logicController:ReadLogicController!
-    
-    
-    var maxBrowserOffset:Int!
-    
-    var recorder:Recorder!
-    
-    var player:AVAudioPlayer!
-    
-    var previousBtn:UIButton!
-    
-    var questionManager: ComprehensionQuestionManager!
-    
-    fileprivate var popupManager:ComprehensionPopupManager!
-    fileprivate var alerts:BrowserVCAlerts!
-    
     var currentArticle:ArticleModel!
     
-    var articleReadingStopwatch = ArticleReadingStopwatch()
+    fileprivate var logicController:ReadLogicController!
+    fileprivate var questionManager: ComprehensionQuestionManager!
+    fileprivate var webviewManager:WebViewManager!
+    fileprivate var popupManager:ComprehensionPopupManager!
+    
+    
+    fileprivate var recorder:Recorder!
+    fileprivate var player:AVAudioPlayer!
+    fileprivate var alerts:BrowserVCAlerts!
+    fileprivate var articleReadingStopwatch = ArticleReadingStopwatch()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +43,6 @@ class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDel
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         webView.frame = view.frame
         commentSectionView.frame = CGRect(x: view.frame.origin.x, y: view.frame.height/2, width: view.frame.width, height: view.frame.height/2)
     }
@@ -82,64 +72,17 @@ class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDel
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    private var oldScrollX:CGFloat = 0
-    private var oldScrollY:CGFloat = 0
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let webview = webView else{
-            return
-        }
-        guard let url = webview.url?.absoluteString else{
-            return
+    fileprivate func addPopup(popup:ComprehensionPopup){
+        popup.frame = view.frame
+        popup.alpha = 0
+        view.addSubview(popup)
+        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: popup.animationDuration) {
+            popup.alpha = 1
         }
         
-        let y = scrollView.contentOffset.y
-        
-        if logicController.isCurrentURLAnArticle(url: url){
-            popupManager.updateScrollPosition(position: y, popupToAddToView: { [weak self] (popup) in
-                
-                guard let strongself = self else{
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    popup.frame = strongself.view.frame
-                    popup.alpha = 0
-                    strongself.view.addSubview(popup)
-                    strongself.view.layoutIfNeeded()
-     
-                    UIView.animate(withDuration: popup.animationDuration) {
-                        popup.alpha = 1
-                    }
-                    
-                    strongself.oldScrollX = strongself.webView.scrollView.contentOffset.x
-                    strongself.oldScrollY = strongself.webView.scrollView.contentOffset.y
-                    
-                    strongself.webView.scrollView.setContentOffset(CGPoint(x: strongself.webView.scrollView.contentOffset.x, y: strongself.webView.scrollView.contentOffset.y), animated: true)
-                }
-                
-            })
-            
-            if(popupManager.isPopupShowing()){
-                webView.scrollView.setContentOffset(CGPoint(x: oldScrollX, y: oldScrollY), animated: true)
-            }
-            
-            commentSectionVC.updateScrollPosition(position: y, maxOffset: maxBrowserOffset, url: url, didShow: {
-                DispatchQueue.main.async {
-                    self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
-                }
-                
-            }, didHide: {
-                DispatchQueue.main.async {
-                    self.webView.frame = self.view.frame
-                }
-                
-            })
-            
-       
-            updateGoalIfNeeded()
-        }
+        webviewManager.scrollToCurrentCoordinate()
     }
     
     func loadMainPage(){
@@ -147,57 +90,41 @@ class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDel
         let request = URLRequest(url: url!)
         webView.load(request)
     }
-        
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        
-        actitvityIndicator.isHidden = false
-        actitvityIndicator.startAnimating()
-        webView.scrollView.isScrollEnabled = false
-        
-        let url = webView.url?.absoluteString
-        if logicController.isCurrentURLAnArticle(url: url!){
-            maxBrowserOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
-            
-            TopToolBarViewController.shared.enablePreviousAndRecordBtn()
-        
-            popupManager.setMaxYOffset(newValue: CGFloat(maxBrowserOffset))
-        }
-            
-        else{
-            TopToolBarViewController.shared.disablePreviousAndRecordBtn()
+    
+    func updateGoalIfNeeded(){
+        let currentYOffset = webView.scrollView.contentOffset.y
+
+        if logicController.atTheEndOfArticle(position: currentYOffset, maxOffset: webviewManager.getMaxOffset()){
+            if(currentArticle != nil){
+                articleReadingStopwatch.stop(article: currentArticle)
+                GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
+                    GoalCompletePresenter.shared.show(goal: goal)
+                }
+            }
         }
     }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        actitvityIndicator.stopAnimating()
-        actitvityIndicator.isHidden = true
-        webView.scrollView.isScrollEnabled = true
-        
-        let url = webView.url?.absoluteString
-        if logicController.isCurrentURLAnArticle(url: url!){
-            currentArticle = ArticleModel(name: webView.title!, url: url!)
-            commentSectionVC.currentArticle = currentArticle
-            currentArticle.incrementReadCount()
-            
-            articleReadingStopwatch.start()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? LearnDetailViewController{
+            destination.inject(helpWord: helpWordSegue)
         }
     }
+}
 
+//MARK: Help Function
+extension ReadViewController{
     func helpFunction(){
-        logicController.helpFunction(webView: webView) { [weak self] (state, error, url) in
+        logicController.helpFunction(webView: webView) { [weak self] (state, error, helpWord) in
             guard let strongSelf = self else{
                 return
             }
             
             switch(state){
             case .Success():
-                guard let url = url else{
-                    return
-                }
-                strongSelf.urlSegue = url
-                strongSelf.performSegue(withIdentifier: "BrowserToDictionaryWebViewSegue", sender: self)
+                strongSelf.helpWordSegue = helpWord
+                strongSelf.performSegue(withIdentifier: "ReadToLearnMoreSegue", sender: self)
                 break
-            case .Failure(let _):
+            case .Failure( _):
                 guard let helpFunctionError = error else{
                     return
                 }
@@ -217,36 +144,79 @@ class ReadViewController: UIViewController, WKNavigationDelegate,UIScrollViewDel
             break
         }
     }
-    
-    func setupHelpFunctionInMenuBar(){
-        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
-        UIMenuController.shared.menuItems = [helpItem]
-        UIMenuController.shared.update()
-        UIMenuController.shared.setMenuVisible(true, animated: true)
-    }
-    
+}
+
+
+//MARK: Audio Record
+extension ReadViewController:AVAudioRecorderDelegate,AVAudioPlayerDelegate{
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if recorder.isRecording{
             self.recorder.stopRecording()
         }
     }
-    
-    func updateGoalIfNeeded(){
-        let currentYOffset = webView.scrollView.contentOffset.y
+}
 
-        if logicController.atTheEndOfArticle(position: currentYOffset, maxOffset: maxBrowserOffset){
-            if(currentArticle != nil){
-                articleReadingStopwatch.stop(article: currentArticle)
-                GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
-                    GoalCompletePresenter.shared.show(goal: goal)
-                }
-            }
+// MARK: WebView
+extension ReadViewController:WKNavigationDelegate,UIScrollViewDelegate{
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
+        actitvityIndicator.startAnimating()
+        webView.scrollView.isScrollEnabled = false
+        
+        let url = webView.url?.absoluteString
+        if logicController.isCurrentURLAnArticle(url: url!){
+            webviewManager.setMaxOffset()
+            TopToolBarViewController.shared.enablePreviousAndRecordBtn()
+            popupManager.setMaxYOffset(newValue: CGFloat(webviewManager.getMaxOffset()))
+        }
+        else{
+            TopToolBarViewController.shared.disablePreviousAndRecordBtn()
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DictionaryWebViewController{
-            destination.url = urlSegue
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        actitvityIndicator.stopAnimating()
+        webView.scrollView.isScrollEnabled = true
+        
+        let url = webView.url?.absoluteString
+        if logicController.isCurrentURLAnArticle(url: url!){
+            currentArticle = ArticleModel(name: webView.title!, url: url!)
+            commentSectionVC.currentArticle = currentArticle
+            currentArticle.incrementReadCount()
+            
+            articleReadingStopwatch.start()
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let webview = webView else{
+            return
+        }
+        guard let url = webview.url?.absoluteString else{
+            return
+        }
+        
+        let y = scrollView.contentOffset.y
+        
+        if logicController.isCurrentURLAnArticle(url: url){
+            popupManager.updateScrollPosition(position: y, popupToAddToView: { [weak self] (popup) in
+                
+                guard let strongself = self else{
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    strongself.addPopup(popup: popup)
+                }
+            })
+            
+            if(popupManager.isPopupShowing()){
+                webviewManager.scrollToOldCoordinate()
+            }
+            
+            commentSectionVC.updateScrollPosition(position: y, maxOffset: webviewManager.getMaxOffset(), url: url)
+            
+            updateGoalIfNeeded()
         }
     }
 }
@@ -264,6 +234,15 @@ extension ReadViewController{
         setupComprehensionPopup()
         
         alerts = BrowserVCAlerts(viewcontroller: self)
+        webviewManager = WebViewManager(webview: webView)
+        actitvityIndicator.hidesWhenStopped = true
+    }
+    
+    private func setupHelpFunctionInMenuBar(){
+        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
+        UIMenuController.shared.menuItems = [helpItem]
+        UIMenuController.shared.update()
+        UIMenuController.shared.setMenuVisible(true, animated: true)
     }
     
     fileprivate func setupComprehensionPopup(){
@@ -277,6 +256,16 @@ extension ReadViewController{
         commentSectionVC = (childViewControllers.first as! CommentSectionViewController)
         add(commentSectionVC)
         commentSectionView = commentSectionVC.view
+        commentSectionVC.inject(didShow: {
+            DispatchQueue.main.async {
+                self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
+            }
+            
+        }, didHide: {
+            DispatchQueue.main.async {
+                self.webView.frame = self.view.frame
+            }
+        })
     }
     
     fileprivate func setupWebview(){
@@ -290,14 +279,18 @@ extension ReadViewController{
             self.webView.goBack()
             self.popupManager.resetPopupShownStatus()
         }
-        TopToolBarViewController.shared.onRecordBtnPressed = {
-            if self.recorder.isRecording() {
-                self.recorder.stopRecording()
+        TopToolBarViewController.shared.onRecordBtnPressed = { [weak self] in
+            guard let strongself = self else{
+                return
+            }
+            
+            if strongself.recorder.isRecording() {
+                strongself.recorder.stopRecording()
             }
             else {
-                self.recorder.startRecording(filename: (self.currentArticle?.getTitle())!) { (errStr) in
+                strongself.recorder.startRecording(filename: (strongself.currentArticle?.getTitle())!) { (errStr) in
                     DispatchQueue.main.async {
-                        self.alerts.showRecordErrorAlert()
+                        strongself.alerts.showRecordErrorAlert()
                         print(errStr)
                     }
                 }

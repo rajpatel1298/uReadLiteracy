@@ -23,34 +23,7 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     
     var currentArticle:ArticleModel? {
         didSet{
-            if currentArticle == nil{
-                fatalError()
-            }
-            
-            let articleName = (currentArticle?.getTitle())!
-            
-            firebaseObserver.observeComment(articleName: articleName) {[weak self] (list) in
-                guard let strongself = self else{
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    strongself.commentList = list
-                    strongself.tableview.reloadData()
-                    
-                    if(list.count == 0){
-                        strongself.tableview.isHidden = true
-                        strongself.emptyAnimationView.isHidden = false
-                        strongself.emptyAnimationView.play()
-                        
-                    }
-                    else{
-                        strongself.tableview.isHidden = false
-                        strongself.emptyAnimationView.isHidden = true
-                        strongself.emptyAnimationView.stop()
-                    }
-                }
-            }
+            didSetCurrentArticle()
         }
     }
     
@@ -63,6 +36,9 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     private var isShowing = false
     
     private let firebaseObserver = FirebaseObserver()
+    
+    private var didShow: ()->Void = {}
+    private var didHide: ()->Void = {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +51,43 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
         emptyAnimationView.loopAnimation = true
     }
     
-    func updateScrollPosition(position:CGFloat, maxOffset:Int, url:String, didShow:@escaping ()->Void, didHide:@escaping ()->Void){
+    func inject(didShow:@escaping ()->Void, didHide:@escaping ()->Void){
+        self.didShow = didShow
+        self.didHide = didHide
+    }
+    
+    private func didSetCurrentArticle(){
+        if currentArticle == nil{
+            fatalError()
+        }
+        
+        let articleName = (currentArticle?.getTitle())!
+        
+        firebaseObserver.observeComment(articleName: articleName) {[weak self] (list) in
+            guard let strongself = self else{
+                return
+            }
+            
+            DispatchQueue.main.async {
+                strongself.commentList = list
+                strongself.tableview.reloadData()
+                
+                if(list.count == 0){
+                    strongself.tableview.isHidden = true
+                    strongself.emptyAnimationView.isHidden = false
+                    strongself.emptyAnimationView.play()
+                    
+                }
+                else{
+                    strongself.tableview.isHidden = false
+                    strongself.emptyAnimationView.isHidden = true
+                    strongself.emptyAnimationView.stop()
+                }
+            }
+        }
+    }
+    
+    func updateScrollPosition(position:CGFloat, maxOffset:Int, url:String){
         let currentYOffset = Int(position)
    
         if currentYOffset >= maxOffset*80/100 && maxOffset > 0{

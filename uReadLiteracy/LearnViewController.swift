@@ -29,7 +29,6 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.loginLoadingIndicator.hidesWhenStopped = true
         self.loginLoadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(loginLoadingIndicator)
-        //analyzeButton.addTarget(self, action: #selector(analyzeWords), for: .touchUpInside)
     
         noResultController = (storyboard!.instantiateViewController(withIdentifier: "NoResultViewController") as! NoResultViewController)
         noResultController.inject(title: "There is no word to learn!", actionStr: "Read Articles to Learn More Words", action: {
@@ -72,7 +71,7 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cellIdentifier = "learnCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LearnCell
         
-        cell.wordLabel.text = helpList[indexPath.row].getWord()
+        cell.wordLabel.text = helpList[indexPath.row].word
         
         return cell
     }
@@ -84,8 +83,8 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DynamicVideoViewController {
-            destination.helpWord = sendHelpWord
+        if let destination = segue.destination as? LearnDetailViewController {
+            destination.inject(helpWord: sendHelpWord)
         }
     }
 }

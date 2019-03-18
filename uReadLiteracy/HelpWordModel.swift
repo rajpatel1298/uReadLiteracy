@@ -29,11 +29,7 @@ class HelpWordModel{
         self.blendDifficult = blendDifficult
         self.multisyllabicDifficult = multisyllabicDifficult
     }
-    
-    func getWord()->String{
-        return word
-    }
-    
+        
     private func beginningDifficult(word:String)->Bool{
         let beginnings = ["bl", "br", "ch", "ci", "cl", "cr", "dis", "dr", "dw", "ex", "fl", "fr", "gl", "gr", "in","kn", "ph", "pl", "pr", "psy", "re", "sc", "sh", "shr", "sk", "sl","sm", "sn", "sp", "spr", "st", "str", "sw", "th", "thr", "tr", "tw", "un", "wh", "wr","eigh"]
         

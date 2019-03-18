@@ -22,13 +22,6 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bookAnimationView.loopAnimation = true
-        
-        let string = "term, a word or phrase used to describe a thing or to express a concept, especially in a particular kind of language or branch of study."
-        let utterance = AVSpeechUtterance(string: string)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
     }
     
     override func viewDidLayoutSubviews() {
