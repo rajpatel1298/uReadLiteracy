@@ -20,6 +20,7 @@ class HelpWordModel{
     
     init(word:String){
         self.word = word
+        getWordDifficultyIfNil()
     }
     init(word:String,beginningDifficult:Bool,endingDifficult:Bool,blendDifficult:Bool,multisyllabicDifficult:Bool){
         

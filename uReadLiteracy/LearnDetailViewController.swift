@@ -33,7 +33,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        TopToolBarViewController.shared.hidePreviousAndRecordBtn()
+        TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
         
         helpLabel.text = helpWord.getDescription()
         

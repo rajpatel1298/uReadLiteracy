@@ -12,12 +12,14 @@ import WebKit
 import SwiftSoup
 import AVFoundation
 import FirebaseAuth
+import Lottie
 
 class ReadViewController: UIViewController{
     
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
-    @IBOutlet weak var commentSectionView: UIView!
-    fileprivate var commentSectionVC:CommentSectionViewController!
+    
+    @IBOutlet weak var commentBtn: LOTAnimationView!
+    
     @IBOutlet weak var actitvityIndicator: UIActivityIndicatorView!
     
     var helpWordSegue:HelpWordModel!
@@ -41,29 +43,38 @@ class ReadViewController: UIViewController{
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        webView.frame = view.frame
-        commentSectionView.frame = CGRect(x: view.frame.origin.x, y: view.frame.height/2, width: view.frame.width, height: view.frame.height/2)
+        hideCommentBtn()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadMainPage()
-        commentSectionView.isHidden = true
-        webView.frame = view.frame
+        hideCommentBtn()
         
         setupTopBar()
-        TopToolBarViewController.shared.disablePreviousAndRecordBtn()
+        TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
 
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    private func showCommentBtn(){
+        webView.frame = CGRect(x: view.frame.origin.x, y: 0, width: view.frame.width, height: view.frame.height*85/100)
+        
+        let tabBarHeight = tabBarController?.tabBar.frame.height ?? CGFloat(0)
+        
+        commentBtn.frame = CGRect(x: view.frame.origin.x, y: view.frame.height*80/100, width: view.frame.width, height: view.frame.height*20/100 - tabBarHeight)
+    }
+    private func hideCommentBtn(){
+        webView.frame = view.frame
+        commentBtn.frame = CGRect(x: view.frame.origin.x, y: view.frame.height*80/100, width: 0, height: 0)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        webView.frame = view.frame
+        hideCommentBtn()
         
         loadMainPage()
-        commentSectionView.isHidden = true
-        TopToolBarViewController.shared.disablePreviousAndRecordBtn()
+        TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
         
         popupManager.resetPopupShownStatus()
         
@@ -102,9 +113,23 @@ class ReadViewController: UIViewController{
         }
     }
     
+    fileprivate func updateScrollPositionForCommentBtn(position:CGFloat){
+        let currentYOffset = Int(position)
+        if currentYOffset >=  webviewManager.getMaxOffset()*80/100 &&  webviewManager.getMaxOffset() > 0 {
+            
+            showCommentBtn()
+        }
+        else{
+            hideCommentBtn()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? LearnDetailViewController{
             destination.inject(helpWord: helpWordSegue)
+        }
+        if let destination = segue.destination as? CommentSectionViewController{
+            destination.inject(currentArticle: currentArticle)
         }
     }
 }
@@ -164,11 +189,11 @@ extension ReadViewController:WKNavigationDelegate,UIScrollViewDelegate{
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
             webviewManager.setMaxOffset()
-            TopToolBarViewController.shared.enablePreviousAndRecordBtn()
+            TopToolBarViewController.shared.showPreviousCommentRecordBtn()
             popupManager.setMaxYOffset(newValue: CGFloat(webviewManager.getMaxOffset()))
         }
         else{
-            TopToolBarViewController.shared.disablePreviousAndRecordBtn()
+            TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
         }
     }
     
@@ -179,7 +204,6 @@ extension ReadViewController:WKNavigationDelegate,UIScrollViewDelegate{
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
             currentArticle = ArticleModel(name: webView.title!, url: url!)
-            commentSectionVC.currentArticle = currentArticle
             currentArticle.incrementReadCount()
             
             articleReadingStopwatch.start()
@@ -211,13 +235,12 @@ extension ReadViewController:WKNavigationDelegate,UIScrollViewDelegate{
             if(popupManager.isPopupShowing()){
                 webviewManager.scrollToOldCoordinate()
             }
-            
-            commentSectionVC.updateScrollPosition(position: y, maxOffset: webviewManager.getMaxOffset(), url: url)
-            
+            updateScrollPositionForCommentBtn(position: y)
             updateGoalIfNeeded()
         }
     }
 }
+
 
 // MARK: Setup
 extension ReadViewController{
@@ -225,7 +248,6 @@ extension ReadViewController{
         logicController = ReadLogicController(mainURL: mainUrl)
         
         setupWebview()
-        setupSocialMedia()
         setupHelpFunctionInMenuBar()
         
         recorder = Recorder(delegate:self)
@@ -234,6 +256,21 @@ extension ReadViewController{
         alerts = ReadAlerts(viewcontroller: self)
         webviewManager = WebViewManager(webview: webView)
         actitvityIndicator.hidesWhenStopped = true
+        
+        addGestureRecognizerToCommentBtn()
+        commentBtn.autoReverseAnimation = true
+        commentBtn.loopAnimation = true
+        commentBtn.play()
+        commentBtn.contentMode = .scaleAspectFit
+    }
+    
+    private func addGestureRecognizerToCommentBtn(){
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onCommentSectionBtnPressed))
+        commentBtn.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    @objc private func onCommentSectionBtnPressed(){
+        performSegue(withIdentifier: "ReadToCommentSectionSegue", sender: self)
     }
     
     private func setupHelpFunctionInMenuBar(){
@@ -250,22 +287,6 @@ extension ReadViewController{
         popupManager = ComprehensionPopupManager(popupModels: [position1,position2])
     }
     
-    fileprivate func setupSocialMedia(){
-        commentSectionVC = (childViewControllers.first as! CommentSectionViewController)
-        add(commentSectionVC)
-        commentSectionView = commentSectionVC.view
-        commentSectionVC.inject(didShow: {
-            DispatchQueue.main.async {
-                self.webView.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height/2)
-            }
-            
-        }, didHide: {
-            DispatchQueue.main.async {
-                self.webView.frame = self.view.frame
-            }
-        })
-    }
-    
     fileprivate func setupWebview(){
         webView.navigationDelegate = self
         webView.scrollView.delegate = self
@@ -273,9 +294,13 @@ extension ReadViewController{
     
     fileprivate func setupTopBar(){
         TopToolBarViewController.currentController = self
-        TopToolBarViewController.shared.onPreviousBtnPressed = {
-            self.webView.goBack()
-            self.popupManager.resetPopupShownStatus()
+        TopToolBarViewController.shared.onPreviousBtnPressed = { [weak self] in
+            guard let strongself = self else{
+                return
+            }
+            
+            strongself.webView.goBack()
+            strongself.popupManager.resetPopupShownStatus()
         }
         TopToolBarViewController.shared.onRecordBtnPressed = { [weak self] in
             guard let strongself = self else{
@@ -293,6 +318,13 @@ extension ReadViewController{
                     }
                 }
             }
+        }
+        TopToolBarViewController.shared.onCommentBtnPressed = {
+            [weak self] in
+            guard let strongself = self else{
+                return
+            }
+            strongself.onCommentSectionBtnPressed()
         }
     }
 }

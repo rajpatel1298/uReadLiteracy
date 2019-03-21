@@ -1,5 +1,5 @@
 //
-//  URLManager.swift
+//  URLService.swift
 //  uReadLiteracy
 //
 //  Created by Duy Le 2 on 3/17/19.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class URLManager{
-    static let shared = URLManager()
+class URLService{
+    static let shared = URLService()
     
     func get(urlString:String, completion:@escaping (Data?)->Void){
         

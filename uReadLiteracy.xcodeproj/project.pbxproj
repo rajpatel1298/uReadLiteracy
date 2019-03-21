@@ -160,13 +160,14 @@
 		1CD1A26D223ECB7600502A67 /* WordWithSpeakerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A26C223ECB7600502A67 /* WordWithSpeakerTableViewCell.swift */; };
 		1CD1A26F223ECD0900502A67 /* DictionaryWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A26E223ECD0900502A67 /* DictionaryWord.swift */; };
 		1CD1A271223ED65500502A67 /* DictionaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A270223ED65500502A67 /* DictionaryManager.swift */; };
-		1CD1A273223ED99C00502A67 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A272223ED99C00502A67 /* URLManager.swift */; };
+		1CD1A273223ED99C00502A67 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A272223ED99C00502A67 /* URLService.swift */; };
 		1CD1A276223EDC8F00502A67 /* DictionaryMeaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A275223EDC8F00502A67 /* DictionaryMeaning.swift */; };
 		1CD1A278223EDCA500502A67 /* DictionaryNoun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A277223EDCA500502A67 /* DictionaryNoun.swift */; };
 		1CD1A27A223EDCB200502A67 /* DictionaryVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A279223EDCB200502A67 /* DictionaryVerb.swift */; };
 		1CD1A27C223EDCBC00502A67 /* DictionaryAdjective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A27B223EDCBC00502A67 /* DictionaryAdjective.swift */; };
 		1CD1A282223EE4CD00502A67 /* YoutubeURLRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */; };
 		1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A283223F0F1E00502A67 /* WebViewManager.swift */; };
+		1CD1A2892242F00600502A67 /* comment_speech_bubble.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A2882242F00500502A67 /* comment_speech_bubble.json */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */; };
 		CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */; };
@@ -363,13 +364,14 @@
 		1CD1A26C223ECB7600502A67 /* WordWithSpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordWithSpeakerTableViewCell.swift; sourceTree = "<group>"; };
 		1CD1A26E223ECD0900502A67 /* DictionaryWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryWord.swift; sourceTree = "<group>"; };
 		1CD1A270223ED65500502A67 /* DictionaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryManager.swift; sourceTree = "<group>"; };
-		1CD1A272223ED99C00502A67 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		1CD1A272223ED99C00502A67 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 		1CD1A275223EDC8F00502A67 /* DictionaryMeaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryMeaning.swift; sourceTree = "<group>"; };
 		1CD1A277223EDCA500502A67 /* DictionaryNoun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryNoun.swift; sourceTree = "<group>"; };
 		1CD1A279223EDCB200502A67 /* DictionaryVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryVerb.swift; sourceTree = "<group>"; };
 		1CD1A27B223EDCBC00502A67 /* DictionaryAdjective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAdjective.swift; sourceTree = "<group>"; };
 		1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeURLRequestManager.swift; sourceTree = "<group>"; };
 		1CD1A283223F0F1E00502A67 /* WebViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewManager.swift; sourceTree = "<group>"; };
+		1CD1A2882242F00500502A67 /* comment_speech_bubble.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = comment_speech_bubble.json; sourceTree = "<group>"; };
 		CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial1.mp3; sourceTree = "<group>"; };
 		CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial2.mp3; sourceTree = "<group>"; };
@@ -541,18 +543,17 @@
 		1C513A5921801B6100FFDC82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C4C67EC218D3E5100D5383D /* Web */,
+				1CD1A28722417BDE00502A67 /* Comprehension Popup */,
 				1CAC79A021FFB0B9007F8704 /* Audio */,
 				1CAC799221FE242B007F8704 /* Core Data Model */,
 				CDA652951FA0F5B700835624 /* uReadLiteracy.xcdatamodeld */,
-				1C4C67EC218D3E5100D5383D /* Web */,
 				1C4C67F7218E5D6D00D5383D /* State.swift */,
 				1C4C67EF218D400500D5383D /* HelpFunctionError.swift */,
 				1CAC791C21FB5693007F8704 /* ArticleComment.swift */,
 				1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */,
 				1CCF98B422122A6B00C491A8 /* Observer.swift */,
 				1CCF98B522122A6B00C491A8 /* Subject.swift */,
-				1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */,
-				1CC1987C2218CB910021BAFC /* PopupLocation.swift */,
 				1CD1A274223EDC4100502A67 /* Dictionary */,
 			);
 			name = Model;
@@ -752,6 +753,7 @@
 			children = (
 				1CD1A26A223ECB2700502A67 /* word_speaker.json */,
 				1CAC796721FB63BA007F8704 /* facebook.json */,
+				1CD1A2882242F00500502A67 /* comment_speech_bubble.json */,
 				1CAC796621FB63BA007F8704 /* favourite_app_icon.json */,
 				1CAC796521FB63BA007F8704 /* hand_click_gesture.json */,
 				1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */,
@@ -820,7 +822,7 @@
 				1CAC793621FB5978007F8704 /* Comprehension Popup */,
 				1CAC793021FB5906007F8704 /* AudioPlayer.swift */,
 				1CAC798D21FCB425007F8704 /* Recorder.swift */,
-				1CD1A272223ED99C00502A67 /* URLManager.swift */,
+				1CD1A272223ED99C00502A67 /* URLService.swift */,
 				1CD1A270223ED65500502A67 /* DictionaryManager.swift */,
 				1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */,
 				1CD1A283223F0F1E00502A67 /* WebViewManager.swift */,
@@ -890,6 +892,15 @@
 				1CCF98AE22120C9300C491A8 /* ArticleManager.swift */,
 			);
 			name = Article;
+			sourceTree = "<group>";
+		};
+		1CD1A28722417BDE00502A67 /* Comprehension Popup */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */,
+				1CC1987C2218CB910021BAFC /* PopupLocation.swift */,
+			);
+			name = "Comprehension Popup";
 			sourceTree = "<group>";
 		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
@@ -1074,6 +1085,7 @@
 				1CAC797921FCB287007F8704 /* NokioSans-Bold.ttf in Resources */,
 				1CAC797A21FCB287007F8704 /* NokioSans-BoldItalic.ttf in Resources */,
 				1CAD87A5220A20DB0096DD90 /* 3227-error-404-facebook-style.json in Resources */,
+				1CD1A2892242F00600502A67 /* comment_speech_bubble.json in Resources */,
 				CDF58FBD22121379007514DC /* browseTutorial3.mp3 in Resources */,
 				1CAC797B21FCB287007F8704 /* NokioSans-ExtraLight.ttf in Resources */,
 				1CAC797C21FCB287007F8704 /* NokioSans-ExtraLightItalic.ttf in Resources */,
@@ -1299,7 +1311,7 @@
 				1CCF98B122120DEE00C491A8 /* ArticleReadingStopwatch.swift in Sources */,
 				CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */,
 				CD03CC9020F6E79A006D5D89 /* LearnDetailViewController.swift in Sources */,
-				1CD1A273223ED99C00502A67 /* URLManager.swift in Sources */,
+				1CD1A273223ED99C00502A67 /* URLService.swift in Sources */,
 				1CAC79AA21FFB0EB007F8704 /* AudioTimeLabel.swift in Sources */,
 				CDDD7F011FF19A67009FA71D /* ExploreViewController.swift in Sources */,
 				1C4C67DE218C004A00D5383D /* ProfileViewController.swift in Sources */,

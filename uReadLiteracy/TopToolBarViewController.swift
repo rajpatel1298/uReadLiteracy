@@ -17,25 +17,18 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var tutorialBtn: UIButton!
     @IBOutlet weak var previousBtn: UIButton!
     @IBOutlet weak var recordLOTView: LOTAnimationView!
-    
-    @IBOutlet weak var recordBtn: UIButton!
+    @IBOutlet weak var commentLOTView: LOTAnimationView!
     
     var onPreviousBtnPressed: (()->Void)!
     var onRecordBtnPressed: (()->Void)!
+    var onCommentBtnPressed: (()->Void)!
     
     var recording = false
     
     
     static var currentController:UIViewController!{
         didSet{
-            if currentController is ReadViewController{
-                shared.previousBtn.isHidden = false
-                shared.recordLOTView.isHidden = false
-            }
-            else{
-                shared.previousBtn.isHidden = true
-                shared.recordLOTView.isHidden = true
-            }
+            shared.hidePreviousCommentRecordBtn()
         }
     }
     
@@ -48,53 +41,37 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
         TopToolBarViewController.shared = self
         recordLOTView.loopAnimation = true
         recordLOTView.animationSpeed = 0.5
-    }
-    
-    private func enablePreviousBtn(){
-        previousBtn.alpha = 1
-        previousBtn.isEnabled = true
-    }
-    private func disablePreviousBtn(){
-        //previousBtn.alpha = 0.2
-        previousBtn.isEnabled = false
-    }
-    
-    private func enableRecordBtn(){
-        recordLOTView.alpha = 1
         recordLOTView.play()
-        recordBtn.isEnabled = true
+        
+        commentLOTView.autoReverseAnimation = true
+        commentLOTView.loopAnimation = true
+        commentLOTView.play()
+        
+        let recordBtnGesture = UITapGestureRecognizer(target: self, action: #selector(recordBtnPressed))
+        recordLOTView.addGestureRecognizer(recordBtnGesture)
+        
+        let commentBtnGesture = UITapGestureRecognizer(target: self, action: #selector(commentBtnPressed))
+        commentLOTView.addGestureRecognizer(commentBtnGesture)
     }
     
-    private func disableRecordBtn(){
-        //recordLOTView.alpha = 0.2
-        recordLOTView.stop()
-        recordBtn.isEnabled = false
-    }
-    
-    func disablePreviousAndRecordBtn(){
-        disableRecordBtn()
-        disablePreviousBtn()
-        showPreviousAndRecordBtn()
-    }
-    
-    func enablePreviousAndRecordBtn(){
-        enableRecordBtn()
-        enablePreviousBtn()
-        showPreviousAndRecordBtn()
-    }
-    
-    func showPreviousAndRecordBtn(){
-        recordBtn.isHidden = false
+    func showPreviousCommentRecordBtn(){
         recordLOTView.isHidden = false
+        commentLOTView.isHidden = false
+        previousBtn.isHidden = false
     }
     
-    func hidePreviousAndRecordBtn(){
-        recordBtn.isHidden = true
+    func hidePreviousCommentRecordBtn(){
         recordLOTView.isHidden = true
+        commentLOTView.isHidden = true
+        previousBtn.isHidden = true
+    }
+    
+    @objc private func commentBtnPressed() {
+        onCommentBtnPressed()
     }
     
     
-    @IBAction func recordBtnPressed(_ sender: Any) {
+    @objc private func recordBtnPressed() {
         if !recording{
             AudioPlayer.shared.playSound(soundName: "prerecording", audioExtension: "mp3", delegate: self)
         }

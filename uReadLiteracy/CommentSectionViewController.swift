@@ -20,12 +20,8 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var emptyAnimationView: LOTAnimationView!
     
-    
-    var currentArticle:ArticleModel? {
-        didSet{
-            didSetCurrentArticle()
-        }
-    }
+
+    private var currentArticle:ArticleModel!
     
     private var commentList = [ArticleComment]()
     
@@ -36,9 +32,6 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     private var isShowing = false
     
     private let firebaseObserver = FirebaseObserver()
-    
-    private var didShow: ()->Void = {}
-    private var didHide: ()->Void = {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,17 +44,13 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
         emptyAnimationView.loopAnimation = true
     }
     
-    func inject(didShow:@escaping ()->Void, didHide:@escaping ()->Void){
-        self.didShow = didShow
-        self.didHide = didHide
+    func inject(currentArticle:ArticleModel){
+        self.currentArticle = currentArticle
+        didSetCurrentArticle()
     }
     
-    private func didSetCurrentArticle(){
-        if currentArticle == nil{
-            fatalError()
-        }
-        
-        let articleName = (currentArticle?.getTitle())!
+    private func didSetCurrentArticle(){        
+        let articleName = (currentArticle.getTitle())
         
         firebaseObserver.observeComment(articleName: articleName) {[weak self] (list) in
             guard let strongself = self else{
@@ -86,40 +75,7 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
     }
-    
-    func updateScrollPosition(position:CGFloat, maxOffset:Int, url:String){
-        let currentYOffset = Int(position)
-   
-        if currentYOffset >= maxOffset*80/100 && maxOffset > 0{
-            if !isShowing{
-                view.isHidden = false
-                isShowing = true
-                view.alpha = 0
-                
-                didShow()
-                UIView.animate(withDuration: 1) {
-                    
-                    self.view.alpha = 1
-                }
-            }
-        }
-        else{
-            if isShowing{
-                view.alpha = 1
-                isShowing = false
-                
-                didHide()
-                UIView.animate(withDuration: 1, animations: {
-                    
-                    self.view.alpha = 0
-                }) { (completed) in
-                    if completed{
-                        self.view.isHidden = true
-                    }
-                }
-            }
-        }
-    }
+
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
@@ -172,7 +128,7 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func postBtnPressed(_ sender: Any) {
         if (currentArticle != nil){
-            let comment = ArticleComment(articleName: (currentArticle?.getTitle())!, uid: currentUser.getUid(), username: currentUser.getNickname(), comment: userCommentTV.text)
+            let comment = ArticleComment(articleName: currentArticle.getTitle(), uid: currentUser.getUid(), username: currentUser.getNickname(), comment: userCommentTV.text)
             FirebaseUploader.shared.upload(comment: comment)
         }
     }

@@ -15,7 +15,7 @@ class DictionaryManager{
         
         let url = "https://googledictionaryapi.eu-gb.mybluemix.net/?define=\(word)"
         
-        URLManager.shared.get(urlString: url) { (data) in
+        URLService.shared.get(urlString: url) { (data) in
             guard let data = data else{
                 completion(nil)
                 return
