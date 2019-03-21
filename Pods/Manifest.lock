@@ -92,6 +92,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - IQKeyboardManager (6.2.0)
   - leveldb-library (1.20)
   - lottie-ios (2.5.2)
   - nanopb (0.3.901):
@@ -110,6 +111,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - IQKeyboardManager
   - lottie-ios
   - SwiftSoup
   - youtube-ios-player-helper (~> 0.1.4)
@@ -134,6 +136,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - IQKeyboardManager
     - leveldb-library
     - lottie-ios
     - nanopb
@@ -159,12 +162,13 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: dbc5043c3fb13f0410dffa93596451942e7faf55
+PODFILE CHECKSUM: 4c1b371e86d328c89d7e47b3738581df198d50f7
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3
