@@ -168,6 +168,22 @@
 		1CD1A282223EE4CD00502A67 /* YoutubeURLRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */; };
 		1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A283223F0F1E00502A67 /* WebViewManager.swift */; };
 		1CD1A2892242F00600502A67 /* comment_speech_bubble.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A2882242F00500502A67 /* comment_speech_bubble.json */; };
+		1CD1A28C2245B4A000502A67 /* ArticleCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A28B2245B4A000502A67 /* ArticleCategory.swift */; };
+		1CD1A29122481FFF00502A67 /* Art.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29022481FFF00502A67 /* Art.txt */; };
+		1CD1A293224821D700502A67 /* Economy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A292224821D700502A67 /* Economy.txt */; };
+		1CD1A295224826E400502A67 /* Environment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A294224826E400502A67 /* Environment.txt */; };
+		1CD1A297224827A500502A67 /* Politics.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A296224827A500502A67 /* Politics.txt */; };
+		1CD1A29F224836E400502A67 /* Literature.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A298224836DF00502A67 /* Literature.txt */; };
+		1CD1A2A0224836E400502A67 /* Science.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A299224836DF00502A67 /* Science.txt */; };
+		1CD1A2A1224836E400502A67 /* Sports.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29A224836E100502A67 /* Sports.txt */; };
+		1CD1A2A2224836E400502A67 /* History.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29B224836E200502A67 /* History.txt */; };
+		1CD1A2A3224836E400502A67 /* Media.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29C224836E200502A67 /* Media.txt */; };
+		1CD1A2A4224836E400502A67 /* Travel.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29D224836E300502A67 /* Travel.txt */; };
+		1CD1A2A5224836E400502A67 /* People.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29E224836E400502A67 /* People.txt */; };
+		1CD1A2A72248851D00502A67 /* ArticleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2A62248851D00502A67 /* ArticleSelectViewController.swift */; };
+		1CD1A2A92249C28200502A67 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2A82249C28200502A67 /* ArticleTableViewCell.swift */; };
+		1CD1A2AB2249C3B900502A67 /* ArticleCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2AA2249C3B800502A67 /* ArticleCategoryTableViewController.swift */; };
+		1CD1A2AD2249C70D00502A67 /* ArticleCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2AC2249C70D00502A67 /* ArticleCategoryTableViewCell.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */; };
 		CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */; };
@@ -188,7 +204,7 @@
 		CD4259962239C8010089C3FB /* nonFictionQuestionsPeriodic.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD4259952239C8010089C3FB /* nonFictionQuestionsPeriodic.txt */; };
 		CD4259982239C8840089C3FB /* nonFictionQuestionsEnd.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD4259972239C8840089C3FB /* nonFictionQuestionsEnd.txt */; };
 		CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6462B91FF33A88007AF08A /* First Time.storyboard */; };
-		CD704F4E2019A1B700E1E4F8 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD704F4D2019A1B700E1E4F8 /* ReadViewController.swift */; };
+		CD704F4E2019A1B700E1E4F8 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD704F4D2019A1B700E1E4F8 /* BrowserViewController.swift */; };
 		CD7DC5F22218AB280077BEE5 /* generalQuestionsBeginning.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD7DC5F12218AB280077BEE5 /* generalQuestionsBeginning.txt */; };
 		CD7DC5F42218ABE70077BEE5 /* ComprehensionQuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7DC5F32218ABE70077BEE5 /* ComprehensionQuestionManager.swift */; };
 		CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */; };
@@ -378,6 +394,29 @@
 		1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeURLRequestManager.swift; sourceTree = "<group>"; };
 		1CD1A283223F0F1E00502A67 /* WebViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewManager.swift; sourceTree = "<group>"; };
 		1CD1A2882242F00500502A67 /* comment_speech_bubble.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = comment_speech_bubble.json; sourceTree = "<group>"; };
+		1CD1A28B2245B4A000502A67 /* ArticleCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategory.swift; sourceTree = "<group>"; };
+		1CD1A29022481FFF00502A67 /* Art.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Art.txt; sourceTree = "<group>"; };
+		1CD1A292224821D700502A67 /* Economy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Economy.txt; sourceTree = "<group>"; };
+		1CD1A294224826E400502A67 /* Environment.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.txt; sourceTree = "<group>"; };
+		1CD1A296224827A500502A67 /* Politics.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Politics.txt; sourceTree = "<group>"; };
+		1CD1A298224836DF00502A67 /* Literature.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Literature.txt; sourceTree = "<group>"; };
+		1CD1A299224836DF00502A67 /* Science.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Science.txt; sourceTree = "<group>"; };
+		1CD1A29A224836E100502A67 /* Sports.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sports.txt; sourceTree = "<group>"; };
+		1CD1A29B224836E200502A67 /* History.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = History.txt; sourceTree = "<group>"; };
+		1CD1A29C224836E200502A67 /* Media.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Media.txt; sourceTree = "<group>"; };
+		1CD1A29D224836E300502A67 /* Travel.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Travel.txt; sourceTree = "<group>"; };
+		1CD1A29E224836E400502A67 /* People.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = People.txt; sourceTree = "<group>"; };
+		1CD1A2A62248851D00502A67 /* ArticleSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSelectViewController.swift; sourceTree = "<group>"; };
+		1CD1A2A82249C28200502A67 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		1CD1A2AA2249C3B800502A67 /* ArticleCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryTableViewController.swift; sourceTree = "<group>"; };
+		1CD1A2AC2249C70D00502A67 /* ArticleCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		1CD1A2AF2249D40A00502A67 /* science.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = science.jpg; sourceTree = "<group>"; };
+		1CD1A2B02249D40C00502A67 /* art.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = art.jpg; sourceTree = "<group>"; };
+		1CD1A2B12249D40D00502A67 /* sports.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sports.jpg; sourceTree = "<group>"; };
+		1CD1A2B22249D40E00502A67 /* travel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = travel.jpg; sourceTree = "<group>"; };
+		1CD1A2B32249D41200502A67 /* environment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = environment.jpg; sourceTree = "<group>"; };
+		1CD1A2B42249D41300502A67 /* media.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = media.jpg; sourceTree = "<group>"; };
+		1CD1A2B52249D41500502A67 /* people.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = people.jpg; sourceTree = "<group>"; };
 		CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial1.mp3; sourceTree = "<group>"; };
 		CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial2.mp3; sourceTree = "<group>"; };
@@ -398,7 +437,7 @@
 		CD4259972239C8840089C3FB /* nonFictionQuestionsEnd.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nonFictionQuestionsEnd.txt; sourceTree = "<group>"; };
 		CD6462B91FF33A88007AF08A /* First Time.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "First Time.storyboard"; sourceTree = "<group>"; };
 		CD686C6721FD1F3E000482C0 /* RecordViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewControllerTutorial.swift; sourceTree = "<group>"; };
-		CD704F4D2019A1B700E1E4F8 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
+		CD704F4D2019A1B700E1E4F8 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		CD7DC5F12218AB280077BEE5 /* generalQuestionsBeginning.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = generalQuestionsBeginning.txt; sourceTree = "<group>"; };
 		CD7DC5F32218ABE70077BEE5 /* ComprehensionQuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionQuestionManager.swift; sourceTree = "<group>"; };
 		CD8FB2212120D41E0066F0D2 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -461,7 +500,9 @@
 		1C4C67D7218BF91D00D5383D /* Read  */ = {
 			isa = PBXGroup;
 			children = (
-				CD704F4D2019A1B700E1E4F8 /* ReadViewController.swift */,
+				1CD1A2AA2249C3B800502A67 /* ArticleCategoryTableViewController.swift */,
+				1CD1A2A62248851D00502A67 /* ArticleSelectViewController.swift */,
+				CD704F4D2019A1B700E1E4F8 /* BrowserViewController.swift */,
 				1CAC791921FB55DF007F8704 /* CommentSectionViewController.swift */,
 				1CCF98B22212211200C491A8 /* ReadLogicController.swift */,
 				1CCF98B822129ECC00C491A8 /* ReadAlerts.swift */,
@@ -566,6 +607,7 @@
 				1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */,
 				1CCF98B422122A6B00C491A8 /* Observer.swift */,
 				1CCF98B522122A6B00C491A8 /* Subject.swift */,
+				1CD1A28A2245B48C00502A67 /* Article */,
 				1CD1A274223EDC4100502A67 /* Dictionary */,
 			);
 			name = Model;
@@ -574,6 +616,8 @@
 		1C513A8F218662A700FFDC82 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1CD1A2AE2249D3FA00502A67 /* Article Category Images */,
+				1CD1A28D22481F5E00502A67 /* Article */,
 				CD7DC5F02218AAF20077BEE5 /* Comprehension Questions */,
 				1CAC796221FB63A3007F8704 /* Lottie Animations */,
 				1CAC795721FB635A007F8704 /* Sound */,
@@ -702,6 +746,8 @@
 				1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */,
 				1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */,
 				1CAC799A21FF5648007F8704 /* AudioRecordsCell.swift */,
+				1CD1A2AC2249C70D00502A67 /* ArticleCategoryTableViewCell.swift */,
+				1CD1A2A82249C28200502A67 /* ArticleTableViewCell.swift */,
 			);
 			name = "Tableview Cells";
 			sourceTree = "<group>";
@@ -797,7 +843,6 @@
 			children = (
 				1C28737F21A7B42B00B790A4 /* CurrentUser.swift */,
 				1C28738121A7B77A00B790A4 /* HelpWordModel.swift */,
-				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
 				1CAC799021FE241E007F8704 /* AudioRecordModel.swift */,
 				1CAC791B21FB5666007F8704 /* Goal */,
 			);
@@ -913,6 +958,47 @@
 				1CC1987C2218CB910021BAFC /* PopupLocation.swift */,
 			);
 			name = "Comprehension Popup";
+			sourceTree = "<group>";
+		};
+		1CD1A28A2245B48C00502A67 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
+				1CD1A28B2245B4A000502A67 /* ArticleCategory.swift */,
+			);
+			name = Article;
+			sourceTree = "<group>";
+		};
+		1CD1A28D22481F5E00502A67 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1A29022481FFF00502A67 /* Art.txt */,
+				1CD1A292224821D700502A67 /* Economy.txt */,
+				1CD1A294224826E400502A67 /* Environment.txt */,
+				1CD1A296224827A500502A67 /* Politics.txt */,
+				1CD1A29B224836E200502A67 /* History.txt */,
+				1CD1A298224836DF00502A67 /* Literature.txt */,
+				1CD1A29C224836E200502A67 /* Media.txt */,
+				1CD1A29E224836E400502A67 /* People.txt */,
+				1CD1A299224836DF00502A67 /* Science.txt */,
+				1CD1A29A224836E100502A67 /* Sports.txt */,
+				1CD1A29D224836E300502A67 /* Travel.txt */,
+			);
+			name = Article;
+			sourceTree = "<group>";
+		};
+		1CD1A2AE2249D3FA00502A67 /* Article Category Images */ = {
+			isa = PBXGroup;
+			children = (
+				1CD1A2B02249D40C00502A67 /* art.jpg */,
+				1CD1A2B32249D41200502A67 /* environment.jpg */,
+				1CD1A2B42249D41300502A67 /* media.jpg */,
+				1CD1A2B52249D41500502A67 /* people.jpg */,
+				1CD1A2AF2249D40A00502A67 /* science.jpg */,
+				1CD1A2B12249D40D00502A67 /* sports.jpg */,
+				1CD1A2B22249D40E00502A67 /* travel.jpg */,
+			);
+			name = "Article Category Images";
 			sourceTree = "<group>";
 		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
@@ -1112,14 +1198,17 @@
 				1CCF98C02213CA8E00C491A8 /* recordTutorial2.mp3 in Resources */,
 				1CAC797F21FCB287007F8704 /* NokioSans-Medium.ttf in Resources */,
 				1CAC798021FCB287007F8704 /* NokioSans-MediumItalic.ttf in Resources */,
+				1CD1A29F224836E400502A67 /* Literature.txt in Resources */,
 				1CAC798121FCB287007F8704 /* NokioSans-Regular.ttf in Resources */,
 				1CAC798221FCB287007F8704 /* NokioSans-RegularItalic.ttf in Resources */,
 				1CAC798321FCB287007F8704 /* NokioSansAlt-Bold.ttf in Resources */,
 				1CAC798421FCB287007F8704 /* NokioSansAlt-BoldItalic.ttf in Resources */,
 				1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */,
+				1CD1A295224826E400502A67 /* Environment.txt in Resources */,
 				CD4259902239C4E10089C3FB /* fictionQuestionsPeriodic.txt in Resources */,
 				1CAC798521FCB287007F8704 /* NokioSansAlt-ExtraLight.ttf in Resources */,
 				1CAC798621FCB287007F8704 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
+				1CD1A2A3224836E400502A67 /* Media.txt in Resources */,
 				1CCF9885220FB68100C491A8 /* 3151-books.json in Resources */,
 				1CAC798721FCB287007F8704 /* NokioSansAlt-Light.ttf in Resources */,
 				CDF58FBB22121379007514DC /* browseTutorial2.mp3 in Resources */,
@@ -1127,6 +1216,8 @@
 				1CC198792217CC2F0021BAFC /* 3779-starts-transparent.json in Resources */,
 				1CAC798921FCB287007F8704 /* NokioSansAlt-Medium.ttf in Resources */,
 				1C578F832204D3750077E1DD /* img_0.png in Resources */,
+				1CD1A29122481FFF00502A67 /* Art.txt in Resources */,
+				1CD1A2A4224836E400502A67 /* Travel.txt in Resources */,
 				1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */,
 				1C578F872204D3750077E1DD /* img_6.png in Resources */,
 				1CAC798A21FCB287007F8704 /* NokioSansAlt-MediumItalic.ttf in Resources */,
@@ -1135,14 +1226,17 @@
 				1CAC798C21FCB287007F8704 /* NokioSansAlt-RegularItalic.ttf in Resources */,
 				1CAC796121FB637E007F8704 /* TextTo.mp3 in Resources */,
 				CD1DCA661FF4ACCD00FCDDB5 /* progress.gif in Resources */,
+				1CD1A2A2224836E400502A67 /* History.txt in Resources */,
 				CD4259942239C64E0089C3FB /* nonFictionQuestionsBeginning.txt in Resources */,
 				1CAC797821FBC7BC007F8704 /* ReadTab.storyboard in Resources */,
 				CD42598E2239C4400089C3FB /* fictionQuestionsBeginning.txt in Resources */,
+				1CD1A293224821D700502A67 /* Economy.txt in Resources */,
 				1CAC795D21FB636C007F8704 /* goalTutorial1.mp3 in Resources */,
 				1CAC796C21FB63BA007F8704 /* facebook.json in Resources */,
 				1C578F852204D3750077E1DD /* img_3.png in Resources */,
 				1C578F812204D3750077E1DD /* recordingMicrophone.json in Resources */,
 				CD7DC5F22218AB280077BEE5 /* generalQuestionsBeginning.txt in Resources */,
+				1CD1A2A0224836E400502A67 /* Science.txt in Resources */,
 				1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */,
 				CD1DCA6A1FF4ACD900FCDDB5 /* share.gif in Resources */,
 				1C578F892204D3750077E1DD /* img_5.png in Resources */,
@@ -1151,8 +1245,10 @@
 				1CAC796E21FB6521007F8704 /* Goal.storyboard in Resources */,
 				1C4C67D4218A9A1C00D5383D /* FSNokioBold.otf in Resources */,
 				1CAC796021FB637E007F8704 /* profileTutorial1.mp3 in Resources */,
+				1CD1A2A1224836E400502A67 /* Sports.txt in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
 				CDF58FBC22121379007514DC /* browseTutorial4.mp3 in Resources */,
+				1CD1A2A5224836E400502A67 /* People.txt in Resources */,
 				1C578F862204D3750077E1DD /* img_7.png in Resources */,
 				CDA6529C1FA0F5B700835624 /* LaunchScreen.storyboard in Resources */,
 				1CAC795C21FB636C007F8704 /* goalTutorial2.mp3 in Resources */,
@@ -1165,6 +1261,7 @@
 				CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */,
 				1CAC796821FB63BA007F8704 /* message_arrow.json in Resources */,
 				1C578F94220563120077E1DD /* notRecordingMicrophone.json in Resources */,
+				1CD1A297224827A500502A67 /* Politics.txt in Resources */,
 				1C578F90220556250077E1DD /* prerecording.mp3 in Resources */,
 				CD4259982239C8840089C3FB /* nonFictionQuestionsEnd.txt in Resources */,
 				1CAC796921FB63BA007F8704 /* twitter_icon.json in Resources */,
@@ -1291,13 +1388,16 @@
 				1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */,
 				1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */,
 				1CD1A27A223EDCB200502A67 /* DictionaryVerb.swift in Sources */,
+				1CD1A28C2245B4A000502A67 /* ArticleCategory.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* State.swift in Sources */,
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* CurrentUser.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
+				1CD1A2AD2249C70D00502A67 /* ArticleCategoryTableViewCell.swift in Sources */,
 				1CCF98AD221204F500C491A8 /* BaseViewController.swift in Sources */,
 				1CAC799B21FF5648007F8704 /* AudioRecordsCell.swift in Sources */,
+				1CD1A2A92249C28200502A67 /* ArticleTableViewCell.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
 				1CD1A276223EDC8F00502A67 /* DictionaryMeaning.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
@@ -1310,13 +1410,14 @@
 				1C28739121AA12A500B790A4 /* GoalModel.swift in Sources */,
 				1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */,
 				CD1DCA621FF4A2D200FCDDB5 /* WalkthroughViewController.swift in Sources */,
+				1CD1A2A72248851D00502A67 /* ArticleSelectViewController.swift in Sources */,
 				1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */,
 				1CC198862218D24C0021BAFC /* ResponseTextView.swift in Sources */,
 				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
 				1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */,
 				1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */,
 				1CCF98B922129ECC00C491A8 /* ReadAlerts.swift in Sources */,
-				CD704F4E2019A1B700E1E4F8 /* ReadViewController.swift in Sources */,
+				CD704F4E2019A1B700E1E4F8 /* BrowserViewController.swift in Sources */,
 				1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */,
 				1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */,
 				1C578F6D22028F5E0077E1DD /* FileHelper.swift in Sources */,
@@ -1364,6 +1465,7 @@
 				1CCF98B722122A6C00C491A8 /* Subject.swift in Sources */,
 				1CAC797221FBAD78007F8704 /* TutorialController.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
+				1CD1A2AB2249C3B900502A67 /* ArticleCategoryTableViewController.swift in Sources */,
 				1CAC799621FE4995007F8704 /* UIImageExtension.swift in Sources */,
 				CDF58FB522120A85007514DC /* BrowseViewControllerTutorial.swift in Sources */,
 				1CAC791A21FB55DF007F8704 /* CommentSectionViewController.swift in Sources */,

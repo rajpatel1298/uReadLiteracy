@@ -54,25 +54,6 @@ class CoreDataGetter{
         return models
     }
     
-    func getList() -> [ArticleCD] {
-        let articleFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
-        
-        let articles = try! managedContext.fetch(articleFetch) as! [ArticleCD]
-        
-        return articles
-    }
-    
-    func find(url:String)->ArticleCD?{
-        let articles:[ArticleCD] = getList()
-        
-        for article in articles{
-            if(article.url! == url){
-                return article
-            }
-        }
-        
-        return nil
-    }
     
     func find(path:String,title:String,date:Date)->AudioRecordCD?{
         let list:[AudioRecordCD] = getList()

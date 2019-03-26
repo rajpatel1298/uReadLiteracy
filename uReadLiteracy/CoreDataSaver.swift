@@ -22,27 +22,6 @@ class CoreDataSaver{
         managedContext.automaticallyMergesChangesFromParent = true
     }
     
-    
-    
-    func save(articleModel:ArticleModel){
-        let model:ArticleCD? = CoreDataGetter.shared.find(url: articleModel.url)
-        
-        if(model == nil){
-            let articleEntity = NSEntityDescription.entity(forEntityName: "ArticleCD", in: managedContext)!
-            let articleObject = NSManagedObject(entity: articleEntity, insertInto: managedContext)
-            
-            articleObject.setValue(articleModel.name, forKeyPath: "name")
-            articleObject.setValue(articleModel.readCount, forKeyPath: "readCount")
-            articleObject.setValue(articleModel.url, forKeyPath: "url")
-        }
-        else{
-            model?.name = articleModel.name
-            model?.readCount = articleModel.readCount
-        }
-        
-        save()
-    }
-    
     func save(audioRecordModel:AudioRecordModel){
         let model:AudioRecordCD? = nil
         
@@ -96,13 +75,8 @@ class CoreDataSaver{
             object.setValue(goalModel.goalType.rawValue, forKeyPath: "goalType")
             object.setValue(goalModel.date, forKeyPath: "date")
             object.setValue(goalModel.numberOfArticles, forKeyPath: "numberOfArticles")
-            
-            let articles = ArticleManager.shared.getUrls(articles: goalModel.articles)
-            
-            object.setValue(articles, forKeyPath: "articles")
         }
         else{
-            model?.articles = ArticleManager.shared.getUrls(articles: goalModel.articles) as NSObject
             model?.progress = Int16(goalModel.progress)
         }
         

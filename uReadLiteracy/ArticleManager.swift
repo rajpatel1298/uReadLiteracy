@@ -11,31 +11,39 @@ import Foundation
 class ArticleManager{
     static var shared = ArticleManager()
     
-    func getArticles(from urls:[String])->[ArticleModel]{
-        var arr = [ArticleModel]()
-        for url in urls{
-            arr.append(find(url: url)!)
+    func getModels(category:ArticleCategory)->[ArticleModel]{
+        let fileURL = Bundle.main.url(forResource: category.rawValue, withExtension: "txt")
+        do{
+            let content = try String(contentsOf: fileURL!, encoding: String.Encoding.utf8)
+            return getArticleFromText(content: content, category: .Art)
         }
-        return arr
+        catch{
+            return []
+        }
     }
     
-    func find(url:String)->ArticleModel?{
-        let articles:[ArticleCD] = CoreDataGetter.shared.getList()
+    func getCategories()->[String]{
+        return [ArticleCategory]
+    }
+    
+    
+    
+    private func getArticleFromText(content:String, category:ArticleCategory)->[ArticleModel]{
+        var articles = [ArticleModel]()
         
-        for article in articles{
-            if(article.url! == url){
-                return ArticleModel(name: article.name!, readCount: article.readCount, url: article.url!)
+        for line in content.components(separatedBy: "\n"){
+            let line = line.replacingOccurrences(of: "\r", with: "")
+            let titleAndLink = line.components(separatedBy: ": ")
+            if(titleAndLink.count < 2){
+                continue
             }
+            
+            let title = titleAndLink[0]
+            let link = titleAndLink[1]
+            
+            articles.append(ArticleModel(name: title, url: link, category: category))
+            
         }
-        
-        return nil
-    }
-    
-    func getUrls(articles:[ArticleModel])->[String]{
-        var arr = [String]()
-        for article in articles{
-            arr.append(article.url)
-        }
-        return arr
+        return articles
     }
 }

@@ -19,8 +19,6 @@ class ArticleReadingStopwatch{
     
     func stop(article:ArticleModel){
         let stopDate = Date().timeIntervalSince(startDate)
-        
         article.timeSpent = stopDate
-        CoreDataSaver.shared.save(articleModel: article)
     }
 }

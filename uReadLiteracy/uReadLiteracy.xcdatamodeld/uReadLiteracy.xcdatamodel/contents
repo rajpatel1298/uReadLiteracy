@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ArticleCD" representedClassName="ArticleCD" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="readCount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AudioRecordCD" representedClassName="AudioRecordCD" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="path" attributeType="String" syncable="YES"/>
@@ -45,7 +40,6 @@
         <attribute name="uid" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ArticleCD" positionX="-63" positionY="54" width="128" height="90"/>
         <element name="AudioRecordCD" positionX="-54" positionY="81" width="128" height="90"/>
         <element name="HelpWordCD" positionX="-63" positionY="54" width="128" height="120"/>
         <element name="ReadXArticlesCD" positionX="-54" positionY="63" width="128" height="135"/>

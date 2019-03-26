@@ -1,5 +1,5 @@
 //
-//  ReadViewController.swift
+//  BrowserViewController.swift
 //  uReadLiteracy
 //
 //  Created by Raj Patel on 1/25/18.
@@ -14,7 +14,7 @@ import AVFoundation
 import FirebaseAuth
 import Lottie
 
-class ReadViewController: UIViewController{
+class BrowserViewController: UIViewController{
     
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
     
@@ -135,7 +135,7 @@ class ReadViewController: UIViewController{
 }
 
 //MARK: Help Function
-extension ReadViewController{
+extension BrowserViewController{
     func helpFunction(){
         logicController.helpFunction(webView: webView) { [weak self] (state, error, helpWord) in
             guard let strongSelf = self else{
@@ -171,7 +171,7 @@ extension ReadViewController{
 
 
 //MARK: Audio Record
-extension ReadViewController:AVAudioRecorderDelegate,AVAudioPlayerDelegate{
+extension BrowserViewController:AVAudioRecorderDelegate,AVAudioPlayerDelegate{
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if recorder.isRecording{
             self.recorder.stopRecording()
@@ -180,7 +180,7 @@ extension ReadViewController:AVAudioRecorderDelegate,AVAudioPlayerDelegate{
 }
 
 // MARK: WebView
-extension ReadViewController:WKNavigationDelegate,UIScrollViewDelegate{
+extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         
         actitvityIndicator.startAnimating()
@@ -203,9 +203,7 @@ extension ReadViewController:WKNavigationDelegate,UIScrollViewDelegate{
         
         let url = webView.url?.absoluteString
         if logicController.isCurrentURLAnArticle(url: url!){
-            currentArticle = ArticleModel(name: webView.title!, url: url!)
-            currentArticle.incrementReadCount()
-            
+            currentArticle = ArticleModel(name: webView.title!, url: url!)            
             articleReadingStopwatch.start()
         }
     }
@@ -243,7 +241,7 @@ extension ReadViewController:WKNavigationDelegate,UIScrollViewDelegate{
 
 
 // MARK: Setup
-extension ReadViewController{
+extension BrowserViewController{
     fileprivate func setup(){
         logicController = ReadLogicController(mainURL: mainUrl)
         
