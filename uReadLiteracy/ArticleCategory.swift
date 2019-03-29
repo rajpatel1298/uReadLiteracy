@@ -9,15 +9,16 @@
 import Foundation
 
 enum ArticleCategory:String,CaseIterable{
-    case Art
-    case Economy
-    case Environment
-    case Politics
-    case History
-    case Literature
-    case Media
-    case People
-    case Science
-    case Sports
-    case Travel
+    case Art = "Art"
+    case Economy = "Economy"
+    case Environment = "Environment"
+    case Politics = "Politics"
+    case History = "History"
+    case Literature = "Literature"
+    case Entertainment = "Entertainment"
+    case Lifestyle = "Lifestyle"
+    case Science = "Science"
+    case Sports = "Sports"
+    case Travel = "Travel"
+    case Health = "Health"
 }

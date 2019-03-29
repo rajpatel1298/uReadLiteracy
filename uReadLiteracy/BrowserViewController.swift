@@ -23,7 +23,6 @@ class BrowserViewController: UIViewController{
     @IBOutlet weak var actitvityIndicator: UIActivityIndicatorView!
     
     var helpWordSegue:HelpWordModel!
-    let mainUrl = "http://www.manythings.org/voa/stories/"
     var currentArticle:ArticleModel!
     
     fileprivate var logicController:ReadLogicController!
@@ -35,6 +34,10 @@ class BrowserViewController: UIViewController{
     fileprivate var player:AVAudioPlayer!
     fileprivate var alerts:ReadAlerts!
     fileprivate var articleReadingStopwatch = ArticleReadingStopwatch()
+    
+    func inject(article:ArticleModel){
+        currentArticle = article
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +51,61 @@ class BrowserViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadMainPage()
+        loadWebPage()
         hideCommentBtn()
         
         setupTopBar()
         TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
 
         navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    func loadWebPage(){
+        let url = URL(string: currentArticle.url)
+        if(url != nil){
+            let blockRules = """
+         [{"trigger": {"url-filter": ".*","resource-type": ["script"]},"action"{"type": "block"}},{"trigger": {"url-filter":".*","resource-type": ["style-sheet"]},"action": {"type": "block"}},{"trigger": {"url-filter": ".*.jpeg"},"action": {"type": "ignore-previous-rules"}
+         }]
+        """
+            
+            WKContentRuleListStore.default().compileContentRuleList(
+                forIdentifier: "ContentBlockingRules",
+                encodedContentRuleList: blockRules) { [weak self] (contentRuleList, error) in
+                    
+                    guard let strongself = self else{
+                        return
+                    }
+                    
+                    if error != nil{
+                        strongself.showCannotLoadWebsiteAlert()
+                        return
+                    }
+                    
+                    let configuration = strongself.webView.configuration
+                    configuration.userContentController.add(contentRuleList!)
+                    
+                    let url = URL(string: strongself.currentArticle.url)
+                    if(url != nil){
+                        let request = URLRequest(url: url!)
+                        strongself.webView.load(request)
+                    }
+            }
+        }
+        else{
+            showCannotLoadWebsiteAlert()
+        }
+    }
+    
+    private func showCannotLoadWebsiteAlert(){
+        let alert = UIAlertController(title: "Cannot Load This Website", message: "Sorry, Please Try Again!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { [weak self] (_) in
+            DispatchQueue.main.async {
+                guard let strongself = self else{
+                    return
+                }
+                strongself.dismiss(animated: true, completion: nil)
+            }
+        }))
     }
     
     private func showCommentBtn(){
@@ -72,12 +123,8 @@ class BrowserViewController: UIViewController{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         hideCommentBtn()
-        
-        loadMainPage()
         TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
-        
         popupManager.resetPopupShownStatus()
-        
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
@@ -94,29 +141,19 @@ class BrowserViewController: UIViewController{
         webviewManager.scrollToCurrentCoordinate()
     }
     
-    func loadMainPage(){
-        let url = URL(string: mainUrl)
-        let request = URLRequest(url: url!)
-        webView.load(request)
-    }
-    
     func updateGoalIfNeeded(){
         let currentYOffset = webView.scrollView.contentOffset.y
 
-        if logicController.atTheEndOfArticle(position: currentYOffset, maxOffset: webviewManager.getMaxOffset()){
-            if(currentArticle != nil){
-                articleReadingStopwatch.stop(article: currentArticle)
-                GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
-                    GoalCompletePresenter.shared.show(goal: goal)
-                }
+        if webviewManager.atTheEndOfArticle(position: currentYOffset){
+            articleReadingStopwatch.stop(article: currentArticle)
+            GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
+                GoalCompletePresenter.shared.show(goal: goal)
             }
         }
     }
     
     fileprivate func updateScrollPositionForCommentBtn(position:CGFloat){
-        let currentYOffset = Int(position)
-        if currentYOffset >=  webviewManager.getMaxOffset()*80/100 &&  webviewManager.getMaxOffset() > 0 {
-            
+        if webviewManager.atTheEndOfArticle(position: position) {
             showCommentBtn()
         }
         else{
@@ -186,56 +223,38 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
         actitvityIndicator.startAnimating()
         webView.scrollView.isScrollEnabled = false
         
-        let url = webView.url?.absoluteString
-        if logicController.isCurrentURLAnArticle(url: url!){
-            webviewManager.setMaxOffset()
-            TopToolBarViewController.shared.showPreviousCommentRecordBtn()
-            popupManager.setMaxYOffset(newValue: CGFloat(webviewManager.getMaxOffset()))
-        }
-        else{
-            TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
-        }
+        
+        TopToolBarViewController.shared.showPreviousCommentRecordBtn()
+        popupManager.setMaxYOffset(newValue: CGFloat(webviewManager.getMaxOffset()))
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         actitvityIndicator.stopAnimating()
         webView.scrollView.isScrollEnabled = true
+        webviewManager.setMaxOffset()
         
-        let url = webView.url?.absoluteString
-        if logicController.isCurrentURLAnArticle(url: url!){
-            currentArticle = ArticleModel(name: webView.title!, url: url!)            
-            articleReadingStopwatch.start()
-        }
+        articleReadingStopwatch.start()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let webview = webView else{
-            return
-        }
-        guard let url = webview.url?.absoluteString else{
-            return
-        }
-        
         let y = scrollView.contentOffset.y
         
-        if logicController.isCurrentURLAnArticle(url: url){
-            popupManager.updateScrollPosition(position: y, popupToAddToView: { [weak self] (popup) in
-                
-                guard let strongself = self else{
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    strongself.addPopup(popup: popup)
-                }
-            })
+        popupManager.updateScrollPosition(position: y, popupToAddToView: { [weak self] (popup) in
             
-            if(popupManager.isPopupShowing()){
-                webviewManager.scrollToOldCoordinate()
+            guard let strongself = self else{
+                return
             }
-            updateScrollPositionForCommentBtn(position: y)
-            updateGoalIfNeeded()
+            
+            DispatchQueue.main.async {
+                strongself.addPopup(popup: popup)
+            }
+        })
+        
+        if(popupManager.isPopupShowing()){
+            webviewManager.scrollToOldCoordinate()
         }
+        updateScrollPositionForCommentBtn(position: y)
+        updateGoalIfNeeded()
     }
 }
 
@@ -243,7 +262,7 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
 // MARK: Setup
 extension BrowserViewController{
     fileprivate func setup(){
-        logicController = ReadLogicController(mainURL: mainUrl)
+        logicController = ReadLogicController(mainURL: currentArticle.url)
         
         setupWebview()
         setupHelpFunctionInMenuBar()
@@ -296,8 +315,7 @@ extension BrowserViewController{
             guard let strongself = self else{
                 return
             }
-            
-            strongself.webView.goBack()
+            strongself.dismiss(animated: true, completion: nil)
             strongself.popupManager.resetPopupShownStatus()
         }
         TopToolBarViewController.shared.onRecordBtnPressed = { [weak self] in
@@ -309,7 +327,7 @@ extension BrowserViewController{
                 strongself.recorder.stopRecording()
             }
             else {
-                strongself.recorder.startRecording(filename: (strongself.currentArticle?.getTitle())!) { (errStr) in
+                strongself.recorder.startRecording(filename: strongself.currentArticle.name) { (errStr) in
                     DispatchQueue.main.async {
                         strongself.alerts.showRecordErrorAlert()
                         print(errStr)

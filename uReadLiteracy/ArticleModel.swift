@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-class ArticleModel{
-    private var name:String
+class ArticleModel:ReadingSource{
+    
     let category:ArticleCategory
    
     // 1 unit = 1 second
@@ -18,14 +18,13 @@ class ArticleModel{
     let url:String
 
   
-    init(name:String,url:String,category:ArticleCategory){
-        self.name = name.replacingOccurrences(of: "Text & MP3 File", with: "")
-        self.url = url
+    init(name:String,url:String,category:ArticleCategory, difficulty:ReadingDifficulty){
         self.category = category
-    }
-    
-    func getTitle()->String{
-        return name
+        self.url = url
+        
+        let cleanName = name.replacingOccurrences(of: "Text & MP3 File", with: "")
+        
+        super.init(name: cleanName, difficulty: difficulty)
     }
     
     func equal(article:ArticleModel)->Bool{

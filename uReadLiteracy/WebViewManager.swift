@@ -14,7 +14,7 @@ class WebViewManager{
     
     private var oldScrollX:CGFloat = 0
     private var oldScrollY:CGFloat = 0
-    private var maxOffset:Int!
+    private var maxOffset:Int = 0
     
     init(webview:WKWebviewWithHelpMenu){
         self.webView = webview
@@ -32,11 +32,23 @@ class WebViewManager{
     }
     
     func setMaxOffset(){
-        maxOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
+        //maxOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
+        maxOffset = Int(webView.scrollView.contentSize.height + webView.scrollView.contentInset.bottom)
     }
     
     func getMaxOffset()->Int{
         return maxOffset
+    }
+    
+    func atTheEndOfArticle(position:CGFloat)->Bool{
+        if(maxOffset <= 0){
+            return false
+        }
+        
+        if Int(position) >= maxOffset*80/100 {
+            return true
+        }
+        return false
     }
     
 }

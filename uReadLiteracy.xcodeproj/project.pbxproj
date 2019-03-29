@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C10ED37224D81BA002D719F /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C10ED36224D81BA002D719F /* blockerList.json */; };
+		1C10ED39224D81BA002D719F /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */; };
+		1C10ED3D224D81BA002D719F /* AdBlock.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1C10ED34224D81B9002D719F /* AdBlock.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28737721A5070400B790A4 /* HtmlStringExtension.swift */; };
 		1C28738021A7B42B00B790A4 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28737F21A7B42B00B790A4 /* CurrentUser.swift */; };
 		1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738121A7B77A00B790A4 /* HelpWordModel.swift */; };
@@ -177,13 +180,18 @@
 		1CD1A2A0224836E400502A67 /* Science.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A299224836DF00502A67 /* Science.txt */; };
 		1CD1A2A1224836E400502A67 /* Sports.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29A224836E100502A67 /* Sports.txt */; };
 		1CD1A2A2224836E400502A67 /* History.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29B224836E200502A67 /* History.txt */; };
-		1CD1A2A3224836E400502A67 /* Media.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29C224836E200502A67 /* Media.txt */; };
+		1CD1A2A3224836E400502A67 /* Entertainment.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29C224836E200502A67 /* Entertainment.txt */; };
 		1CD1A2A4224836E400502A67 /* Travel.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29D224836E300502A67 /* Travel.txt */; };
-		1CD1A2A5224836E400502A67 /* People.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29E224836E400502A67 /* People.txt */; };
+		1CD1A2A5224836E400502A67 /* Lifestyle.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A29E224836E400502A67 /* Lifestyle.txt */; };
 		1CD1A2A72248851D00502A67 /* ArticleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2A62248851D00502A67 /* ArticleSelectViewController.swift */; };
 		1CD1A2A92249C28200502A67 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2A82249C28200502A67 /* ArticleTableViewCell.swift */; };
 		1CD1A2AB2249C3B900502A67 /* ArticleCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2AA2249C3B800502A67 /* ArticleCategoryTableViewController.swift */; };
 		1CD1A2AD2249C70D00502A67 /* ArticleCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2AC2249C70D00502A67 /* ArticleCategoryTableViewCell.swift */; };
+		1CD1A2C6224ABE2500502A67 /* Health.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1CD1A2C5224ABE2400502A67 /* Health.txt */; };
+		1CD1A2E2224BA42D00502A67 /* ReadingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2E1224BA42D00502A67 /* ReadingSource.swift */; };
+		1CD1A2E6224D669E00502A67 /* ArticleDifficultyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2E5224D669E00502A67 /* ArticleDifficultyTableViewController.swift */; };
+		1CD1A2E8224D677E00502A67 /* ReadingDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2E7224D677E00502A67 /* ReadingDifficulty.swift */; };
+		1CD1A2EA224D692600502A67 /* ReadingDifficultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1A2E9224D692600502A67 /* ReadingDifficultTableViewCell.swift */; };
 		58A6EB0BD5CB67AF46E58C8B /* Pods_uReadLiteracy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CAD3ABAC09B6C4293DFC2D /* Pods_uReadLiteracy.framework */; };
 		CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */; };
 		CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */; };
@@ -226,8 +234,36 @@
 		CDF58FBD22121379007514DC /* browseTutorial3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CDF58FB922121379007514DC /* browseTutorial3.mp3 */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1C10ED3B224D81BA002D719F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDA652831FA0F5B700835624 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C10ED33224D81B9002D719F;
+			remoteInfo = AdBlock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1C10ED41224D81BA002D719F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1C10ED3D224D81BA002D719F /* AdBlock.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		198A7836A988EE4B2985A501 /* Pods-uReadLiteracy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uReadLiteracy.release.xcconfig"; path = "Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy.release.xcconfig"; sourceTree = "<group>"; };
+		1C10ED34224D81B9002D719F /* AdBlock.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AdBlock.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C10ED36224D81BA002D719F /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
+		1C10ED3A224D81BA002D719F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C28737721A5070400B790A4 /* HtmlStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlStringExtension.swift; sourceTree = "<group>"; };
 		1C28737F21A7B42B00B790A4 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		1C28738121A7B77A00B790A4 /* HelpWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpWordModel.swift; sourceTree = "<group>"; };
@@ -403,20 +439,18 @@
 		1CD1A299224836DF00502A67 /* Science.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Science.txt; sourceTree = "<group>"; };
 		1CD1A29A224836E100502A67 /* Sports.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sports.txt; sourceTree = "<group>"; };
 		1CD1A29B224836E200502A67 /* History.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = History.txt; sourceTree = "<group>"; };
-		1CD1A29C224836E200502A67 /* Media.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Media.txt; sourceTree = "<group>"; };
+		1CD1A29C224836E200502A67 /* Entertainment.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Entertainment.txt; sourceTree = "<group>"; };
 		1CD1A29D224836E300502A67 /* Travel.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Travel.txt; sourceTree = "<group>"; };
-		1CD1A29E224836E400502A67 /* People.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = People.txt; sourceTree = "<group>"; };
+		1CD1A29E224836E400502A67 /* Lifestyle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Lifestyle.txt; sourceTree = "<group>"; };
 		1CD1A2A62248851D00502A67 /* ArticleSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSelectViewController.swift; sourceTree = "<group>"; };
 		1CD1A2A82249C28200502A67 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		1CD1A2AA2249C3B800502A67 /* ArticleCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryTableViewController.swift; sourceTree = "<group>"; };
 		1CD1A2AC2249C70D00502A67 /* ArticleCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryTableViewCell.swift; sourceTree = "<group>"; };
-		1CD1A2AF2249D40A00502A67 /* science.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = science.jpg; sourceTree = "<group>"; };
-		1CD1A2B02249D40C00502A67 /* art.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = art.jpg; sourceTree = "<group>"; };
-		1CD1A2B12249D40D00502A67 /* sports.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sports.jpg; sourceTree = "<group>"; };
-		1CD1A2B22249D40E00502A67 /* travel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = travel.jpg; sourceTree = "<group>"; };
-		1CD1A2B32249D41200502A67 /* environment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = environment.jpg; sourceTree = "<group>"; };
-		1CD1A2B42249D41300502A67 /* media.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = media.jpg; sourceTree = "<group>"; };
-		1CD1A2B52249D41500502A67 /* people.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = people.jpg; sourceTree = "<group>"; };
+		1CD1A2C5224ABE2400502A67 /* Health.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Health.txt; sourceTree = "<group>"; };
+		1CD1A2E1224BA42D00502A67 /* ReadingSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSource.swift; sourceTree = "<group>"; };
+		1CD1A2E5224D669E00502A67 /* ArticleDifficultyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDifficultyTableViewController.swift; sourceTree = "<group>"; };
+		1CD1A2E7224D677E00502A67 /* ReadingDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingDifficulty.swift; sourceTree = "<group>"; };
+		1CD1A2E9224D692600502A67 /* ReadingDifficultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingDifficultTableViewCell.swift; sourceTree = "<group>"; };
 		CD0371252213B421007BC759 /* LearnViewControllerTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewControllerTutorial.swift; sourceTree = "<group>"; };
 		CD0371272213B93B007BC759 /* learnMoreTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial1.mp3; sourceTree = "<group>"; };
 		CD0371282213B93C007BC759 /* learnMoreTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMoreTutorial2.mp3; sourceTree = "<group>"; };
@@ -464,6 +498,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1C10ED31224D81B9002D719F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDA652881FA0F5B700835624 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,6 +516,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C10ED35224D81BA002D719F /* AdBlock */ = {
+			isa = PBXGroup;
+			children = (
+				1C10ED36224D81BA002D719F /* blockerList.json */,
+				1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */,
+				1C10ED3A224D81BA002D719F /* Info.plist */,
+			);
+			path = AdBlock;
+			sourceTree = "<group>";
+		};
 		1C28737621A506F400B790A4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +557,7 @@
 				1CAC791921FB55DF007F8704 /* CommentSectionViewController.swift */,
 				1CCF98B22212211200C491A8 /* ReadLogicController.swift */,
 				1CCF98B822129ECC00C491A8 /* ReadAlerts.swift */,
+				1CD1A2E5224D669E00502A67 /* ArticleDifficultyTableViewController.swift */,
 			);
 			name = "Read ";
 			sourceTree = "<group>";
@@ -607,7 +659,7 @@
 				1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */,
 				1CCF98B422122A6B00C491A8 /* Observer.swift */,
 				1CCF98B522122A6B00C491A8 /* Subject.swift */,
-				1CD1A28A2245B48C00502A67 /* Article */,
+				1CD1A28A2245B48C00502A67 /* Reading */,
 				1CD1A274223EDC4100502A67 /* Dictionary */,
 			);
 			name = Model;
@@ -616,7 +668,6 @@
 		1C513A8F218662A700FFDC82 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				1CD1A2AE2249D3FA00502A67 /* Article Category Images */,
 				1CD1A28D22481F5E00502A67 /* Article */,
 				CD7DC5F02218AAF20077BEE5 /* Comprehension Questions */,
 				1CAC796221FB63A3007F8704 /* Lottie Animations */,
@@ -748,6 +799,7 @@
 				1CAC799A21FF5648007F8704 /* AudioRecordsCell.swift */,
 				1CD1A2AC2249C70D00502A67 /* ArticleCategoryTableViewCell.swift */,
 				1CD1A2A82249C28200502A67 /* ArticleTableViewCell.swift */,
+				1CD1A2E9224D692600502A67 /* ReadingDifficultTableViewCell.swift */,
 			);
 			name = "Tableview Cells";
 			sourceTree = "<group>";
@@ -960,13 +1012,15 @@
 			name = "Comprehension Popup";
 			sourceTree = "<group>";
 		};
-		1CD1A28A2245B48C00502A67 /* Article */ = {
+		1CD1A28A2245B48C00502A67 /* Reading */ = {
 			isa = PBXGroup;
 			children = (
+				1CD1A2E1224BA42D00502A67 /* ReadingSource.swift */,
 				1C28738321A7CC0500B790A4 /* ArticleModel.swift */,
 				1CD1A28B2245B4A000502A67 /* ArticleCategory.swift */,
+				1CD1A2E7224D677E00502A67 /* ReadingDifficulty.swift */,
 			);
-			name = Article;
+			name = Reading;
 			sourceTree = "<group>";
 		};
 		1CD1A28D22481F5E00502A67 /* Article */ = {
@@ -978,27 +1032,14 @@
 				1CD1A296224827A500502A67 /* Politics.txt */,
 				1CD1A29B224836E200502A67 /* History.txt */,
 				1CD1A298224836DF00502A67 /* Literature.txt */,
-				1CD1A29C224836E200502A67 /* Media.txt */,
-				1CD1A29E224836E400502A67 /* People.txt */,
+				1CD1A29C224836E200502A67 /* Entertainment.txt */,
+				1CD1A29E224836E400502A67 /* Lifestyle.txt */,
 				1CD1A299224836DF00502A67 /* Science.txt */,
 				1CD1A29A224836E100502A67 /* Sports.txt */,
 				1CD1A29D224836E300502A67 /* Travel.txt */,
+				1CD1A2C5224ABE2400502A67 /* Health.txt */,
 			);
 			name = Article;
-			sourceTree = "<group>";
-		};
-		1CD1A2AE2249D3FA00502A67 /* Article Category Images */ = {
-			isa = PBXGroup;
-			children = (
-				1CD1A2B02249D40C00502A67 /* art.jpg */,
-				1CD1A2B32249D41200502A67 /* environment.jpg */,
-				1CD1A2B42249D41300502A67 /* media.jpg */,
-				1CD1A2B52249D41500502A67 /* people.jpg */,
-				1CD1A2AF2249D40A00502A67 /* science.jpg */,
-				1CD1A2B12249D40D00502A67 /* sports.jpg */,
-				1CD1A2B22249D40E00502A67 /* travel.jpg */,
-			);
-			name = "Article Category Images";
 			sourceTree = "<group>";
 		};
 		1CDB3F28217ECDDB00BEC04C /* Controller */ = {
@@ -1071,6 +1112,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA6528D1FA0F5B700835624 /* uReadLiteracy */,
+				1C10ED35224D81BA002D719F /* AdBlock */,
 				CDA6528C1FA0F5B700835624 /* Products */,
 				4AE814D28480DC2CECE2D693 /* Pods */,
 				EF7EF7D627ADB23342CBCA90 /* Frameworks */,
@@ -1081,6 +1123,7 @@
 			isa = PBXGroup;
 			children = (
 				CDA6528B1FA0F5B700835624 /* uReadLiteracy.app */,
+				1C10ED34224D81B9002D719F /* AdBlock.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1126,6 +1169,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1C10ED33224D81B9002D719F /* AdBlock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C10ED40224D81BA002D719F /* Build configuration list for PBXNativeTarget "AdBlock" */;
+			buildPhases = (
+				1C10ED30224D81B9002D719F /* Sources */,
+				1C10ED31224D81B9002D719F /* Frameworks */,
+				1C10ED32224D81B9002D719F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdBlock;
+			productName = AdBlock;
+			productReference = 1C10ED34224D81B9002D719F /* AdBlock.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CDA6528A1FA0F5B700835624 /* uReadLiteracy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDA652A01FA0F5B700835624 /* Build configuration list for PBXNativeTarget "uReadLiteracy" */;
@@ -1135,10 +1195,12 @@
 				CDA652881FA0F5B700835624 /* Frameworks */,
 				CDA652891FA0F5B700835624 /* Resources */,
 				83AD81AE0E5B6ABC7FA73B22 /* [CP] Embed Pods Frameworks */,
+				1C10ED41224D81BA002D719F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1C10ED3C224D81BA002D719F /* PBXTargetDependency */,
 			);
 			name = uReadLiteracy;
 			productName = uReadLiteracy;
@@ -1151,10 +1213,15 @@
 		CDA652831FA0F5B700835624 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = AdaptConsulting;
 				TargetAttributes = {
+					1C10ED33224D81B9002D719F = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = Y692F89PT8;
+						ProvisioningStyle = Automatic;
+					};
 					CDA6528A1FA0F5B700835624 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = Y692F89PT8;
@@ -1176,11 +1243,20 @@
 			projectRoot = "";
 			targets = (
 				CDA6528A1FA0F5B700835624 /* uReadLiteracy */,
+				1C10ED33224D81B9002D719F /* AdBlock */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1C10ED32224D81B9002D719F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C10ED37224D81BA002D719F /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDA652891FA0F5B700835624 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1208,7 +1284,7 @@
 				CD4259902239C4E10089C3FB /* fictionQuestionsPeriodic.txt in Resources */,
 				1CAC798521FCB287007F8704 /* NokioSansAlt-ExtraLight.ttf in Resources */,
 				1CAC798621FCB287007F8704 /* NokioSansAlt-ExtraLightItalic.ttf in Resources */,
-				1CD1A2A3224836E400502A67 /* Media.txt in Resources */,
+				1CD1A2A3224836E400502A67 /* Entertainment.txt in Resources */,
 				1CCF9885220FB68100C491A8 /* 3151-books.json in Resources */,
 				1CAC798721FCB287007F8704 /* NokioSansAlt-Light.ttf in Resources */,
 				CDF58FBB22121379007514DC /* browseTutorial2.mp3 in Resources */,
@@ -1248,7 +1324,7 @@
 				1CD1A2A1224836E400502A67 /* Sports.txt in Resources */,
 				CDDD7F031FF19B55009FA71D /* bookTurn.gif in Resources */,
 				CDF58FBC22121379007514DC /* browseTutorial4.mp3 in Resources */,
-				1CD1A2A5224836E400502A67 /* People.txt in Resources */,
+				1CD1A2A5224836E400502A67 /* Lifestyle.txt in Resources */,
 				1C578F862204D3750077E1DD /* img_7.png in Resources */,
 				CDA6529C1FA0F5B700835624 /* LaunchScreen.storyboard in Resources */,
 				1CAC795C21FB636C007F8704 /* goalTutorial2.mp3 in Resources */,
@@ -1259,6 +1335,7 @@
 				1C578F822204D3750077E1DD /* img_1.png in Resources */,
 				CD0371292213B93C007BC759 /* learnMoreTutorial1.mp3 in Resources */,
 				CD6462BA1FF33A88007AF08A /* First Time.storyboard in Resources */,
+				1CD1A2C6224ABE2500502A67 /* Health.txt in Resources */,
 				1CAC796821FB63BA007F8704 /* message_arrow.json in Resources */,
 				1C578F94220563120077E1DD /* notRecordingMicrophone.json in Resources */,
 				1CD1A297224827A500502A67 /* Politics.txt in Resources */,
@@ -1348,6 +1425,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1C10ED30224D81B9002D719F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C10ED39224D81BA002D719F /* ContentBlockerRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDA652871FA0F5B700835624 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1355,6 +1440,7 @@
 				1C578F6E2202A4830077E1DD /* RecordViewControllerTutorial.swift in Sources */,
 				1CAC799721FEA75D007F8704 /* CoreDataGetter.swift in Sources */,
 				1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */,
+				1CD1A2E6224D669E00502A67 /* ArticleDifficultyTableViewController.swift in Sources */,
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				1CC198842218D1BD0021BAFC /* QuestionLabel.swift in Sources */,
 				CD0371262213B421007BC759 /* LearnViewControllerTutorial.swift in Sources */,
@@ -1422,6 +1508,7 @@
 				1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */,
 				1C578F6D22028F5E0077E1DD /* FileHelper.swift in Sources */,
 				1CAC792A21FB57B0007F8704 /* GoalManager.swift in Sources */,
+				1CD1A2EA224D692600502A67 /* ReadingDifficultTableViewCell.swift in Sources */,
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
 				1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */,
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,
@@ -1432,6 +1519,7 @@
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
 				1CD1A27C223EDCBC00502A67 /* DictionaryAdjective.swift in Sources */,
 				1CAC792C21FB57D9007F8704 /* GoalCompletePresenter.swift in Sources */,
+				1CD1A2E8224D677E00502A67 /* ReadingDifficulty.swift in Sources */,
 				1C696C912229FD440066E251 /* FirebaseObserver.swift in Sources */,
 				1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */,
 				1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */,
@@ -1459,6 +1547,7 @@
 				1CAC795621FB62F2007F8704 /* ProfileViewControllerTutorial.swift in Sources */,
 				1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,
+				1CD1A2E2224BA42D00502A67 /* ReadingSource.swift in Sources */,
 				1CAC799121FE241E007F8704 /* AudioRecordModel.swift in Sources */,
 				1CAC798E21FCB425007F8704 /* Recorder.swift in Sources */,
 				1CCF98AF22120C9300C491A8 /* ArticleManager.swift in Sources */,
@@ -1483,6 +1572,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1C10ED3C224D81BA002D719F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C10ED33224D81B9002D719F /* AdBlock */;
+			targetProxy = 1C10ED3B224D81BA002D719F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		CDA652921FA0F5B700835624 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1503,6 +1600,69 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1C10ED3E224D81BA002D719F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y692F89PT8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AdBlock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = DuyLe.uReadLiteracy.AdBlock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1C10ED3F224D81BA002D719F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y692F89PT8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AdBlock/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = DuyLe.uReadLiteracy.AdBlock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CDA6529E1FA0F5B700835624 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1600,7 +1760,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F628D77213D203437BD9BC13 /* Pods-uReadLiteracy.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y692F89PT8;
 				INFOPLIST_FILE = uReadLiteracy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -1615,7 +1777,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 198A7836A988EE4B2985A501 /* Pods-uReadLiteracy.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y692F89PT8;
 				INFOPLIST_FILE = uReadLiteracy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -1629,6 +1793,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1C10ED40224D81BA002D719F /* Build configuration list for PBXNativeTarget "AdBlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C10ED3E224D81BA002D719F /* Debug */,
+				1C10ED3F224D81BA002D719F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CDA652861FA0F5B700835624 /* Build configuration list for PBXProject "uReadLiteracy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

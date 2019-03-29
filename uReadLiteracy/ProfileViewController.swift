@@ -29,7 +29,6 @@ class ProfileViewController: BaseViewController {
         super.viewDidLoad()
   
         loadUserInfo()
-        
 
         //set up daily notifications
         let content = UNMutableNotificationContent()

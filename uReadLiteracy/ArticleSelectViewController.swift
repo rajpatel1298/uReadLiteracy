@@ -10,34 +10,47 @@ import UIKit
 
 class ArticleSelectViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
-    
-    
     @IBOutlet weak var tableview: UITableView!
+    private var articles = [ArticleModel]()
+    private var selectedArticle = ArticleModel(name: "None", url: "None", category: .Art, difficulty: .Level1)
+    
+    func inject(category:ArticleCategory, difficulty:ReadingDifficulty){
+        articles = ArticleManager.shared.getModels(category: category, diffculty: difficulty)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableview.reloadData()
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableview.separatorStyle = .none
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as! ArticleTableViewCell
+        cell.titleLabel.text = articles[indexPath.row].name
+        return cell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedArticle = articles[indexPath.row]
+        performSegue(withIdentifier: "ArticleSelectToBrowserSegue", sender: self)
+    }
+  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? BrowserViewController{
+            destination.inject(article: selectedArticle)
+        }
+    }
 }

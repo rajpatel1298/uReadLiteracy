@@ -23,7 +23,10 @@ class WordWithSpeakerTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
+        setupSpeakerAnimationView()
+    }
+    
+    private func setupSpeakerAnimationView(){
         speakerAnimationView.loopAnimation = true
         speakerAnimationView.autoReverseAnimation = true
         speakerAnimationView.play()

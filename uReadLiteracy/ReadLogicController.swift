@@ -17,21 +17,12 @@ class ReadLogicController{
         self.mainURL = mainURL
     }
     
-    func isCurrentURLAnArticle(url:String)->Bool{
-        if(url.contains(mainURL) && url.count > mainURL.count){
-            return true
-        }
-        return false
-    }
     
-    func atTheEndOfArticle(position:CGFloat, maxOffset:Int)->Bool{
-        if Int(position) >= maxOffset*80/100 {
-            return true
-        }
-        return false
-    }
     
     func helpFunction(webView: WKWebviewWithHelpMenu, completionHandler:@escaping (_ state:State,_ error:HelpFunctionError?, _ word:HelpWordModel?)->Void){
+        
+        
+        
         webView.evaluateJavaScript("window.getSelection().toString()", completionHandler: {
             (selectedWord: Any?, error: Error?) in
             
