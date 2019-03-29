@@ -1,5 +1,5 @@
 //
-//  ReadLogicController.swift
+//  BrowserLogicController.swift
 //  uReadLiteracy
 //
 //  Created by Duy Le 2 on 2/11/19.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ReadLogicController{
+class BrowserLogicController{
     
     private let mainURL:String
     
@@ -20,8 +20,6 @@ class ReadLogicController{
     
     
     func helpFunction(webView: WKWebviewWithHelpMenu, completionHandler:@escaping (_ state:State,_ error:HelpFunctionError?, _ word:HelpWordModel?)->Void){
-        
-        
         
         webView.evaluateJavaScript("window.getSelection().toString()", completionHandler: {
             (selectedWord: Any?, error: Error?) in

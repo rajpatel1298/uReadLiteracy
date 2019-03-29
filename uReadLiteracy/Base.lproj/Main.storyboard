@@ -172,9 +172,11 @@
                         <outlet property="webView" destination="NUa-9g-zLY" id="VUv-zr-Jc3"/>
                         <segue destination="Kkn-Vk-qty" kind="show" identifier="ReadToLearnMoreSegue" id="04H-P6-Dh2"/>
                         <segue destination="Rg9-Rh-dKT" kind="show" identifier="ReadToCommentSectionSegue" id="hs8-8a-E0H"/>
+                        <segue destination="Giz-cr-uEd" kind="unwind" identifier="unwindToArticleSelectVC" unwindAction="unwindToArticleSelectVCWithSegue:" id="fUF-7u-ZIq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fnw-Zy-q0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Giz-cr-uEd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6942" y="122"/>
         </scene>
@@ -1438,7 +1440,7 @@
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6n-8E-sgE" customClass="LOTAnimationView">
-                                <rect key="frame" x="228.5" y="-5" width="60" height="60"/>
+                                <rect key="frame" x="233.5" y="-5" width="55" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="u6n-8E-sgE" secondAttribute="height" multiplier="1:1" id="0PR-17-4Nn"/>
@@ -1458,7 +1460,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssx-Vv-NQ6" customClass="LOTAnimationView">
-                                <rect key="frame" x="173.5" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="178.5" y="0.0" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ssx-Vv-NQ6" secondAttribute="height" multiplier="1:1" id="JVy-xU-1T0"/>
@@ -1472,7 +1474,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ssx-Vv-NQ6" secondAttribute="bottom" id="2hy-9Q-fqh"/>
                             <constraint firstItem="NFy-so-KrA" firstAttribute="leading" secondItem="u6n-8E-sgE" secondAttribute="trailing" constant="5" id="4o5-hG-qMS"/>
-                            <constraint firstAttribute="bottom" secondItem="u6n-8E-sgE" secondAttribute="bottom" constant="-5" id="GwR-as-fmS"/>
+                            <constraint firstAttribute="bottom" secondItem="u6n-8E-sgE" secondAttribute="bottom" id="GwR-as-fmS"/>
                             <constraint firstItem="NFy-so-KrA" firstAttribute="height" secondItem="RqM-OD-n2u" secondAttribute="height" multiplier="1:1.5" id="Kji-i8-Qx1"/>
                             <constraint firstItem="AOO-Qm-gqd" firstAttribute="leading" secondItem="RqM-OD-n2u" secondAttribute="leading" constant="5" id="RzK-tg-udO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NFy-so-KrA" secondAttribute="trailing" id="aE1-F2-LJU"/>

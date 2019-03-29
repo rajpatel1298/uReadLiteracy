@@ -14,6 +14,8 @@ class ArticleSelectViewController: UIViewController, UITableViewDelegate,UITable
     private var articles = [ArticleModel]()
     private var selectedArticle = ArticleModel(name: "None", url: "None", category: .Art, difficulty: .Level1)
     
+    @IBAction func unwindToArticleSelectVC(segue:UIStoryboardSegue) { }
+    
     func inject(category:ArticleCategory, difficulty:ReadingDifficulty){
         articles = ArticleManager.shared.getModels(category: category, diffculty: difficulty)
     }

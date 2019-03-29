@@ -33,7 +33,18 @@ class WebViewManager{
     
     func setMaxOffset(){
         //maxOffset = Int(webView.scrollView.contentSize.height - webView.scrollView.bounds.height + webView.scrollView.contentInset.bottom)
-        maxOffset = Int(webView.scrollView.contentSize.height + webView.scrollView.contentInset.bottom)
+        //maxOffset = Int(webView.scrollView.contentSize.height + webView.scrollView.contentInset.bottom)
+        webView.evaluateJavaScript("document.body.scrollHeight") { [weak self] (result, error) in
+            guard let strongself = self else{
+                return
+            }
+            
+            if error == nil {
+                if let result = result as? Int{
+                    strongself.maxOffset = result - Int(strongself.webView.scrollView.bounds.height)
+                }
+            }
+        }
     }
     
     func getMaxOffset()->Int{

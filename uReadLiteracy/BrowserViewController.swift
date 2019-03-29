@@ -25,14 +25,14 @@ class BrowserViewController: UIViewController{
     var helpWordSegue:HelpWordModel!
     var currentArticle:ArticleModel!
     
-    fileprivate var logicController:ReadLogicController!
+    fileprivate var logicController:BrowserLogicController!
     fileprivate var questionManager: ComprehensionQuestionManager!
     fileprivate var webviewManager:WebViewManager!
     fileprivate var popupManager:ComprehensionPopupManager!
     
     fileprivate var recorder:Recorder!
     fileprivate var player:AVAudioPlayer!
-    fileprivate var alerts:ReadAlerts!
+    fileprivate var alerts:BrowserAlerts!
     fileprivate var articleReadingStopwatch = ArticleReadingStopwatch()
     
     func inject(article:ArticleModel){
@@ -63,10 +63,7 @@ class BrowserViewController: UIViewController{
     func loadWebPage(){
         let url = URL(string: currentArticle.url)
         if(url != nil){
-            let blockRules = """
-         [{"trigger": {"url-filter": ".*","resource-type": ["script"]},"action"{"type": "block"}},{"trigger": {"url-filter":".*","resource-type": ["style-sheet"]},"action": {"type": "block"}},{"trigger": {"url-filter": ".*.jpeg"},"action": {"type": "ignore-previous-rules"}
-         }]
-        """
+            let blockRules = getBlockRule()
             
             WKContentRuleListStore.default().compileContentRuleList(
                 forIdentifier: "ContentBlockingRules",
@@ -262,7 +259,7 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
 // MARK: Setup
 extension BrowserViewController{
     fileprivate func setup(){
-        logicController = ReadLogicController(mainURL: currentArticle.url)
+        logicController = BrowserLogicController(mainURL: currentArticle.url)
         
         setupWebview()
         setupHelpFunctionInMenuBar()
@@ -270,7 +267,7 @@ extension BrowserViewController{
         recorder = Recorder(delegate:self)
         setupComprehensionPopup()
         
-        alerts = ReadAlerts(viewcontroller: self)
+        alerts = BrowserAlerts(viewcontroller: self)
         webviewManager = WebViewManager(webview: webView)
         actitvityIndicator.hidesWhenStopped = true
         
@@ -315,8 +312,8 @@ extension BrowserViewController{
             guard let strongself = self else{
                 return
             }
-            strongself.dismiss(animated: true, completion: nil)
             strongself.popupManager.resetPopupShownStatus()
+            strongself.performSegue(withIdentifier: "unwindToArticleSelectVC", sender: self)
         }
         TopToolBarViewController.shared.onRecordBtnPressed = { [weak self] in
             guard let strongself = self else{

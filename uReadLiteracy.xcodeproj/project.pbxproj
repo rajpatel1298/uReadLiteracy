@@ -133,6 +133,7 @@
 		1CAD87A5220A20DB0096DD90 /* 3227-error-404-facebook-style.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */; };
 		1CAD87A7220A21190096DD90 /* NoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A6220A21190096DD90 /* NoResultViewController.swift */; };
 		1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A8220A456B0096DD90 /* 629-empty-box.json */; };
+		1CB9159D224EB33200358AF1 /* BlockRuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */; };
 		1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */; };
 		1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */; };
 		1CC198732217C4C70021BAFC /* CompletionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */; };
@@ -152,10 +153,10 @@
 		1CCF98AD221204F500C491A8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AC221204F500C491A8 /* BaseViewController.swift */; };
 		1CCF98AF22120C9300C491A8 /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AE22120C9300C491A8 /* ArticleManager.swift */; };
 		1CCF98B122120DEE00C491A8 /* ArticleReadingStopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */; };
-		1CCF98B32212211200C491A8 /* ReadLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B22212211200C491A8 /* ReadLogicController.swift */; };
+		1CCF98B32212211200C491A8 /* BrowserLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B22212211200C491A8 /* BrowserLogicController.swift */; };
 		1CCF98B622122A6C00C491A8 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B422122A6B00C491A8 /* Observer.swift */; };
 		1CCF98B722122A6C00C491A8 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B522122A6B00C491A8 /* Subject.swift */; };
-		1CCF98B922129ECC00C491A8 /* ReadAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B822129ECC00C491A8 /* ReadAlerts.swift */; };
+		1CCF98B922129ECC00C491A8 /* BrowserAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B822129ECC00C491A8 /* BrowserAlerts.swift */; };
 		1CCF98C02213CA8E00C491A8 /* recordTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */; };
 		1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */; };
 		1CCF98C32214C56100C491A8 /* CoreDataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */; };
@@ -392,6 +393,7 @@
 		1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3227-error-404-facebook-style.json"; sourceTree = "<group>"; };
 		1CAD87A6220A21190096DD90 /* NoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultViewController.swift; sourceTree = "<group>"; };
 		1CAD87A8220A456B0096DD90 /* 629-empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "629-empty-box.json"; sourceTree = "<group>"; };
+		1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRuleExtension.swift; sourceTree = "<group>"; };
 		1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGoalsGetter.swift; sourceTree = "<group>"; };
 		1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingGoalGetter.swift; sourceTree = "<group>"; };
 		1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionAnimationView.swift; sourceTree = "<group>"; };
@@ -411,10 +413,10 @@
 		1CCF98AC221204F500C491A8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1CCF98AE22120C9300C491A8 /* ArticleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
 		1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleReadingStopwatch.swift; sourceTree = "<group>"; };
-		1CCF98B22212211200C491A8 /* ReadLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLogicController.swift; sourceTree = "<group>"; };
+		1CCF98B22212211200C491A8 /* BrowserLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserLogicController.swift; sourceTree = "<group>"; };
 		1CCF98B422122A6B00C491A8 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		1CCF98B522122A6B00C491A8 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
-		1CCF98B822129ECC00C491A8 /* ReadAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadAlerts.swift; sourceTree = "<group>"; };
+		1CCF98B822129ECC00C491A8 /* BrowserAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserAlerts.swift; sourceTree = "<group>"; };
 		1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial2.mp3; sourceTree = "<group>"; };
 		1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial1.mp3; sourceTree = "<group>"; };
 		1CCF98C22214C56100C491A8 /* CoreDataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSaver.swift; sourceTree = "<group>"; };
@@ -553,10 +555,8 @@
 			children = (
 				1CD1A2AA2249C3B800502A67 /* ArticleCategoryTableViewController.swift */,
 				1CD1A2A62248851D00502A67 /* ArticleSelectViewController.swift */,
-				CD704F4D2019A1B700E1E4F8 /* BrowserViewController.swift */,
+				1CB9159E224EB9EE00358AF1 /* Browser */,
 				1CAC791921FB55DF007F8704 /* CommentSectionViewController.swift */,
-				1CCF98B22212211200C491A8 /* ReadLogicController.swift */,
-				1CCF98B822129ECC00C491A8 /* ReadAlerts.swift */,
 				1CD1A2E5224D669E00502A67 /* ArticleDifficultyTableViewController.swift */,
 			);
 			name = "Read ";
@@ -921,6 +921,18 @@
 			name = "Audio Player";
 			sourceTree = "<group>";
 		};
+		1CB9159E224EB9EE00358AF1 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				CD704F4D2019A1B700E1E4F8 /* BrowserViewController.swift */,
+				1CCF98B22212211200C491A8 /* BrowserLogicController.swift */,
+				1CCF98B822129ECC00C491A8 /* BrowserAlerts.swift */,
+				1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */,
+				1CD1A283223F0F1E00502A67 /* WebViewManager.swift */,
+			);
+			name = Browser;
+			sourceTree = "<group>";
+		};
 		1CC1986F221729D50021BAFC /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,7 +946,6 @@
 				1CD1A272223ED99C00502A67 /* URLService.swift */,
 				1CD1A270223ED65500502A67 /* DictionaryManager.swift */,
 				1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */,
-				1CD1A283223F0F1E00502A67 /* WebViewManager.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -1451,10 +1462,11 @@
 				1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */,
 				1CAC799921FF5617007F8704 /* RecordsDetailViewController.swift in Sources */,
 				CDDD7EFE1FF19937009FA71D /* Swift+Gif.swift in Sources */,
+				1CB9159D224EB33200358AF1 /* BlockRuleExtension.swift in Sources */,
 				1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */,
 				1CAC792621FB5748007F8704 /* TopToolBarViewController.swift in Sources */,
 				1CAC793E21FB5A54007F8704 /* TutorialAudio.swift in Sources */,
-				1CCF98B32212211200C491A8 /* ReadLogicController.swift in Sources */,
+				1CCF98B32212211200C491A8 /* BrowserLogicController.swift in Sources */,
 				1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */,
 				1C578F67220123A70077E1DD /* RecordCell.swift in Sources */,
 				1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */,
@@ -1502,7 +1514,7 @@
 				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
 				1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */,
 				1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */,
-				1CCF98B922129ECC00C491A8 /* ReadAlerts.swift in Sources */,
+				1CCF98B922129ECC00C491A8 /* BrowserAlerts.swift in Sources */,
 				CD704F4E2019A1B700E1E4F8 /* BrowserViewController.swift in Sources */,
 				1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */,
 				1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */,
