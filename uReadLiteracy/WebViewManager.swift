@@ -16,6 +16,8 @@ class WebViewManager{
     private var oldScrollY:CGFloat = 0
     private var maxOffset:Int = 0
     
+    var isRenderingHighligh = false
+    
     init(webview:WKWebviewWithHelpMenu){
         self.webView = webview
     }
@@ -33,9 +35,7 @@ class WebViewManager{
     }
     
     func scrollToOldCoordinate(){
-        print(oldScrollY)
-        
-        webView.scrollView.setContentOffset(CGPoint(x: oldScrollX, y: oldScrollY), animated: true)
+        webView.scrollView.setContentOffset(CGPoint(x: oldScrollX, y: oldScrollY), animated: false)
     }
     
     func setMaxOffset(){
@@ -68,56 +68,55 @@ class WebViewManager{
         }
         return false
     }
+
     
     func highlightHelpWords(completion:@escaping (_ err:Error?)->Void){
         updateOldScrollToCurrent()
-        
-        let list:[HelpWordModel] = CoreDataGetter.shared.getList()
+        isRenderingHighligh = true
         
         var currentWordCount = 0
         
-        for word in list{
-            if(word.timesAsked <= 2){
-                highlightWord(word: word.word, color: .Green) { (err) in
-                    if(err != nil){
-                        completion(err)
-                    }
-                    else{
-                        currentWordCount += 1
-                        self.didHighLightAllHelpWord(current: currentWordCount, all: list.count, completion: completion)
-                    }
-                }
+        let list:[HelpWordModel] = CoreDataGetter.shared.getList()
+        
+        removeHighlights { [weak self] (removeErr) in
+            guard let strongself = self else{
+                return
             }
-            else if(word.timesAsked <= 4){
-                highlightWord(word: word.word, color: .Yellow) { (err) in
-                    if(err != nil){
-                        completion(err)
-                    }
-                    else{
-                        currentWordCount += 1
-                        self.didHighLightAllHelpWord(current: currentWordCount, all: list.count, completion: completion)
-                    }
-                }
+            
+            if(removeErr != nil){
+                completion(removeErr)
             }
             else{
-                highlightWord(word: word.word, color: .Orange) { (err) in
-                    if(err != nil){
-                        completion(err)
+                for word in list{
+                    var color:HelpColor = .Green
+                    
+                    if(word.timesAsked <= 2){
+                        color = .Green
+                    }
+                    else if(word.timesAsked <= 4){
+                        color = .Yellow
                     }
                     else{
-                        currentWordCount += 1
-                        self.didHighLightAllHelpWord(current: currentWordCount, all: list.count, completion: completion)
+                        color = .Orange
+                    }
+                    
+                    strongself.highlightWord(word: word.word, color: color) { (err) in
+                        if(err != nil){
+                            completion(err)
+                        }
+                        else{
+                            currentWordCount += 1
+                            
+                            if(currentWordCount == list.count){
+                                completion(nil)
+                            }
+                        }
                     }
                 }
             }
         }
     }
     
-    private func didHighLightAllHelpWord(current:Int,all:Int,completion:@escaping (_ err:Error?)->Void){
-        if(current == all){
-            completion(nil)
-        }
-    }
     
     private func highlightWord(word:String,color:HelpColor, completion:@escaping (_ err:Error?)->Void){
         if let path = Bundle.main.path(forResource: "UIWebViewSearch", ofType: "js"),
@@ -145,5 +144,33 @@ class WebViewManager{
             }
         }
     }
+    
+    private func removeHighlights(completion:@escaping (_ err:Error?)->Void){
+        if let path = Bundle.main.path(forResource: "UIWebViewSearch", ofType: "js"),
+            let jsString = try? String(contentsOfFile: path, encoding: .utf8) {
+            
+            webView.evaluateJavaScript(jsString) {[weak self] (result, err) in
+                guard let strongself = self else{
+                    return
+                }
+                
+                if(err != nil){
+                    completion(err)
+                }
+                
+                let removeHighlights = "uiWebview_RemoveAllHighlights()"
+                strongself.webView.evaluateJavaScript(removeHighlights) {  (_, removeErr) in
+                    
+                    if(removeErr != nil){
+                        completion(removeErr)
+                    }
+                    else{
+                        completion(nil)
+                    }
+                }
+            }
+        }
+    }
+    
     
 }

@@ -135,14 +135,17 @@ function uiWebview_HighlightAllOccurencesOfStringForElementGreen(element,keyword
 // the main entry point to start the search
 function uiWebview_HighlightAllOccurencesOfStringYellow(keyword) {
     uiWebview_HighlightAllOccurencesOfStringForElementYellow(document.body, keyword.toLowerCase());
+    window.scrollTo(0, 0);
 }
 
 function uiWebview_HighlightAllOccurencesOfStringOrange(keyword) {
     uiWebview_HighlightAllOccurencesOfStringForElementOrange(document.body, keyword.toLowerCase());
+    window.scrollTo(0, 0);
 }
 
 function uiWebview_HighlightAllOccurencesOfStringGreen(keyword) {
     uiWebview_HighlightAllOccurencesOfStringForElementGreen(document.body, keyword.toLowerCase());
+    window.scrollTo(0, 0);
 }
 
 // helper function, recursively removes the highlights in elements and their childs

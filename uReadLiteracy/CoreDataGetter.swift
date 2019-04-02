@@ -125,6 +125,16 @@ class CoreDataGetter{
         return nil
     }
     
+    func find(helpWord:String)->HelpWordCD?{
+        let words:[HelpWordCD] = getList()
+        for word in words{
+            if word.word == helpWord{
+                return word
+            }
+        }
+        return nil
+    }
+    
     func getList() -> [ReadXArticlesCD] {
         managedContext.refreshAllObjects()
         let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticlesCD")
@@ -132,6 +142,15 @@ class CoreDataGetter{
         
         let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticlesCD]
         return goals
+    }
+    
+    func getList() -> [HelpWordCD] {
+        managedContext.refreshAllObjects()
+        let wordFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "HelpWordCD")
+        wordFetch.shouldRefreshRefetchedObjects = true
+        
+        let words = try! managedContext.fetch(wordFetch) as! [HelpWordCD]
+        return words
     }
     
     func getList()->[ReadXMinutesCD]{

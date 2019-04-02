@@ -43,18 +43,24 @@ class CoreDataSaver{
     }
     
     func save(helpModel:HelpWordModel){
-        let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
-        
-        let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
-        
-        helpModel.getWordDifficultyIfNil()
-        
-        wordObject.setValue(helpModel.word, forKeyPath: "word")
-        wordObject.setValue(helpModel.beginningDifficult, forKeyPath: "beginningDifficult")
-        wordObject.setValue(helpModel.endingDifficult, forKeyPath: "endingDifficult")
-        wordObject.setValue(helpModel.blendDifficult, forKeyPath: "blendDifficult")
-        wordObject.setValue(helpModel.multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
-        wordObject.setValue(helpModel.timesAsked, forKeyPath: "timesAsked")
+        let model:HelpWordCD? = CoreDataGetter.shared.find(helpWord: helpModel.word)
+        if(model == nil){
+            let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
+            
+            let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
+            
+            helpModel.getWordDifficultyIfNil()
+            
+            wordObject.setValue(helpModel.word, forKeyPath: "word")
+            wordObject.setValue(helpModel.beginningDifficult, forKeyPath: "beginningDifficult")
+            wordObject.setValue(helpModel.endingDifficult, forKeyPath: "endingDifficult")
+            wordObject.setValue(helpModel.blendDifficult, forKeyPath: "blendDifficult")
+            wordObject.setValue(helpModel.multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
+            wordObject.setValue(helpModel.timesAsked, forKeyPath: "timesAsked")
+        }
+        else{
+            model?.timesAsked = Int16(helpModel.timesAsked)
+        }
         
         save()
     }
@@ -67,9 +73,8 @@ class CoreDataSaver{
         
         let model:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType: goalModel.goalType)
         
-        let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
-        
         if(model == nil){
+            let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
             object.setValue(goalModel.name, forKeyPath: "name")
             object.setValue(goalModel.progress, forKeyPath: "progress")

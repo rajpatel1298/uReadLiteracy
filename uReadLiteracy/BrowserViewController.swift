@@ -245,10 +245,20 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
             if(err != nil){
                 fatalError(err.debugDescription)
             }
+            self.webviewManager.isRenderingHighligh = false
+            DispatchQueue.main.async {
+                self.webviewManager.scrollToOldCoordinate()
+            }
+            
         }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if(webviewManager.isRenderingHighligh){
+            webviewManager.scrollToOldCoordinate()
+            return
+        }
+        
         let y = scrollView.contentOffset.y
         
         popupManager.updateScrollPosition(position: y, popupToAddToView: { [weak self] (popup) in
