@@ -16,8 +16,6 @@ class WebViewManager{
     private var oldScrollY:CGFloat = 0
     private var maxOffset:Int = 0
     
-    var isRenderingHighligh = false
-    
     init(webview:WKWebviewWithHelpMenu){
         self.webView = webview
     }
@@ -29,10 +27,6 @@ class WebViewManager{
         webView.scrollView.setContentOffset(CGPoint(x: webView.scrollView.contentOffset.x, y: webView.scrollView.contentOffset.y), animated: true)
     }
     
-    private func updateOldScrollToCurrent(){
-        oldScrollX = webView.scrollView.contentOffset.x
-        oldScrollY = webView.scrollView.contentOffset.y
-    }
     
     func scrollToOldCoordinate(){
         webView.scrollView.setContentOffset(CGPoint(x: oldScrollX, y: oldScrollY), animated: false)
@@ -71,9 +65,6 @@ class WebViewManager{
 
     
     func highlightHelpWords(completion:@escaping (_ err:Error?)->Void){
-        updateOldScrollToCurrent()
-        isRenderingHighligh = true
-        
         var currentWordCount = 0
         
         let list:[HelpWordModel] = CoreDataGetter.shared.getList()
@@ -90,6 +81,9 @@ class WebViewManager{
                 for word in list{
                     var color:HelpColor = .Green
                     
+                    if(word.timesAsked == 0){
+                        continue
+                    }
                     if(word.timesAsked <= 2){
                         color = .Green
                     }
@@ -131,7 +125,7 @@ class WebViewManager{
                     completion(err)
                 }
                 
-                let startSearch = "uiWebview_HighlightAllOccurencesOfString\(color)('\(word)')"
+                let startSearch = "uiWebview_HighlightAllOccurencesOfString('\(word)','\(color.rawValue)')"
                 
                 strongself.webView.evaluateJavaScript(startSearch) { (result2, err2) in
                     if(err2 != nil){
@@ -167,6 +161,43 @@ class WebViewManager{
                     else{
                         completion(nil)
                     }
+                }
+            }
+        }
+    }
+    
+    func doesWordsExistInText(words:[HelpWordModel],completion:@escaping ([String:Bool])->Void){
+        if let path = Bundle.main.path(forResource: "UIWebViewSearch", ofType: "js"),
+            let jsString = try? String(contentsOfFile: path, encoding: .utf8) {
+            
+            webView.evaluateJavaScript(jsString) {[weak self] (_, err) in
+                guard let strongself = self else{
+                    return
+                }
+                let removeHighlights = "uiWebview_kkk();"
+                strongself.webView.evaluateJavaScript(removeHighlights) {  (result, removeErr) in
+                    
+                    guard let sentences = result as? [String] else{return}
+                    let wholeString = sentences.joined().replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\t", with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: "").lowercased()
+                    var eachWordArr = wholeString.components(separatedBy: " ")
+                    for x in 0...(eachWordArr.count-1){
+                        eachWordArr[x] = eachWordArr[x].trimmingCharacters(in: .whitespacesAndNewlines)
+                    }
+                    
+                    var wordExist = [String:Bool]()
+                    
+                    for word in words{
+                        let word = word.word.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+                        
+                        if eachWordArr.contains(word){
+                            wordExist[word] = true
+                        }
+                        else{
+                            wordExist[word] = false
+                        }
+                    }
+                    
+                    completion(wordExist)
                 }
             }
         }

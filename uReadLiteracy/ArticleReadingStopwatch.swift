@@ -11,13 +11,17 @@ import Foundation
 class ArticleReadingStopwatch{
     
     private var startDate:Date!
+    private let article:ArticleModel
+    
+    init(article:ArticleModel){
+        self.article = article
+    }
         
     func start(){
         startDate = Date()
     }
     
-    
-    func stop(article:ArticleModel){
+    func stop(){
         let stopDate = Date().timeIntervalSince(startDate)
         article.timeSpent = stopDate
     }

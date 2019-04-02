@@ -22,20 +22,29 @@ class BrowserLogicController{
         webView.evaluateJavaScript("window.getSelection().toString()", completionHandler: {
             (selectedWord: Any?, error: Error?) in
             
-            guard let word = selectedWord as? String else{
+            guard var word = selectedWord as? String else{
                 return
             }
+            word = word.lowercased().replacingOccurrences(of: " ", with: "")
             
             if(self.onlyOneWordIsSelected(word: word)){
+                var helpWord:HelpWordModel!
+                
                 let list:[HelpWordModel] = CoreDataGetter.shared.getList()
                 for model in list{
                     if model.word == word{
-                        completionHandler(.Success, nil, model)
-                        return
+                        helpWord = model
+                        break
                     }
                 }
                 
-                let helpWord = HelpWordModel(word: word)
+                if(helpWord == nil){
+                    helpWord = HelpWordModel(word: word)
+                }
+                
+                helpWord.timesAsked = helpWord.timesAsked + 1
+                helpWord.askedLastArticle = true
+                
                 CoreDataSaver.shared.save(helpModel: helpWord)
                 completionHandler(.Success, nil, helpWord)
             }
@@ -51,12 +60,47 @@ class BrowserLogicController{
         return true
     }
     
-    func updateGoalIfNeeded(endOfArticle:Bool,articleReadingStopwatch:ArticleReadingStopwatch){
-        if endOfArticle{
-            articleReadingStopwatch.stop(article: currentArticle)
-            GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
-                GoalCompletePresenter.shared.show(goal: goal)
+    func updateDataWhenFinishReadingArticle(articleReadingStopwatch:ArticleReadingStopwatch){
+        articleReadingStopwatch.stop()
+        GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
+            GoalCompletePresenter.shared.show(goal: goal)
+        }
+    }
+    
+    func setupHelpWords(){
+        let list:[HelpWordModel] = CoreDataGetter.shared.getList()
+        
+        for model in list{
+            model.askedLastArticle = false
+            CoreDataSaver.shared.save(helpModel: model)
+        }
+    }
+    
+    private var checkedHelpWords = false
+    
+    func updateHelpWordsThatWereNotAsked(webManager:WebViewManager){
+        if !checkedHelpWords{
+            checkedHelpWords = true
+        }
+        else{
+            return
+        }
+        
+        let list:[HelpWordModel] = CoreDataGetter.shared.getList()
+        webManager.doesWordsExistInText(words: list) { (result) in
+            for model in list{
+                if(result[model.word] != nil){
+                    if result[model.word]! && !model.askedLastArticle {
+                        if(model.timesAsked>0){
+                            model.timesAsked = model.timesAsked - 1
+                            CoreDataSaver.shared.save(helpModel: model)
+                        }
+                    }
+                }
             }
         }
+        
+        
+        
     }
 }

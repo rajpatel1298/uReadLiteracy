@@ -12,8 +12,6 @@ import UIKit
 // MARK: Setup
 extension BrowserViewController{
     func setup(){
-        logicController = BrowserLogicController(currentArticle: currentArticle)
-        
         setupWebview()
         setupHelpFunctionInMenuBar()
         

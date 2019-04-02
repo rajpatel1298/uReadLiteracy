@@ -11,6 +11,6 @@ import Foundation
 enum HelpColor:String{
     case Orange
     case Yellow
-    case Green
+    case Green = "LimeGreen"
     
 }

@@ -32,10 +32,13 @@ class BrowserViewController: UIViewController{
     var recorder:Recorder!
     fileprivate var player:AVAudioPlayer!
     var alerts:BrowserAlerts!
-    fileprivate var articleReadingStopwatch = ArticleReadingStopwatch()
+    fileprivate var articleReadingStopwatch:ArticleReadingStopwatch!
     
     func inject(article:ArticleModel){
         currentArticle = article
+        articleReadingStopwatch = ArticleReadingStopwatch(article: currentArticle)
+        logicController = BrowserLogicController(currentArticle: currentArticle)
+        logicController.setupHelpWords()
     }
     
     override func viewDidLoad() {
@@ -52,7 +55,6 @@ class BrowserViewController: UIViewController{
         super.viewWillAppear(animated)
         loadWebPage()
         hideCommentBtn()
-        
         setupTopBar()
         TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
 
@@ -173,19 +175,12 @@ extension BrowserViewController{
                 guard let helpWord = helpWord else{
                     fatalError("When success, need to have help word return")
                 }
-                helpWord.timesAsked = helpWord.timesAsked + 1
-                CoreDataSaver.shared.save(helpModel: helpWord)
                 
                 strongSelf.textToVoice.setText(text: helpWord.word)
                 strongSelf.textToVoice.playNormal()
                 strongSelf.webviewManager.highlightHelpWords(completion: { (err) in
                     if(err != nil){
                         fatalError(err.debugDescription)
-                    }
-                    else{
-                        DispatchQueue.main.async {
-                            strongSelf.webviewManager.scrollToOldCoordinate()
-                        }
                     }
                 })
                 
@@ -245,20 +240,10 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
             if(err != nil){
                 fatalError(err.debugDescription)
             }
-            self.webviewManager.isRenderingHighligh = false
-            DispatchQueue.main.async {
-                self.webviewManager.scrollToOldCoordinate()
-            }
-            
         }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if(webviewManager.isRenderingHighligh){
-            webviewManager.scrollToOldCoordinate()
-            return
-        }
-        
         let y = scrollView.contentOffset.y
         
         popupManager.updateScrollPosition(position: y, popupToAddToView: { [weak self] (popup) in
@@ -266,7 +251,6 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
             guard let strongself = self else{
                 return
             }
-            
             DispatchQueue.main.async {
                 strongself.addPopup(popup: popup)
             }
@@ -276,7 +260,13 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
             webviewManager.scrollToOldCoordinate()
         }
         updateScrollPositionForCommentBtn(position: y)
-        logicController.updateGoalIfNeeded(endOfArticle: webviewManager.atTheEndOfArticle(position: webView.scrollView.contentOffset.y), articleReadingStopwatch: articleReadingStopwatch)
+        
+        if webviewManager.atTheEndOfArticle(position: y){
+            logicController.updateDataWhenFinishReadingArticle( articleReadingStopwatch: articleReadingStopwatch)
+            logicController.updateHelpWordsThatWereNotAsked(webManager: webviewManager)
+        }
+        
+        
     }
 }
 

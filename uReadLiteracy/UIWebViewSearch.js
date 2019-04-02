@@ -1,50 +1,7 @@
 var uiWebview_SearchResultCount = 0;
 
-function uiWebview_HighlightAllOccurencesOfStringForElementYellow(element,keyword) {
-    
-    if (element) {
-        if (element.nodeType == 3) {        // Text node
-            while (true) {
-                //if (counter < 1) {
-                var value = element.nodeValue;  // Search for keyword in text node
-                var idx = value.toLowerCase().indexOf(keyword);
-                
-                if (idx < 0) break;             // not found, abort
-                
-                //(value.split);
-                
-                //we create a SPAN element for every parts of matched keywords
-                var span = document.createElement("span");
-                var text = document.createTextNode(value.substr(idx,keyword.length));
-                span.appendChild(text);
-                
-                span.setAttribute("class","uiWebviewHighlight");
-                span.style.backgroundColor="yellow";
-                span.style.color="black";
-                
-                uiWebview_SearchResultCount++;    // update the counter
-                
-                text = document.createTextNode(value.substr(idx+keyword.length));
-                element.deleteData(idx, value.length - idx);
-                var next = element.nextSibling;
-                element.parentNode.insertBefore(span, next);
-                element.parentNode.insertBefore(text, next);
-                element = text;
-                window.scrollTo(0,span.offsetTop);
-                
-            }
-        } else if (element.nodeType == 1) { // Element node
-            if (element.style.display != "none" && element.nodeName.toLowerCase() != 'select') {
-                for (var i=element.childNodes.length-1; i>=0; i--) {
-                    uiWebview_HighlightAllOccurencesOfStringForElementYellow(element.childNodes[i],keyword);
-                }
-            }
-            element.removeAttribute("href")
-        }
-    }
-}
 
-function uiWebview_HighlightAllOccurencesOfStringForElementOrange(element,keyword) {
+function uiWebview_HighlightAllOccurencesOfStringForElement(element,keyword,color) {
     
     if (element) {
         if (element.nodeType == 3) {        // Text node
@@ -62,9 +19,13 @@ function uiWebview_HighlightAllOccurencesOfStringForElementOrange(element,keywor
                 var text = document.createTextNode(value.substr(idx,keyword.length));
                 span.appendChild(text);
                 
+                
+                
                 span.setAttribute("class","uiWebviewHighlight");
-                span.style.backgroundColor="orange";
+                span.style.backgroundColor = color;
                 span.style.color="black";
+                
+                
                 
                 uiWebview_SearchResultCount++;    // update the counter
                 
@@ -74,57 +35,13 @@ function uiWebview_HighlightAllOccurencesOfStringForElementOrange(element,keywor
                 element.parentNode.insertBefore(span, next);
                 element.parentNode.insertBefore(text, next);
                 element = text;
-                window.scrollTo(0,span.offsetTop);
+                //window.scrollTo(0,span.offsetTop);
                 
             }
         } else if (element.nodeType == 1) { // Element node
             if (element.style.display != "none" && element.nodeName.toLowerCase() != 'select') {
                 for (var i=element.childNodes.length-1; i>=0; i--) {
-                    uiWebview_HighlightAllOccurencesOfStringForElementOrange(element.childNodes[i],keyword);
-                }
-            }
-            element.removeAttribute("href")
-        }
-    }
-}
-
-function uiWebview_HighlightAllOccurencesOfStringForElementGreen(element,keyword) {
-    
-    if (element) {
-        if (element.nodeType == 3) {        // Text node
-            while (true) {
-                //if (counter < 1) {
-                var value = element.nodeValue;  // Search for keyword in text node
-                var idx = value.toLowerCase().indexOf(keyword);
-                
-                if (idx < 0) break;             // not found, abort
-                
-                //(value.split);
-                
-                //we create a SPAN element for every parts of matched keywords
-                var span = document.createElement("span");
-                var text = document.createTextNode(value.substr(idx,keyword.length));
-                span.appendChild(text);
-                
-                span.setAttribute("class","uiWebviewHighlight");
-                span.style.backgroundColor="LimeGreen";
-                span.style.color="black";
-                
-                uiWebview_SearchResultCount++;    // update the counter
-                
-                text = document.createTextNode(value.substr(idx+keyword.length));
-                element.deleteData(idx, value.length - idx);
-                var next = element.nextSibling;
-                element.parentNode.insertBefore(span, next);
-                element.parentNode.insertBefore(text, next);
-                element = text;
-                window.scrollTo(0,span.offsetTop);
-                
-            }
-        } else if (element.nodeType == 1) { // Element node
-            if (element.style.display != "none" && element.nodeName.toLowerCase() != 'select') {
-                for (var i=element.childNodes.length-1; i>=0; i--) {
-                    uiWebview_HighlightAllOccurencesOfStringForElementGreen(element.childNodes[i],keyword);
+                    uiWebview_HighlightAllOccurencesOfStringForElement(element.childNodes[i],keyword,color);
                 }
             }
             element.removeAttribute("href")
@@ -133,19 +50,24 @@ function uiWebview_HighlightAllOccurencesOfStringForElementGreen(element,keyword
 }
 
 // the main entry point to start the search
-function uiWebview_HighlightAllOccurencesOfStringYellow(keyword) {
-    uiWebview_HighlightAllOccurencesOfStringForElementYellow(document.body, keyword.toLowerCase());
-    window.scrollTo(0, 0);
+
+function uiWebview_HighlightAllOccurencesOfString(keyword,color) {
+    uiWebview_HighlightAllOccurencesOfStringForElement(document.body, keyword.toLowerCase(),color);
 }
 
-function uiWebview_HighlightAllOccurencesOfStringOrange(keyword) {
-    uiWebview_HighlightAllOccurencesOfStringForElementOrange(document.body, keyword.toLowerCase());
-    window.scrollTo(0, 0);
-}
-
-function uiWebview_HighlightAllOccurencesOfStringGreen(keyword) {
-    uiWebview_HighlightAllOccurencesOfStringForElementGreen(document.body, keyword.toLowerCase());
-    window.scrollTo(0, 0);
+function uiWebview_kkk() {
+    var arr = [];
+    var x = document.getElementsByTagName('p');
+    var i;
+    
+    
+    
+    for (i = 0; i < x.length; i++) {
+        arr.push(x[i].textContent);
+        
+    }
+    
+    return arr;
 }
 
 // helper function, recursively removes the highlights in elements and their childs

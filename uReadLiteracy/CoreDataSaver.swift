@@ -43,6 +43,10 @@ class CoreDataSaver{
     }
     
     func save(helpModel:HelpWordModel){
+        if(helpModel.timesAsked < 0){
+            helpModel.timesAsked = 0
+        }
+        
         let model:HelpWordCD? = CoreDataGetter.shared.find(helpWord: helpModel.word)
         if(model == nil){
             let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
@@ -57,9 +61,11 @@ class CoreDataSaver{
             wordObject.setValue(helpModel.blendDifficult, forKeyPath: "blendDifficult")
             wordObject.setValue(helpModel.multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
             wordObject.setValue(helpModel.timesAsked, forKeyPath: "timesAsked")
+            wordObject.setValue(helpModel.askedLastArticle, forKey: "askedLastArticle")
         }
         else{
             model?.timesAsked = Int16(helpModel.timesAsked)
+            model?.askedLastArticle = helpModel.askedLastArticle
         }
         
         save()
