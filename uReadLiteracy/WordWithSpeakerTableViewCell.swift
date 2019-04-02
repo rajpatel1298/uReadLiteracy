@@ -18,8 +18,7 @@ class WordWithSpeakerTableViewCell: UITableViewCell {
     
     var definition:String!
     
-    private let synthesizer = AVSpeechSynthesizer()
-    private var utterance:AVSpeechUtterance!
+    private var textToVoice = TextToVoiceService()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -34,19 +33,11 @@ class WordWithSpeakerTableViewCell: UITableViewCell {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(speakerAction))
         speakerAnimationView.addGestureRecognizer(gesture)
         
-        utterance = AVSpeechUtterance(string: definition)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        
-        if(definition.split(separator: " ").count == 1){
-            utterance.rate = 0.3
-        }
-        else{
-            utterance.rate = 0.45
-        }
+        textToVoice.setText(text: definition)
     }
     
     @objc private func speakerAction(sender:UIView){
-        synthesizer.speak(utterance)
+        textToVoice.playNormal()
     }
     
 

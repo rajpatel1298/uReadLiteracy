@@ -27,7 +27,14 @@ class WebViewManager{
         webView.scrollView.setContentOffset(CGPoint(x: webView.scrollView.contentOffset.x, y: webView.scrollView.contentOffset.y), animated: true)
     }
     
+    private func updateOldScrollToCurrent(){
+        oldScrollX = webView.scrollView.contentOffset.x
+        oldScrollY = webView.scrollView.contentOffset.y
+    }
+    
     func scrollToOldCoordinate(){
+        print(oldScrollY)
+        
         webView.scrollView.setContentOffset(CGPoint(x: oldScrollX, y: oldScrollY), animated: true)
     }
     
@@ -60,6 +67,83 @@ class WebViewManager{
             return true
         }
         return false
+    }
+    
+    func highlightHelpWords(completion:@escaping (_ err:Error?)->Void){
+        updateOldScrollToCurrent()
+        
+        let list:[HelpWordModel] = CoreDataGetter.shared.getList()
+        
+        var currentWordCount = 0
+        
+        for word in list{
+            if(word.timesAsked <= 2){
+                highlightWord(word: word.word, color: .Green) { (err) in
+                    if(err != nil){
+                        completion(err)
+                    }
+                    else{
+                        currentWordCount += 1
+                        self.didHighLightAllHelpWord(current: currentWordCount, all: list.count, completion: completion)
+                    }
+                }
+            }
+            else if(word.timesAsked <= 4){
+                highlightWord(word: word.word, color: .Yellow) { (err) in
+                    if(err != nil){
+                        completion(err)
+                    }
+                    else{
+                        currentWordCount += 1
+                        self.didHighLightAllHelpWord(current: currentWordCount, all: list.count, completion: completion)
+                    }
+                }
+            }
+            else{
+                highlightWord(word: word.word, color: .Orange) { (err) in
+                    if(err != nil){
+                        completion(err)
+                    }
+                    else{
+                        currentWordCount += 1
+                        self.didHighLightAllHelpWord(current: currentWordCount, all: list.count, completion: completion)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func didHighLightAllHelpWord(current:Int,all:Int,completion:@escaping (_ err:Error?)->Void){
+        if(current == all){
+            completion(nil)
+        }
+    }
+    
+    private func highlightWord(word:String,color:HelpColor, completion:@escaping (_ err:Error?)->Void){
+        if let path = Bundle.main.path(forResource: "UIWebViewSearch", ofType: "js"),
+            let jsString = try? String(contentsOfFile: path, encoding: .utf8) {
+            
+            webView.evaluateJavaScript(jsString) {[weak self] (result, err) in
+                guard let strongself = self else{
+                    return
+                }
+                
+                if(err != nil){
+                    completion(err)
+                }
+                
+                let startSearch = "uiWebview_HighlightAllOccurencesOfString\(color)('\(word)')"
+                
+                strongself.webView.evaluateJavaScript(startSearch) { (result2, err2) in
+                    if(err2 != nil){
+                        completion(err2)
+                    }
+                    else{
+                        completion(nil)
+                    }
+                }
+            }
+        }
     }
     
 }

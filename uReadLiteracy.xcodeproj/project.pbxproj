@@ -144,6 +144,10 @@
 		1CC198822218D15E0021BAFC /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198812218D15E0021BAFC /* SkipButton.swift */; };
 		1CC198842218D1BD0021BAFC /* QuestionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198832218D1BD0021BAFC /* QuestionLabel.swift */; };
 		1CC198862218D24C0021BAFC /* ResponseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198852218D24C0021BAFC /* ResponseTextView.swift */; };
+		1CCC510222527B8C00FA32FC /* BrowserSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC510122527B8C00FA32FC /* BrowserSetup.swift */; };
+		1CCC51042252AB9600FA32FC /* UIWebViewSearch.js in Resources */ = {isa = PBXBuildFile; fileRef = 1CCC51032252AB9600FA32FC /* UIWebViewSearch.js */; };
+		1CCC51062252B0CF00FA32FC /* HelpColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC51052252B0CF00FA32FC /* HelpColor.swift */; };
+		1CCC51092252D45200FA32FC /* TextToVoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC51082252D45200FA32FC /* TextToVoiceService.swift */; };
 		1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */; };
 		1CCF9885220FB68100C491A8 /* 3151-books.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF9884220FB68100C491A8 /* 3151-books.json */; };
 		1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */; };
@@ -404,6 +408,10 @@
 		1CC198812218D15E0021BAFC /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
 		1CC198832218D1BD0021BAFC /* QuestionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLabel.swift; sourceTree = "<group>"; };
 		1CC198852218D24C0021BAFC /* ResponseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTextView.swift; sourceTree = "<group>"; };
+		1CCC510122527B8C00FA32FC /* BrowserSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSetup.swift; sourceTree = "<group>"; };
+		1CCC51032252AB9600FA32FC /* UIWebViewSearch.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UIWebViewSearch.js; sourceTree = "<group>"; };
+		1CCC51052252B0CF00FA32FC /* HelpColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpColor.swift; sourceTree = "<group>"; };
+		1CCC51082252D45200FA32FC /* TextToVoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToVoiceService.swift; sourceTree = "<group>"; };
 		1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = black_hand_click_gesture.json; sourceTree = "<group>"; };
 		1CCF9884220FB68100C491A8 /* 3151-books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3151-books.json"; sourceTree = "<group>"; };
 		1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
@@ -661,6 +669,7 @@
 				1CCF98B522122A6B00C491A8 /* Subject.swift */,
 				1CD1A28A2245B48C00502A67 /* Reading */,
 				1CD1A274223EDC4100502A67 /* Dictionary */,
+				1CCC51052252B0CF00FA32FC /* HelpColor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -676,6 +685,7 @@
 				CDA652981FA0F5B700835624 /* Assets.xcassets */,
 				1C4C67D9218BFE7D00D5383D /* Font */,
 				CD1DCA6B1FF4ACE300FCDDB5 /* Gifs */,
+				1CCC51032252AB9600FA32FC /* UIWebViewSearch.js */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -929,6 +939,7 @@
 				1CCF98B822129ECC00C491A8 /* BrowserAlerts.swift */,
 				1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */,
 				1CD1A283223F0F1E00502A67 /* WebViewManager.swift */,
+				1CCC510122527B8C00FA32FC /* BrowserSetup.swift */,
 			);
 			name = Browser;
 			sourceTree = "<group>";
@@ -936,13 +947,12 @@
 		1CC1986F221729D50021BAFC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				1CCC51072252D43E00FA32FC /* Audio Stuffs */,
 				1CD1A280223EE4A900502A67 /* Article */,
 				1CD1A27F223EE49900502A67 /* CoreData */,
 				1CD1A27E223EE48000502A67 /* Firebase */,
 				1CD1A27D223EE46B00502A67 /* Goal */,
 				1CAC793621FB5978007F8704 /* Comprehension Popup */,
-				1CAC793021FB5906007F8704 /* AudioPlayer.swift */,
-				1CAC798D21FCB425007F8704 /* Recorder.swift */,
 				1CD1A272223ED99C00502A67 /* URLService.swift */,
 				1CD1A270223ED65500502A67 /* DictionaryManager.swift */,
 				1CD1A281223EE4CD00502A67 /* YoutubeURLRequestManager.swift */,
@@ -961,6 +971,16 @@
 				1C93D7762226FE1E005AA563 /* OptionView.swift */,
 			);
 			name = ComprehensionPopup;
+			sourceTree = "<group>";
+		};
+		1CCC51072252D43E00FA32FC /* Audio Stuffs */ = {
+			isa = PBXGroup;
+			children = (
+				1CAC793021FB5906007F8704 /* AudioPlayer.swift */,
+				1CAC798D21FCB425007F8704 /* Recorder.swift */,
+				1CCC51082252D45200FA32FC /* TextToVoiceService.swift */,
+			);
+			name = "Audio Stuffs";
 			sourceTree = "<group>";
 		};
 		1CD1A274223EDC4100502A67 /* Dictionary */ = {
@@ -1306,6 +1326,7 @@
 				1CD1A29122481FFF00502A67 /* Art.txt in Resources */,
 				1CD1A2A4224836E400502A67 /* Travel.txt in Resources */,
 				1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */,
+				1CCC51042252AB9600FA32FC /* UIWebViewSearch.js in Resources */,
 				1C578F872204D3750077E1DD /* img_6.png in Resources */,
 				1CAC798A21FCB287007F8704 /* NokioSansAlt-MediumItalic.ttf in Resources */,
 				1CAD87A3220A18500096DD90 /* Check Mark Success Data.json in Resources */,
@@ -1547,6 +1568,7 @@
 				1CC198822218D15E0021BAFC /* SkipButton.swift in Sources */,
 				1C93D7772226FE1E005AA563 /* OptionView.swift in Sources */,
 				1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */,
+				1CCC51062252B0CF00FA32FC /* HelpColor.swift in Sources */,
 				1C578F9622056D770077E1DD /* WKWebviewWithHelpMenu.swift in Sources */,
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
 				1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */,
@@ -1558,8 +1580,10 @@
 				1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */,
 				1CAC795621FB62F2007F8704 /* ProfileViewControllerTutorial.swift in Sources */,
 				1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */,
+				1CCC510222527B8C00FA32FC /* BrowserSetup.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,
 				1CD1A2E2224BA42D00502A67 /* ReadingSource.swift in Sources */,
+				1CCC51092252D45200FA32FC /* TextToVoiceService.swift in Sources */,
 				1CAC799121FE241E007F8704 /* AudioRecordModel.swift in Sources */,
 				1CAC798E21FCB425007F8704 /* Recorder.swift in Sources */,
 				1CCF98AF22120C9300C491A8 /* ArticleManager.swift in Sources */,

@@ -28,7 +28,7 @@ class CoreDataGetter{
         var list = [HelpWordModel]()
         
         for word in words{
-            let w = HelpWordModel(word: word.word!, beginningDifficult: word.beginningDifficult, endingDifficult: word.endingDifficult, blendDifficult: word.blendDifficult, multisyllabicDifficult: word.multisyllabicDifficult)
+            let w = HelpWordModel(word: word.word!, beginningDifficult: word.beginningDifficult, endingDifficult: word.endingDifficult, blendDifficult: word.blendDifficult, multisyllabicDifficult: word.multisyllabicDifficult, timesAsked:Int(word.timesAsked))
             list.append(w)
         }
         

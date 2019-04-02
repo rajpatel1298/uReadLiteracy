@@ -167,13 +167,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "uReadLiteracy/BrowserViewController.swift"
-            timestampString = "575584846.224146"
+            filePath = "uReadLiteracy/WebViewManager.swift"
+            timestampString = "575857558.337337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "updateGoalIfNeeded()"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "setMaxOffset()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -184,12 +184,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uReadLiteracy/WebViewManager.swift"
-            timestampString = "575584846.2247421"
+            timestampString = "575857558.3378789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "setMaxOffset()"
+            landmarkName = "scrollToOldCoordinate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uReadLiteracy/BrowserViewController.swift"
+            timestampString = "575857558.3381571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "helpFunction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uReadLiteracy/BrowserViewController.swift"
+            timestampString = "575857558.338466"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "helpFunction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uReadLiteracy/WebViewManager.swift"
+            timestampString = "575857558.338725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "highlightHelpWords(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uReadLiteracy/WebViewManager.swift"
+            timestampString = "575857558.3389781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "highlightHelpWords(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

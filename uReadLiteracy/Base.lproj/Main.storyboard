@@ -170,7 +170,6 @@
                         <outlet property="actitvityIndicator" destination="S8K-Le-7b9" id="L5M-GC-Uwz"/>
                         <outlet property="commentBtn" destination="m4T-fh-46a" id="fKR-Ww-7mN"/>
                         <outlet property="webView" destination="NUa-9g-zLY" id="VUv-zr-Jc3"/>
-                        <segue destination="Kkn-Vk-qty" kind="show" identifier="ReadToLearnMoreSegue" id="04H-P6-Dh2"/>
                         <segue destination="Rg9-Rh-dKT" kind="show" identifier="ReadToCommentSectionSegue" id="hs8-8a-E0H"/>
                         <segue destination="Giz-cr-uEd" kind="unwind" identifier="unwindToArticleSelectVC" unwindAction="unwindToArticleSelectVCWithSegue:" id="fUF-7u-ZIq"/>
                     </connections>
@@ -7914,7 +7913,6 @@ AAAAAFkAAAAAAAAAAAAAAAAABZrRA
         <image name="uReadLoginBook" width="1000" height="780"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="04H-P6-Dh2"/>
         <segue reference="iA3-hq-rlE"/>
     </inferredMetricsTieBreakers>
 </document>

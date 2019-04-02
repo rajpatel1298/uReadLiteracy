@@ -17,22 +17,21 @@ import Lottie
 class BrowserViewController: UIViewController{
     
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
-    
     @IBOutlet weak var commentBtn: LOTAnimationView!
-    
     @IBOutlet weak var actitvityIndicator: UIActivityIndicatorView!
     
     var helpWordSegue:HelpWordModel!
     var currentArticle:ArticleModel!
     
-    fileprivate var logicController:BrowserLogicController!
+    var logicController:BrowserLogicController!
     fileprivate var questionManager: ComprehensionQuestionManager!
-    fileprivate var webviewManager:WebViewManager!
-    fileprivate var popupManager:ComprehensionPopupManager!
+    var webviewManager:WebViewManager!
+    var popupManager:ComprehensionPopupManager!
+    fileprivate let textToVoice = TextToVoiceService()
     
-    fileprivate var recorder:Recorder!
+    var recorder:Recorder!
     fileprivate var player:AVAudioPlayer!
-    fileprivate var alerts:BrowserAlerts!
+    var alerts:BrowserAlerts!
     fileprivate var articleReadingStopwatch = ArticleReadingStopwatch()
     
     func inject(article:ArticleModel){
@@ -121,7 +120,9 @@ class BrowserViewController: UIViewController{
         super.viewWillDisappear(animated)
         hideCommentBtn()
         TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
-        popupManager.resetPopupShownStatus()
+        if(currentArticle.url == webView.url?.absoluteString){
+            popupManager.resetPopupShownStatus()
+        }
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
@@ -138,16 +139,7 @@ class BrowserViewController: UIViewController{
         webviewManager.scrollToCurrentCoordinate()
     }
     
-    func updateGoalIfNeeded(){
-        let currentYOffset = webView.scrollView.contentOffset.y
-
-        if webviewManager.atTheEndOfArticle(position: currentYOffset){
-            articleReadingStopwatch.stop(article: currentArticle)
-            GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
-                GoalCompletePresenter.shared.show(goal: goal)
-            }
-        }
-    }
+    
     
     fileprivate func updateScrollPositionForCommentBtn(position:CGFloat){
         if webviewManager.atTheEndOfArticle(position: position) {
@@ -178,8 +170,25 @@ extension BrowserViewController{
             
             switch(state){
             case .Success():
-                strongSelf.helpWordSegue = helpWord
-                strongSelf.performSegue(withIdentifier: "ReadToLearnMoreSegue", sender: self)
+                guard let helpWord = helpWord else{
+                    fatalError("When success, need to have help word return")
+                }
+                helpWord.timesAsked = helpWord.timesAsked + 1
+                CoreDataSaver.shared.save(helpModel: helpWord)
+                
+                strongSelf.textToVoice.setText(text: helpWord.word)
+                strongSelf.textToVoice.playNormal()
+                strongSelf.webviewManager.highlightHelpWords(completion: { (err) in
+                    if(err != nil){
+                        fatalError(err.debugDescription)
+                    }
+                    else{
+                        DispatchQueue.main.async {
+                            strongSelf.webviewManager.scrollToOldCoordinate()
+                        }
+                    }
+                })
+                
                 break
             case .Failure( _):
                 guard let helpFunctionError = error else{
@@ -231,6 +240,12 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
         webviewManager.setMaxOffset()
         
         articleReadingStopwatch.start()
+        
+        webviewManager.highlightHelpWords { (err) in
+            if(err != nil){
+                fatalError(err.debugDescription)
+            }
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -251,95 +266,11 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
             webviewManager.scrollToOldCoordinate()
         }
         updateScrollPositionForCommentBtn(position: y)
-        updateGoalIfNeeded()
+        logicController.updateGoalIfNeeded(endOfArticle: webviewManager.atTheEndOfArticle(position: webView.scrollView.contentOffset.y), articleReadingStopwatch: articleReadingStopwatch)
     }
 }
 
 
-// MARK: Setup
-extension BrowserViewController{
-    fileprivate func setup(){
-        logicController = BrowserLogicController(mainURL: currentArticle.url)
-        
-        setupWebview()
-        setupHelpFunctionInMenuBar()
-        
-        recorder = Recorder(delegate:self)
-        setupComprehensionPopup()
-        
-        alerts = BrowserAlerts(viewcontroller: self)
-        webviewManager = WebViewManager(webview: webView)
-        actitvityIndicator.hidesWhenStopped = true
-        
-        addGestureRecognizerToCommentBtn()
-        commentBtn.autoReverseAnimation = true
-        commentBtn.loopAnimation = true
-        commentBtn.play()
-        commentBtn.contentMode = .scaleAspectFit
-    }
-    
-    private func addGestureRecognizerToCommentBtn(){
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onCommentSectionBtnPressed))
-        commentBtn.addGestureRecognizer(gestureRecognizer)
-    }
-    
-    @objc private func onCommentSectionBtnPressed(){
-        performSegue(withIdentifier: "ReadToCommentSectionSegue", sender: self)
-    }
-    
-    private func setupHelpFunctionInMenuBar(){
-        let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
-        UIMenuController.shared.menuItems = [helpItem]
-        UIMenuController.shared.update()
-        UIMenuController.shared.setMenuVisible(true, animated: true)
-    }
-    
-    fileprivate func setupComprehensionPopup(){
-        let position1 = ComprehensionPopupModel(popupLocation: .Middle, question: "What is Love? Baby don't hurt me, no more!")
-        let position2 = ComprehensionPopupModel(popupLocation: .Top, question: "Test Top")
-        
-        popupManager = ComprehensionPopupManager(popupModels: [position1,position2])
-    }
-    
-    fileprivate func setupWebview(){
-        webView.navigationDelegate = self
-        webView.scrollView.delegate = self
-    }
-    
-    fileprivate func setupTopBar(){
-        TopToolBarViewController.currentController = self
-        TopToolBarViewController.shared.onPreviousBtnPressed = { [weak self] in
-            guard let strongself = self else{
-                return
-            }
-            strongself.popupManager.resetPopupShownStatus()
-            strongself.performSegue(withIdentifier: "unwindToArticleSelectVC", sender: self)
-        }
-        TopToolBarViewController.shared.onRecordBtnPressed = { [weak self] in
-            guard let strongself = self else{
-                return
-            }
-            
-            if strongself.recorder.isRecording() {
-                strongself.recorder.stopRecording()
-            }
-            else {
-                strongself.recorder.startRecording(filename: strongself.currentArticle.name) { (errStr) in
-                    DispatchQueue.main.async {
-                        strongself.alerts.showRecordErrorAlert()
-                        print(errStr)
-                    }
-                }
-            }
-        }
-        TopToolBarViewController.shared.onCommentBtnPressed = {
-            [weak self] in
-            guard let strongself = self else{
-                return
-            }
-            strongself.onCommentSectionBtnPressed()
-        }
-    }
-}
+
 
 

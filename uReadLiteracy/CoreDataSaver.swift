@@ -54,6 +54,7 @@ class CoreDataSaver{
         wordObject.setValue(helpModel.endingDifficult, forKeyPath: "endingDifficult")
         wordObject.setValue(helpModel.blendDifficult, forKeyPath: "blendDifficult")
         wordObject.setValue(helpModel.multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
+        wordObject.setValue(helpModel.timesAsked, forKeyPath: "timesAsked")
         
         save()
     }

@@ -18,17 +18,21 @@ class HelpWordModel{
     var blendDifficult:Bool!
     var multisyllabicDifficult:Bool!
     
+    var timesAsked:Int!
+    
     init(word:String){
         self.word = word
+        self.timesAsked = 0
         getWordDifficultyIfNil()
     }
-    init(word:String,beginningDifficult:Bool,endingDifficult:Bool,blendDifficult:Bool,multisyllabicDifficult:Bool){
+    init(word:String,beginningDifficult:Bool,endingDifficult:Bool,blendDifficult:Bool,multisyllabicDifficult:Bool, timesAsked:Int){
         
         self.word = word
         self.beginningDifficult = beginningDifficult
         self.endingDifficult = endingDifficult
         self.blendDifficult = blendDifficult
         self.multisyllabicDifficult = multisyllabicDifficult
+        self.timesAsked = timesAsked
     }
         
     private func beginningDifficult(word:String)->Bool{
