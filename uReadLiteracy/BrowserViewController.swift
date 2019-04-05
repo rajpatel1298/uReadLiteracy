@@ -53,10 +53,12 @@ class BrowserViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        webviewManager.injectJS()
         loadWebPage()
         hideCommentBtn()
         setupTopBar()
         TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
+        
 
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -143,8 +145,8 @@ class BrowserViewController: UIViewController{
     
     
     
-    fileprivate func updateScrollPositionForCommentBtn(position:CGFloat){
-        if webviewManager.atTheEndOfArticle(position: position) {
+    fileprivate func updateScrollPositionForCommentBtn(){
+        if webviewManager.atTheEndOfArticle() {
             showCommentBtn()
         }
         else{
@@ -259,9 +261,9 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
         if(popupManager.isPopupShowing()){
             webviewManager.scrollToOldCoordinate()
         }
-        updateScrollPositionForCommentBtn(position: y)
+        updateScrollPositionForCommentBtn()
         
-        if webviewManager.atTheEndOfArticle(position: y){
+        if webviewManager.atTheEndOfArticle(){
             logicController.updateDataWhenFinishReadingArticle( articleReadingStopwatch: articleReadingStopwatch)
             logicController.updateHelpWordsThatWereNotAsked(webManager: webviewManager)
         }

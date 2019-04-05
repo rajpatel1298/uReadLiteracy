@@ -16,6 +16,8 @@ class WebViewManager{
     private var oldScrollY:CGFloat = 0
     private var maxOffset:Int = 0
     
+    private let javascriptFileName = "UIWebView"
+    
     init(webview:WKWebviewWithHelpMenu){
         self.webView = webview
     }
@@ -52,12 +54,12 @@ class WebViewManager{
         return maxOffset
     }
     
-    func atTheEndOfArticle(position:CGFloat)->Bool{
+    func atTheEndOfArticle()->Bool{
         if(maxOffset <= 0){
             return false
         }
         
-        if Int(position) >= maxOffset*80/100 {
+        if Int(webView.scrollView.contentOffset.y) >= maxOffset*80/100 {
             return true
         }
         return false
@@ -113,93 +115,68 @@ class WebViewManager{
     
     
     private func highlightWord(word:String,color:HelpColor, completion:@escaping (_ err:Error?)->Void){
-        if let path = Bundle.main.path(forResource: "UIWebViewSearch", ofType: "js"),
+        let startSearch = "uiWebview_HighlightAllOccurencesOfString('\(word)','\(color.rawValue)')"
+        
+        webView.evaluateJavaScript(startSearch) { (result2, err2) in
+            if(err2 != nil){
+                completion(err2)
+            }
+            else{
+                completion(nil)
+            }
+        }
+    }
+    
+    func injectJS(){
+        if let path = Bundle.main.path(forResource: javascriptFileName, ofType: "js"),
             let jsString = try? String(contentsOfFile: path, encoding: .utf8) {
             
-            webView.evaluateJavaScript(jsString) {[weak self] (result, err) in
-                guard let strongself = self else{
-                    return
-                }
-                
+            webView.evaluateJavaScript(jsString) { (result, err) in
                 if(err != nil){
-                    completion(err)
-                }
-                
-                let startSearch = "uiWebview_HighlightAllOccurencesOfString('\(word)','\(color.rawValue)')"
-                
-                strongself.webView.evaluateJavaScript(startSearch) { (result2, err2) in
-                    if(err2 != nil){
-                        completion(err2)
-                    }
-                    else{
-                        completion(nil)
-                    }
+                    fatalError()
                 }
             }
         }
     }
     
     private func removeHighlights(completion:@escaping (_ err:Error?)->Void){
-        if let path = Bundle.main.path(forResource: "UIWebViewSearch", ofType: "js"),
-            let jsString = try? String(contentsOfFile: path, encoding: .utf8) {
+        let removeHighlights = "uiWebview_RemoveAllHighlights()"
+        webView.evaluateJavaScript(removeHighlights) {  (_, removeErr) in
             
-            webView.evaluateJavaScript(jsString) {[weak self] (result, err) in
-                guard let strongself = self else{
-                    return
-                }
-                
-                if(err != nil){
-                    completion(err)
-                }
-                
-                let removeHighlights = "uiWebview_RemoveAllHighlights()"
-                strongself.webView.evaluateJavaScript(removeHighlights) {  (_, removeErr) in
-                    
-                    if(removeErr != nil){
-                        completion(removeErr)
-                    }
-                    else{
-                        completion(nil)
-                    }
-                }
+            if(removeErr != nil){
+                completion(removeErr)
+            }
+            else{
+                completion(nil)
             }
         }
     }
     
     func doesWordsExistInText(words:[HelpWordModel],completion:@escaping ([String:Bool])->Void){
-        if let path = Bundle.main.path(forResource: "UIWebViewSearch", ofType: "js"),
-            let jsString = try? String(contentsOfFile: path, encoding: .utf8) {
+        let getAllParagraphs = "uiWebview_getAllParagraphs();"
+        webView.evaluateJavaScript(getAllParagraphs) {  (result, removeErr) in
             
-            webView.evaluateJavaScript(jsString) {[weak self] (_, err) in
-                guard let strongself = self else{
-                    return
+            guard var sentences = result as? String else{return}
+            sentences = sentences.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\t", with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: "").lowercased()
+            var eachWordArr = sentences.components(separatedBy: " ")
+            for x in 0...(eachWordArr.count-1){
+                eachWordArr[x] = eachWordArr[x].trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+            
+            var wordExist = [String:Bool]()
+            
+            for word in words{
+                let word = word.word.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                if eachWordArr.contains(word){
+                    wordExist[word] = true
                 }
-                let removeHighlights = "uiWebview_kkk();"
-                strongself.webView.evaluateJavaScript(removeHighlights) {  (result, removeErr) in
-                    
-                    guard let sentences = result as? [String] else{return}
-                    let wholeString = sentences.joined().replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\t", with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: "").lowercased()
-                    var eachWordArr = wholeString.components(separatedBy: " ")
-                    for x in 0...(eachWordArr.count-1){
-                        eachWordArr[x] = eachWordArr[x].trimmingCharacters(in: .whitespacesAndNewlines)
-                    }
-                    
-                    var wordExist = [String:Bool]()
-                    
-                    for word in words{
-                        let word = word.word.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-                        
-                        if eachWordArr.contains(word){
-                            wordExist[word] = true
-                        }
-                        else{
-                            wordExist[word] = false
-                        }
-                    }
-                    
-                    completion(wordExist)
+                else{
+                    wordExist[word] = false
                 }
             }
+            
+            completion(wordExist)
         }
     }
     

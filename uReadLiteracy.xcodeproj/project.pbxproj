@@ -145,7 +145,7 @@
 		1CC198842218D1BD0021BAFC /* QuestionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198832218D1BD0021BAFC /* QuestionLabel.swift */; };
 		1CC198862218D24C0021BAFC /* ResponseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198852218D24C0021BAFC /* ResponseTextView.swift */; };
 		1CCC510222527B8C00FA32FC /* BrowserSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC510122527B8C00FA32FC /* BrowserSetup.swift */; };
-		1CCC51042252AB9600FA32FC /* UIWebViewSearch.js in Resources */ = {isa = PBXBuildFile; fileRef = 1CCC51032252AB9600FA32FC /* UIWebViewSearch.js */; };
+		1CCC51042252AB9600FA32FC /* UIWebView.js in Resources */ = {isa = PBXBuildFile; fileRef = 1CCC51032252AB9600FA32FC /* UIWebView.js */; };
 		1CCC51062252B0CF00FA32FC /* HelpColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC51052252B0CF00FA32FC /* HelpColor.swift */; };
 		1CCC51092252D45200FA32FC /* TextToVoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC51082252D45200FA32FC /* TextToVoiceService.swift */; };
 		1CCF987F220BAD3F00C491A8 /* black_hand_click_gesture.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */; };
@@ -409,7 +409,7 @@
 		1CC198832218D1BD0021BAFC /* QuestionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLabel.swift; sourceTree = "<group>"; };
 		1CC198852218D24C0021BAFC /* ResponseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTextView.swift; sourceTree = "<group>"; };
 		1CCC510122527B8C00FA32FC /* BrowserSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSetup.swift; sourceTree = "<group>"; };
-		1CCC51032252AB9600FA32FC /* UIWebViewSearch.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UIWebViewSearch.js; sourceTree = "<group>"; };
+		1CCC51032252AB9600FA32FC /* UIWebView.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UIWebView.js; sourceTree = "<group>"; };
 		1CCC51052252B0CF00FA32FC /* HelpColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpColor.swift; sourceTree = "<group>"; };
 		1CCC51082252D45200FA32FC /* TextToVoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToVoiceService.swift; sourceTree = "<group>"; };
 		1CCF987E220BAD3F00C491A8 /* black_hand_click_gesture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = black_hand_click_gesture.json; sourceTree = "<group>"; };
@@ -685,7 +685,7 @@
 				CDA652981FA0F5B700835624 /* Assets.xcassets */,
 				1C4C67D9218BFE7D00D5383D /* Font */,
 				CD1DCA6B1FF4ACE300FCDDB5 /* Gifs */,
-				1CCC51032252AB9600FA32FC /* UIWebViewSearch.js */,
+				1CCC51032252AB9600FA32FC /* UIWebView.js */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -1326,7 +1326,7 @@
 				1CD1A29122481FFF00502A67 /* Art.txt in Resources */,
 				1CD1A2A4224836E400502A67 /* Travel.txt in Resources */,
 				1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */,
-				1CCC51042252AB9600FA32FC /* UIWebViewSearch.js in Resources */,
+				1CCC51042252AB9600FA32FC /* UIWebView.js in Resources */,
 				1C578F872204D3750077E1DD /* img_6.png in Resources */,
 				1CAC798A21FCB287007F8704 /* NokioSansAlt-MediumItalic.ttf in Resources */,
 				1CAD87A3220A18500096DD90 /* Check Mark Success Data.json in Resources */,

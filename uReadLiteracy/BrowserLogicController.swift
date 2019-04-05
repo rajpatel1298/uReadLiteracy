@@ -99,8 +99,5 @@ class BrowserLogicController{
                 }
             }
         }
-        
-        
-        
     }
 }
