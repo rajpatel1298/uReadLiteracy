@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-protocol Observer:AnyObject{
-    func onDataUpdated()
-    func onDataUpdated(data: CGFloat)
+protocol ScrollObserver{
+    func onScrolled(view:UIView ,yPosition: CGFloat)
 }

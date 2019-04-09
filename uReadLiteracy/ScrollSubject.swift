@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-class Subject{
-    private var observers = [Observer]()
+class ScrollSubject{
+    private var observers = [ScrollObserver]()
     
     init(){
         
     }
     
-    func attach(observer:Observer){
+    func attach(observer:ScrollObserver){
         observers.append(observer)
     }
     
@@ -24,15 +24,11 @@ class Subject{
         observers.removeAll()
     }
     
-    func notify(){
-        for ob in observers{
-            ob.onDataUpdated()
-        }
-    }
+
     
-    func notify(with value:CGFloat){
+    func notify(with yPosition:CGFloat, view:UIView){
         for ob in observers{
-            ob.onDataUpdated(data: value)
+            ob.onScrolled(view: view, yPosition: yPosition)
         }
     }
     

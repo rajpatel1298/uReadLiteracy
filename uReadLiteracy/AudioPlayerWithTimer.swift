@@ -10,8 +10,6 @@ import Foundation
 import AVFoundation
 
 class AudioPlayerWithTimer:AudioObserver{
-    
-    
     var subject: AudioSubject?
     private var timer:Timer!
     private var player:AVPlayer!

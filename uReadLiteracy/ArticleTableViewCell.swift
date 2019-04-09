@@ -8,39 +8,30 @@
 
 import UIKit
 import Lottie
-import AVKit
 
 class ArticleTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var speakerView: LOTAnimationView!
+    
+    @IBOutlet weak var slowSpeakerView: UIButton!
+    
+    @IBOutlet weak var fastSpeakerView: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
-    private let synthesizer = AVSpeechSynthesizer()
-    private var utterance:AVSpeechUtterance!
+    private var textToVoice = TextToVoiceService()
     
     override func layoutSubviews() {
-        setupSpeakerView()
+        textToVoice.setText(text: titleLabel.text ?? "")
+        
     }
     
-    private func setupSpeakerView(){
-        speakerView.loopAnimation = true
-        speakerView.autoReverseAnimation = true
-        speakerView.play()
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(speakerAction))
-        speakerView.addGestureRecognizer(gesture)
-        
-        utterance = AVSpeechUtterance(string: titleLabel.text ?? "")
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        
-        utterance.rate = 0.2
+    @IBAction func slowBtnPressed(_ sender: Any) {
+        textToVoice.playSlow()
     }
     
-    @objc private func speakerAction(){
-        synthesizer.speak(utterance)
+    @IBAction func fastBtnPressed(_ sender: Any) {
+        textToVoice.playNormal()
     }
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

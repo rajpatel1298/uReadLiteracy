@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class WebViewManager{
+class WebViewManager:ScrollObserver{
+    
+    
     private let webView:WKWebviewWithHelpMenu
     
     private var oldScrollX:CGFloat = 0
@@ -20,6 +22,10 @@ class WebViewManager{
     
     init(webview:WKWebviewWithHelpMenu){
         self.webView = webview
+    }
+    
+    func onScrolled(view: UIView, yPosition: CGFloat) {
+        scrollToCurrentCoordinate()
     }
     
     func scrollToCurrentCoordinate(){

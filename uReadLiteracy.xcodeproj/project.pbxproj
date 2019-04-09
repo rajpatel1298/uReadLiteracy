@@ -158,8 +158,8 @@
 		1CCF98AF22120C9300C491A8 /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AE22120C9300C491A8 /* ArticleManager.swift */; };
 		1CCF98B122120DEE00C491A8 /* ArticleReadingStopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */; };
 		1CCF98B32212211200C491A8 /* BrowserLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B22212211200C491A8 /* BrowserLogicController.swift */; };
-		1CCF98B622122A6C00C491A8 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B422122A6B00C491A8 /* Observer.swift */; };
-		1CCF98B722122A6C00C491A8 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B522122A6B00C491A8 /* Subject.swift */; };
+		1CCF98B622122A6C00C491A8 /* ScrollObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B422122A6B00C491A8 /* ScrollObserver.swift */; };
+		1CCF98B722122A6C00C491A8 /* ScrollSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B522122A6B00C491A8 /* ScrollSubject.swift */; };
 		1CCF98B922129ECC00C491A8 /* BrowserAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B822129ECC00C491A8 /* BrowserAlerts.swift */; };
 		1CCF98C02213CA8E00C491A8 /* recordTutorial2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */; };
 		1CCF98C12213CA8E00C491A8 /* recordTutorial1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */; };
@@ -422,8 +422,8 @@
 		1CCF98AE22120C9300C491A8 /* ArticleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
 		1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleReadingStopwatch.swift; sourceTree = "<group>"; };
 		1CCF98B22212211200C491A8 /* BrowserLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserLogicController.swift; sourceTree = "<group>"; };
-		1CCF98B422122A6B00C491A8 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
-		1CCF98B522122A6B00C491A8 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		1CCF98B422122A6B00C491A8 /* ScrollObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollObserver.swift; sourceTree = "<group>"; };
+		1CCF98B522122A6B00C491A8 /* ScrollSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollSubject.swift; sourceTree = "<group>"; };
 		1CCF98B822129ECC00C491A8 /* BrowserAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserAlerts.swift; sourceTree = "<group>"; };
 		1CCF98BE2213CA8E00C491A8 /* recordTutorial2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial2.mp3; sourceTree = "<group>"; };
 		1CCF98BF2213CA8E00C491A8 /* recordTutorial1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordTutorial1.mp3; sourceTree = "<group>"; };
@@ -558,6 +558,17 @@
 			name = Goal;
 			sourceTree = "<group>";
 		};
+		1C490E8C2259184C00DC5E74 /* Observer Patern */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF98B522122A6B00C491A8 /* ScrollSubject.swift */,
+				1CCF98B422122A6B00C491A8 /* ScrollObserver.swift */,
+				1CAC79A721FFB0E4007F8704 /* AudioSubject.swift */,
+				1CAC79A121FFB0CD007F8704 /* AudioObserver.swift */,
+			);
+			name = "Observer Patern";
+			sourceTree = "<group>";
+		};
 		1C4C67D7218BF91D00D5383D /* Read  */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +667,7 @@
 		1C513A5921801B6100FFDC82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C490E8C2259184C00DC5E74 /* Observer Patern */,
 				1C4C67EC218D3E5100D5383D /* Web */,
 				1CD1A28722417BDE00502A67 /* Comprehension Popup */,
 				1CAC79A021FFB0B9007F8704 /* Audio */,
@@ -665,8 +677,6 @@
 				1C4C67EF218D400500D5383D /* HelpFunctionError.swift */,
 				1CAC791C21FB5693007F8704 /* ArticleComment.swift */,
 				1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */,
-				1CCF98B422122A6B00C491A8 /* Observer.swift */,
-				1CCF98B522122A6B00C491A8 /* Subject.swift */,
 				1CD1A28A2245B48C00502A67 /* Reading */,
 				1CD1A274223EDC4100502A67 /* Dictionary */,
 				1CCC51052252B0CF00FA32FC /* HelpColor.swift */,
@@ -914,9 +924,7 @@
 		1CAC79A021FFB0B9007F8704 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				1CAC79A121FFB0CD007F8704 /* AudioObserver.swift */,
 				1CAC79AC21FFB395007F8704 /* AudioPlayerWithTimer.swift */,
-				1CAC79A721FFB0E4007F8704 /* AudioSubject.swift */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -1572,7 +1580,7 @@
 				1C578F9622056D770077E1DD /* WKWebviewWithHelpMenu.swift in Sources */,
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
 				1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */,
-				1CCF98B622122A6C00C491A8 /* Observer.swift in Sources */,
+				1CCF98B622122A6C00C491A8 /* ScrollObserver.swift in Sources */,
 				1CD1A26F223ECD0900502A67 /* DictionaryWord.swift in Sources */,
 				1CC198802218D0CC0021BAFC /* AnswerButton.swift in Sources */,
 				1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */,
@@ -1587,7 +1595,7 @@
 				1CAC799121FE241E007F8704 /* AudioRecordModel.swift in Sources */,
 				1CAC798E21FCB425007F8704 /* Recorder.swift in Sources */,
 				1CCF98AF22120C9300C491A8 /* ArticleManager.swift in Sources */,
-				1CCF98B722122A6C00C491A8 /* Subject.swift in Sources */,
+				1CCF98B722122A6C00C491A8 /* ScrollSubject.swift in Sources */,
 				1CAC797221FBAD78007F8704 /* TutorialController.swift in Sources */,
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
 				1CD1A2AB2249C3B900502A67 /* ArticleCategoryTableViewController.swift in Sources */,

@@ -15,6 +15,7 @@ import FirebaseAuth
 import Lottie
 
 class BrowserViewController: UIViewController{
+
     
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
     @IBOutlet weak var commentBtn: LOTAnimationView!
@@ -34,6 +35,8 @@ class BrowserViewController: UIViewController{
     var alerts:BrowserAlerts!
     fileprivate var articleReadingStopwatch:ArticleReadingStopwatch!
     
+    fileprivate var scrollSubject = ScrollSubject()
+    
     func inject(article:ArticleModel){
         currentArticle = article
         articleReadingStopwatch = ArticleReadingStopwatch(article: currentArticle)
@@ -44,6 +47,8 @@ class BrowserViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        scrollSubject.attach(observer: popupManager)
+        scrollSubject.attach(observer: webviewManager)
     }
     
     override func viewDidLayoutSubviews() {
@@ -129,21 +134,6 @@ class BrowserViewController: UIViewController{
         }
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
-    fileprivate func addPopup(popup:ComprehensionPopup){
-        popup.frame = view.frame
-        popup.alpha = 0
-        view.addSubview(popup)
-        view.layoutIfNeeded()
-        
-        UIView.animate(withDuration: popup.animationDuration) {
-            popup.alpha = 1
-        }
-        
-        webviewManager.scrollToCurrentCoordinate()
-    }
-    
-    
     
     fileprivate func updateScrollPositionForCommentBtn(){
         if webviewManager.atTheEndOfArticle() {
@@ -247,16 +237,7 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
-        
-        popupManager.updateScrollPosition(position: y, popupToAddToView: { [weak self] (popup) in
-            
-            guard let strongself = self else{
-                return
-            }
-            DispatchQueue.main.async {
-                strongself.addPopup(popup: popup)
-            }
-        })
+        scrollSubject.notify(with: y, view: view)
         
         if(popupManager.isPopupShowing()){
             webviewManager.scrollToOldCoordinate()
@@ -267,8 +248,6 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
             logicController.updateDataWhenFinishReadingArticle( articleReadingStopwatch: articleReadingStopwatch)
             logicController.updateHelpWordsThatWereNotAsked(webManager: webviewManager)
         }
-        
-        
     }
 }
 

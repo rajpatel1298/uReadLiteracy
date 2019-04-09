@@ -106,6 +106,15 @@ class HelpWordModel{
         return false
     }
     
+    private func hasLongVowelSound()->Bool{
+        if(word.last != nil){
+            if(word.last == "y" || word.last == "i"){
+                return true
+            }
+        }
+        return false
+    }
+    
     
     func getWordDifficultyIfNil(){
         if(self.beginningDifficult == nil){

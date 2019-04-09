@@ -10,7 +10,7 @@ import Foundation
 import AVKit
 
 class TextToVoiceService{
-    private let synthesizer = AVSpeechSynthesizer()
+    private var synthesizer = AVSpeechSynthesizer()
     private var utterance:AVSpeechUtterance!
     
     init(text:String){
@@ -29,11 +29,15 @@ class TextToVoiceService{
     }
     
     func playSlow(){
-        utterance.rate = 0.3
+        utterance.rate = 0.2
+        synthesizer.stopSpeaking(at: .immediate)
+        synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
     }
     func playNormal(){
-        utterance.rate = 0.45
+        utterance.rate = 0.4
+        synthesizer.stopSpeaking(at: .immediate)
+        synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
     }
 }
