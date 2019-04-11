@@ -10,6 +10,63 @@ import Foundation
 
 class LongVowelSoundAnalyzer:LetterAnalyzer{
     
+    private func twoLettersAnyPosition(of word:String,in list:[String])->Bool{
+        if(word.count<2){
+            return false
+        }
+        for i in 0...(word.count-2){
+            let twoLetter = word[i...(i+1)]
+            
+            if( list.contains(String(twoLetter))){
+                return true
+            }
+        }
+        return false
+    }
+    
+    private func lettersAnyPosition(of word:String,numberOfLetters:Int,in list:[String])->Bool{
+        if(word.count<numberOfLetters){
+            return false
+        }
+        for i in 0...(word.count-numberOfLetters){
+            let letters = word[i...(i+numberOfLetters-1)]
+            
+            if( list.contains(String(letters))){
+                return true
+            }
+        }
+        return false
+    }
+    
+    private func lastFourLetter(word:String,target:String)->Bool{
+        if(word.count >= 4){
+            let wordCount = word.count
+            if(word[(wordCount-4)...(wordCount-1)] == target ){
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    private func consonantLetterConsonantLetter(word:String, letter1:Character,letter2:Character)->Bool{
+        if(word.count >= 4){
+            if(isConsonant(letter: word[word.count-4])){
+                if(word[word.count-3] == letter1){
+                    if(isConsonant(letter: word[word.count-2])){
+                        if(word[word.count-1] == letter2){
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
+    // ----------------------------------------------------------------
+    
+    
     //I or O +two consonants= long vowel (kind, find, pint, Christ, climb, most, post, gold, sold, comb
     func IorOWithTwoConsonants(word:String)->Bool{
         if(word.count >= 3){
@@ -85,67 +142,6 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
                 if(word[word.count-1] == "a"){
                     if(isConsonant(letter: word[word.count-2])){
                         if(word[word.count-1] == "e"){
-                            return true
-                        }
-                    }
-                }
-            }
-        }
-        return false
-    }
-    
-    private func lastTwoLetters(of word:String,in list:[String])->Bool{
-        if(word.count<2){
-            return false
-        }
-        return false
-    }
-    
-    private func twoLettersAnyPosition(of word:String,in list:[String])->Bool{
-        if(word.count<2){
-            return false
-        }
-        for i in 0...(word.count-2){
-            let twoLetter = word[i...(i+1)]
-            
-            if( list.contains(String(twoLetter))){
-                return true
-            }
-        }
-        return false
-    }
-    
-    private func lettersAnyPosition(of word:String,numberOfLetters:Int,in list:[String])->Bool{
-        if(word.count<numberOfLetters){
-            return false
-        }
-        for i in 0...(word.count-numberOfLetters){
-            let letters = word[i...(i+numberOfLetters-1)]
-            
-            if( list.contains(String(letters))){
-                return true
-            }
-        }
-        return false
-    }
-    
-    private func lastFourLetter(word:String,target:String)->Bool{
-        if(word.count >= 4){
-            let wordCount = word.count
-            if(word[(wordCount-4)...(wordCount-1)] == target ){
-                return true
-            }
-        }
-        
-        return false
-    }
-    
-    private func consonantLetterConsonantLetter(word:String, letter1:Character,letter2:Character)->Bool{
-        if(word.count >= 4){
-            if(isConsonant(letter: word[word.count-4])){
-                if(word[word.count-1] == letter1){
-                    if(isConsonant(letter: word[word.count-2])){
-                        if(word[word.count-1] == letter2){
                             return true
                         }
                     }
