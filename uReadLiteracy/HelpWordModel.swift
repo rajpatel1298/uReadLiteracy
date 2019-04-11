@@ -22,12 +22,12 @@ class HelpWordModel{
     var askedLastArticle = false
     
     init(word:String){
-        self.word = word
+        self.word = word.lowercased()
         getWordDifficultyIfNil()
     }
     init(word:String,beginningDifficult:Bool,endingDifficult:Bool,blendDifficult:Bool,multisyllabicDifficult:Bool, timesAsked:Int,askedLastArticle:Bool){
         
-        self.word = word
+        self.word = word.lowercased()
         self.beginningDifficult = beginningDifficult
         self.endingDifficult = endingDifficult
         self.blendDifficult = blendDifficult
@@ -66,7 +66,7 @@ class HelpWordModel{
         //calculate word blends
         var counter = 0;
         //   string = string.lowercased()
-        for char in word.enumerated() {
+        /*for char in word.enumerated() {
             if ((counter == 1) && (isVowel(letter: char.element) || (char.element == "y" || char.element == "w"))){
                 return true
             } else if(isVowel(letter: char.element)){
@@ -74,13 +74,13 @@ class HelpWordModel{
             } else {
                 counter = 0
             }
-        }
+        }*/
         return false
     }
     
     private func multisyllabicDifficult(word:String)->Bool{
         //calculate multisyllabic words
-        var counter = 0
+        /*var counter = 0
         
         for char in word.enumerated() {
             if counter == 1 && isVowel(letter: char.element) {
@@ -95,23 +95,21 @@ class HelpWordModel{
             else {
                 //do nothing
             }
-        }
+        }*/
         return false
     }
     
-    private func isVowel(letter: Character) -> Bool{
-        if(letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u"){
-            return true
-        }
-        return false
-    }
+    
     
     private func hasLongVowelSound()->Bool{
-        if(word.last != nil){
-            if(word.last == "y" || word.last == "i"){
-                return true
-            }
-        }
+        
+        
+        
+        
+        
+        
+        
+        
         return false
     }
     

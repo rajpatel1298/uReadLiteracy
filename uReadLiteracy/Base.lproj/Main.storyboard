@@ -1246,17 +1246,8 @@
                             <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="library2" translatesAutoresizingMaskIntoConstraints="NO" id="NHy-0y-2D5">
                                 <rect key="frame" x="0.0" y="64" width="375" height="479"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pow-q5-qva">
-                                <rect key="frame" x="26" y="74" width="323" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="BrX-EQ-oE5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKr-DR-6Yh" userLabel="IconView">
-                                <rect key="frame" x="138" y="174" width="99" height="98.5"/>
+                                <rect key="frame" x="138" y="84" width="99" height="98.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:w1u-sO-pPQ:image" translatesAutoresizingMaskIntoConstraints="NO" id="w1u-sO-pPQ" customClass="ProfileBackgroundImageView" customModule="uReadLiteracy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="98.5"/>
@@ -1279,7 +1270,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yiw-Xe-gP2">
-                                <rect key="frame" x="26" y="322.5" width="323" height="135.5"/>
+                                <rect key="frame" x="26" y="232.5" width="323" height="225.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Goals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdt-55-9vH">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
@@ -1291,13 +1282,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JZ9-ng-Zay">
-                                        <rect key="frame" x="0.0" y="50" width="323" height="85.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="323" height="175.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0K-0e-6n7">
-                                                <rect key="frame" x="0.0" y="0.0" width="323" height="85.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="175.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doing stuff 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-GF-lEa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="215.5" height="85.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="215.5" height="175.5"/>
                                                         <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1342,18 +1333,15 @@
                         <constraints>
                             <constraint firstItem="Yiw-Xe-gP2" firstAttribute="top" secondItem="cKr-DR-6Yh" secondAttribute="bottom" constant="50" id="20e-75-ZYd"/>
                             <constraint firstItem="Yiw-Xe-gP2" firstAttribute="leading" secondItem="FRl-M5-0Wj" secondAttribute="leadingMargin" constant="10" id="3Pf-6d-AH0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Pow-q5-qva" secondAttribute="trailing" constant="10" id="41q-fv-swj"/>
-                            <constraint firstItem="cKr-DR-6Yh" firstAttribute="top" secondItem="Pow-q5-qva" secondAttribute="bottom" constant="10" id="5xF-Gu-2CW"/>
-                            <constraint firstItem="Pow-q5-qva" firstAttribute="leading" secondItem="FRl-M5-0Wj" secondAttribute="leadingMargin" constant="10" id="74y-n5-1d8"/>
                             <constraint firstAttribute="bottomMargin" secondItem="HEa-5p-0Q3" secondAttribute="bottom" constant="20" id="91A-dA-XCe"/>
                             <constraint firstItem="HEa-5p-0Q3" firstAttribute="top" secondItem="Yiw-Xe-gP2" secondAttribute="bottom" constant="20" id="EPY-LH-BHu"/>
                             <constraint firstItem="cKr-DR-6Yh" firstAttribute="height" secondItem="FRl-M5-0Wj" secondAttribute="height" multiplier="1:6" id="R4g-TO-Nqw"/>
+                            <constraint firstItem="cKr-DR-6Yh" firstAttribute="top" secondItem="yfU-8I-KGx" secondAttribute="bottom" constant="20" id="RJ9-Nc-ICD"/>
                             <constraint firstAttribute="trailing" secondItem="NHy-0y-2D5" secondAttribute="trailing" id="SYo-Zi-cRX"/>
                             <constraint firstItem="NHy-0y-2D5" firstAttribute="top" secondItem="FRl-M5-0Wj" secondAttribute="topMargin" id="X76-Ds-lU4"/>
                             <constraint firstItem="NHy-0y-2D5" firstAttribute="leading" secondItem="FRl-M5-0Wj" secondAttribute="leading" id="i0h-4f-9AV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HEa-5p-0Q3" secondAttribute="trailing" constant="10" id="ms1-Gm-BpR"/>
                             <constraint firstItem="HEa-5p-0Q3" firstAttribute="leading" secondItem="FRl-M5-0Wj" secondAttribute="leadingMargin" constant="10" id="oY5-yu-mh3"/>
-                            <constraint firstItem="Pow-q5-qva" firstAttribute="top" secondItem="FRl-M5-0Wj" secondAttribute="topMargin" constant="10" id="sLB-lb-EZ7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Yiw-Xe-gP2" secondAttribute="trailing" constant="10" id="sxb-Q6-p9H"/>
                             <constraint firstAttribute="bottomMargin" secondItem="NHy-0y-2D5" secondAttribute="bottom" id="tQb-qt-JaV"/>
                             <constraint firstItem="cKr-DR-6Yh" firstAttribute="centerX" secondItem="FRl-M5-0Wj" secondAttribute="centerX" id="xaN-cq-K0E"/>
@@ -1369,7 +1357,6 @@
                         <outlet property="goalStackView" destination="JZ9-ng-Zay" id="7fX-2j-2wT"/>
                         <outlet property="iconView" destination="cKr-DR-6Yh" id="Tc3-wF-UmI"/>
                         <outlet property="profileIV" destination="vbz-e1-XFA" id="ce1-AI-gHe"/>
-                        <outlet property="welcomeLabel" destination="Pow-q5-qva" id="erX-Hd-0GU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8d-Lv-m8h" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,7 +13,6 @@ class ProfileViewController: BaseViewController {
     
     @IBOutlet weak var profileIV: RoundedImageView!
     @IBOutlet weak var backgroundProfileIV: ProfileBackgroundImageView!
-    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var iconView: UIView!
     
     @IBOutlet weak var currentGoalsLabel: UILabel!
@@ -124,8 +123,6 @@ class ProfileViewController: BaseViewController {
             profileIV.image = user.getImage()
             backgroundProfileIV.image = user.getImage()
         }
-        
-        welcomeLabel.text = "Welcome \(user.getNickname())"
     }
     
     
