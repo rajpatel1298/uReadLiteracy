@@ -49,27 +49,33 @@ class LetterAnalyzer{
         return false
     }
     
-    static func matchLastLetters(word:String,targets:[String])->Bool{
+    static func matchEndingLetters(word:String,targets:[String])->Bool{
         for target in targets{
-            if(word.count >= target.count){
+            if word.hasSuffix(target){
+                return true
+            }
+            /*if(word.count >= target.count){
                 let last = target.count - 1
                 if(word[(last - target.count)...last] == target){
                     return true
                 }
-            }
+            }*/
         }
         return false
     }
     
     
     
-    static func beginningLettersMatch(word:String,targets:[String])->Bool{
+    static func matchBeginningLetters(word:String,targets:[String])->Bool{
         for target in targets{
-            if(word.count >= target.count){
+            if word.hasPrefix(target){
+                return true
+            }
+            /*if(word.count >= target.count){
                 if(word[0...(target.count-1)] == target ){
                     return true
                 }
-            }
+            }*/
         }
         
         

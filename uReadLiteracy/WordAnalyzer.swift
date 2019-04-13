@@ -15,7 +15,7 @@ class WordAnalyzer{
             return true
         }
         
-        if(LetterAnalyzer.matchLastLetters(word: word, targets: ["ough"]) || LetterAnalyzer.matchLastLetters(word: word, targets: ["augh"])){
+        if(LetterAnalyzer.matchEndingLetters(word: word, targets: ["ough"]) || LetterAnalyzer.matchEndingLetters(word: word, targets: ["augh"])){
             return true
         }
         

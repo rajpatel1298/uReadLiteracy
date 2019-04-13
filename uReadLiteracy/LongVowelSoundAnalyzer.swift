@@ -98,7 +98,7 @@ class LongVowelSoundAnalyzer{
     //Long a vowel sound made by two vowels together:  ai, ay, ea, eigh
     static func longATwoVowels(word:String)->Bool{
         let vowels = ["ai", "ay", "ea"]
-        return LetterAnalyzer.matchAnyPosition(word: word, targets: vowels) || LetterAnalyzer.matchLastLetters(word: word, targets: ["eigh"])
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: vowels) || LetterAnalyzer.matchEndingLetters(word: word, targets: ["eigh"])
         
     }
     

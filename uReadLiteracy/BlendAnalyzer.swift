@@ -26,7 +26,7 @@ class BlendAnalyzer{
         return false*/
         
         let beginnings = ["bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "dr", "pl", "sc", "sk", "sl", "sn", "sp", "st", "sw", "tr", "squ","scr", "thr", "shr", "spl","str"]
-        if(LetterAnalyzer.beginningLettersMatch(word: word, targets: beginnings)){
+        if(LetterAnalyzer.matchBeginningLetters(word: word, targets: beginnings)){
             return true
         }
         

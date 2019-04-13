@@ -25,27 +25,27 @@ class ShortVowelSoundAnalyzer{
     // ----------------------------------------------------------------
     
     //Short e: c-e-c pattern
-    static func longE(word:String)->Bool{
+    static func shortE(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "e")
     }
     
     //Short u: c-u-c
-    static func longU(word:String)->Bool{
+    static func shortU(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "u")
     }
     
     //Short o: c-o-c
-    static func longO(word:String)->Bool{
+    static func shortO(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "o")
     }
     
     //Short i: c-i-c
-    static func longI(word:String)->Bool{
+    static func shortI(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "i")
     }
     
     //Short a: c-a-c
-    static func longA(word:String)->Bool{
+    static func shortA(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "a")
     }
 }

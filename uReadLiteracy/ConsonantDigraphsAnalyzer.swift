@@ -14,10 +14,10 @@ class ConsonantDigraphsAnalyzer{
         if(LetterAnalyzer.matchAnyPosition(word: word, targets: accepted)){
             return true
         }
-        if(LetterAnalyzer.matchLastLetters(word: word, targets: ["b"])){
+        if(LetterAnalyzer.matchEndingLetters(word: word, targets: ["b"])){
             return true
         }
-        if(LetterAnalyzer.beginningLettersMatch(word: word, targets: ["k","w","ph"])){
+        if(LetterAnalyzer.matchBeginningLetters(word: word, targets: ["k","w","ph"])){
             return true
         }
         
