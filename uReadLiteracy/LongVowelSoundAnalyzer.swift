@@ -9,64 +9,7 @@
 import Foundation
 
 class LongVowelSoundAnalyzer:LetterAnalyzer{
-    
-    private func twoLettersAnyPosition(of word:String,in list:[String])->Bool{
-        if(word.count<2){
-            return false
-        }
-        for i in 0...(word.count-2){
-            let twoLetter = word[i...(i+1)]
-            
-            if( list.contains(String(twoLetter))){
-                return true
-            }
-        }
-        return false
-    }
-    
-    private func lettersAnyPosition(of word:String,numberOfLetters:Int,in list:[String])->Bool{
-        if(word.count<numberOfLetters){
-            return false
-        }
-        for i in 0...(word.count-numberOfLetters){
-            let letters = word[i...(i+numberOfLetters-1)]
-            
-            if( list.contains(String(letters))){
-                return true
-            }
-        }
-        return false
-    }
-    
-    private func lastFourLetter(word:String,target:String)->Bool{
-        if(word.count >= 4){
-            let wordCount = word.count
-            if(word[(wordCount-4)...(wordCount-1)] == target ){
-                return true
-            }
-        }
-        
-        return false
-    }
-    
-    private func consonantLetterConsonantLetter(word:String, letter1:Character,letter2:Character)->Bool{
-        if(word.count >= 4){
-            if(isConsonant(letter: word[word.count-4])){
-                if(word[word.count-3] == letter1){
-                    if(isConsonant(letter: word[word.count-2])){
-                        if(word[word.count-1] == letter2){
-                            return true
-                        }
-                    }
-                }
-            }
-        }
-        return false
-    }
-    
-    // ----------------------------------------------------------------
-    
-    
+   
     //I or O +two consonants= long vowel (kind, find, pint, Christ, climb, most, post, gold, sold, comb
     func IorOWithTwoConsonants(word:String)->Bool{
         if(word.count >= 3){
@@ -154,7 +97,8 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
     //Long a vowel sound made by two vowels together:  ai, ay, ea, eigh
     func longATwoVowels(word:String)->Bool{
         let vowels = ["ai", "ay", "ea"]
-        return twoLettersAnyPosition(of: word, in: vowels) || lastFourLetter(word: word, target: "eigh")
+        return matchAnyPosition(word: word, targets: vowels) || matchLastLetters(word: word, targets: ["eigh"])
+        
     }
     
     // ----------------------------------------------------------------
@@ -169,7 +113,7 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
     
     //Long o: -oa-
     func longOWithOA(word:String)->Bool{
-        return twoLettersAnyPosition(of: word, in: ["oi"])
+        return matchAnyPosition(word: word, targets:["oi"])
     }
     
     // ----------------------------------------------------------------
@@ -177,7 +121,7 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
     //Long e vowel sound made by two vowels together:  ea, ee, ey
     func longETwoVowels(word:String)->Bool{
         let vowels = ["ea", "ee", "ey"]
-        return twoLettersAnyPosition(of: word, in: vowels)
+        return matchAnyPosition(word: word, targets: vowels)
     }
     
     //Long I vowel sound made by two vowels
@@ -189,7 +133,7 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
         }
         
         let vowels = ["ie", "ei"]
-        return twoLettersAnyPosition(of: word, in: vowels) || lettersAnyPosition(of: word, numberOfLetters: 3, in: ["igh"])
+        return matchAnyPosition(word: word, targets: vowels) || matchAnyPosition(of: word, numberOfLetters: 3, in: ["igh"])
     }
     
     
@@ -214,7 +158,7 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
         }
         
         let vowels = ["oa", "oo", "oe", "ow"]
-        return twoLettersAnyPosition(of: word, in: vowels)
+        return matchAnyPosition(word: word, targets: vowels)
     }
     
     // ----------------------------------------------------------------
@@ -228,7 +172,7 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
         }
         
         let vowels = ["ew", "ue", "ui", "oo"]
-        return consonantLetterConsonantLetter(word: word, letter1: "u", letter2: "e") || twoLettersAnyPosition(of: word, in: vowels)
+        return consonantLetterConsonantLetter(word: word, letter1: "u", letter2: "e") || matchAnyPosition(word: word, targets: vowels)
     }
     
     // ----------------------------------------------------------------
@@ -241,13 +185,13 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
         }
         
         let vowels = ["au", "aw", "ou", "ow", "oi", "oy"]
-        return twoLettersAnyPosition(of: word, in: vowels)
+        return matchAnyPosition(word: word, targets: vowels)
     }
     
     // Long vowel sounds made with two vowels together:  oa, ea, ai, ay
     func twoVowelsNoRules2(word:String)->Bool{
         let vowels = ["oa", "ea", "ai", "ay"]
-        return twoLettersAnyPosition(of: word, in: vowels)
+        return matchAnyPosition(word: word, targets: vowels)
     }
     
     // -oo-

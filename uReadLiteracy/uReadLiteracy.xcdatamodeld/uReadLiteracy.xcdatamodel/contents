@@ -7,10 +7,6 @@
     </entity>
     <entity name="HelpWordCD" representedClassName="HelpWordCD" syncable="YES" codeGenerationType="class">
         <attribute name="askedLastArticle" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="beginningDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="blendDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="endingDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="multisyllabicDifficult" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timesAsked" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="word" attributeType="String" syncable="YES"/>
     </entity>
@@ -43,7 +39,7 @@
     </entity>
     <elements>
         <element name="AudioRecordCD" positionX="-54" positionY="81" width="128" height="90"/>
-        <element name="HelpWordCD" positionX="-63" positionY="54" width="128" height="150"/>
+        <element name="HelpWordCD" positionX="-63" positionY="54" width="128" height="90"/>
         <element name="ReadXArticlesCD" positionX="-54" positionY="63" width="128" height="135"/>
         <element name="ReadXMinutesCD" positionX="-54" positionY="72" width="128" height="135"/>
         <element name="UserCD" positionX="-63" positionY="-18" width="128" height="180"/>

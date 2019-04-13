@@ -12,26 +12,15 @@ import CoreData
 class HelpWordModel{
 
     let word:String
-    
-    var beginningDifficult:Bool!
-    var endingDifficult:Bool!
-    var blendDifficult:Bool!
-    var multisyllabicDifficult:Bool!
-    
     var timesAsked = 0
     var askedLastArticle = false
     
     init(word:String){
         self.word = word.lowercased()
-        getWordDifficultyIfNil()
     }
-    init(word:String,beginningDifficult:Bool,endingDifficult:Bool,blendDifficult:Bool,multisyllabicDifficult:Bool, timesAsked:Int,askedLastArticle:Bool){
+    init(word:String, timesAsked:Int,askedLastArticle:Bool){
         
         self.word = word.lowercased()
-        self.beginningDifficult = beginningDifficult
-        self.endingDifficult = endingDifficult
-        self.blendDifficult = blendDifficult
-        self.multisyllabicDifficult = multisyllabicDifficult
         self.timesAsked = timesAsked
         self.askedLastArticle = askedLastArticle
     }
@@ -62,108 +51,7 @@ class HelpWordModel{
         return false
     }
     
-    private func blendDifficult(word:String)->Bool{
-        //calculate word blends
-        var counter = 0;
-        //   string = string.lowercased()
-        /*for char in word.enumerated() {
-            if ((counter == 1) && (isVowel(letter: char.element) || (char.element == "y" || char.element == "w"))){
-                return true
-            } else if(isVowel(letter: char.element)){
-                counter += 1
-            } else {
-                counter = 0
-            }
-        }*/
-        return false
-    }
-    
-    private func multisyllabicDifficult(word:String)->Bool{
-        //calculate multisyllabic words
-        /*var counter = 0
-        
-        for char in word.enumerated() {
-            if counter == 1 && isVowel(letter: char.element) {
-                return true
-            }
-            else if (counter == 1 && !isVowel(letter: char.element)) {
-                //continue
-            }
-            else if (counter == 0 && isVowel(letter: char.element)){
-                counter = 1
-            }
-            else {
-                //do nothing
-            }
-        }*/
-        return false
-    }
-    
-    
-    
-    private func hasLongVowelSound()->Bool{
-        
-        
-        
-        
-        
-        
-        
-        
-        return false
-    }
-    
-    
-    func getWordDifficultyIfNil(){
-        if(self.beginningDifficult == nil){
-            beginningDifficult = self.beginningDifficult(word: word)
-        }
-        if(self.endingDifficult == nil){
-            endingDifficult = self.endingDifficult(word: word)
-        }
-        if(self.blendDifficult == nil){
-            blendDifficult = self.blendDifficult(word: word)
-        }
-        if(self.multisyllabicDifficult == nil){
-            multisyllabicDifficult = self.multisyllabicDifficult(word: word)
-        }
-    }
-    
     func getDescription()->String{
-        getWordDifficultyIfNil()
-        
-        var string = "The word: \(word) might be difficult because of:\n"
-        
-        if(beginningDifficult){
-            string.append("- Its beginning\n")
-        }
-        if(endingDifficult){
-            string.append("- Its ending\n")
-        }
-        if(blendDifficult){
-            string.append("- It has a blend\n")
-        }
-        if(multisyllabicDifficult){
-            string.append("- It is multisyllabic\n")
-        }
-        
-        string.append("\nWatch these videos to learn more.")
-        
-        return string
-    }
-    
-    func isBeginningDifficult()->Bool{
-        return beginningDifficult
-    }
-    
-    func isEndingDifficult()->Bool{
-        return endingDifficult
-    }
-    func isBlendDifficult()->Bool{
-        return blendDifficult
-    }
-    
-    func isMultisyllabicDifficult()->Bool{
-        return multisyllabicDifficult
+        return "Not Implemented"
     }
 }

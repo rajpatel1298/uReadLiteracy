@@ -52,14 +52,8 @@ class CoreDataSaver{
             let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
             
             let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
-            
-            helpModel.getWordDifficultyIfNil()
-            
+    
             wordObject.setValue(helpModel.word, forKeyPath: "word")
-            wordObject.setValue(helpModel.beginningDifficult, forKeyPath: "beginningDifficult")
-            wordObject.setValue(helpModel.endingDifficult, forKeyPath: "endingDifficult")
-            wordObject.setValue(helpModel.blendDifficult, forKeyPath: "blendDifficult")
-            wordObject.setValue(helpModel.multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
             wordObject.setValue(helpModel.timesAsked, forKeyPath: "timesAsked")
             wordObject.setValue(helpModel.askedLastArticle, forKey: "askedLastArticle")
         }

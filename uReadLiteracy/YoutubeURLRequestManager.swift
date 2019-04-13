@@ -14,26 +14,26 @@ class YoutubeURLRequestManager{
     
     func get(helpWord:HelpWordModel)->[URLRequest]{
         
-        if(helpWord.isBeginningDifficult()){
+        /*if(helpWord.beginningDifficult){
             let url = URL(string: "https://www.youtube.com/watch?v=WGERKJYjkQI") //no beginning video yet
             let request = URLRequest(url: url!)
             youtubeUrlRequests.append(request)
         }
-        if(helpWord.isEndingDifficult()){
+        if(helpWord.endingDifficult){
             let url = URL(string: "https://www.youtube.com/watch?v=WGERKJYjkQI")
             let request = URLRequest(url: url!)
             youtubeUrlRequests.append(request)
         }
-        if(helpWord.isBlendDifficult()){
+        if(helpWord.blendDifficult){
             let url = URL(string: "https://www.youtube.com/watch?v=k-n_LHGseNk")
             let request = URLRequest(url: url!)
             youtubeUrlRequests.append(request)
         }
-        if(helpWord.isMultisyllabicDifficult()){
+        if(helpWord.multisyllabicDifficult){
             let url = URL(string: "https://www.youtube.com/watch?v=vNR2xyrZVv0")
             let request = URLRequest(url: url!)
             youtubeUrlRequests.append(request)
-        }
+        }*/
         
         return youtubeUrlRequests
     }
