@@ -8,8 +8,8 @@
 
 import Foundation
 
-class BlendAnalyzer:LetterAnalyzer{
-    func blend(word:String)->Bool{
+class BlendAnalyzer{
+    static func blend(word:String)->Bool{
         /*
         //calculate word blends
         var counter = 0;
@@ -26,12 +26,12 @@ class BlendAnalyzer:LetterAnalyzer{
         return false*/
         
         let beginnings = ["bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "dr", "pl", "sc", "sk", "sl", "sn", "sp", "st", "sw", "tr", "squ","scr", "thr", "shr", "spl","str"]
-        if(beginningLettersMatch(word: word, targets: beginnings)){
+        if(LetterAnalyzer.beginningLettersMatch(word: word, targets: beginnings)){
             return true
         }
         
         let middleOrEnd = ["ng", "nk", "nt", "nd"]
-        if(matchAnyPosition(word: word, targets: middleOrEnd)){
+        if(LetterAnalyzer.matchAnyPosition(word: word, targets: middleOrEnd)){
             return true
         }
         

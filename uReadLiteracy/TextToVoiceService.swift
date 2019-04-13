@@ -30,12 +30,20 @@ class TextToVoiceService{
     
     func playSlow(){
         utterance.rate = 0.2
-        synthesizer.stopSpeaking(at: .immediate)
-        synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
+        play()
     }
+    
     func playNormal(){
+        utterance.rate = 0.35
+        play()
+    }
+    
+    func playFast(){
         utterance.rate = 0.4
+        play()
+    }
+    
+    private func play(){
         synthesizer.stopSpeaking(at: .immediate)
         synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)

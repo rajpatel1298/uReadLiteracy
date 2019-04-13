@@ -596,10 +596,10 @@
 			isa = PBXGroup;
 			children = (
 				1C490E8F225D867200DC5E74 /* WordAnalyzer.swift */,
+				1C490E94225D8AE800DC5E74 /* LetterAnalyzer.swift */,
 				1C490E92225D878500DC5E74 /* LongVowelSoundAnalyzer.swift */,
 				1C490E96225EEA7D00DC5E74 /* ShortVowelSoundAnalyzer.swift */,
 				1C490E98225EEF7500DC5E74 /* PrefixSuffixAnalyzer.swift */,
-				1C490E94225D8AE800DC5E74 /* LetterAnalyzer.swift */,
 				1C490E9A226154BE00DC5E74 /* MultisyllabicAnalyzer.swift */,
 				1C490E9C2261551200DC5E74 /* BlendAnalyzer.swift */,
 				1C490E9E226158B300DC5E74 /* ConsonantDigraphsAnalyzer.swift */,

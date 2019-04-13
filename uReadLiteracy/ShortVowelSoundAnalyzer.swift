@@ -8,12 +8,12 @@
 
 import Foundation
 
-class ShortVowelSoundAnalyzer:LetterAnalyzer{
-    private func consonantLetterConsonant(word:String, letter:Character)->Bool{
+class ShortVowelSoundAnalyzer{
+    private static func consonantLetterConsonant(word:String, letter:Character)->Bool{
         if(word.count >= 3){
-            if(isConsonant(letter: word[word.count-3])){
+            if(LetterAnalyzer.isConsonant(letter: word[word.count-3])){
                 if(word[word.count-2] == letter){
-                    if(isConsonant(letter: word[word.count-1])){
+                    if(LetterAnalyzer.isConsonant(letter: word[word.count-1])){
                         return true
                     }
                 }
@@ -25,27 +25,27 @@ class ShortVowelSoundAnalyzer:LetterAnalyzer{
     // ----------------------------------------------------------------
     
     //Short e: c-e-c pattern
-    func longE(word:String)->Bool{
+    static func longE(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "e")
     }
     
     //Short u: c-u-c
-    func longU(word:String)->Bool{
+    static func longU(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "u")
     }
     
     //Short o: c-o-c
-    func longO(word:String)->Bool{
+    static func longO(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "o")
     }
     
     //Short i: c-i-c
-    func longI(word:String)->Bool{
+    static func longI(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "i")
     }
     
     //Short a: c-a-c
-    func longA(word:String)->Bool{
+    static func longA(word:String)->Bool{
         return consonantLetterConsonant(word: word, letter: "a")
     }
 }

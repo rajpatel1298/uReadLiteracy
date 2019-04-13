@@ -8,13 +8,14 @@
 
 import Foundation
 
-class LongVowelSoundAnalyzer:LetterAnalyzer{
+class LongVowelSoundAnalyzer{
    
     //I or O +two consonants= long vowel (kind, find, pint, Christ, climb, most, post, gold, sold, comb
-    func IorOWithTwoConsonants(word:String)->Bool{
+    static func IorOWithTwoConsonants(word:String)->Bool{
         if(word.count >= 3){
+            
             if(word[word.count-3] == "i" || word[word.count-3] == "o" ){
-                if(isConsonant(letter: word[word.count-2]) && isConsonant(letter: word[word.count-1])){
+                if(LetterAnalyzer.isConsonant(letter: word[word.count-2]) && LetterAnalyzer.isConsonant(letter: word[word.count-1])){
                     return true
                 }
             }
@@ -23,10 +24,10 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
         return false
     }
     
-    private let longVowelSoundSingleVowel1 = ["child", "gold", "I", "he", "she", "we"]
+    private static let longVowelSoundSingleVowel1 = ["child", "gold", "I", "he", "she", "we"]
     
     //Long vowel sound, single vowel
-    func longVowerSingleVowel1(word:String)->Bool{
+    static func singleVowel1(word:String)->Bool{
         if(longVowelSoundSingleVowel1.contains(word)){
             return true
         }
@@ -39,9 +40,9 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
         return false
     }
     
-    private let longVowelSoundSingleVowel2 = ["alien", "acorn", "agent","apricot", "ice", "only", "open", "me", "equal", "she","human", "island", "tidy", "idea", "united", "uniform"]
+    private static  let longVowelSoundSingleVowel2 = ["alien", "acorn", "agent","apricot", "ice", "only", "open", "me", "equal", "she","human", "island", "tidy", "idea", "united", "uniform"]
     
-    func longVowerSingleVowel2(word:String)->Bool{
+    static func singleVowel2(word:String)->Bool{
         if(longVowelSoundSingleVowel2.contains(word)){
             return true
         }
@@ -54,15 +55,15 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
     
     
     // Long vowel sound made by consonant(s)-vowel-consonant+e
-    func longVowelSoundbyMultipleConsonantVowelConsonantAndE(word:String)->Bool{
+    static func consonantVowelConsonantAndE(word:String)->Bool{
         let exception = ["glove", "love", "have", "live", "give","active", "inventive", "olive", "come", "one", "there", "eye", "are", "done"]
         if(exception.contains(word)){
             return false
         }
         if(word.count >= 4){
-            if(isConsonant(letter: word[word.count-4])){
-                if(isVowel(letter: word[word.count-3])){
-                    if(isConsonant(letter: word[word.count-2])){
+            if(LetterAnalyzer.isConsonant(letter: word[word.count-4])){
+                if(LetterAnalyzer.isVowel(letter: word[word.count-3])){
+                    if(LetterAnalyzer.isConsonant(letter: word[word.count-2])){
                         if(word[word.count-1] == "e"){
                             if(word[word.count-2] == "v"){
                                 return false
@@ -79,11 +80,11 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
     // ----------------------------------------------------------------
     
     //Long a:  consonant + a + consonant + e
-    func consonantAConsonantE(word:String)->Bool{
+    static func consonantAConsonantE(word:String)->Bool{
         if(word.count >= 4){
-            if(isConsonant(letter: word[word.count-4])){
+            if(LetterAnalyzer.isConsonant(letter: word[word.count-4])){
                 if(word[word.count-1] == "a"){
-                    if(isConsonant(letter: word[word.count-2])){
+                    if(LetterAnalyzer.isConsonant(letter: word[word.count-2])){
                         if(word[word.count-1] == "e"){
                             return true
                         }
@@ -95,37 +96,37 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
     }
     
     //Long a vowel sound made by two vowels together:  ai, ay, ea, eigh
-    func longATwoVowels(word:String)->Bool{
+    static func longATwoVowels(word:String)->Bool{
         let vowels = ["ai", "ay", "ea"]
-        return matchAnyPosition(word: word, targets: vowels) || matchLastLetters(word: word, targets: ["eigh"])
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: vowels) || LetterAnalyzer.matchLastLetters(word: word, targets: ["eigh"])
         
     }
     
     // ----------------------------------------------------------------
     
     //Long o:  consonant + o + consonant + e
-    func longOWithConsonantOConsonantE(word:String)->Bool{
-        return consonantLetterConsonantLetter(word: word, letter1: "o", letter2: "e")
+    static func longOWithConsonantOConsonantE(word:String)->Bool{
+        return LetterAnalyzer.consonantLetterConsonantLetter(word: word, letter1: "o", letter2: "e")
     }
     
     //
     
     
     //Long o: -oa-
-    func longOWithOA(word:String)->Bool{
-        return matchAnyPosition(word: word, targets:["oi"])
+    static func longOWithOA(word:String)->Bool{
+        return LetterAnalyzer.matchAnyPosition(word: word, targets:["oi"])
     }
     
     // ----------------------------------------------------------------
     
     //Long e vowel sound made by two vowels together:  ea, ee, ey
-    func longETwoVowels(word:String)->Bool{
+    static func longETwoVowels(word:String)->Bool{
         let vowels = ["ea", "ee", "ey"]
-        return matchAnyPosition(word: word, targets: vowels)
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: vowels)
     }
     
     //Long I vowel sound made by two vowels
-    func longITwoVowels(word:String)->Bool{
+    static func longITwoVowels(word:String)->Bool{
         let exception = ["piece", "alien", "field", "chief", "thief", "ceiling", "receipt", "receive"]
         
         if(exception.contains(word)){
@@ -133,24 +134,24 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
         }
         
         let vowels = ["ie", "ei"]
-        return matchAnyPosition(word: word, targets: vowels) || matchAnyPosition(of: word, numberOfLetters: 3, in: ["igh"])
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: vowels) || LetterAnalyzer.matchAnyPosition(of: word, numberOfLetters: 3, in: ["igh"])
     }
     
     
     // Long I, consonant(s) + i + consontant(s) + e
-    func longIWithConsonantAndIConsonantE(word:String)->Bool{
-        return consonantLetterConsonantLetter(word: word, letter1: "i", letter2: "e")
+    static func longIWithConsonantAndIConsonantE(word:String)->Bool{
+        return LetterAnalyzer.consonantLetterConsonantLetter(word: word, letter1: "i", letter2: "e")
     }
 
     // ----------------------------------------------------------------
     
     // Long o made with consonant - o - consonant + e
-    func longOWithConsonantAndOConsonantE(word:String)->Bool{
-        return consonantLetterConsonantLetter(word: word, letter1: "o", letter2: "e")
+    static func longOWithConsonantAndOConsonantE(word:String)->Bool{
+        return LetterAnalyzer.consonantLetterConsonantLetter(word: word, letter1: "o", letter2: "e")
     }
     
     //Long O vowel sound made by two vowels
-    func longOTwoVowels(word:String)->Bool{
+    static func longOTwoVowels(word:String)->Bool{
         let exception = ["canoe", "shoe"]
         
         if(exception.contains(word)){
@@ -158,48 +159,64 @@ class LongVowelSoundAnalyzer:LetterAnalyzer{
         }
         
         let vowels = ["oa", "oo", "oe", "ow"]
-        return matchAnyPosition(word: word, targets: vowels)
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: vowels)
     }
     
     // ----------------------------------------------------------------
     
     
     //Long u sound made by two vowels:  ew, ue, ui, oo or consonant + u+ consonant + e
-    func longUTwoVowels(word:String)->Bool{
+    static func longUTwoVowels(word:String)->Bool{
         let accepted = ["uniform", "unicorn", "unique", "unity", "unite", "ukele"]
         if(accepted.contains(word)){
             return true
         }
         
         let vowels = ["ew", "ue", "ui", "oo"]
-        return consonantLetterConsonantLetter(word: word, letter1: "u", letter2: "e") || matchAnyPosition(word: word, targets: vowels)
+        return LetterAnalyzer.consonantLetterConsonantLetter(word: word, letter1: "u", letter2: "e") || LetterAnalyzer.matchAnyPosition(word: word, targets: vowels)
     }
     
     // ----------------------------------------------------------------
     
     // au, aw, ou, ow, oi, oy, or bread, thread, book, look, hook, brook.
-    func twoVowelsNoRules1(word:String)->Bool{
+    static func twoVowelsNoRules1(word:String)->Bool{
         let accepted = ["bread", "thread", "book", "look", "hook", "brook"]
         if(accepted.contains(word)){
             return true
         }
         
         let vowels = ["au", "aw", "ou", "ow", "oi", "oy"]
-        return matchAnyPosition(word: word, targets: vowels)
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: vowels)
     }
     
     // Long vowel sounds made with two vowels together:  oa, ea, ai, ay
-    func twoVowelsNoRules2(word:String)->Bool{
+    static func twoVowelsNoRules2(word:String)->Bool{
         let vowels = ["oa", "ea", "ai", "ay"]
-        return matchAnyPosition(word: word, targets: vowels)
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: vowels)
     }
     
     // -oo-
-    func twoVowelsNoRules3(word:String)->Bool{
+    static func twoVowelsNoRules3(word:String)->Bool{
         let accepted = ["room", "moon", "food", "book", "cook", "good", "poor", "door", "floor", "blood", "flood", "cooperate", "coordinate","boot", "moon", "spoon", "goose", "moose", "food", "book", "cook", "wood", "foot"]
         if(accepted.contains(word)){
             return true
         }
         return false
+    }
+    
+    static func twoVowelsNoRules4(word:String)->Bool{
+        let accepted = ["boot", "moon", "spoon", "goose", "moose", "food", "book", "cook", "wood", "foot"]
+        if(accepted.contains(word)){
+            return true
+        }
+        return false
+    }
+    
+    static func OO(word:String)->Bool{
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: ["oo"])
+    }
+    
+    static func twoVowelsNoRules5(word:String)->Bool{
+        return LetterAnalyzer.matchAnyPosition(word: word, targets: ["augh"])
     }
 }

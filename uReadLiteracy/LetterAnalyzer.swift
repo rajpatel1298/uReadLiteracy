@@ -9,19 +9,19 @@
 import Foundation
 
 class LetterAnalyzer{
-    func isVowel(letter: Character) -> Bool{
+    static func isVowel(letter: Character) -> Bool{
         if(letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u"){
             return true
         }
         return false
     }
     
-    func isConsonant(letter: Character)->Bool{
+    static func isConsonant(letter: Character)->Bool{
         return !isVowel(letter: letter)
     }
     
     
-    func matchAnyPosition(word:String, targets:[String])->Bool{
+    static func matchAnyPosition(word:String, targets:[String])->Bool{
         for target in targets{
             if(word.count >= target.count){
                 for i in 0...(target.count-1){
@@ -35,7 +35,7 @@ class LetterAnalyzer{
         return false
     }
     
-    func matchAnyPosition(of word:String,numberOfLetters:Int,in list:[String])->Bool{
+    static func matchAnyPosition(of word:String,numberOfLetters:Int,in list:[String])->Bool{
         if(word.count<numberOfLetters){
             return false
         }
@@ -49,7 +49,7 @@ class LetterAnalyzer{
         return false
     }
     
-    func matchLastLetters(word:String,targets:[String])->Bool{
+    static func matchLastLetters(word:String,targets:[String])->Bool{
         for target in targets{
             if(word.count >= target.count){
                 let last = target.count - 1
@@ -63,7 +63,7 @@ class LetterAnalyzer{
     
     
     
-    func beginningLettersMatch(word:String,targets:[String])->Bool{
+    static func beginningLettersMatch(word:String,targets:[String])->Bool{
         for target in targets{
             if(word.count >= target.count){
                 if(word[0...(target.count-1)] == target ){
@@ -76,7 +76,7 @@ class LetterAnalyzer{
         return false
     }
     
-    func consonantLetterConsonantLetter(word:String, letter1:Character,letter2:Character)->Bool{
+    static func consonantLetterConsonantLetter(word:String, letter1:Character,letter2:Character)->Bool{
         if(word.count >= 4){
             if(isConsonant(letter: word[word.count-4])){
                 if(word[word.count-3] == letter1){

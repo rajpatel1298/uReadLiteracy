@@ -33,7 +33,7 @@ class WordWithSpeakerTableViewCell: UITableViewCell {
     }
     
     @IBAction func fastSpeakerBtnPressed(_ sender: Any) {
-        textToVoice.playNormal()
+        textToVoice.playFast()
     }
 
     override func awakeFromNib() {

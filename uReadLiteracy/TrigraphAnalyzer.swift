@@ -8,9 +8,9 @@
 
 import Foundation
 
-class TrigraphAnalyzer:LetterAnalyzer{
-    func isTrigraph(word:String)->Bool{
-        if(matchAnyPosition(word: word, targets: ["dge","tch","nch", "nce", "dge", "ght", "nch"])){
+class TrigraphAnalyzer{
+    static func isTrigraph(word:String)->Bool{
+        if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["dge","tch","nch", "nce", "dge", "ght", "nch"])){
             return true
         }
         return false

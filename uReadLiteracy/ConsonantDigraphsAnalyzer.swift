@@ -8,16 +8,16 @@
 
 import Foundation
 
-class ConsonantDigraphsAnalyzer:LetterAnalyzer{
-    func isConsonantDigraphs(word:String)->Bool{
+class ConsonantDigraphsAnalyzer{
+    static func isConsonantDigraphs(word:String)->Bool{
         let accepted = ["th", "ch", "sh", "ph", "wh", "ng", "ck", "squ"]
-        if(matchAnyPosition(word: word, targets: accepted)){
+        if(LetterAnalyzer.matchAnyPosition(word: word, targets: accepted)){
             return true
         }
-        if(matchLastLetters(word: word, targets: ["b"])){
+        if(LetterAnalyzer.matchLastLetters(word: word, targets: ["b"])){
             return true
         }
-        if(beginningLettersMatch(word: word, targets: ["k","w","ph"])){
+        if(LetterAnalyzer.beginningLettersMatch(word: word, targets: ["k","w","ph"])){
             return true
         }
         

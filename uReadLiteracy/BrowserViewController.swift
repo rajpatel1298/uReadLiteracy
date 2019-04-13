@@ -169,7 +169,7 @@ extension BrowserViewController{
                 }
                 
                 strongSelf.textToVoice.setText(text: helpWord.word)
-                strongSelf.textToVoice.playNormal()
+                strongSelf.textToVoice.playFast()
                 strongSelf.webviewManager.highlightHelpWords(completion: { (err) in
                     if(err != nil){
                         fatalError(err.debugDescription)

@@ -8,24 +8,20 @@
 
 import Foundation
 
-class WordAnalyzer:LetterAnalyzer{
-    static let shared = WordAnalyzer()
-    
-    
-    
-    func exceptionAnalyze(word:String)->Bool{
+class WordAnalyzer{
+    static func exceptionAnalyze(word:String)->Bool{
         let allowed = ["through", "thought", "though"]
         if(allowed.contains(word)){
             return true
         }
         
-        if(matchLastLetters(word: word, targets: ["ough"]) || matchLastLetters(word: word, targets: ["augh"])){
+        if(LetterAnalyzer.matchLastLetters(word: word, targets: ["ough"]) || LetterAnalyzer.matchLastLetters(word: word, targets: ["augh"])){
             return true
         }
         
         
-        if(matchAnyPosition(word: word, targets: ["ou","ow"])){
-            if(matchAnyPosition(of: word, numberOfLetters: 4, in: ["ough"])){
+        if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["ou","ow"])){
+            if(LetterAnalyzer.matchAnyPosition(of: word, numberOfLetters: 4, in: ["ough"])){
                 return false
             }
             return true
@@ -34,7 +30,7 @@ class WordAnalyzer:LetterAnalyzer{
         return false
     }
     
-    func unusualConsonantPronunciation(word:String)->Bool{
+    static func unusualConsonantPronunciation(word:String)->Bool{
         let words = ["chef", "machine", "charlotte", "michelle", "sure", "sugar", "ocean", "official", "precious", "ancient", "passion", "tissue", "pressure", "mission", "station", "motion", "champagne"]
         if(words.contains(word)){
             return true

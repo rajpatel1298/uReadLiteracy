@@ -40,6 +40,10 @@ class ProfileViewController: BaseViewController {
         let request = UNNotificationRequest(identifier: "daily", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        let temp = TextToVoiceService.init()
+        temp.setText(text: "This word has a long vowel sound made by a single vowel in the middle or end of the word,.  A long vowel sound says the name of the letter of the vowel,. Sometimes this occurs when I, or O, is followed by two consonants (for example, kind, find, pint, Christ, climb, most, post, gold, sold, comb),.  The I, or the Y, at the end of a word will sound long and say the name either of the letter I, of the letter E,. If you’re not sure which it is, try it both ways and decide which makes sense and sounds like a real word")
+        temp.playNormal()
     }
     
     override func viewWillAppear(_ animated: Bool) {

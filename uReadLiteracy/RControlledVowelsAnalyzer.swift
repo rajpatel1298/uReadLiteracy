@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class RControlledVowelsAnalyzer{
+    static func isRControlledVowels(word:String)->Bool{
+        if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["ir", "er", "ur","or", "ar"])){
+            return true
+        }
+        return false
+    }
+}

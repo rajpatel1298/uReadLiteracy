@@ -9,11 +9,11 @@
 import Foundation
 
 class PrefixSuffixAnalyzer{
-    func prefixSuffix(word:String)->Bool{
+    static func prefixSuffix(word:String)->Bool{
         return prefix(word:word) || suffix(word:word)
     }
     
-    func prefix(word:String)->Bool{
+    static func prefix(word:String)->Bool{
         let prefixes = ["re", "anti", "bio", "trans","aqua", "ami", "bio", "hemo", "geo", "vita", "pre", "anti", "poly", "homo"]
         
         for prefix in prefixes{
@@ -24,7 +24,7 @@ class PrefixSuffixAnalyzer{
 
         return false
     }
-    func suffix(word:String)->Bool{
+    static func suffix(word:String)->Bool{
         let suffixes = ["ly", "ed", "ing", "er", "ment", "cian", "sion","tion","ure", "ish", "ology", "ism", "cide", "or", "er", "phobia", "kenisis"]
         
         for suffix in suffixes{
