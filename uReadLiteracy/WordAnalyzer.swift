@@ -9,33 +9,29 @@
 import Foundation
 
 class WordAnalyzer{
-    static func exceptionAnalyze(word:String)->Bool{
-        let allowed = ["through", "thought", "though"]
-        if(allowed.contains(word)){
-            return true
-        }
-        
-        if(LetterAnalyzer.matchEndingLetters(word: word, targets: ["ough"]) || LetterAnalyzer.matchEndingLetters(word: word, targets: ["augh"])){
-            return true
-        }
-        
-        
-        if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["ou","ow"])){
-            if(LetterAnalyzer.matchAnyPosition(of: word, numberOfLetters: 4, in: ["ough"])){
-                return false
-            }
-            return true
-        }
-        
-        return false
-    }
+    private static let longVowelAnalyzer = LongVowelSoundAnalyzer()
+    private static let shortVowelAnalyzer = ShortVowelSoundAnalyzer()
+    private static let prefixsuffixAnalyzer = PrefixSuffixAnalyzer()
+    private static let multisyllabicAnalyzer = MultisyllabicAnalyzer()
+    private static let otherCasesWordAnalyzer = OtherCasesWordAnalyzer()
+    private static let blendAnalyzer = BlendAnalyzer()
+    private static let consonantDigraphsAnalyzer = ConsonantDigraphsAnalyzer()
+    private static let trigraphAnalyzer = TrigraphAnalyzer()
+    private static let rControlledVowelsAnalyzer = RControlledVowelsAnalyzer()
     
-    static func unusualConsonantPronunciation(word:String)->Bool{
-        let words = ["chef", "machine", "charlotte", "michelle", "sure", "sugar", "ocean", "official", "precious", "ancient", "passion", "tissue", "pressure", "mission", "station", "motion", "champagne"]
-        if(words.contains(word)){
-            return true
-        }
-        return false
+    static func getDetails(helpWord:HelpWordModel)->[WordAnalysisDetail]{
+        let word = helpWord.word
+        
+        var wordDetails = [WordAnalysisDetail]()
+        wordDetails.append(contentsOf: longVowelAnalyzer.getDetails(word: word))
+        wordDetails.append(contentsOf: shortVowelAnalyzer.getDetails(word: word))
+        wordDetails.append(contentsOf: prefixsuffixAnalyzer.getDetails(word: word))
+        wordDetails.append(contentsOf: multisyllabicAnalyzer.getDetails(word: word))
+        wordDetails.append(contentsOf: otherCasesWordAnalyzer.getDetails(word: word))
+        wordDetails.append(contentsOf: blendAnalyzer.getDetails(word: word))
+        wordDetails.append(contentsOf: consonantDigraphsAnalyzer.getDetails(word: word))
+        wordDetails.append(contentsOf: rControlledVowelsAnalyzer.getDetails(word: word))
+        
+        return wordDetails
     }
-    
 }

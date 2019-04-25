@@ -50,8 +50,4 @@ class HelpWordModel{
         }
         return false
     }
-    
-    func getDescription()->String{
-        return "Not Implemented"
-    }
 }

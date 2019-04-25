@@ -17,7 +17,7 @@ class WordWithSpeakerTableViewCell: UITableViewCell {
     
     var definition:String!
     
-    private var textToVoice = TextToVoiceService()
+    var textToVoice = TextToVoiceService()
     
     override func layoutSubviews() {
         super.layoutSubviews()

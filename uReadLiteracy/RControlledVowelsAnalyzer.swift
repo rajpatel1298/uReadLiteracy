@@ -9,7 +9,40 @@
 import Foundation
 
 class RControlledVowelsAnalyzer{
-    static func isRControlledVowels(word:String)->Bool{
+    private var wordDetails = [WordAnalysisDetail]()
+    private var word = ""
+    
+    func getDetails(word:String)->[WordAnalysisDetail]{
+        wordDetails.removeAll()
+        self.word = word
+        
+        addRControlledVowels()
+        return wordDetails
+    }
+    
+    // MARK: New Detail
+    
+    private func addRControlledVowels(){
+        var urlRequestList = [URLRequest]()
+        
+        if(isRControlledVowels()){
+            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=Q1bpT3YNN50"))
+            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=eE2HFLDPPDc&list=PLfeIQSyt9YL2a6tgu8RA8bB3XS62l7l-M"))
+            
+            if LetterAnalyzer.matchAnyPosition(word: word, targets: ["ir", "er", "ur"]){
+                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=lNJGKrs8BGA"))
+            }
+            if LetterAnalyzer.matchAnyPosition(word: word, targets: ["or", "ar"]){
+                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=uMwCnSSMB-Q"))
+            }
+        }
+        
+        if(urlRequestList.count > 0){
+            wordDetails.append(WordAnalysisDetail(detail: "This word has an “r controlled vowel.  When r comes after a vowel it sometimes changes the sound of the vowel so that it is neither a long or a short vowel sound.  This is called an “r controlled vowel”. The way the r changes the vowel sound is pretty much the same every time it is in “control” so it’s important to learn to recognize and know the sound of the r controlled vowel.", urlRequests: urlRequestList))
+        }
+    }
+    
+    private func isRControlledVowels()->Bool{
         if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["ir", "er", "ur","or", "ar"])){
             return true
         }

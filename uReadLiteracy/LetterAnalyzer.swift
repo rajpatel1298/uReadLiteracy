@@ -25,7 +25,7 @@ class LetterAnalyzer{
         for target in targets{
             if(word.count >= target.count){
                 for i in 0...(target.count-1){
-                    if(word[i...(i+target.count)] == target){
+                    if(word[i...(i+target.count-1)] == target){
                         return true
                     }
                 }
@@ -90,6 +90,19 @@ class LetterAnalyzer{
                         if(word[word.count-1] == letter2){
                             return true
                         }
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
+    static func consonantLetterConsonant(word:String, letter:Character)->Bool{
+        if(word.count >= 3){
+            if(LetterAnalyzer.isConsonant(letter: word[word.count-3])){
+                if(word[word.count-2] == letter){
+                    if(LetterAnalyzer.isConsonant(letter: word[word.count-1])){
+                        return true
                     }
                 }
             }
