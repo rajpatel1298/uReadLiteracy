@@ -11,6 +11,11 @@ import Foundation
 class RControlledVowelsAnalyzer{
     private var wordDetails = [WordAnalysisDetail]()
     private var word = ""
+    private let title:String
+    
+    init(title:String){
+        self.title = title
+    }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
@@ -38,7 +43,7 @@ class RControlledVowelsAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has an “r controlled vowel.  When r comes after a vowel it sometimes changes the sound of the vowel so that it is neither a long or a short vowel sound.  This is called an “r controlled vowel”. The way the r changes the vowel sound is pretty much the same every time it is in “control” so it’s important to learn to recognize and know the sound of the r controlled vowel.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has an “r controlled vowel.  When r comes after a vowel it sometimes changes the sound of the vowel so that it is neither a long or a short vowel sound.  This is called an “r controlled vowel”. The way the r changes the vowel sound is pretty much the same every time it is in “control” so it’s important to learn to recognize and know the sound of the r controlled vowel.", urlRequests: urlRequestList))
         }
     }
     

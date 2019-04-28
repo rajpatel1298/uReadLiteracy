@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0186BE22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186BD22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift */; };
+		1C0186C222716C55002C7F0C /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186C122716C55002C7F0C /* DropDownView.swift */; };
+		1C0186C622764445002C7F0C /* DropDownDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186C522764445002C7F0C /* DropDownDelegate.swift */; };
 		1C10ED37224D81BA002D719F /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C10ED36224D81BA002D719F /* blockerList.json */; };
 		1C10ED39224D81BA002D719F /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */; };
 		1C10ED3D224D81BA002D719F /* AdBlock.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1C10ED34224D81B9002D719F /* AdBlock.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -279,6 +282,9 @@
 
 /* Begin PBXFileReference section */
 		198A7836A988EE4B2985A501 /* Pods-uReadLiteracy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uReadLiteracy.release.xcconfig"; path = "Pods/Target Support Files/Pods-uReadLiteracy/Pods-uReadLiteracy.release.xcconfig"; sourceTree = "<group>"; };
+		1C0186BD22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnDetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		1C0186C122716C55002C7F0C /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		1C0186C522764445002C7F0C /* DropDownDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDelegate.swift; sourceTree = "<group>"; };
 		1C10ED34224D81B9002D719F /* AdBlock.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AdBlock.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C10ED36224D81BA002D719F /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
@@ -765,6 +771,8 @@
 				1CCF98A82211E55C00C491A8 /* ProfileBackgroundImageView.swift */,
 				1C578F9522056D770077E1DD /* WKWebviewWithHelpMenu.swift */,
 				1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */,
+				1C0186C122716C55002C7F0C /* DropDownView.swift */,
+				1C0186C522764445002C7F0C /* DropDownDelegate.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -862,6 +870,7 @@
 				1CD1A2A82249C28200502A67 /* ArticleTableViewCell.swift */,
 				1CD1A2E9224D692600502A67 /* ReadingDifficultTableViewCell.swift */,
 				1C490EAE2262E2ED00DC5E74 /* WordAnalysisTableViewCell.swift */,
+				1C0186BD22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift */,
 			);
 			name = "Tableview Cells";
 			sourceTree = "<group>";
@@ -1547,6 +1556,7 @@
 				1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */,
 				1CCF98A92211E55C00C491A8 /* ProfileBackgroundImageView.swift in Sources */,
 				1CAC797021FB65AC007F8704 /* ChooseGoalTypeViewController.swift in Sources */,
+				1C0186C622764445002C7F0C /* DropDownDelegate.swift in Sources */,
 				1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */,
 				1C578F6B22023E020077E1DD /* PlayerState.swift in Sources */,
 				CD7DC5F42218ABE70077BEE5 /* ComprehensionQuestionManager.swift in Sources */,
@@ -1560,6 +1570,7 @@
 				1C513A5B21801B7E00FFDC82 /* ParentWebPage.swift in Sources */,
 				1C490E93225D878500DC5E74 /* LongVowelSoundAnalyzer.swift in Sources */,
 				1CCF98A72211E50100C491A8 /* RoundedButton.swift in Sources */,
+				1C0186C222716C55002C7F0C /* DropDownView.swift in Sources */,
 				1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */,
 				1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */,
 				1C490E9B226154BE00DC5E74 /* MultisyllabicAnalyzer.swift in Sources */,
@@ -1614,6 +1625,7 @@
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
 				1CD1A27C223EDCBC00502A67 /* DictionaryAdjective.swift in Sources */,
 				1CAC792C21FB57D9007F8704 /* GoalCompletePresenter.swift in Sources */,
+				1C0186BE22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift in Sources */,
 				1CD1A2E8224D677E00502A67 /* ReadingDifficulty.swift in Sources */,
 				1C696C912229FD440066E251 /* FirebaseObserver.swift in Sources */,
 				1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */,

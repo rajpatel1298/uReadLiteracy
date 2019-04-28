@@ -10,6 +10,11 @@ import Foundation
 class OtherCasesWordAnalyzer{
     private var wordDetails = [WordAnalysisDetail]()
     private var word = ""
+    private let title:String
+    
+    init(title:String){
+        self.title = title
+    }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
@@ -49,7 +54,7 @@ class OtherCasesWordAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word doesn’t follow an easy rule for pronouncing it.  In English some words just don’t follow the rules.  These videos point some of these out.  The best way to learn them is to just get used to recognizing the patterns the describe", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word doesn’t follow an easy rule for pronouncing it.  In English some words just don’t follow the rules.  These videos point some of these out.  The best way to learn them is to just get used to recognizing the patterns the describe", urlRequests: urlRequestList))
         }
     }
     
@@ -84,7 +89,7 @@ class OtherCasesWordAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has an unusual consonant sound.  Sometimes the /sh/ sound as in shoe is made with unusual letter combinations like ch, s, cean, cial.  The only way to learn when this sh sound is made is to learn to recognize the words that have this.  Sometimes it can really help, when you can’t get the word using what you know about sounds, to think about what you know about what would make sense in the sentence along with the word sound information you do have.  So for example if you see the word sugar and you don’t recognize that the s makes a sh sound, say the s sound.  From the rest of the sentence plus the slightly weird pronounciation, you’ll probably get it", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has an unusual consonant sound.  Sometimes the /sh/ sound as in shoe is made with unusual letter combinations like ch, s, cean, cial.  The only way to learn when this sh sound is made is to learn to recognize the words that have this.  Sometimes it can really help, when you can’t get the word using what you know about sounds, to think about what you know about what would make sense in the sentence along with the word sound information you do have.  So for example if you see the word sugar and you don’t recognize that the s makes a sh sound, say the s sound.  From the rest of the sentence plus the slightly weird pronounciation, you’ll probably get it", urlRequests: urlRequestList))
         }
     }
     

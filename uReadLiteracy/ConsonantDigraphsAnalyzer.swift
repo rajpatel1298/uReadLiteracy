@@ -11,6 +11,11 @@ import Foundation
 class ConsonantDigraphsAnalyzer{
     private var wordDetails = [WordAnalysisDetail]()
     private var word = ""
+    private let title:String
+    
+    init(title:String){
+        self.title = title
+    }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
@@ -33,7 +38,7 @@ class ConsonantDigraphsAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a consonant digraph.  This means that when two consonants are together in a word, they sometimes blend together to make a completely different sound where you don’t hear either letter.  There are also some cases where two consonants are together, but only one is pronounced.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant digraph.  This means that when two consonants are together in a word, they sometimes blend together to make a completely different sound where you don’t hear either letter.  There are also some cases where two consonants are together, but only one is pronounced.", urlRequests: urlRequestList))
         }
     }
     

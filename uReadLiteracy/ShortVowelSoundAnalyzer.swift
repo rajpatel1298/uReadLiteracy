@@ -12,6 +12,11 @@ class ShortVowelSoundAnalyzer{
     
     private var wordDetails = [WordAnalysisDetail]()
     private var word = ""
+    private let title:String
+    
+    init(title:String){
+        self.title = title
+    }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
@@ -41,7 +46,7 @@ class ShortVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When e is the vowel, the short vowel sound is /eh/ as in bed.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When e is the vowel, the short vowel sound is /eh/ as in bed.", urlRequests: urlRequestList))
         }
     }
     
@@ -60,7 +65,7 @@ class ShortVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When u is the vowel, the short vowel sound is /uh/ as in cut.  Note that there are other ways to make the short u sound that you will learn about in other videos", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When u is the vowel, the short vowel sound is /uh/ as in cut.  Note that there are other ways to make the short u sound that you will learn about in other videos", urlRequests: urlRequestList))
         }
     }
     
@@ -79,7 +84,7 @@ class ShortVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When o is the vowel, the short vowel sound is /ah/ as in mop.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When o is the vowel, the short vowel sound is /ah/ as in mop.", urlRequests: urlRequestList))
         }
     }
     
@@ -98,7 +103,7 @@ class ShortVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When i is the vowel, the short vowel sound is /ih/ as in pin.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When i is the vowel, the short vowel sound is /ih/ as in pin.", urlRequests: urlRequestList))
         }
     }
     
@@ -117,7 +122,7 @@ class ShortVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When a is the vowel, the short vowel sound is /a/ as in cap.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When a is the vowel, the short vowel sound is /a/ as in cap.", urlRequests: urlRequestList))
         }
     }
     

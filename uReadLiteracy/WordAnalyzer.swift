@@ -9,15 +9,15 @@
 import Foundation
 
 class WordAnalyzer{
-    private static let longVowelAnalyzer = LongVowelSoundAnalyzer()
-    private static let shortVowelAnalyzer = ShortVowelSoundAnalyzer()
-    private static let prefixsuffixAnalyzer = PrefixSuffixAnalyzer()
-    private static let multisyllabicAnalyzer = MultisyllabicAnalyzer()
-    private static let otherCasesWordAnalyzer = OtherCasesWordAnalyzer()
-    private static let blendAnalyzer = BlendAnalyzer()
-    private static let consonantDigraphsAnalyzer = ConsonantDigraphsAnalyzer()
-    private static let trigraphAnalyzer = TrigraphAnalyzer()
-    private static let rControlledVowelsAnalyzer = RControlledVowelsAnalyzer()
+    private static let longVowelAnalyzer = LongVowelSoundAnalyzer(title: "Long Vowel Sounds")
+    private static let shortVowelAnalyzer = ShortVowelSoundAnalyzer(title: "Short Vowel Sounds")
+    private static let prefixsuffixAnalyzer = PrefixSuffixAnalyzer(title: "Prefixes and Suffixes")
+    private static let multisyllabicAnalyzer = MultisyllabicAnalyzer(title: "Multisyllabic Words")
+    private static let otherCasesWordAnalyzer = OtherCasesWordAnalyzer(title: "Weird Words and Exceptions")
+    private static let blendAnalyzer = BlendAnalyzer(title: "Consonant Blends")
+    private static let consonantDigraphsAnalyzer = ConsonantDigraphsAnalyzer(title: "Consonant Digraphs")
+    private static let trigraphAnalyzer = TrigraphAnalyzer(title: "Trigraph")
+    private static let rControlledVowelsAnalyzer = RControlledVowelsAnalyzer(title: "R Controlled Vowels")
     
     static func getDetails(helpWord:HelpWordModel)->[WordAnalysisDetail]{
         let word = helpWord.word

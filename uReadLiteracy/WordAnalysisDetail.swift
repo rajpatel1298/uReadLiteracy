@@ -11,9 +11,11 @@ import Foundation
 struct WordAnalysisDetail{
     let detail:String
     let urlRequests:[URLRequest]
+    let title:String
     
-    init(detail:String, urlRequests:[URLRequest]){
+    init(title:String,detail:String, urlRequests:[URLRequest]){
         self.detail = detail
         self.urlRequests = urlRequests
+        self.title = title
     }
 }

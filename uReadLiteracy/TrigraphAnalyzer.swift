@@ -11,6 +11,11 @@ import Foundation
 class TrigraphAnalyzer{
     private var wordDetails = [WordAnalysisDetail]()
     private var word = ""
+    private let title:String
+    
+    init(title:String){
+        self.title = title
+    }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
@@ -34,7 +39,7 @@ class TrigraphAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a trigraph in it.  When three consonants or two consonants and a vowel are together in a word, they sometimes blend together to make a completely different sound where you don’t hear any letter separately on its own.  This is called a trigraph (tri means three).", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a trigraph in it.  When three consonants or two consonants and a vowel are together in a word, they sometimes blend together to make a completely different sound where you don’t hear any letter separately on its own.  This is called a trigraph (tri means three).", urlRequests: urlRequestList))
         }
     }
     

@@ -11,6 +11,11 @@ import Foundation
 class BlendAnalyzer{
     private var wordDetails = [WordAnalysisDetail]()
     private var word = ""
+    private let title:String
+    
+    init(title:String){
+        self.title = title
+    }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
@@ -38,7 +43,7 @@ class BlendAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a consonant blend.  This means that when two consonants are together in a word, they sometimes blend together to make a sound in which you can hear each letter but they are smoothed out together.  The are called consonant blends.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant blend.  This means that when two consonants are together in a word, they sometimes blend together to make a sound in which you can hear each letter but they are smoothed out together.  The are called consonant blends.", urlRequests: urlRequestList))
         }
 
     }

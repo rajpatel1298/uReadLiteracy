@@ -13,6 +13,12 @@ class PrefixSuffixAnalyzer{
     private var wordDetails = [WordAnalysisDetail]()
     private var word = ""
     
+    private let title:String
+    
+    init(title:String){
+        self.title = title
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word
@@ -37,7 +43,7 @@ class PrefixSuffixAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            let detail = WordAnalysisDetail(detail: "Sometimes word meanings are changed by special beginnings, called prefixes, and endings, called suffixes.  This word has a prefix or a suffix.  When you see  prefix or suffix, sometimes it helps to chop them off the word (in your mind), figure out the word without them and then pronounce it with the prefix or suffix.  Learning the rules for recognizing syllables in words with more than one syllable can help you do this because prefixes and suffixes add syllables to words.", urlRequests: urlRequestList)
+            let detail = WordAnalysisDetail(title: title, detail: "Sometimes word meanings are changed by special beginnings, called prefixes, and endings, called suffixes.  This word has a prefix or a suffix.  When you see  prefix or suffix, sometimes it helps to chop them off the word (in your mind), figure out the word without them and then pronounce it with the prefix or suffix.  Learning the rules for recognizing syllables in words with more than one syllable can help you do this because prefixes and suffixes add syllables to words.", urlRequests: urlRequestList)
             
             
             wordDetails.append(detail)

@@ -199,13 +199,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "uReadLiteracy/WordAnalyzer.swift"
-            timestampString = "577846973.439687"
+            filePath = "uReadLiteracy/LearnDetailViewController.swift"
+            timestampString = "578178260.082633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "getDetails(helpWord:)"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "dropDownChanged(dropDownTitle:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -13,6 +13,12 @@ class LongVowelSoundAnalyzer{
     private var wordDetails = [WordAnalysisDetail]()
     private var word = ""
     
+    private let title:String
+    
+    init(title:String){
+        self.title = title
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word
@@ -57,7 +63,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a long vowel sound made by a single vowel in the middle or end of the word.  A long vowel sound says the name of the letter of the vowel. Sometimes this occurs when I or O is followed by two consonants (for example kind, find, pint, Christ, climb, most, post, gold, sold, comb).  The I  or the Y at the end of a word will sound long and say the name either of the letter I of the letter E. If you’re not sure which it is, try it both ways and decide which makes sense and sounds like a real word", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a long vowel sound made by a single vowel in the middle or end of the word.  A long vowel sound says the name of the letter of the vowel. Sometimes this occurs when I or O is followed by two consonants (for example kind, find, pint, Christ, climb, most, post, gold, sold, comb).  The I  or the Y at the end of a word will sound long and say the name either of the letter I of the letter E. If you’re not sure which it is, try it both ways and decide which makes sense and sounds like a real word", urlRequests: urlRequestList))
         }
     }
    
@@ -102,7 +108,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count>0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has at least one long vowel sound, but it is made by a single vowel.  A long vowel sound says the name of the letter of the vowel.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has at least one long vowel sound, but it is made by a single vowel.  A long vowel sound says the name of the letter of the vowel.", urlRequests: urlRequestList))
         }
     }
     
@@ -127,7 +133,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a long vowel sound because it has the letter pattern consonant-vowel-consonant-e.  A long vowel sound says the name of the letter of the vowel. When you see this pattern, it is usually a long vowel sound and that means it says its name.  Unfortunately, there are some exceptions to this.  This includes glove, love, have, live, give, active, inventive, olive, come, one, there, eye, are, done, any word that ends in -ve", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a long vowel sound because it has the letter pattern consonant-vowel-consonant-e.  A long vowel sound says the name of the letter of the vowel. When you see this pattern, it is usually a long vowel sound and that means it says its name.  Unfortunately, there are some exceptions to this.  This includes glove, love, have, live, give, active, inventive, olive, come, one, there, eye, are, done, any word that ends in -ve", urlRequests: urlRequestList))
         }
     }
     
@@ -168,7 +174,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a consonant + a + consonant + e pattern.  For this pattern, the a is a long vowel sound.  That means it says it’s name.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + a + consonant + e pattern.  For this pattern, the a is a long vowel sound.  That means it says it’s name.", urlRequests: urlRequestList))
         }
     }
     
@@ -197,7 +203,7 @@ class LongVowelSoundAnalyzer{
             urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=iRuoRzU0MPE"))
         }
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "When  ai, ay, ea, eigh are together, they usually make a long a sound.  This means the sound is the same as how you pronounce the letter name a.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When  ai, ay, ea, eigh are together, they usually make a long a sound.  This means the sound is the same as how you pronounce the letter name a.", urlRequests: urlRequestList))
         }
     }
     
@@ -220,7 +226,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "When o and a are together, it usually makes a long o sound.  This means the sound is the same as how you pronounce the letter name o.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When o and a are together, it usually makes a long o sound.  This means the sound is the same as how you pronounce the letter name o.", urlRequests: urlRequestList))
         }
     }
     
@@ -241,7 +247,7 @@ class LongVowelSoundAnalyzer{
             urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=AnmKkqRJ980"))
         }
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "When ea, ee, or ey are together, they usually make a long e sound.  This means the sound is the same as how you pronounce the letter e.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When ea, ee, or ey are together, they usually make a long e sound.  This means the sound is the same as how you pronounce the letter e.", urlRequests: urlRequestList))
         }
     }
     
@@ -261,7 +267,7 @@ class LongVowelSoundAnalyzer{
             urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=ObVaokd5vq4"))
         }
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "When ie and igh are together, they usally make a long I sound.  That means the sound is the same as how you pronounce the letter I.  But there are exceptions.  Piece, alien, field, chief, and thief make a long e sound which means the sound is the same how you pronounce the letter e.  When ei are together, they usually also make a long e sound.  If you’re not sure whether the word has a long I or a long E sound, try both out and decide which sounds like a real word and makes sense in the sentence.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When ie and igh are together, they usally make a long I sound.  That means the sound is the same as how you pronounce the letter I.  But there are exceptions.  Piece, alien, field, chief, and thief make a long e sound which means the sound is the same how you pronounce the letter e.  When ei are together, they usually also make a long e sound.  If you’re not sure whether the word has a long I or a long E sound, try both out and decide which sounds like a real word and makes sense in the sentence.", urlRequests: urlRequestList))
         }
     }
     
@@ -287,7 +293,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a consonant + i + consonant + e pattern.  For this pattern, the i makes a long vowel sound.  This means the sound is the same as how you pronounce the letter name i.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + i + consonant + e pattern.  For this pattern, the i makes a long vowel sound.  This means the sound is the same as how you pronounce the letter name i.", urlRequests: urlRequestList))
         }
     }
     
@@ -306,7 +312,7 @@ class LongVowelSoundAnalyzer{
             urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=SUp-nnGusvk"))
         }
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "This word has a consonant + o + consonant + e pattern.  For this pattern, the o makes a long vowel sound.  This means the sound is the same as how you pronounce the letter name o.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + o + consonant + e pattern.  For this pattern, the o makes a long vowel sound.  This means the sound is the same as how you pronounce the letter name o.", urlRequests: urlRequestList))
         }
     }
     
@@ -325,7 +331,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "When words have oa, oo, oe, or ow, the sound is often a long o sound which means the sound is the same as how you pronounce the letter name o.  There are some exceptions like canoe, shoe, cow, sow, plow, brow.  If you’re not sure which sound the o makes, oo like show or o like boat, try both out and see which one makes sense in the sentence and sounds like a real word.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When words have oa, oo, oe, or ow, the sound is often a long o sound which means the sound is the same as how you pronounce the letter name o.  There are some exceptions like canoe, shoe, cow, sow, plow, brow.  If you’re not sure which sound the o makes, oo like show or o like boat, try both out and see which one makes sense in the sentence and sounds like a real word.", urlRequests: urlRequestList))
         }
     }
     
@@ -353,7 +359,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "When words have ew, ue, ui, and oo, the sound is often a long u sound which means the sound is the same as how you pronounce the letter name u.  There are some exceptions like book, look, and shook.  Words that have a consonant + u + consonant = e pattern also have a long u sound that sounds like oo as in moon or the way you say the letter us.  Sometimes when a words starts with u, it has a long u sound.  If you’re not sure which sound the u is making try out the possibilities and see which one makes sense in the sentence and sounds like a real word.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When words have ew, ue, ui, and oo, the sound is often a long u sound which means the sound is the same as how you pronounce the letter name u.  There are some exceptions like book, look, and shook.  Words that have a consonant + u + consonant = e pattern also have a long u sound that sounds like oo as in moon or the way you say the letter us.  Sometimes when a words starts with u, it has a long u sound.  If you’re not sure which sound the u is making try out the possibilities and see which one makes sense in the sentence and sounds like a real word.", urlRequests: urlRequestList))
         }
     }
     
@@ -385,7 +391,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "Although the usual rule when two vowels are together is that the first vowel is pronounced with that letters long vowel sound. But au, aw, ou, ow, oi, oy and some words like bread and book break this rule.  They are consonant blends that do not have long vowel sounds.  Each has its own sound.  If you’re not sure if the first vowel is long rule applies try it out and see if it sounds right and fits in the sentence that way.  If not try some other possible sounds.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "Although the usual rule when two vowels are together is that the first vowel is pronounced with that letters long vowel sound. But au, aw, ou, ow, oi, oy and some words like bread and book break this rule.  They are consonant blends that do not have long vowel sounds.  Each has its own sound.  If you’re not sure if the first vowel is long rule applies try it out and see if it sounds right and fits in the sentence that way.  If not try some other possible sounds.", urlRequests: urlRequestList))
         }
     }
     
@@ -412,7 +418,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "Many times when two vowels are together, the second one is silent and the first one makes the long vowel sound of that letter.  So, for example, when oa are together, often times, the word will have a long o sound which means it will have the sound of saying the letter o.  A lot of times people will describe this as ‘when two vowels go walking, the first one does the talking.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "Many times when two vowels are together, the second one is silent and the first one makes the long vowel sound of that letter.  So, for example, when oa are together, often times, the word will have a long o sound which means it will have the sound of saying the letter o.  A lot of times people will describe this as ‘when two vowels go walking, the first one does the talking.", urlRequests: urlRequestList))
         }
     }
     
@@ -442,7 +448,7 @@ class LongVowelSoundAnalyzer{
         }
         
         if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(detail: "When two o’s are together they can make one of two sounds; neither one is exactly a long or a short o sound.  It can be ooh as in boot or uh as in book.  There isn’t an easy way to know which way to pronounce the o sound in this case.  Try both and see which one makes sense in the sentence or sounds like a real word.", urlRequests: urlRequestList))
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When two o’s are together they can make one of two sounds; neither one is exactly a long or a short o sound.  It can be ooh as in boot or uh as in book.  There isn’t an easy way to know which way to pronounce the o sound in this case.  Try both and see which one makes sense in the sentence or sounds like a real word.", urlRequests: urlRequestList))
         }
     }
     
