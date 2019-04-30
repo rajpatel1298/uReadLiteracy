@@ -524,35 +524,11 @@
                             <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Sfe-Gu-hlL">
                                 <rect key="frame" x="0.0" y="64" width="375" height="479"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cE1-Qm-Eza">
-                                <rect key="frame" x="16" y="64" width="343" height="42"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXN-nV-f1N">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="42"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="25"/>
-                                        <state key="normal" title="Daily"/>
-                                        <connections>
-                                            <action selector="dailyTabBtnPressed:" destination="qez-kt-Azv" eventType="touchUpInside" id="sdK-bv-DYm"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rh-eh-ATL">
-                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="42"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="FSNokioBold" family="FS Nokio" pointSize="25"/>
-                                        <state key="normal" title="Ongoing"/>
-                                        <connections>
-                                            <action selector="ongoingTabBtnPressed:" destination="qez-kt-Azv" eventType="touchUpInside" id="9q6-Gk-7je"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ET-Bf-8ud">
-                                <rect key="frame" x="16" y="116" width="343" height="342"/>
+                                <rect key="frame" x="16" y="112" width="343" height="346"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lh0-J9-t1j">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="342"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="346"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoalTableViewCell" rowHeight="60" id="GGB-0n-nQr" customClass="GoalTableViewCell" customModule="uReadLiteracy" customModuleProvider="target">
@@ -625,22 +601,32 @@
                                     <segue destination="4u0-aE-SB7" kind="show" id="2gq-LY-ehX"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zIh-pi-R4F">
+                                <rect key="frame" x="16" y="74" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Daily"/>
+                                    <segment title="Ongoing"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="qez-kt-Azv" eventType="valueChanged" id="5zr-we-n2B"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ScW-jp-Kgx" firstAttribute="top" secondItem="6ET-Bf-8ud" secondAttribute="bottom" constant="20" id="1WH-XA-oGx"/>
-                            <constraint firstItem="cE1-Qm-Eza" firstAttribute="leading" secondItem="kyQ-P8-i79" secondAttribute="leadingMargin" id="1rW-fx-zRk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cE1-Qm-Eza" secondAttribute="trailing" id="7q0-Nc-lHQ"/>
+                            <constraint firstItem="zIh-pi-R4F" firstAttribute="top" secondItem="6t2-cB-s6w" secondAttribute="bottom" constant="10" id="583-N9-PU2"/>
                             <constraint firstItem="Sfe-Gu-hlL" firstAttribute="leading" secondItem="kyQ-P8-i79" secondAttribute="leading" id="95L-2a-fUl"/>
+                            <constraint firstItem="6ET-Bf-8ud" firstAttribute="top" secondItem="zIh-pi-R4F" secondAttribute="bottom" constant="10" id="95b-Nx-qac"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6ET-Bf-8ud" secondAttribute="trailing" id="I2u-LP-Kcu"/>
                             <constraint firstAttribute="trailing" secondItem="Sfe-Gu-hlL" secondAttribute="trailing" id="IDB-jJ-3SU"/>
                             <constraint firstItem="Sfe-Gu-hlL" firstAttribute="top" secondItem="6t2-cB-s6w" secondAttribute="bottom" id="Kte-Fc-6aZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zIh-pi-R4F" secondAttribute="trailing" id="T4w-Yh-OBL"/>
                             <constraint firstItem="xMe-IQ-qM2" firstAttribute="top" secondItem="Sfe-Gu-hlL" secondAttribute="bottom" id="bCz-4T-8be"/>
                             <constraint firstItem="6ET-Bf-8ud" firstAttribute="leading" secondItem="kyQ-P8-i79" secondAttribute="leadingMargin" id="ddf-iN-zMy"/>
-                            <constraint firstItem="6ET-Bf-8ud" firstAttribute="top" secondItem="cE1-Qm-Eza" secondAttribute="bottom" constant="10" id="f1y-AP-8i7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ScW-jp-Kgx" secondAttribute="trailing" constant="10" id="pUB-rc-Q1e"/>
+                            <constraint firstItem="zIh-pi-R4F" firstAttribute="leading" secondItem="kyQ-P8-i79" secondAttribute="leadingMargin" id="wfo-Pb-5Li"/>
                             <constraint firstItem="ScW-jp-Kgx" firstAttribute="leading" secondItem="kyQ-P8-i79" secondAttribute="leadingMargin" constant="10" id="xPy-7m-xJJ"/>
-                            <constraint firstItem="cE1-Qm-Eza" firstAttribute="top" secondItem="6t2-cB-s6w" secondAttribute="bottom" id="y1y-1O-51w"/>
                             <constraint firstItem="xMe-IQ-qM2" firstAttribute="top" secondItem="ScW-jp-Kgx" secondAttribute="bottom" constant="20" id="zYd-g6-P9P"/>
                         </constraints>
                     </view>
@@ -648,9 +634,7 @@
                     <navigationItem key="navigationItem" id="Jiy-tO-tmY"/>
                     <connections>
                         <outlet property="addNewGoalBtn" destination="ScW-jp-Kgx" id="F4W-kZ-GFR"/>
-                        <outlet property="dailyTabButton" destination="dXN-nV-f1N" id="fyn-RJ-iWS"/>
-                        <outlet property="goalOptionStackView" destination="cE1-Qm-Eza" id="LlL-hW-r3s"/>
-                        <outlet property="ongoingTabButton" destination="7Rh-eh-ATL" id="UrS-Tc-NQP"/>
+                        <outlet property="segmentControl" destination="zIh-pi-R4F" id="3ca-iq-Qpq"/>
                         <outlet property="tableview" destination="Lh0-J9-t1j" id="GFL-Ed-Ww8"/>
                     </connections>
                 </viewController>
