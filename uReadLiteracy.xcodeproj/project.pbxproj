@@ -10,6 +10,12 @@
 		1C0186BE22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186BD22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift */; };
 		1C0186C222716C55002C7F0C /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186C122716C55002C7F0C /* DropDownView.swift */; };
 		1C0186C622764445002C7F0C /* DropDownDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186C522764445002C7F0C /* DropDownDelegate.swift */; };
+		1C0186C82277A01F002C7F0C /* LearnWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186C72277A01F002C7F0C /* LearnWordViewController.swift */; };
+		1C0186CA2277A29F002C7F0C /* LearnWordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186C92277A29F002C7F0C /* LearnWordDelegate.swift */; };
+		1C0186CE2277A645002C7F0C /* LearnVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186CD2277A645002C7F0C /* LearnVideoViewController.swift */; };
+		1C0186D02277A8C7002C7F0C /* LearnVideoCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186CF2277A8C7002C7F0C /* LearnVideoCategoryViewController.swift */; };
+		1C0186D22278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186D12278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift */; };
+		1C0186D42278AE86002C7F0C /* WordCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186D32278AE86002C7F0C /* WordCategory.swift */; };
 		1C10ED37224D81BA002D719F /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C10ED36224D81BA002D719F /* blockerList.json */; };
 		1C10ED39224D81BA002D719F /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */; };
 		1C10ED3D224D81BA002D719F /* AdBlock.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1C10ED34224D81B9002D719F /* AdBlock.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -285,6 +291,12 @@
 		1C0186BD22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnDetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		1C0186C122716C55002C7F0C /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		1C0186C522764445002C7F0C /* DropDownDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDelegate.swift; sourceTree = "<group>"; };
+		1C0186C72277A01F002C7F0C /* LearnWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnWordViewController.swift; sourceTree = "<group>"; };
+		1C0186C92277A29F002C7F0C /* LearnWordDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnWordDelegate.swift; sourceTree = "<group>"; };
+		1C0186CD2277A645002C7F0C /* LearnVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoViewController.swift; sourceTree = "<group>"; };
+		1C0186CF2277A8C7002C7F0C /* LearnVideoCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoCategoryViewController.swift; sourceTree = "<group>"; };
+		1C0186D12278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoCategoryDelegate.swift; sourceTree = "<group>"; };
+		1C0186D32278AE86002C7F0C /* WordCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCategory.swift; sourceTree = "<group>"; };
 		1C10ED34224D81B9002D719F /* AdBlock.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AdBlock.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C10ED36224D81BA002D719F /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
@@ -560,6 +572,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C0186D52278C47A002C7F0C /* LearnVideo */ = {
+			isa = PBXGroup;
+			children = (
+				1C0186CF2277A8C7002C7F0C /* LearnVideoCategoryViewController.swift */,
+				1C0186CD2277A645002C7F0C /* LearnVideoViewController.swift */,
+				1C0186D12278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift */,
+			);
+			name = LearnVideo;
+			sourceTree = "<group>";
+		};
 		1C10ED35224D81BA002D719F /* AdBlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,6 +757,7 @@
 				1CD1A274223EDC4100502A67 /* Dictionary */,
 				1CCC51052252B0CF00FA32FC /* HelpColor.swift */,
 				1C490EA62262A3F600DC5E74 /* WordAnalysisDetail.swift */,
+				1C0186D32278AE86002C7F0C /* WordCategory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -849,6 +872,9 @@
 			isa = PBXGroup;
 			children = (
 				CD3E1E13205C5AC200AC2D1A /* LearnViewController.swift */,
+				1C0186C72277A01F002C7F0C /* LearnWordViewController.swift */,
+				1C0186C92277A29F002C7F0C /* LearnWordDelegate.swift */,
+				1C0186D52278C47A002C7F0C /* LearnVideo */,
 				CD03CC8F20F6E79A006D5D89 /* LearnDetailViewController.swift */,
 			);
 			name = "Learn More";
@@ -1576,8 +1602,10 @@
 				1C490E9B226154BE00DC5E74 /* MultisyllabicAnalyzer.swift in Sources */,
 				1CD1A27A223EDCB200502A67 /* DictionaryVerb.swift in Sources */,
 				1CD1A28C2245B4A000502A67 /* ArticleCategory.swift in Sources */,
+				1C0186D02277A8C7002C7F0C /* LearnVideoCategoryViewController.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* State.swift in Sources */,
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
+				1C0186D42278AE86002C7F0C /* WordCategory.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* CurrentUser.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
@@ -1632,6 +1660,7 @@
 				1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */,
 				1CCF98B122120DEE00C491A8 /* ArticleReadingStopwatch.swift in Sources */,
 				CD3E1E16205C5CF500AC2D1A /* LearnCell.swift in Sources */,
+				1C0186CA2277A29F002C7F0C /* LearnWordDelegate.swift in Sources */,
 				CD03CC9020F6E79A006D5D89 /* LearnDetailViewController.swift in Sources */,
 				1C490E99225EEF7500DC5E74 /* PrefixSuffixAnalyzer.swift in Sources */,
 				1CD1A273223ED99C00502A67 /* URLService.swift in Sources */,
@@ -1644,6 +1673,7 @@
 				1C93D7772226FE1E005AA563 /* OptionView.swift in Sources */,
 				1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */,
 				1CCC51062252B0CF00FA32FC /* HelpColor.swift in Sources */,
+				1C0186D22278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift in Sources */,
 				1C578F9622056D770077E1DD /* WKWebviewWithHelpMenu.swift in Sources */,
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
 				1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */,
@@ -1661,6 +1691,7 @@
 				1CD1A2E2224BA42D00502A67 /* ReadingSource.swift in Sources */,
 				1CCC51092252D45200FA32FC /* TextToVoiceService.swift in Sources */,
 				1CAC799121FE241E007F8704 /* AudioRecordModel.swift in Sources */,
+				1C0186C82277A01F002C7F0C /* LearnWordViewController.swift in Sources */,
 				1CAC798E21FCB425007F8704 /* Recorder.swift in Sources */,
 				1CCF98AF22120C9300C491A8 /* ArticleManager.swift in Sources */,
 				1CCF98B722122A6C00C491A8 /* ScrollSubject.swift in Sources */,
@@ -1675,6 +1706,7 @@
 				1CAC79A221FFB0CD007F8704 /* AudioObserver.swift in Sources */,
 				1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */,
 				1CD1A271223ED65500502A67 /* DictionaryManager.swift in Sources */,
+				1C0186CE2277A645002C7F0C /* LearnVideoViewController.swift in Sources */,
 				CDA652971FA0F5B700835624 /* uReadLiteracy.xcdatamodeld in Sources */,
 				1CAC793521FB594D007F8704 /* ComprehensionPopupModel.swift in Sources */,
 				1CAC794021FB5A7E007F8704 /* SocialMediaQuote.swift in Sources */,

@@ -16,6 +16,23 @@ class OtherCasesWordAnalyzer{
         self.title = title
     }
     
+    static func getAll()->[URLRequest]{
+        let urls = ["https://www.youtube.com/watch?v=XmVqgrmfslg",
+                    "https://www.youtube.com/watch?v=m0tfFJm76hg",
+                    "https://www.youtube.com/watch?v=m0tfFJm76hg",
+                    "https://www.youtube.com/watch?v=QAFWtKePJ80",
+                    "https://www.youtube.com/watch?v=3Uz9U7YhmCw",
+                    //
+            "https://www.youtube.com/watch?v=xZApEBQOHSQ",
+        ]
+        
+        var urlRequestList = [URLRequest]()
+        for url in urls{
+            urlRequestList.append(StringToUrlRequest.get(url: url))
+        }
+        return urlRequestList
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word

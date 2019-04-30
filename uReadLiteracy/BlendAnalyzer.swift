@@ -17,6 +17,19 @@ class BlendAnalyzer{
         self.title = title
     }
     
+    static func getAll()->[URLRequest]{
+        let urls = ["https://www.youtube.com/watch?v=sYmwStHMezc",
+                    "https://www.youtube.com/watch?v=_YfuGb8f7Jo",
+                    "https://www.youtube.com/watch?v=sB2-mFb_O0E"
+        ]
+        
+        var urlRequestList = [URLRequest]()
+        for url in urls{
+            urlRequestList.append(StringToUrlRequest.get(url: url))
+        }
+        return urlRequestList
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word

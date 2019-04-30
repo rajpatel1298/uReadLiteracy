@@ -17,6 +17,20 @@ class RControlledVowelsAnalyzer{
         self.title = title
     }
     
+    static func getAll()->[URLRequest]{
+        let urls = ["https://www.youtube.com/watch?v=Q1bpT3YNN50",
+                    "https://www.youtube.com/watch?v=eE2HFLDPPDc&list=PLfeIQSyt9YL2a6tgu8RA8bB3XS62l7l-M",
+                    "https://www.youtube.com/watch?v=lNJGKrs8BGA",
+            "https://www.youtube.com/watch?v=uMwCnSSMB-Q"
+        ]
+        
+        var urlRequestList = [URLRequest]()
+        for url in urls{
+            urlRequestList.append(StringToUrlRequest.get(url: url))
+        }
+        return urlRequestList
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word

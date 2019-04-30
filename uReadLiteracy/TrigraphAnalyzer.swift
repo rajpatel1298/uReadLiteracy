@@ -17,6 +17,19 @@ class TrigraphAnalyzer{
         self.title = title
     }
     
+    static func getAll()->[URLRequest]{
+        let urls = ["https://www.youtube.com/watch?v=SdKW5KuDy1c&list=PL39iO7KLUw2mDudL0VIf5yyZbBQJZ0rzA",
+                    "https://www.youtube.com/watch?v=kibwDQpqtA4",
+                    "https://www.youtube.com/watch?v=AqxALefV3DA"
+        ]
+        
+        var urlRequestList = [URLRequest]()
+        for url in urls{
+            urlRequestList.append(StringToUrlRequest.get(url: url))
+        }
+        return urlRequestList
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word

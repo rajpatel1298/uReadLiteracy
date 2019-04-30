@@ -98,6 +98,7 @@ class DropDownView: UIView {
         let x = decorativeViewWidth + 5
         let width:CGFloat = frame.width - x - trailingSpace - dropDownIVHeight - trailingSpace
         titleLabel.frame = CGRect(x: x, y: 0, width: width, height: frame.height)
+        titleLabel.font = UIFont(name: "NokioSans-Bold", size: 25)
     }
     
     private func setupDropDownIV(){

@@ -18,6 +18,18 @@ class MultisyllabicAnalyzer{
         self.title = title
     }
     
+    static func getAll()->[URLRequest]{
+        let urls = ["https://www.youtube.com/watch?v=vNR2xyrZVv0",
+                    "https://www.youtube.com/watch?v=GDW0fwQoacc"
+        ]
+        
+        var urlRequestList = [URLRequest]()
+        for url in urls{
+            urlRequestList.append(StringToUrlRequest.get(url: url))
+        }
+        return urlRequestList
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word

@@ -19,6 +19,47 @@ class LongVowelSoundAnalyzer{
         self.title = title
     }
     
+    static func getAll()->[URLRequest]{
+        let urls = ["https://www.youtube.com/watch?v=bmTgHABs-_c",
+        "https://www.youtube.com/watch?v=qRVUULcS_xU",
+        "https://www.youtube.com/watch?v=4QRop-G9hw8",
+        "https://www.youtube.com/watch?v=c3oA4wfUBak",
+        "https://www.youtube.com/watch?v=wJ2KpholmtE",
+        "https://www.youtube.com/watch?v=aV0piUUlXec&index=2&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr",
+        "https://www.youtube.com/watch?v=krad_5lR80M",
+        "https://www.youtube.com/watch?v=8P4RJ3CXJFI",
+        "https://www.youtube.com/watch?v=iRuoRzU0MPE",
+        "https://www.youtube.com/watch?v=_xYKYTf0JS8",
+        "https://www.youtube.com/watch?v=iRuoRzU0MPE",
+        "https://www.youtube.com/watch?v=AnmKkqRJ980",
+        "https://www.youtube.com/watch?v=WBwwcBRM3Rc",
+        "https://www.youtube.com/watch?v=ObVaokd5vq4",
+        "https://www.youtube.com/watch?v=osbtOG5cz40",
+        "https://www.youtube.com/watch?v=SUp-nnGusvk",
+        "https://www.youtube.com/watch?v=l2nH1KfOVXA",
+        "https://www.youtube.com/watch?v=J_s1eBCtaiI",
+        "https://www.youtube.com/watch?v=acLppUOFs3w",
+        "https://www.youtube.com/watch?v=EMdtke9HZVE",
+        "https://www.youtube.com/watch?v=EtPpSYDsVZs",
+        "https://www.youtube.com/watch?v=cdI7fycHg1k",
+        
+        //
+        "https://www.youtube.com/watch?v=7fb3Pdt8kxg",
+        "https://www.youtube.com/watch?v=k-n_LHGseNk",
+        "https://www.youtube.com/watch?v=10m4ujzFVqc",
+        //
+        "https://www.youtube.com/watch?v=_vME18_vURk&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=9",
+        "https://www.youtube.com/watch?v=hDJQM9XxsCc",
+        "https://www.youtube.com/watch?v=_vME18_vURk&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=9",
+        "https://www.youtube.com/watch?v=hDJQM9XxsCc"]
+        
+        var urlRequestList = [URLRequest]()
+        for url in urls{
+            urlRequestList.append(StringToUrlRequest.get(url: url))
+        }
+        return urlRequestList
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word
@@ -47,6 +88,8 @@ class LongVowelSoundAnalyzer{
         
         return wordDetails
     }
+    
+    
     
     // MARK: New Detail
     
@@ -221,7 +264,7 @@ class LongVowelSoundAnalyzer{
     private func addLongOWithOA(){
         var urlRequestList = [URLRequest]()
         
-        if(LongVowelSoundAnalyzer.longOWithOA(word: word)){
+        if(longOWithOA(word: word)){
             urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=_xYKYTf0JS8"))
         }
         
@@ -232,7 +275,7 @@ class LongVowelSoundAnalyzer{
     
     
     //Long o: -oa-
-    static func longOWithOA(word:String)->Bool{
+    private func longOWithOA(word:String)->Bool{
         return LetterAnalyzer.matchAnyPosition(word: word, targets:["oi"])
     }
     
@@ -473,7 +516,7 @@ class LongVowelSoundAnalyzer{
         return LetterAnalyzer.matchAnyPosition(word: word, targets: ["oo"])
     }
     
-    static func twoVowelsNoRules5(word:String)->Bool{
+    private func twoVowelsNoRules5(word:String)->Bool{
         return LetterAnalyzer.matchAnyPosition(word: word, targets: ["augh"])
     }
 }

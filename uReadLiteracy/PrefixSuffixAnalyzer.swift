@@ -19,6 +19,21 @@ class PrefixSuffixAnalyzer{
         self.title = title
     }
     
+    static func getAll()->[URLRequest]{
+        let urls = ["https://www.youtube.com/watch?v=N5Qu7Qlf_eI",
+                    "https://www.youtube.com/watch?v=q1-h63fewUc",
+                    "https://www.youtube.com/watch?v=uu7OYa-itDQ",
+                    "https://www.youtube.com/watch?v=IK8m-5JQmso",
+                    "https://www.youtube.com/watch?v=ZOJrjNR7ZZM&list=PLKWZExqfRWNr4BCEZ7q5okLfjJPOylFLN"
+                    ]
+        
+        var urlRequestList = [URLRequest]()
+        for url in urls{
+            urlRequestList.append(StringToUrlRequest.get(url: url))
+        }
+        return urlRequestList
+    }
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word

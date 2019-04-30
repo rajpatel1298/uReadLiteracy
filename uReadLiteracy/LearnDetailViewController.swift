@@ -21,6 +21,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     fileprivate var sectionExpanded:[String:Bool] = [:]
     
     private var definition = ""
+    
     private let DEFINITION_COUNT = 1
     private let HEADER_HEIGHT:CGFloat = 50
     
@@ -51,7 +52,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             
             guard let dictionaryWord = dictionaryWord else{
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Cannot Load Help Word", message: "Sorry, Please Try Again", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Cannot Load Help Word", message: "Sorry, Please Try Again!", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (_) in
                         strongself.dismiss(animated: true, completion: nil)
                     }))

@@ -18,6 +18,26 @@ class ShortVowelSoundAnalyzer{
         self.title = title
     }
     
+    static func getAll()->[URLRequest]{
+        let urls = ["https://www.youtube.com/watch?v=H2aqKNc00Vc",
+                    "https://www.youtube.com/watch?v=UQkPO3qpUCg",
+                    //
+            "https://www.youtube.com/watch?v=17lyXMgkk9E",
+            //
+            "https://www.youtube.com/watch?v=4QRop-G9hw8",
+            //
+            "https://www.youtube.com/watch?v=ZY1ZRuEcah4",
+            //
+            "https://www.youtube.com/watch?v=UQkPO3qpUCg"]
+        
+        var urlRequestList = [URLRequest]()
+        for url in urls{
+            urlRequestList.append(StringToUrlRequest.get(url: url))
+        }
+        return urlRequestList
+    }
+    
+    
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word
