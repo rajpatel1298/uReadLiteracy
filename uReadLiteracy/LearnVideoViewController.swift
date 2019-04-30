@@ -20,7 +20,6 @@ class LearnVideoViewController: UIViewController,UITableViewDataSource,UITableVi
     func inject(wordCategory:WordCategory){
         self.wordCategory = wordCategory
         loadUrls()
-        tableview.reloadData()
     }
     
     private func loadUrls(){
@@ -62,8 +61,14 @@ class LearnVideoViewController: UIViewController,UITableViewDataSource,UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "DynamicVideoTableViewCell") as! DynamicVideoTableViewCell
-        cell.urlrequest = urls[indexPath.row]
+        cell.webview.load(urls[indexPath.row])
         return cell
+    }
+    
+
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
     }
     
 
@@ -71,6 +76,11 @@ class LearnVideoViewController: UIViewController,UITableViewDataSource,UITableVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableview.reloadData()
     }
     
 

@@ -37,9 +37,19 @@ class LearnViewController: UIViewController{
         add(learnWordController)
         
         learnVideoCategoryController = (storyboard!.instantiateViewController(withIdentifier: "LearnVideoCategoryViewController") as! LearnVideoCategoryViewController)
+        learnVideoCategoryController.inject(delegate: self)
         add(learnVideoCategoryController)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        learnWordController.view.frame = containerView.frame
+        learnVideoCategoryController.view.frame = containerView.frame
+    }
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        setupUIBasedOnSegmentedControl()
+    }
     private func setupUIBasedOnSegmentedControl(){
         if segmentedControl.selectedSegmentIndex == 0{
             learnWordController.view.isHidden = false
@@ -51,6 +61,8 @@ class LearnViewController: UIViewController{
             
             if(helpWords.count == 0){
                 noResultController.view.isHidden = false
+                view.bringSubview(toFront: noResultController.view)
+                view.bringSubview(toFront: segmentedControl)
                 noResultController.animationView.play()
                 learnWordController.hideTableView()
             }

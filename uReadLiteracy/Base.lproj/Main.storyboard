@@ -954,17 +954,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFD-iL-CwH">
-                                <rect key="frame" x="16" y="523" width="343" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="USm-o5-pvp"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="112" width="343" height="431"/>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Flh-Q6-sZI">
                                 <rect key="frame" x="16" y="74" width="343" height="29"/>
                                 <segments>
                                     <segment title="Words"/>
-                                    <segment title="Video"/>
+                                    <segment title="Videos"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="zRI-oM-XZu" eventType="valueChanged" id="jyT-u2-c3H"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -974,6 +974,7 @@
                             <constraint firstItem="Flh-Q6-sZI" firstAttribute="leading" secondItem="Gwx-WJ-wP6" secondAttribute="leadingMargin" id="H59-si-Cr1"/>
                             <constraint firstItem="Flh-Q6-sZI" firstAttribute="top" secondItem="vHf-mj-b8q" secondAttribute="bottom" constant="10" id="PY7-Kk-zk6"/>
                             <constraint firstItem="eoF-eY-cjQ" firstAttribute="top" secondItem="UFD-iL-CwH" secondAttribute="bottom" id="XA1-ad-tao"/>
+                            <constraint firstItem="UFD-iL-CwH" firstAttribute="top" secondItem="Flh-Q6-sZI" secondAttribute="bottom" constant="10" id="jKx-XG-ECf"/>
                             <constraint firstItem="UFD-iL-CwH" firstAttribute="leading" secondItem="Gwx-WJ-wP6" secondAttribute="leadingMargin" id="odE-4L-sBw"/>
                         </constraints>
                     </view>
@@ -1935,6 +1936,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OX7-qM-dM0" id="7ce-ym-acV"/>
+                                    <outlet property="delegate" destination="OX7-qM-dM0" id="4uK-Ng-4tc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
