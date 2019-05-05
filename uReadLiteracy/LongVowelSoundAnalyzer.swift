@@ -96,7 +96,7 @@ class LongVowelSoundAnalyzer{
     private func addIorOWithTwoConsonants(){
         var urlRequestList = [URLRequest]()
         
-        if(IorOWithTwoConsonants()){
+        if(IorOWithTwoConsonants() && !LetterAnalyzer.matchAnyPosition(word: word, targets: ["oo"])){
             let request = StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=bmTgHABs-_c")
             urlRequestList.append(request)
         }
@@ -113,7 +113,6 @@ class LongVowelSoundAnalyzer{
     //I or O +two consonants= long vowel (kind, find, pint, Christ, climb, most, post, gold, sold, comb
     private func IorOWithTwoConsonants()->Bool{
         if(word.count >= 3){
-            
             if(word[word.count-3] == "i" || word[word.count-3] == "o" ){
                 if(LetterAnalyzer.isConsonant(letter: word[word.count-2]) && LetterAnalyzer.isConsonant(letter: word[word.count-1])){
                     return true

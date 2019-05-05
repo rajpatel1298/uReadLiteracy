@@ -24,7 +24,7 @@ class LetterAnalyzer{
     static func matchAnyPosition(word:String, targets:[String])->Bool{
         for target in targets{
             if(word.count >= target.count){
-                for i in 0...(target.count-1){
+                for i in 0...(word.count - target.count){
                     if(word[i...(i+target.count-1)] == target){
                         return true
                     }
