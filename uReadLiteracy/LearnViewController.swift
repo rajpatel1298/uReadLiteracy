@@ -17,7 +17,7 @@ class LearnViewController: UIViewController{
     @IBOutlet weak var containerView: UIView!
     
     fileprivate var selectedHelpWord = HelpWordModel(word: "Nothing")
-    fileprivate var selectedWordCategory:WordCategory = WordCategory.LongVowels
+    fileprivate var selectedWordCategory:VideoCategory = VideoCategory.LongVowels
     
     private var noResultController:NoResultViewController!
     private var learnWordController:LearnWordViewController!
@@ -109,7 +109,7 @@ extension LearnViewController:LearnWordDelegate{
 }
 
 extension LearnViewController:LearnVideoCategoryDelegate{
-    func selected(category: WordCategory) {
+    func selected(category: VideoCategory) {
         self.selectedWordCategory = category
         performSegue(withIdentifier: "LearnToLearnVideoSegue", sender: self)
     }

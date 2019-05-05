@@ -14,10 +14,10 @@ class LearnVideoViewController: UIViewController,UITableViewDataSource,UITableVi
     @IBOutlet weak var tableview: UITableView!
     
     
-    private var wordCategory:WordCategory = WordCategory.LongVowels
+    private var wordCategory:VideoCategory = VideoCategory.LongVowels
     private var urls = [URLRequest]()
     
-    func inject(wordCategory:WordCategory){
+    func inject(wordCategory:VideoCategory){
         self.wordCategory = wordCategory
         loadUrls()
     }

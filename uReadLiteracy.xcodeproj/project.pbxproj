@@ -15,7 +15,7 @@
 		1C0186CE2277A645002C7F0C /* LearnVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186CD2277A645002C7F0C /* LearnVideoViewController.swift */; };
 		1C0186D02277A8C7002C7F0C /* LearnVideoCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186CF2277A8C7002C7F0C /* LearnVideoCategoryViewController.swift */; };
 		1C0186D22278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186D12278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift */; };
-		1C0186D42278AE86002C7F0C /* WordCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186D32278AE86002C7F0C /* WordCategory.swift */; };
+		1C0186D42278AE86002C7F0C /* VideoCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0186D32278AE86002C7F0C /* VideoCategory.swift */; };
 		1C10ED37224D81BA002D719F /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C10ED36224D81BA002D719F /* blockerList.json */; };
 		1C10ED39224D81BA002D719F /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */; };
 		1C10ED3D224D81BA002D719F /* AdBlock.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1C10ED34224D81B9002D719F /* AdBlock.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -296,7 +296,7 @@
 		1C0186CD2277A645002C7F0C /* LearnVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoViewController.swift; sourceTree = "<group>"; };
 		1C0186CF2277A8C7002C7F0C /* LearnVideoCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoCategoryViewController.swift; sourceTree = "<group>"; };
 		1C0186D12278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoCategoryDelegate.swift; sourceTree = "<group>"; };
-		1C0186D32278AE86002C7F0C /* WordCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCategory.swift; sourceTree = "<group>"; };
+		1C0186D32278AE86002C7F0C /* VideoCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCategory.swift; sourceTree = "<group>"; };
 		1C10ED34224D81B9002D719F /* AdBlock.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AdBlock.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C10ED36224D81BA002D719F /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		1C10ED38224D81BA002D719F /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
@@ -757,7 +757,7 @@
 				1CD1A274223EDC4100502A67 /* Dictionary */,
 				1CCC51052252B0CF00FA32FC /* HelpColor.swift */,
 				1C490EA62262A3F600DC5E74 /* WordAnalysisDetail.swift */,
-				1C0186D32278AE86002C7F0C /* WordCategory.swift */,
+				1C0186D32278AE86002C7F0C /* VideoCategory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1605,7 +1605,7 @@
 				1C0186D02277A8C7002C7F0C /* LearnVideoCategoryViewController.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* State.swift in Sources */,
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
-				1C0186D42278AE86002C7F0C /* WordCategory.swift in Sources */,
+				1C0186D42278AE86002C7F0C /* VideoCategory.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* CurrentUser.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,

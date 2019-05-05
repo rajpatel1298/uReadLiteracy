@@ -1,5 +1,5 @@
 //
-//  WordCategory.swift
+//  VideoCategory.swift
 //  uReadLiteracy
 //
 //  Created by Duy Le 2 on 4/30/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum WordCategory:String,CaseIterable{
+enum VideoCategory:String,CaseIterable{
     case LongVowels = "Long Vowel Sounds"
     case ShortVowels = "Short Vowel Sounds"
     case PrefixSuffix = "Prefixes and Suffixes"

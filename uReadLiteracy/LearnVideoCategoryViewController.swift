@@ -10,7 +10,7 @@ import UIKit
 
 class LearnVideoCategoryViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    private let categories = WordCategory.allCases
+    private let categories = VideoCategory.allCases
     private var delegate:LearnVideoCategoryDelegate?
     
     func inject(delegate:LearnVideoCategoryDelegate){

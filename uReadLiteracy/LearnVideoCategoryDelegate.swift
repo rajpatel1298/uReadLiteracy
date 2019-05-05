@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LearnVideoCategoryDelegate{
-    func selected(category:WordCategory)
+    func selected(category:VideoCategory)
 }
