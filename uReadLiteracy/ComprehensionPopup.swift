@@ -25,7 +25,7 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         super.init(frame: frame)
         setupDarkGrayBackground()
         
-        topBackgroundIV.image = #imageLiteral(resourceName: "book background")
+        topBackgroundIV.image = #imageLiteral(resourceName: "comprehensionpopup")
         addSubview(topBackgroundIV)
         
         setupPopupView()
