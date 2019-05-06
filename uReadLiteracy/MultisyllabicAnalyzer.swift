@@ -18,31 +18,31 @@ class MultisyllabicAnalyzer{
         self.title = title
     }
     
-    static func getAll()->[URLRequest]{
+    static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=vNR2xyrZVv0",
                     "https://www.youtube.com/watch?v=GDW0fwQoacc"
         ]
         
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         for url in urls{
-            urlRequestList.append(StringToUrlRequest.get(url: url))
+            videoHtmlList.append(YoutubeLink(url: url).getHtml())
         }
-        return urlRequestList
+        return videoHtmlList
     }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
         wordDetails.removeAll()
         self.word = word
         
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(multisyllabic()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=vNR2xyrZVv0"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=GDW0fwQoacc"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=vNR2xyrZVv0").getHtml())
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=GDW0fwQoacc").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            let detail = WordAnalysisDetail(title: title, detail: "This is a long word; this is called a multisyllabic word which means more than one syllable.  Long words, words with more than one syllable, can be hard to read, but if you learn the rules for breaking them up into parts, this will help.  Once you break a word into its parts (syllables), you should be able to use many other “learn more” videos to understand how to pronounce those parts.", urlRequests: urlRequestList)
+        if(videoHtmlList.count > 0){
+            let detail = WordAnalysisDetail(title: title, detail: "This is a long word; this is called a multisyllabic word which means more than one syllable.  Long words, words with more than one syllable, can be hard to read, but if you learn the rules for breaking them up into parts, this will help.  Once you break a word into its parts (syllables), you should be able to use many other “learn more” videos to understand how to pronounce those parts.", videoHtmlList: videoHtmlList)
             
             
             wordDetails.append(detail)

@@ -17,18 +17,18 @@ class RControlledVowelsAnalyzer{
         self.title = title
     }
     
-    static func getAll()->[URLRequest]{
+    static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=Q1bpT3YNN50",
                     "https://www.youtube.com/watch?v=eE2HFLDPPDc&list=PLfeIQSyt9YL2a6tgu8RA8bB3XS62l7l-M",
                     "https://www.youtube.com/watch?v=lNJGKrs8BGA",
             "https://www.youtube.com/watch?v=uMwCnSSMB-Q"
         ]
         
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         for url in urls{
-            urlRequestList.append(StringToUrlRequest.get(url: url))
+            videoHtmlList.append(YoutubeLink(url: url).getHtml())
         }
-        return urlRequestList
+        return videoHtmlList
     }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
@@ -42,22 +42,22 @@ class RControlledVowelsAnalyzer{
     // MARK: New Detail
     
     private func addRControlledVowels(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(isRControlledVowels()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=Q1bpT3YNN50"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=eE2HFLDPPDc&list=PLfeIQSyt9YL2a6tgu8RA8bB3XS62l7l-M"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=Q1bpT3YNN50").getHtml())
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=eE2HFLDPPDc&list=PLfeIQSyt9YL2a6tgu8RA8bB3XS62l7l-M").getHtml())
             
             if LetterAnalyzer.matchAnyPosition(word: word, targets: ["ir", "er", "ur"]){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=lNJGKrs8BGA"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=lNJGKrs8BGA").getHtml())
             }
             if LetterAnalyzer.matchAnyPosition(word: word, targets: ["or", "ar"]){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=uMwCnSSMB-Q"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=uMwCnSSMB-Q").getHtml())
             }
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has an “r controlled vowel.  When r comes after a vowel it sometimes changes the sound of the vowel so that it is neither a long or a short vowel sound.  This is called an “r controlled vowel”. The way the r changes the vowel sound is pretty much the same every time it is in “control” so it’s important to learn to recognize and know the sound of the r controlled vowel.", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has an “r controlled vowel.  When r comes after a vowel it sometimes changes the sound of the vowel so that it is neither a long or a short vowel sound.  This is called an “r controlled vowel”. The way the r changes the vowel sound is pretty much the same every time it is in “control” so it’s important to learn to recognize and know the sound of the r controlled vowel.", videoHtmlList: videoHtmlList))
         }
     }
     

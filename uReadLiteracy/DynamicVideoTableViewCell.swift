@@ -12,7 +12,7 @@ import WebKit
 class DynamicVideoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var webview: WKWebView!
-    var urlrequest:URLRequest!
+    var html:String!
     
     override func awakeFromNib() {
         super.awakeFromNib()

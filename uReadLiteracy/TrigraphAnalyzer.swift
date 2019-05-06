@@ -17,17 +17,17 @@ class TrigraphAnalyzer{
         self.title = title
     }
     
-    static func getAll()->[URLRequest]{
+    static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=SdKW5KuDy1c&list=PL39iO7KLUw2mDudL0VIf5yyZbBQJZ0rzA",
                     "https://www.youtube.com/watch?v=kibwDQpqtA4",
                     "https://www.youtube.com/watch?v=AqxALefV3DA"
         ]
         
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         for url in urls{
-            urlRequestList.append(StringToUrlRequest.get(url: url))
+            videoHtmlList.append(YoutubeLink(url: url).getHtml())
         }
-        return urlRequestList
+        return videoHtmlList
     }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
@@ -41,18 +41,18 @@ class TrigraphAnalyzer{
     // MARK: New Detail
     
     private func addTrigraph(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(isTrigraph()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=SdKW5KuDy1c&list=PL39iO7KLUw2mDudL0VIf5yyZbBQJZ0rzA"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=SdKW5KuDy1c&list=PL39iO7KLUw2mDudL0VIf5yyZbBQJZ0rzA").getHtml())
             if LetterAnalyzer.matchAnyPosition(word: word, targets: ["tch"]){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=kibwDQpqtA4"))
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=AqxALefV3DA"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=kibwDQpqtA4").getHtml())
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=AqxALefV3DA").getHtml())
             }
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a trigraph in it.  When three consonants or two consonants and a vowel are together in a word, they sometimes blend together to make a completely different sound where you don’t hear any letter separately on its own.  This is called a trigraph (tri means three).", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a trigraph in it.  When three consonants or two consonants and a vowel are together in a word, they sometimes blend together to make a completely different sound where you don’t hear any letter separately on its own.  This is called a trigraph (tri means three).", videoHtmlList: videoHtmlList))
         }
     }
     

@@ -18,7 +18,7 @@ class ShortVowelSoundAnalyzer{
         self.title = title
     }
     
-    static func getAll()->[URLRequest]{
+    static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=H2aqKNc00Vc",
                     "https://www.youtube.com/watch?v=UQkPO3qpUCg",
                     //
@@ -30,11 +30,11 @@ class ShortVowelSoundAnalyzer{
             //
             "https://www.youtube.com/watch?v=UQkPO3qpUCg"]
         
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         for url in urls{
-            urlRequestList.append(StringToUrlRequest.get(url: url))
+            videoHtmlList.append(YoutubeLink(url: url).getHtml())
         }
-        return urlRequestList
+        return videoHtmlList
     }
     
     
@@ -58,15 +58,15 @@ class ShortVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addShortE(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(shortE()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=H2aqKNc00Vc"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=UQkPO3qpUCg"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=H2aqKNc00Vc").getHtml())
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=UQkPO3qpUCg").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When e is the vowel, the short vowel sound is /eh/ as in bed.", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When e is the vowel, the short vowel sound is /eh/ as in bed.", videoHtmlList: videoHtmlList))
         }
     }
     
@@ -78,14 +78,14 @@ class ShortVowelSoundAnalyzer{
     //MARK: New Detail
     
     private func addShortU(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(shortU()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=17lyXMgkk9E"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=17lyXMgkk9E").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title:title, detail: "When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When u is the vowel, the short vowel sound is /uh/ as in cut.  Note that there are other ways to make the short u sound that you will learn about in other videos", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When u is the vowel, the short vowel sound is /uh/ as in cut.  Note that there are other ways to make the short u sound that you will learn about in other videos", videoHtmlList: videoHtmlList))
         }
     }
     
@@ -97,14 +97,14 @@ class ShortVowelSoundAnalyzer{
     //MARK: New Detail
     
     private func addShortO(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
 
         if(shortO()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=4QRop-G9hw8"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=4QRop-G9hw8").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When o is the vowel, the short vowel sound is /ah/ as in mop.", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When o is the vowel, the short vowel sound is /ah/ as in mop.", videoHtmlList: videoHtmlList))
         }
     }
     
@@ -116,14 +116,14 @@ class ShortVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addShortI(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(shortI()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=ZY1ZRuEcah4"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=ZY1ZRuEcah4").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When i is the vowel, the short vowel sound is /ih/ as in pin.", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When i is the vowel, the short vowel sound is /ih/ as in pin.", videoHtmlList: videoHtmlList))
         }
     }
     
@@ -135,14 +135,14 @@ class ShortVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addShortA(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(shortA()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=UQkPO3qpUCg"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=UQkPO3qpUCg").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When a is the vowel, the short vowel sound is /a/ as in cap.", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title:title, detail: "This word has a short vowel sound.  When words or syllables have a consonant-vowel-consonant pattern, they generally have a short vowel sound.  When a is the vowel, the short vowel sound is /a/ as in cap.", videoHtmlList: videoHtmlList))
         }
     }
     

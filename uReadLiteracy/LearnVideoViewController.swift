@@ -15,7 +15,7 @@ class LearnVideoViewController: UIViewController,UITableViewDataSource,UITableVi
     
     
     private var wordCategory:VideoCategory = VideoCategory.LongVowels
-    private var urls = [URLRequest]()
+    private var videoHtmlList = [String]()
     
     func inject(wordCategory:VideoCategory){
         self.wordCategory = wordCategory
@@ -25,43 +25,44 @@ class LearnVideoViewController: UIViewController,UITableViewDataSource,UITableVi
     private func loadUrls(){
         switch(wordCategory){
         case .LongVowels:
-            urls = LongVowelSoundAnalyzer.getAll()
+            videoHtmlList = LongVowelSoundAnalyzer.getAll()
             break
         case .ShortVowels:
-            urls = ShortVowelSoundAnalyzer.getAll()
+            videoHtmlList = ShortVowelSoundAnalyzer.getAll()
             break
         case .PrefixSuffix:
-            urls = PrefixSuffixAnalyzer.getAll()
+            videoHtmlList = PrefixSuffixAnalyzer.getAll()
             break
         case .Multisyllabic:
-            urls = MultisyllabicAnalyzer.getAll()
+            videoHtmlList = MultisyllabicAnalyzer.getAll()
             break
         case .ConsonantBlends:
-            urls = BlendAnalyzer.getAll()
+            videoHtmlList = BlendAnalyzer.getAll()
             break
         case .ConsonantDigraphs:
-            urls = ConsonantDigraphsAnalyzer.getAll()
+            videoHtmlList = ConsonantDigraphsAnalyzer.getAll()
             break
         case .Trigraph:
-            urls = TrigraphAnalyzer.getAll()
+            videoHtmlList = TrigraphAnalyzer.getAll()
             break
         case .RControlledVowels:
-            urls = RControlledVowelsAnalyzer.getAll()
+            videoHtmlList = RControlledVowelsAnalyzer.getAll()
             break
         case .Exceptions:
-            urls = OtherCasesWordAnalyzer.getAll()
+            videoHtmlList = OtherCasesWordAnalyzer.getAll()
             break
         }
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return urls.count
+        return videoHtmlList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "DynamicVideoTableViewCell") as! DynamicVideoTableViewCell
-        cell.webview.load(urls[indexPath.row])
+        cell.webview.loadHTMLString(videoHtmlList[indexPath.row], baseURL: nil)
+
         return cell
     }
     

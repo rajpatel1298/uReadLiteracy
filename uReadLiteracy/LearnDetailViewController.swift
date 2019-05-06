@@ -142,7 +142,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
         
         let sectionIndexWithoutDefinition = section - 1
         
-        return wordAnalysis +  wordDetails[sectionIndexWithoutDefinition].urlRequests.count
+        return wordAnalysis +  wordDetails[sectionIndexWithoutDefinition].videoHtmlList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -164,7 +164,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
                 let urlIndex =  (indexPath.row - 1)
                 
                 let cell = tableview.dequeueReusableCell(withIdentifier: "DynamicVideoTableViewCell") as! DynamicVideoTableViewCell
-                cell.urlrequest = detail.urlRequests[urlIndex]
+                cell.html = detail.videoHtmlList[urlIndex]
                 return cell
             }
         }
@@ -207,7 +207,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? DynamicVideoTableViewCell{
-            cell.webview.load(cell.urlrequest)
+            cell.webview.loadHTMLString(cell.html, baseURL: nil)
             cell.webview.scrollView.isScrollEnabled = false
         }
         if let cell = cell as? WordWithSpeakerTableViewCell{

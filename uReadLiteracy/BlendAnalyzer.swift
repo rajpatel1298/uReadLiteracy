@@ -17,17 +17,17 @@ class BlendAnalyzer{
         self.title = title
     }
     
-    static func getAll()->[URLRequest]{
+    static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=sYmwStHMezc",
                     "https://www.youtube.com/watch?v=_YfuGb8f7Jo",
                     "https://www.youtube.com/watch?v=sB2-mFb_O0E"
         ]
         
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         for url in urls{
-            urlRequestList.append(StringToUrlRequest.get(url: url))
+            videoHtmlList.append(YoutubeLink(url: url).getHtml())
         }
-        return urlRequestList
+        return videoHtmlList
     }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
@@ -41,22 +41,22 @@ class BlendAnalyzer{
     // MARK: New Detail
     
     private func addBlend(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if blend(){
             if LetterAnalyzer.matchBeginningLetters(word: word, targets: ["bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "dr", "pl", "sc", "sk", "sl", "sn", "sp", "st", "sw", "tr", "squ"]) || LetterAnalyzer.matchAnyPosition(word: word, targets: ["ng", "nk", "nt", "nd"]){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=sYmwStHMezc"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=sYmwStHMezc").getHtml())
             }
             if(LetterAnalyzer.matchBeginningLetters(word: word, targets: ["scr", "thr", "shr", "spl", "str"])){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=_YfuGb8f7Jo"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=_YfuGb8f7Jo").getHtml())
             }
             if LetterAnalyzer.matchBeginningLetters(word: word, targets: ["cr", "cl", "fr", "st", "fl", "sk", "sl", "sw", "str"]) || LetterAnalyzer.matchEndingLetters(word: word, targets: ["nk"]){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=sB2-mFb_O0E"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=sB2-mFb_O0E").getHtml())
             }
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant blend.  This means that when two consonants are together in a word, they sometimes blend together to make a sound in which you can hear each letter but they are smoothed out together.  The are called consonant blends.", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant blend.  This means that when two consonants are together in a word, they sometimes blend together to make a sound in which you can hear each letter but they are smoothed out together.  The are called consonant blends.", videoHtmlList: videoHtmlList))
         }
 
     }
@@ -67,7 +67,7 @@ class BlendAnalyzer{
         var counter = 0;
         //   string = string.lowercased()
         for char in word.enumerated() {
-            if ((counter == 1) && (isVowel(letter: char.element) || (char.element == "y" || char.element == "w"))){
+            if ((counter == 1) && (isVowel(letter: char.element) || (char.element == "y" || char.element == "w").getHtml())){
                 return true
             } else if(isVowel(letter: char.element)){
                 counter += 1

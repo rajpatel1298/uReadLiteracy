@@ -19,7 +19,7 @@ class LongVowelSoundAnalyzer{
         self.title = title
     }
     
-    static func getAll()->[URLRequest]{
+    static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=bmTgHABs-_c",
         "https://www.youtube.com/watch?v=qRVUULcS_xU",
         "https://www.youtube.com/watch?v=4QRop-G9hw8",
@@ -53,11 +53,11 @@ class LongVowelSoundAnalyzer{
         "https://www.youtube.com/watch?v=_vME18_vURk&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=9",
         "https://www.youtube.com/watch?v=hDJQM9XxsCc"]
         
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         for url in urls{
-            urlRequestList.append(StringToUrlRequest.get(url: url))
+            htmlList.append(YoutubeLink(url: url).getHtml())
         }
-        return urlRequestList
+        return htmlList
     }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
@@ -82,7 +82,7 @@ class LongVowelSoundAnalyzer{
         
         /*
          if(LongVowelSoundAnalyzer.twoVowelsNoRules5(word: word)){
-         getUrlRequest(url: "https://www.youtube.com/watch?v=m0tfFJm76hg")
+         getUrlRequest(url: "https://www.youtube.com/watch?v=m0tfFJm76hg").getHtml()
          }
          */
         
@@ -94,19 +94,20 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addIorOWithTwoConsonants(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(IorOWithTwoConsonants() && !LetterAnalyzer.matchAnyPosition(word: word, targets: ["oo"])){
-            let request = StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=bmTgHABs-_c")
-            urlRequestList.append(request)
+    
+            let request = YoutubeLink(url: "https://www.youtube.com/watch?v=bmTgHABs-_c").getHtml()
+            htmlList.append(request)
         }
         if singleVowel1(){
-            let request = StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=qRVUULcS_xU")
-            urlRequestList.append(request)
+            let request = YoutubeLink(url: "https://www.youtube.com/watch?v=qRVUULcS_xU").getHtml()
+            htmlList.append(request)
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a long vowel sound made by a single vowel in the middle or end of the word.  A long vowel sound says the name of the letter of the vowel. Sometimes this occurs when I or O is followed by two consonants (for example kind, find, pint, Christ, climb, most, post, gold, sold, comb).  The I  or the Y at the end of a word will sound long and say the name either of the letter I of the letter E. If you’re not sure which it is, try it both ways and decide which makes sense and sounds like a real word", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a long vowel sound made by a single vowel in the middle or end of the word.  A long vowel sound says the name of the letter of the vowel. Sometimes this occurs when I or O is followed by two consonants (for example kind, find, pint, Christ, climb, most, post, gold, sold, comb).  The I  or the Y at the end of a word will sound long and say the name either of the letter I of the letter E. If you’re not sure which it is, try it both ways and decide which makes sense and sounds like a real word", videoHtmlList: htmlList))
         }
     }
    
@@ -142,15 +143,15 @@ class LongVowelSoundAnalyzer{
     //MARK: New Detail
     
     private func addSingleVowel2(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if singleVowel2(){
-            let request = StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=4QRop-G9hw8")
-            urlRequestList.append(request)
+            let request = YoutubeLink(url: "https://www.youtube.com/watch?v=4QRop-G9hw8").getHtml()
+            htmlList.append(request)
         }
         
-        if(urlRequestList.count>0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has at least one long vowel sound, but it is made by a single vowel.  A long vowel sound says the name of the letter of the vowel.", urlRequests: urlRequestList))
+        if(htmlList.count>0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has at least one long vowel sound, but it is made by a single vowel.  A long vowel sound says the name of the letter of the vowel.", videoHtmlList: htmlList))
         }
     }
     
@@ -166,16 +167,16 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addConsonantVowelConsonantAndE(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if consonantVowelConsonantAndE(){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=c3oA4wfUBak"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=wJ2KpholmtE"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=aV0piUUlXec&index=2&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=c3oA4wfUBak").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=wJ2KpholmtE").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=aV0piUUlXec&index=2&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a long vowel sound because it has the letter pattern consonant-vowel-consonant-e.  A long vowel sound says the name of the letter of the vowel. When you see this pattern, it is usually a long vowel sound and that means it says its name.  Unfortunately, there are some exceptions to this.  This includes glove, love, have, live, give, active, inventive, olive, come, one, there, eye, are, done, any word that ends in -ve", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a long vowel sound because it has the letter pattern consonant-vowel-consonant-e.  A long vowel sound says the name of the letter of the vowel. When you see this pattern, it is usually a long vowel sound and that means it says its name.  Unfortunately, there are some exceptions to this.  This includes glove, love, have, live, give, active, inventive, olive, come, one, there, eye, are, done, any word that ends in -ve", videoHtmlList: htmlList))
         }
     }
     
@@ -208,15 +209,15 @@ class LongVowelSoundAnalyzer{
     //MARK: New Detail
     
     private func addConsonantAConsonantE(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(consonantAConsonantE()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=krad_5lR80M"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=8P4RJ3CXJFI"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=krad_5lR80M").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=8P4RJ3CXJFI").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + a + consonant + e pattern.  For this pattern, the a is a long vowel sound.  That means it says it’s name.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + a + consonant + e pattern.  For this pattern, the a is a long vowel sound.  That means it says it’s name.", videoHtmlList: htmlList))
         }
     }
     
@@ -239,13 +240,13 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addLongATwoVowels(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(longATwoVowels()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=iRuoRzU0MPE"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=iRuoRzU0MPE").getHtml())
         }
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "When  ai, ay, ea, eigh are together, they usually make a long a sound.  This means the sound is the same as how you pronounce the letter name a.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When  ai, ay, ea, eigh are together, they usually make a long a sound.  This means the sound is the same as how you pronounce the letter name a.", videoHtmlList: htmlList))
         }
     }
     
@@ -261,14 +262,14 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addLongOWithOA(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(longOWithOA(word: word)){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=_xYKYTf0JS8"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=_xYKYTf0JS8").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "When o and a are together, it usually makes a long o sound.  This means the sound is the same as how you pronounce the letter name o.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When o and a are together, it usually makes a long o sound.  This means the sound is the same as how you pronounce the letter name o.", videoHtmlList: htmlList))
         }
     }
     
@@ -282,14 +283,14 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addLongETwoVowels(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(longETwoVowels()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=iRuoRzU0MPE"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=AnmKkqRJ980"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=iRuoRzU0MPE").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=AnmKkqRJ980").getHtml())
         }
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "When ea, ee, or ey are together, they usually make a long e sound.  This means the sound is the same as how you pronounce the letter e.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When ea, ee, or ey are together, they usually make a long e sound.  This means the sound is the same as how you pronounce the letter e.", videoHtmlList: htmlList))
         }
     }
     
@@ -302,14 +303,14 @@ class LongVowelSoundAnalyzer{
     //MARK: New Detail
     
     private func addLongITwoVowels(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(longITwoVowels()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=WBwwcBRM3Rc"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=ObVaokd5vq4"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=WBwwcBRM3Rc").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=ObVaokd5vq4").getHtml())
         }
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "When ie and igh are together, they usally make a long I sound.  That means the sound is the same as how you pronounce the letter I.  But there are exceptions.  Piece, alien, field, chief, and thief make a long e sound which means the sound is the same how you pronounce the letter e.  When ei are together, they usually also make a long e sound.  If you’re not sure whether the word has a long I or a long E sound, try both out and decide which sounds like a real word and makes sense in the sentence.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When ie and igh are together, they usally make a long I sound.  That means the sound is the same as how you pronounce the letter I.  But there are exceptions.  Piece, alien, field, chief, and thief make a long e sound which means the sound is the same how you pronounce the letter e.  When ei are together, they usually also make a long e sound.  If you’re not sure whether the word has a long I or a long E sound, try both out and decide which sounds like a real word and makes sense in the sentence.", videoHtmlList: htmlList))
         }
     }
     
@@ -328,14 +329,14 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addLongIWithConsonantAndIConsonantE(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(longIWithConsonantAndIConsonantE()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=osbtOG5cz40"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=osbtOG5cz40").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + i + consonant + e pattern.  For this pattern, the i makes a long vowel sound.  This means the sound is the same as how you pronounce the letter name i.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + i + consonant + e pattern.  For this pattern, the i makes a long vowel sound.  This means the sound is the same as how you pronounce the letter name i.", videoHtmlList: htmlList))
         }
     }
     
@@ -348,13 +349,13 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addLongOWithConsonantOConsonantE(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(longOWithConsonantOConsonantE()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=SUp-nnGusvk"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=SUp-nnGusvk").getHtml())
         }
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + o + consonant + e pattern.  For this pattern, the o makes a long vowel sound.  This means the sound is the same as how you pronounce the letter name o.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant + o + consonant + e pattern.  For this pattern, the o makes a long vowel sound.  This means the sound is the same as how you pronounce the letter name o.", videoHtmlList: htmlList))
         }
     }
     
@@ -366,14 +367,14 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addLongOTwoVowels(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(longOTwoVowels()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=l2nH1KfOVXA"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=l2nH1KfOVXA").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "When words have oa, oo, oe, or ow, the sound is often a long o sound which means the sound is the same as how you pronounce the letter name o.  There are some exceptions like canoe, shoe, cow, sow, plow, brow.  If you’re not sure which sound the o makes, oo like show or o like boat, try both out and see which one makes sense in the sentence and sounds like a real word.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When words have oa, oo, oe, or ow, the sound is often a long o sound which means the sound is the same as how you pronounce the letter name o.  There are some exceptions like canoe, shoe, cow, sow, plow, brow.  If you’re not sure which sound the o makes, oo like show or o like boat, try both out and see which one makes sense in the sentence and sounds like a real word.", videoHtmlList: htmlList))
         }
     }
     
@@ -393,15 +394,15 @@ class LongVowelSoundAnalyzer{
     //MARK: New Detail
     
     private func addLongUTwoVowels(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(longUTwoVowels()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=J_s1eBCtaiI"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=acLppUOFs3w"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=J_s1eBCtaiI").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=acLppUOFs3w").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "When words have ew, ue, ui, and oo, the sound is often a long u sound which means the sound is the same as how you pronounce the letter name u.  There are some exceptions like book, look, and shook.  Words that have a consonant + u + consonant = e pattern also have a long u sound that sounds like oo as in moon or the way you say the letter us.  Sometimes when a words starts with u, it has a long u sound.  If you’re not sure which sound the u is making try out the possibilities and see which one makes sense in the sentence and sounds like a real word.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When words have ew, ue, ui, and oo, the sound is often a long u sound which means the sound is the same as how you pronounce the letter name u.  There are some exceptions like book, look, and shook.  Words that have a consonant + u + consonant = e pattern also have a long u sound that sounds like oo as in moon or the way you say the letter us.  Sometimes when a words starts with u, it has a long u sound.  If you’re not sure which sound the u is making try out the possibilities and see which one makes sense in the sentence and sounds like a real word.", videoHtmlList: htmlList))
         }
     }
     
@@ -420,20 +421,20 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addTwoVowelsNoRules1(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(twoVowelsNoRules1()){
             if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["oi"])){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=EMdtke9HZVE"))
+                htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=EMdtke9HZVE").getHtml())
             }
             if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["oi","oy"])){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=EtPpSYDsVZs"))
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=cdI7fycHg1k"))
+                htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=EtPpSYDsVZs").getHtml())
+                htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=cdI7fycHg1k").getHtml())
             }
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "Although the usual rule when two vowels are together is that the first vowel is pronounced with that letters long vowel sound. But au, aw, ou, ow, oi, oy and some words like bread and book break this rule.  They are consonant blends that do not have long vowel sounds.  Each has its own sound.  If you’re not sure if the first vowel is long rule applies try it out and see if it sounds right and fits in the sentence that way.  If not try some other possible sounds.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "Although the usual rule when two vowels are together is that the first vowel is pronounced with that letters long vowel sound. But au, aw, ou, ow, oi, oy and some words like bread and book break this rule.  They are consonant blends that do not have long vowel sounds.  Each has its own sound.  If you’re not sure if the first vowel is long rule applies try it out and see if it sounds right and fits in the sentence that way.  If not try some other possible sounds.", videoHtmlList: htmlList))
         }
     }
     
@@ -451,16 +452,16 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addTwoVowelsNoRules2(){
-        var urlRequestList = [URLRequest]()
+        var htmlList = [String]()
         
         if(twoVowelsNoRules2()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=7fb3Pdt8kxg"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=k-n_LHGseNk"))
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=10m4ujzFVqc"))
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=7fb3Pdt8kxg").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=k-n_LHGseNk").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=10m4ujzFVqc").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "Many times when two vowels are together, the second one is silent and the first one makes the long vowel sound of that letter.  So, for example, when oa are together, often times, the word will have a long o sound which means it will have the sound of saying the letter o.  A lot of times people will describe this as ‘when two vowels go walking, the first one does the talking.", urlRequests: urlRequestList))
+        if(htmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "Many times when two vowels are together, the second one is silent and the first one makes the long vowel sound of that letter.  So, for example, when oa are together, often times, the word will have a long o sound which means it will have the sound of saying the letter o.  A lot of times people will describe this as ‘when two vowels go walking, the first one does the talking.", videoHtmlList: htmlList))
         }
     }
     
@@ -473,24 +474,24 @@ class LongVowelSoundAnalyzer{
     // MARK: New Detail
     
     private func addOO(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(twoVowelsNoRules3()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=_vME18_vURk&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=9"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=_vME18_vURk&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=9").getHtml())
         }
             
         else if(twoVowelsNoRules4()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=hDJQM9XxsCc"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=hDJQM9XxsCc").getHtml())
         }
         else{
             if(OO()){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=_vME18_vURk&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=9"))
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=hDJQM9XxsCc"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=_vME18_vURk&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=9").getHtml())
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=hDJQM9XxsCc").getHtml())
             }
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "When two o’s are together they can make one of two sounds; neither one is exactly a long or a short o sound.  It can be ooh as in boot or uh as in book.  There isn’t an easy way to know which way to pronounce the o sound in this case.  Try both and see which one makes sense in the sentence or sounds like a real word.", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "When two o’s are together they can make one of two sounds; neither one is exactly a long or a short o sound.  It can be ooh as in boot or uh as in book.  There isn’t an easy way to know which way to pronounce the o sound in this case.  Try both and see which one makes sense in the sentence or sounds like a real word.", videoHtmlList: videoHtmlList))
         }
     }
     

@@ -16,7 +16,7 @@ class OtherCasesWordAnalyzer{
         self.title = title
     }
     
-    static func getAll()->[URLRequest]{
+    static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=XmVqgrmfslg",
                     "https://www.youtube.com/watch?v=m0tfFJm76hg",
                     "https://www.youtube.com/watch?v=m0tfFJm76hg",
@@ -26,11 +26,11 @@ class OtherCasesWordAnalyzer{
             "https://www.youtube.com/watch?v=xZApEBQOHSQ",
         ]
         
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         for url in urls{
-            urlRequestList.append(StringToUrlRequest.get(url: url))
+            videoHtmlList.append(YoutubeLink(url: url).getHtml())
         }
-        return urlRequestList
+        return videoHtmlList
     }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
@@ -46,32 +46,32 @@ class OtherCasesWordAnalyzer{
     // MARK: New Detail
     
     private func addExceptionAnalyze(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(exceptionAnalyze()){
             if(["through", "thought", "though"].contains(word)){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=XmVqgrmfslg"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=XmVqgrmfslg").getHtml())
             }
             if LetterAnalyzer.matchAnyPosition(word: word, targets: ["ough" ,"augh"]){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=m0tfFJm76hg"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=m0tfFJm76hg").getHtml())
                 if LetterAnalyzer.matchAnyPosition(word: word, targets: ["augh"]){
-                    urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=m0tfFJm76hg"))
+                    videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=m0tfFJm76hg").getHtml())
                     
                 }
                 if LetterAnalyzer.matchAnyPosition(word: word, targets: ["ough"]){
-                    urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=QAFWtKePJ80"))
+                    videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=QAFWtKePJ80").getHtml())
                 }
                 
                 if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["ou","ow"])){
                     if(!LetterAnalyzer.matchAnyPosition(of: word, numberOfLetters: 4, in: ["ough"])){
-                        urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=3Uz9U7YhmCw"))
+                        videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=3Uz9U7YhmCw").getHtml())
                     }
                 }
             }
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word doesn’t follow an easy rule for pronouncing it.  In English some words just don’t follow the rules.  These videos point some of these out.  The best way to learn them is to just get used to recognizing the patterns the describe", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word doesn’t follow an easy rule for pronouncing it.  In English some words just don’t follow the rules.  These videos point some of these out.  The best way to learn them is to just get used to recognizing the patterns the describe", videoHtmlList: videoHtmlList))
         }
     }
     
@@ -99,14 +99,14 @@ class OtherCasesWordAnalyzer{
     // MARK: New Detail
     
     private func addUnusualConsonantPronunciation(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(unusualConsonantPronunciation()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=xZApEBQOHSQ"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=xZApEBQOHSQ").getHtml())
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has an unusual consonant sound.  Sometimes the /sh/ sound as in shoe is made with unusual letter combinations like ch, s, cean, cial.  The only way to learn when this sh sound is made is to learn to recognize the words that have this.  Sometimes it can really help, when you can’t get the word using what you know about sounds, to think about what you know about what would make sense in the sentence along with the word sound information you do have.  So for example if you see the word sugar and you don’t recognize that the s makes a sh sound, say the s sound.  From the rest of the sentence plus the slightly weird pronounciation, you’ll probably get it", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has an unusual consonant sound.  Sometimes the /sh/ sound as in shoe is made with unusual letter combinations like ch, s, cean, cial.  The only way to learn when this sh sound is made is to learn to recognize the words that have this.  Sometimes it can really help, when you can’t get the word using what you know about sounds, to think about what you know about what would make sense in the sentence along with the word sound information you do have.  So for example if you see the word sugar and you don’t recognize that the s makes a sh sound, say the s sound.  From the rest of the sentence plus the slightly weird pronounciation, you’ll probably get it", videoHtmlList: videoHtmlList))
         }
     }
     

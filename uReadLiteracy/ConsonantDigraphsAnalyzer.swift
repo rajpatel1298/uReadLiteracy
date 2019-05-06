@@ -17,16 +17,16 @@ class ConsonantDigraphsAnalyzer{
         self.title = title
     }
     
-    static func getAll()->[URLRequest]{
+    static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=XUoRQiZqI6E",
                     "https://www.youtube.com/watch?v=M7iSFjbAg8c"
         ]
         
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         for url in urls{
-            urlRequestList.append(StringToUrlRequest.get(url: url))
+            videoHtmlList.append(YoutubeLink(url: url).getHtml())
         }
-        return urlRequestList
+        return videoHtmlList
     }
     
     func getDetails(word:String)->[WordAnalysisDetail]{
@@ -40,17 +40,17 @@ class ConsonantDigraphsAnalyzer{
     // MARK: New Detail
     
     private func addConsonantDigraphs(){
-        var urlRequestList = [URLRequest]()
+        var videoHtmlList = [String]()
         
         if(isConsonantDigraphs()){
-            urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=XUoRQiZqI6E"))
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=XUoRQiZqI6E").getHtml())
             if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["ph"])){
-                urlRequestList.append(StringToUrlRequest.get(url: "https://www.youtube.com/watch?v=M7iSFjbAg8c"))
+                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=M7iSFjbAg8c").getHtml())
             }
         }
         
-        if(urlRequestList.count > 0){
-            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant digraph.  This means that when two consonants are together in a word, they sometimes blend together to make a completely different sound where you don’t hear either letter.  There are also some cases where two consonants are together, but only one is pronounced.", urlRequests: urlRequestList))
+        if(videoHtmlList.count > 0){
+            wordDetails.append(WordAnalysisDetail(title: title, detail: "This word has a consonant digraph.  This means that when two consonants are together in a word, they sometimes blend together to make a completely different sound where you don’t hear either letter.  There are also some cases where two consonants are together, but only one is pronounced.", videoHtmlList: videoHtmlList))
         }
     }
     

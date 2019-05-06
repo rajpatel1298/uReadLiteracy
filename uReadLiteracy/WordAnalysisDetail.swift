@@ -10,12 +10,12 @@ import Foundation
 
 struct WordAnalysisDetail{
     let detail:String
-    let urlRequests:[URLRequest]
+    let videoHtmlList:[String]
     let title:String
     
-    init(title:String,detail:String, urlRequests:[URLRequest]){
+    init(title:String,detail:String, videoHtmlList:[String]){
         self.detail = detail
-        self.urlRequests = urlRequests
+        self.videoHtmlList = videoHtmlList
         self.title = title
     }
 }
