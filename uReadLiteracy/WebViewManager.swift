@@ -121,6 +121,8 @@ class WebViewManager:ScrollObserver{
     
     
     private func highlightWord(word:String,color:HelpColor, completion:@escaping (_ err:Error?)->Void){
+        
+        
         let startSearch = "uiWebview_HighlightAllOccurencesOfString('\(word)','\(color.rawValue)')"
         
         webView.evaluateJavaScript(startSearch) { (result2, err2) in
@@ -146,6 +148,7 @@ class WebViewManager:ScrollObserver{
     }
     
     private func removeHighlights(completion:@escaping (_ err:Error?)->Void){
+        injectJS()
         let removeHighlights = "uiWebview_RemoveAllHighlights()"
         webView.evaluateJavaScript(removeHighlights) {  (_, removeErr) in
             

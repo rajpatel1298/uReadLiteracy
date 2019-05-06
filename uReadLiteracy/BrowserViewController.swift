@@ -34,8 +34,10 @@ class BrowserViewController: UIViewController{
     fileprivate var player:AVAudioPlayer!
     var alerts:BrowserAlerts!
     fileprivate var articleReadingStopwatch:ArticleReadingStopwatch!
-    
+
     fileprivate var scrollSubject = ScrollSubject()
+    
+    
     
     func inject(article:ArticleModel){
         currentArticle = article
@@ -228,9 +230,17 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
         
         articleReadingStopwatch.start()
         
-        webviewManager.highlightHelpWords { (err) in
+        webviewManager.highlightHelpWords {[weak self] (err) in
             if(err != nil){
-                fatalError(err.debugDescription)
+                guard let strongself = self else{
+                    return
+                }
+                strongself.webviewManager.highlightHelpWords { (err2) in
+                    if(err2 != nil){
+                        //fatalError(err.debugDescription)
+                    }
+                }
+                //fatalError(err.debugDescription)
             }
         }
     }

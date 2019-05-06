@@ -20,14 +20,20 @@ class BrowserLogicController{
     func helpFunction(webView: WKWebviewWithHelpMenu, completionHandler:@escaping (_ state:State,_ error:HelpFunctionError?, _ word:HelpWordModel?)->Void){
         
         webView.evaluateJavaScript("window.getSelection().toString()", completionHandler: {
-            (selectedWord: Any?, error: Error?) in
+            [weak self](selectedWord: Any?, error: Error?) in
+            
+            guard let strongself = self else{
+                return
+            }
             
             guard var word = selectedWord as? String else{
                 return
             }
-            word = word.lowercased().replacingOccurrences(of: " ", with: "")
+            word = word.lowercased()
+            word = strongself.removeSpecialCharsFromString(text: word)
+            word = word.replacingOccurrences(of: " ", with: "")
             
-            if(self.onlyOneWordIsSelected(word: word)){
+            if(strongself.onlyOneWordIsSelected(word: word)){
                 var helpWord:HelpWordModel!
                 
                 let list:[HelpWordModel] = CoreDataGetter.shared.getList()
@@ -54,10 +60,22 @@ class BrowserLogicController{
         })
     }
     private func onlyOneWordIsSelected(word:String)->Bool{
+        if(word.isEmpty){
+            return false
+        }
         if((word.split(separator: " ").count) > 1 || word.split(separator: " ").count == 0){
             return false
         }
         return true
+    }
+    
+    private func removeSpecialCharsFromString(text: String) -> String {
+        let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ")
+        let characters =  text.filter { (char) -> Bool in
+            return okayChars.contains(char)
+        }
+        
+        return String(characters)
     }
     
     func updateDataWhenFinishReadingArticle(articleReadingStopwatch:ArticleReadingStopwatch){
