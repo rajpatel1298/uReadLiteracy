@@ -220,13 +220,21 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
         
         
         TopToolBarViewController.shared.showPreviousCommentRecordBtn()
-        popupManager.setMaxYOffset(newValue: CGFloat(webviewManager.getMaxOffset()))
+        
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         actitvityIndicator.stopAnimating()
         webView.scrollView.isScrollEnabled = true
-        webviewManager.setMaxOffset()
+        webviewManager.setMaxOffset {[weak self] (err) in
+            if err == nil{
+                guard let strongself = self else{
+                    return
+                }
+                strongself.popupManager.setMaxYOffset(newValue: CGFloat(strongself.webviewManager.getMaxOffset()))
+            }
+        }
+        
         
         articleReadingStopwatch.start()
         

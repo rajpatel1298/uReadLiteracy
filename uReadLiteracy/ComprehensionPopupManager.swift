@@ -11,9 +11,6 @@ import UIKit
 
 class ComprehensionPopupManager:ScrollObserver{
     
-    
-    
-    
     private var maxYOffset:CGFloat!
     private var popupModels:[ComprehensionPopupModel]!
     
@@ -45,20 +42,6 @@ class ComprehensionPopupManager:ScrollObserver{
     init(popupModels:[ComprehensionPopupModel]){
         self.popupModels = popupModels
         maxYOffset = 1
-        
-        popup.setupClosure(onAccept: { (answer) in
-            print("answer for now: \(answer)")
-        }, onSkip: {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: self.popup.animationDuration, animations: {
-                    self.popup.alpha = 0
-                }, completion: { (completed) in
-                    if completed{
-                        self.popup.removeFromSuperview()
-                    }
-                })
-            }
-        })
     }
     
     func isPopupShowing()->Bool{

@@ -12,7 +12,7 @@ import UIKit
 class AnswerButton:RoundedButton{
     override func layoutSubviews() {
         super.layoutSubviews()
-        setTitle("Answer", for: .normal)
+        setTitle("OK", for: .normal)
         setTitleColor(UIColor.white, for: .normal)
         backgroundColor = UIColor.init(red: 255/255, green: 140/255, blue: 0/255, alpha: 1)
     }
