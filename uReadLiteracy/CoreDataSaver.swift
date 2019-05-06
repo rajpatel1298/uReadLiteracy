@@ -22,27 +22,6 @@ class CoreDataSaver{
         managedContext.automaticallyMergesChangesFromParent = true
     }
     
-    
-    
-    func save(articleModel:ArticleModel){
-        let model:ArticleCD? = CoreDataGetter.shared.find(url: articleModel.url)
-        
-        if(model == nil){
-            let articleEntity = NSEntityDescription.entity(forEntityName: "ArticleCD", in: managedContext)!
-            let articleObject = NSManagedObject(entity: articleEntity, insertInto: managedContext)
-            
-            articleObject.setValue(articleModel.name, forKeyPath: "name")
-            articleObject.setValue(articleModel.readCount, forKeyPath: "readCount")
-            articleObject.setValue(articleModel.url, forKeyPath: "url")
-        }
-        else{
-            model?.name = articleModel.name
-            model?.readCount = articleModel.readCount
-        }
-        
-        save()
-    }
-    
     func save(audioRecordModel:AudioRecordModel){
         let model:AudioRecordCD? = nil
         
@@ -64,17 +43,24 @@ class CoreDataSaver{
     }
     
     func save(helpModel:HelpWordModel){
-        let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
+        if(helpModel.timesAsked < 0){
+            helpModel.timesAsked = 0
+        }
         
-        let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
-        
-        helpModel.getWordDifficultyIfNil()
-        
-        wordObject.setValue(helpModel.word, forKeyPath: "word")
-        wordObject.setValue(helpModel.beginningDifficult, forKeyPath: "beginningDifficult")
-        wordObject.setValue(helpModel.endingDifficult, forKeyPath: "endingDifficult")
-        wordObject.setValue(helpModel.blendDifficult, forKeyPath: "blendDifficult")
-        wordObject.setValue(helpModel.multisyllabicDifficult, forKeyPath: "multisyllabicDifficult")
+        let model:HelpWordCD? = CoreDataGetter.shared.find(helpWord: helpModel.word)
+        if(model == nil){
+            let wordEntity = NSEntityDescription.entity(forEntityName: "HelpWordCD", in: managedContext)!
+            
+            let wordObject = NSManagedObject(entity: wordEntity, insertInto: managedContext)
+    
+            wordObject.setValue(helpModel.word, forKeyPath: "word")
+            wordObject.setValue(helpModel.timesAsked, forKeyPath: "timesAsked")
+            wordObject.setValue(helpModel.askedLastArticle, forKey: "askedLastArticle")
+        }
+        else{
+            model?.timesAsked = Int16(helpModel.timesAsked)
+            model?.askedLastArticle = helpModel.askedLastArticle
+        }
         
         save()
     }
@@ -87,22 +73,16 @@ class CoreDataSaver{
         
         let model:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType: goalModel.goalType)
         
-        let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
-        
         if(model == nil){
+            let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
             object.setValue(goalModel.name, forKeyPath: "name")
             object.setValue(goalModel.progress, forKeyPath: "progress")
             object.setValue(goalModel.goalType.rawValue, forKeyPath: "goalType")
             object.setValue(goalModel.date, forKeyPath: "date")
             object.setValue(goalModel.numberOfArticles, forKeyPath: "numberOfArticles")
-            
-            let articles = ArticleManager.shared.getUrls(articles: goalModel.articles)
-            
-            object.setValue(articles, forKeyPath: "articles")
         }
         else{
-            model?.articles = ArticleManager.shared.getUrls(articles: goalModel.articles) as NSObject
             model?.progress = Int16(goalModel.progress)
         }
         

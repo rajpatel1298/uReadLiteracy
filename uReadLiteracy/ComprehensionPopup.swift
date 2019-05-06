@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 
 class ComprehensionPopup:UIView,UITextViewDelegate{
-    
-    
-    fileprivate var onAccept:((_ answer:String)->Void)?
-    fileprivate var onSkip:(()->Void)?
-    
     fileprivate var answer = ""
     let animationDuration = TimeInterval(0.5)
     
@@ -23,7 +18,7 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
     fileprivate let popupViewBackground = UIView(frame: .zero)
     
     fileprivate let darkBackground = CALayer()
-    fileprivate var questionLabel:QuestionLabel!
+    fileprivate var questionLabel = QuestionLabel()
     
     private var questionsList = ["Is this fiction (made up) or non-fiction (true, facts)?",
                                  "What’s interesting to me about this?  Why do I want to read it?",
@@ -55,38 +50,44 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         let XPadding:CGFloat = 20
         let YPadding:CGFloat = 10
         
-        topBackgroundIV.frame = CGRect(x: XMid-popupWidth/2, y: YMid - popupHeight/2 , width: popupWidth, height: popupHeight*2/5)
+        topBackgroundIV.frame = CGRect(x: XMid-popupWidth/2, y: YMid - popupHeight/2 , width: popupWidth, height: popupHeight/2)
         
        // topBackgroundIV.contentMode = .scaleAspectFill
         darkBackground.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         
         
-        let popViewFrame = CGRect(x: XMid-popupWidth/2 + XPadding, y: topBackgroundIV.frame.origin.y + topBackgroundIV.frame.height, width: popupWidth - XPadding*2, height: popupHeight*2/3)
+        let popViewFrame = CGRect(x: XMid-popupWidth/2 + XPadding, y: topBackgroundIV.frame.origin.y + topBackgroundIV.frame.height, width: popupWidth - XPadding*2, height: popupHeight/3)
         
         popupView.frame = popViewFrame
         
+        questionLabel.frame = CGRect(x: popupView.frame.origin.x, y: popupView.frame.origin.y, width: popupView.frame.width, height: popupView.frame.height/2)
+        questionLabel.text = "No Question Available"
+        popupView.addArrangedSubview(questionLabel)
         
-        let popViewBackgroundFrame = CGRect(x: XMid-popupWidth/2 , y: topBackgroundIV.frame.origin.y +  topBackgroundIV.frame.height, width: popupWidth, height: popupHeight*3/5 + YPadding)
+        let answerBtn = AnswerButton()
+        answerBtn.frame = CGRect(x: popupView.frame.origin.x, y: popupView.frame.origin.y + questionLabel.frame.height, width: popupView.frame.width, height: popupView.frame.height/2)
+        
+        answerBtn.addTarget(self, action: #selector(acceptBtnPressed), for: .touchDown)
+        popupView.addArrangedSubview(answerBtn)
+        
+        addSubview(popupView)
+        
+        
+        let popViewBackgroundFrame = CGRect(x: XMid-popupWidth/2 , y: topBackgroundIV.frame.origin.y +  topBackgroundIV.frame.height, width: popupWidth, height: popViewFrame.height + YPadding)
         
         popupViewBackground.frame = popViewBackgroundFrame
         
     }
     
     @objc fileprivate func acceptBtnPressed(sender: UIButton!) {
-        if onAccept == nil{
-            fatalError("Did not call setupClosure")
-        }
-        else{
-            onAccept!(answer)
-        }
-    }
-    
-    @objc fileprivate func skipBtnPressed(sender: UIButton!) {
-        if onSkip == nil{
-            fatalError("Did not call setupClosure")
-        }
-        else{
-            onSkip!()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: self.animationDuration, animations: {
+                self.alpha = 0
+            }, completion: { (completed) in
+                if completed{
+                    self.removeFromSuperview()
+                }
+            })
         }
     }
     
@@ -113,8 +114,6 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.onAccept = {(_)->Void in }
-        self.onSkip = {}
         super.init(coder: aDecoder)
     }
     
@@ -123,11 +122,6 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
 
 // MARK: Setup
 extension ComprehensionPopup{
-    func setupClosure(onAccept:@escaping (_ answer:String)->Void, onSkip:@escaping ()->Void){
-        self.onAccept = onAccept
-        self.onSkip = onSkip
-    }
-    
     fileprivate func setupDarkGrayBackground(){
         darkBackground.frame = self.frame
         darkBackground.backgroundColor = UIColor.black.cgColor
@@ -137,41 +131,10 @@ extension ComprehensionPopup{
     
     fileprivate func setupPopupView(){
         popupView.alignment = .fill
-        popupView.distribution = .fillEqually
+        popupView.distribution = .fill
         popupView.axis = .vertical
         
         popupViewBackground.backgroundColor = UIColor.white
         addSubview(popupViewBackground)
-        
-        questionLabel = QuestionLabel()
-        questionLabel.text = "No Question Available"
-        popupView.addArrangedSubview(questionLabel)
-        
-        let responseTV = ResponseTextView()
-        responseTV.delegate = self
-        popupView.addArrangedSubview(responseTV)
-        
-        let optionView = OptionView()
-        popupView.addArrangedSubview(optionView)
-        
-        let skipBtn = SkipButton()
-        skipBtn.addTarget(self, action: #selector(skipBtnPressed), for: .touchDown)
-        optionView.addArrangedSubview(skipBtn)
-        
-        let answerBtn = AnswerButton()
-        answerBtn.addTarget(self, action: #selector(acceptBtnPressed), for: .touchDown)
-        optionView.addArrangedSubview(answerBtn)
-        
-        let dashedBorder = CAShapeLayer()
-        dashedBorder.strokeColor = UIColor.black.cgColor
-        dashedBorder.lineDashPattern = [8, 4]
-        dashedBorder.lineWidth = 1
-        dashedBorder.frame = responseTV.bounds
-        
-        dashedBorder.fillColor = nil
-        dashedBorder.path = UIBezierPath(rect: responseTV.frame).cgPath
-        popupView.layer.addSublayer(dashedBorder)
-        
-        addSubview(popupView)
     }
 }

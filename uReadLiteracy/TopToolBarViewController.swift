@@ -144,8 +144,8 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
             }
             tutorialBtn.isEnabled = false
             break
-        case is ReadViewController:
-            let vc = TopToolBarViewController.currentController as! ReadViewController
+        case is BrowserViewController:
+            let vc = TopToolBarViewController.currentController as! BrowserViewController
             
             tutorial = BrowseViewControllerTutorial(vc: vc)
             tutorial.addGesture(gesture: gesture)

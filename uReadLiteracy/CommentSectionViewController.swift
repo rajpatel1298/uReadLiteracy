@@ -50,7 +50,7 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     private func didSetCurrentArticle(){        
-        let articleName = (currentArticle.getTitle())
+        let articleName = currentArticle.name
         
         firebaseObserver.observeComment(articleName: articleName) {[weak self] (list) in
             guard let strongself = self else{
@@ -128,7 +128,7 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func postBtnPressed(_ sender: Any) {
         if (currentArticle != nil){
-            let comment = ArticleComment(articleName: currentArticle.getTitle(), uid: currentUser.getUid(), username: currentUser.getNickname(), comment: userCommentTV.text)
+            let comment = ArticleComment(articleName: currentArticle.name, uid: currentUser.getUid(), username: currentUser.getNickname(), comment: userCommentTV.text)
             FirebaseUploader.shared.upload(comment: comment)
         }
     }

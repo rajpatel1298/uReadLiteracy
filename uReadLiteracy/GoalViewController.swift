@@ -15,17 +15,28 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     var ongoingGoals: [GoalModel]!
     
     var selectedGoal:GoalModel!
-    
-    @IBOutlet weak var goalOptionStackView: UIStackView!
+
     @IBOutlet weak var addNewGoalBtn: UIButton!
-    
-    @IBOutlet weak var dailyTabButton: UIButton!
-    @IBOutlet weak var ongoingTabButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
+    
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
     
     var selectedGoalType:GoalType = GoalType.Daily
     
     private var noGoalListVC:NoGoalListViewController!
+    
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        if(segmentControl.selectedSegmentIndex == 0){
+            selectedGoalType = .Daily
+        }
+        else{
+            selectedGoalType = .Ongoing
+        }
+        
+        refreshTableView()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selectedGoalType == GoalType.Daily{
@@ -83,18 +94,7 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
         performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
     }*/
     
-    
-    @IBAction func dailyTabBtnPressed(_ sender: Any) {
-        selectedGoalType = .Daily
-        refreshTableView()
-        refreshGoalTabUI()
-    }
-    
-    @IBAction func ongoingTabBtnPressed(_ sender: Any) {
-        selectedGoalType = .Ongoing
-        refreshTableView()
-        refreshGoalTabUI()
-    }
+  
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -103,7 +103,7 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableview.reloadData()
         selectedGoalType = .Daily
-        refreshGoalTabUI()
+   
         refreshTableView()
         
         TopToolBarViewController.currentController = self
@@ -144,14 +144,6 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dailyTabButton.layer.cornerRadius = 5
-        dailyTabButton.clipsToBounds = true
-        dailyTabButton.layer.masksToBounds = false
-        
-        ongoingTabButton.layer.cornerRadius = 5
-        ongoingTabButton.clipsToBounds = true
-        ongoingTabButton.layer.masksToBounds = false
-        
         addNewGoalBtn.layer.cornerRadius = 5
         addNewGoalBtn.clipsToBounds = true
         addNewGoalBtn.layer.masksToBounds = false
@@ -163,7 +155,7 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         noGoalListVC.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraint(NSLayoutConstraint(item: noGoalListVC.view, attribute: .top, relatedBy: .equal, toItem: goalOptionStackView, attribute: .bottom, multiplier: 1, constant: 20))
+        view.addConstraint(NSLayoutConstraint(item: noGoalListVC.view, attribute: .top, relatedBy: .equal, toItem: segmentControl, attribute: .bottom, multiplier: 1, constant: 20))
         view.addConstraint(NSLayoutConstraint(item: noGoalListVC.view, attribute: .bottom, relatedBy: .equal, toItem: addNewGoalBtn, attribute: .top, multiplier: 1, constant: -20))
         
         noGoalListVC.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
@@ -175,33 +167,6 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func updateOngoingGoalsList(){
         ongoingGoals = GoalManager.shared.getOngoingGoals()
-    }
-    
-    func refreshGoalTabUI(){
-        var onBtn:UIButton!
-        var offBtn:UIButton!
-        
-        if selectedGoalType == GoalType.Daily{
-            onBtn = dailyTabButton
-            offBtn = ongoingTabButton
-        }
-        else{
-            offBtn = dailyTabButton
-            onBtn = ongoingTabButton
-        }
-        
-        let blue = UIColor.init(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
-        
-        offBtn.setTitleColor(blue, for: .normal)
-        offBtn.setTitleColor(UIColor.white, for: .selected)
-        offBtn.backgroundColor = UIColor.white
-        offBtn.layer.borderColor = blue.cgColor
-        offBtn.layer.borderWidth = 1
-        
-        onBtn.setTitleColor(UIColor.white, for: .normal)
-        onBtn.setTitleColor(blue, for: .selected)
-        onBtn.backgroundColor = blue
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

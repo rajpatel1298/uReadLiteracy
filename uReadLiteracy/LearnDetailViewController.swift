@@ -9,18 +9,21 @@
 import UIKit
 import WebKit
 
+
 class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var helpLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     private var helpWord: HelpWordModel!
-    private var youtubeUrlRequests = [URLRequest]()
+    private var wordDetails = [WordAnalysisDetail]()
+    fileprivate var sectionExpanded:[String:Bool] = [:]
     
-    private var titles = [String]()
-    private var titleWithDefinition = [String:String]()
+    private var definition = ""
+    
+    private let DEFINITION_COUNT = 1
+    private let HEADER_HEIGHT:CGFloat = 50
     
     func inject(helpWord:HelpWordModel){
         self.helpWord = helpWord
@@ -29,16 +32,17 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         tableview.separatorStyle = .none
+        tableview.allowsSelection = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         TopToolBarViewController.shared.hidePreviousCommentRecordBtn()
         
-        helpLabel.text = helpWord.getDescription()
-        
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
+        
+        
         
         DictionaryManager.shared.getDictionaryWord(word: helpWord.word) { [weak self] (dictionaryWord) in
             
@@ -48,7 +52,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             
             guard let dictionaryWord = dictionaryWord else{
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Cannot Load Help Word", message: "Sorry, Please Try Again", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Cannot Load Help Word", message: "Sorry, Please Try Again!", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (_) in
                         strongself.dismiss(animated: true, completion: nil)
                     }))
@@ -57,54 +61,156 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
                 return
             }
             
-            strongself.titleWithDefinition = DictionaryManager.shared.getTitlesWithDefinition(from: dictionaryWord)
-            strongself.titles = DictionaryManager.shared.getTitles(from: dictionaryWord)
             
-            strongself.youtubeUrlRequests = YoutubeURLRequestManager.shared.get(helpWord: strongself.helpWord)
             
             DispatchQueue.main.async {
                 strongself.activityIndicator.stopAnimating()
                 strongself.activityIndicator.isHidden = true
+                
+                strongself.wordDetails = WordAnalyzer.getDetails(helpWord: strongself.helpWord)
+                
+                
+                strongself.sectionExpanded.removeAll()
+                for detail in strongself.wordDetails{
+                    strongself.sectionExpanded[detail.title] = false
+                }
+               
+                strongself.definition = DictionaryManager.shared.getDefinition(from: dictionaryWord)
+                
                 strongself.tableview.reloadData()
             }
         }
     }
     
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return wordDetails.count + DEFINITION_COUNT
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if(section == 0){
+            return nil
+        }
+        
+        let sectionIndexWithoutDefinition = section - 1
+        let title = wordDetails[sectionIndexWithoutDefinition].title
+        
+        if(sectionExpanded[title] == nil){
+            fatalError("sectionExpanded setup wrong")
+        }
+        
+        let header = DropDownView(title: title, expanded: sectionExpanded[title]!, frame: CGRect(x: 0, y: 0, width: view.frame.width, height: HEADER_HEIGHT), delegate: self)
+  
+        return header
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0){
+            return 0
+        }
+        let definitionSection = 1
+        let lastSection = section - 1
+        if(lastSection == 0){
+            return HEADER_HEIGHT
+        }
+        else if(wordDetails[lastSection - definitionSection].title == wordDetails[section - definitionSection].title){
+            return 0
+        }
+        return HEADER_HEIGHT
+    }
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return youtubeUrlRequests.count + titleWithDefinition.count
+        if(section == 0){
+            return 1
+        }
+                
+        let wordAnalysis = 1
+        
+        let detail = wordDetails[section-wordAnalysis]
+        
+        if(sectionExpanded[detail.title] == nil){
+            fatalError("sectionExpanded setup wrong")
+        }
+        
+        let expanded = sectionExpanded[detail.title]!
+        if(!expanded){
+            return 0
+        }
+        
+        let sectionIndexWithoutDefinition = section - 1
+        
+        return wordAnalysis +  wordDetails[sectionIndexWithoutDefinition].videoHtmlList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(indexPath.row < titles.count){
+        if(indexPath.section == 0){
             let cell = tableview.dequeueReusableCell(withIdentifier: "WordWithSpeakerTableViewCell") as! WordWithSpeakerTableViewCell
             return cell
         }
         else{
-            let cell = tableview.dequeueReusableCell(withIdentifier: "DynamicVideoTableViewCell") as! DynamicVideoTableViewCell
-            cell.webview.scrollView.isScrollEnabled = false
-            return cell
+            let sectionIndexWithoutDefinition = indexPath.section-1
+            let detail = wordDetails[sectionIndexWithoutDefinition]
+            
+            if(indexPath.row == 0){
+                let cell = tableview.dequeueReusableCell(withIdentifier: "WordAnalysisTableViewCell") as! WordAnalysisTableViewCell
+                cell.detailLabel.text = detail.detail
+                return cell
+            }
+            else{
+                let urlIndex =  (indexPath.row - 1)
+                
+                let cell = tableview.dequeueReusableCell(withIdentifier: "DynamicVideoTableViewCell") as! DynamicVideoTableViewCell
+                cell.html = detail.videoHtmlList[urlIndex]
+                return cell
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        //WordWithSpeakerTableViewCell
+        if(indexPath.section == 0){
+            return 50
+        }
+        else{
+            //WordAnalysisTableViewCell
+            if(indexPath.row == 0){
+                return 100
+            }
+            // DynamicVideoTableViewCell
+            else{
+                return 300
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(indexPath.row < titles.count){
+        //WordWithSpeakerTableViewCell
+        if(indexPath.section == 0){
             return 50
         }
         else{
-            return 300
+            //WordAnalysisTableViewCell
+            if(indexPath.row == 0){
+                return UITableViewAutomaticDimension
+            }
+                // DynamicVideoTableViewCell
+            else{
+                return 300
+            }
         }
     }
     
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? DynamicVideoTableViewCell{
-            cell.webview.load(youtubeUrlRequests[indexPath.row-titles.count])
+            cell.webview.loadHTMLString(cell.html, baseURL: nil)
+            cell.webview.scrollView.isScrollEnabled = false
         }
         if let cell = cell as? WordWithSpeakerTableViewCell{
-            let title = titles[indexPath.row]
-            
             if(indexPath.row == 0){
                 cell.titleLabel.font = UIFont(name: "NokioSans-Bold", size: 20)
             }
@@ -112,9 +218,19 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
                 cell.titleLabel.font = UIFont(name: "NokioSans-Regular", size: 20)
             }
             
-            cell.titleLabel.text = title
-            cell.definition = titleWithDefinition[title]
+            cell.titleLabel.text = "Definition"
+            cell.definition = definition
         }
+    }
+}
+
+extension LearnDetailViewController:DropDownDelegate{
+    func dropDownChanged(dropDownTitle: String) {
         
+        if(sectionExpanded[dropDownTitle] == nil){
+            fatalError("sectionExpanded setup wrong")
+        }
+        sectionExpanded[dropDownTitle] = !sectionExpanded[dropDownTitle]!
+        tableview.reloadData()
     }
 }

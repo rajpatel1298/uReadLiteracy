@@ -15,10 +15,13 @@ class DailyGoalsGetter{
     static let shared = DailyGoalsGetter()
     
     init() {
-        let read10Articles = ReadXArticlesGoalModel(name: "Read 10 Articles", date: Date(), goalType: goalType, numberOfArticles: 10)
+        let readAnArticle = ReadXArticlesGoalModel(name: "Read an Article", date: Date(), goalType: goalType, numberOfArticles: 1)
+        let read2Articles = ReadXArticlesGoalModel(name: "Read 2 Articles", date: Date(), goalType: goalType, numberOfArticles: 2)
+        let read5Articles = ReadXArticlesGoalModel(name: "Read 5 Articles", date: Date(), goalType: goalType, numberOfArticles: 5)
+        let readFor10Minutes = ReadXMinutesGoalModel(name: "Read for 10 Minutes", date: Date(), goalType: goalType, totalMinutes: 10)
+        let readFor20Minutes = ReadXMinutesGoalModel(name: "Read for 20 minutes", date: Date(), goalType: goalType, totalMinutes: 20)
         let readFor30Minutes = ReadXMinutesGoalModel(name: "Read for 30 minutes", date: Date(), goalType: goalType, totalMinutes: 30)
-        let read1Articles = ReadXArticlesGoalModel(name: "Test: Read 1 Articles", date: Date(), goalType: goalType, numberOfArticles: 1)
-        list = [read10Articles,readFor30Minutes,read1Articles]
+        list = [readAnArticle,read2Articles,read5Articles,readFor10Minutes,readFor20Minutes,readFor30Minutes]
     }
     
     func getOnlyNewGoals()->[GoalModel]{

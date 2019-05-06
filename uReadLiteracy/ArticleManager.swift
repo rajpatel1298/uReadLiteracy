@@ -11,31 +11,40 @@ import Foundation
 class ArticleManager{
     static var shared = ArticleManager()
     
-    func getArticles(from urls:[String])->[ArticleModel]{
-        var arr = [ArticleModel]()
-        for url in urls{
-            arr.append(find(url: url)!)
+    func getModels(category:ArticleCategory, diffculty:ReadingDifficulty)->[ArticleModel]{
+        let fileURL = Bundle.main.url(forResource: category.rawValue, withExtension: "txt")
+        do{
+            let content = try String(contentsOf: fileURL!, encoding: String.Encoding.utf8)
+            return getArticleFromText(content: content, category: .Art, difficulty: diffculty)
         }
-        return arr
+        catch{
+            return []
+        }
     }
     
-    func find(url:String)->ArticleModel?{
-        let articles:[ArticleCD] = CoreDataGetter.shared.getList()
+    func getCategories()->[ArticleCategory]{
+        return ArticleCategory.allCases
+    }
+    
+    
+    
+    private func getArticleFromText(content:String, category:ArticleCategory, difficulty:ReadingDifficulty)->[ArticleModel]{
+        var articles = [ArticleModel]()
         
-        for article in articles{
-            if(article.url! == url){
-                return ArticleModel(name: article.name!, readCount: article.readCount, url: article.url!)
+        for line in content.components(separatedBy: "\n"){
+            let line = line.replacingOccurrences(of: "\r", with: "")
+            let titleAndLink = line.components(separatedBy: ": ")
+            if(titleAndLink.count < 3){
+                continue
             }
+            
+            let title = titleAndLink[0]
+            let link = titleAndLink[1]
+            let difficulty = Int(titleAndLink[2])
+            
+            articles.append(ArticleModel(name: title, url: link, category: category, difficulty:  ReadingDifficulty(level: difficulty ?? 1)))
+            
         }
-        
-        return nil
-    }
-    
-    func getUrls(articles:[ArticleModel])->[String]{
-        var arr = [String]()
-        for article in articles{
-            arr.append(article.url)
-        }
-        return arr
+        return articles
     }
 }

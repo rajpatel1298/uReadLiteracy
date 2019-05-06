@@ -9,15 +9,19 @@
 import UIKit
 import SafariServices
 
-class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class LearnViewController: UIViewController{
     
-    @IBOutlet weak var tableview: UITableView!
     
-    private var helpList = [HelpWordModel]()
-    private var sendHelpWord: HelpWordModel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var containerView: UIView!
+    
+    fileprivate var selectedHelpWord = HelpWordModel(word: "Nothing")
+    fileprivate var selectedWordCategory:VideoCategory = VideoCategory.LongVowels
     
     private var noResultController:NoResultViewController!
-    
+    private var learnWordController:LearnWordViewController!
+    private var learnVideoCategoryController:LearnVideoCategoryViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,54 +32,85 @@ class LearnViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         })
         add(noResultController)
+        
+        learnWordController = (storyboard!.instantiateViewController(withIdentifier: "LearnWordViewController") as! LearnWordViewController)
+        add(learnWordController)
+        
+        learnVideoCategoryController = (storyboard!.instantiateViewController(withIdentifier: "LearnVideoCategoryViewController") as! LearnVideoCategoryViewController)
+        learnVideoCategoryController.inject(delegate: self)
+        add(learnVideoCategoryController)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        learnWordController.view.frame = containerView.frame
+        learnVideoCategoryController.view.frame = containerView.frame
+    }
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        setupUIBasedOnSegmentedControl()
+    }
+    private func setupUIBasedOnSegmentedControl(){
+        if segmentedControl.selectedSegmentIndex == 0{
+            learnWordController.view.isHidden = false
+            learnVideoCategoryController.view.isHidden = true
+            view.bringSubview(toFront: learnWordController.view)
+            view.sendSubview(toBack: learnVideoCategoryController.view)
+            
+            let helpWords:[HelpWordModel] = CoreDataGetter.shared.getList()
+            
+            if(helpWords.count == 0){
+                noResultController.view.isHidden = false
+                view.bringSubview(toFront: noResultController.view)
+                view.bringSubview(toFront: segmentedControl)
+                noResultController.animationView.play()
+                learnWordController.hideTableView()
+            }
+            else{
+                noResultController.view.isHidden = true
+                noResultController.animationView.stop()
+                learnWordController.reloadTableView()
+                learnWordController.showTableView()
+            }
+        }
+        else{
+            learnWordController.view.isHidden = true
+            learnVideoCategoryController.view.isHidden = false
+            view.bringSubview(toFront: learnVideoCategoryController.view)
+            view.sendSubview(toBack: learnWordController.view)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getHelpWords()
+        learnWordController.inject(helpList: CoreDataGetter.shared.getList(), delegate: self)
         
-        if(helpList.count == 0){
-            noResultController.view.isHidden = false
-            noResultController.animationView.play()
-            tableview.isHidden = true
-        }
-        else{
-            noResultController.view.isHidden = true
-            noResultController.animationView.stop()
-            tableview.isHidden = false
-            tableview.reloadData()
-        }
-        
+        setupUIBasedOnSegmentedControl()
         TopToolBarViewController.currentController = self
-        
     }
     
-    func getHelpWords(){
-        helpList = CoreDataGetter.shared.getList() 
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return helpList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "learnCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LearnCell
-        
-        cell.wordLabel.text = helpList[indexPath.row].word
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sendHelpWord = helpList[indexPath.row]
-        performSegue(withIdentifier: "LearnMoreToDynamicVideoSegue", sender: self)
-    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? LearnDetailViewController {
-            destination.inject(helpWord: sendHelpWord)
+            destination.inject(helpWord: selectedHelpWord)
         }
+        else if let destination = segue.destination as? LearnVideoViewController {
+            destination.inject(wordCategory: selectedWordCategory)
+        }
+    }
+}
+
+extension LearnViewController:LearnWordDelegate{
+    func selectWord(word: HelpWordModel) {
+        selectedHelpWord = word
+        performSegue(withIdentifier: "LearnToLearnDetailSegue", sender: self)
+    }
+}
+
+extension LearnViewController:LearnVideoCategoryDelegate{
+    func selected(category: VideoCategory) {
+        self.selectedWordCategory = category
+        performSegue(withIdentifier: "LearnToLearnVideoSegue", sender: self)
     }
 }

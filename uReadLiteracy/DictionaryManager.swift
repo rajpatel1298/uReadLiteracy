@@ -32,46 +32,57 @@ class DictionaryManager{
         }
     }
     
-    func getTitlesWithDefinition(from word:DictionaryWord)->[String:String]{
-        var titleWithDefinition = [String:String]()
-        titleWithDefinition[word.word] = word.word
+    func getDefinition(from word:DictionaryWord)->String{
+        var definition = ""
         
         let meaning = word.meaning
         
         if let nouns = meaning.noun{
             if nouns.count == 1{
-                titleWithDefinition["Noun"] = nouns[0].definition
+                definition.append(contentsOf: nouns[0].definition)
+                definition = addDotToEndOfSetence(string: definition)
             }
             else{
                 for x in 1...nouns.count{
-                    titleWithDefinition["Noun \(x)"] = nouns[x-1].definition
+                    definition.append(contentsOf: nouns[x-1].definition)
+                    definition = addDotToEndOfSetence(string: definition)
                 }
             }
         }
         
         if let verbs = meaning.verb{
             if verbs.count == 1{
-                titleWithDefinition["Verb"] = verbs[0].definition
+                definition.append(contentsOf: verbs[0].definition)
+                definition = addDotToEndOfSetence(string: definition)
             }
             else{
                 for x in 1...verbs.count{
-                    titleWithDefinition["Verb \(x)"] = verbs[x-1].definition
+                    definition.append(contentsOf: verbs[x-1].definition)
+                    definition = addDotToEndOfSetence(string: definition)
                 }
             }
         }
         
         if let adjectives = meaning.adjective{
             if adjectives.count == 1{
-                titleWithDefinition["Adjective"] = adjectives[0].definition
+                definition.append(contentsOf: adjectives[0].definition)
+                definition = addDotToEndOfSetence(string: definition)
             }
             else{
                 for x in 1...adjectives.count{
-                    titleWithDefinition["Adjective \(x)"] = adjectives[x-1].definition
+                    definition.append(contentsOf: adjectives[x-1].definition)
+                    definition = addDotToEndOfSetence(string: definition)
                 }
             }
         }
         
-        return titleWithDefinition
+        return definition
+    }
+    
+    private func addDotToEndOfSetence(string:String)->String{
+        var string = string
+        string.append(contentsOf: ". ")
+        return string
     }
     
     func getTitles(from word:DictionaryWord)->[String]{

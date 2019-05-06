@@ -33,7 +33,7 @@ class GoalViewControllerTutorial:TutorialController{
     
     // Change based on what you want to highlight
     private func firstStep(){
-        let  goalOptionStackViewFrame = vc.goalOptionStackView.frame
+        let  goalOptionStackViewFrame = vc.segmentControl.frame
         showHighlightFrame(frame: goalOptionStackViewFrame)
         setHandAnimationPosition(frame: goalOptionStackViewFrame)
     }

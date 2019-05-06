@@ -32,8 +32,7 @@ class ReadXArticlesGoalModel:GoalModel{
         super.init(name: model.name!, progress: Int(model.progress), date: model.date! as Date)
         if(model.articles != nil){
             let articlesUrls = model.articles as! [String]
-            
-            self.articles = ArticleManager.shared.getArticles(from: articlesUrls)
+            self.articles = model.articles as! [ArticleModel]
         }
         self.goalType = GoalType(rawValue: model.goalType!)
         self.numberOfArticles = Int(model.numberOfArticles)
