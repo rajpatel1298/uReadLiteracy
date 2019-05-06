@@ -104,7 +104,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uReadLiteracy/DailyGoalsGetter.swift"
-            timestampString = "578867641.816782"
+            timestampString = "578869170.222999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -168,7 +168,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uReadLiteracy/WebViewManager.swift"
-            timestampString = "578867641.8169611"
+            timestampString = "578869170.2231981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uReadLiteracy/BrowserViewController.swift"
-            timestampString = "578867641.817112"
+            timestampString = "578869170.223451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "webView(_:didFinish:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -264,7 +264,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uReadLiteracy/BrowserLogicController.swift"
-            timestampString = "578867641.817596"
+            timestampString = "578869170.223547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -280,23 +280,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uReadLiteracy/ComprehensionPopupManager.swift"
-            timestampString = "578867641.81767"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "updateScrollPosition(position:popupToAddToView:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "uReadLiteracy/ComprehensionPopupManager.swift"
-            timestampString = "578867641.818114"
+            timestampString = "578869170.223623"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
@@ -312,12 +296,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uReadLiteracy/BrowserViewController.swift"
-            timestampString = "578867641.818519"
+            timestampString = "578869170.224203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "webView(_:didFinish:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "uReadLiteracy/ComprehensionPopupManager.swift"
+            timestampString = "578869170.224291"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "updateScrollPosition(position:popupToAddToView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

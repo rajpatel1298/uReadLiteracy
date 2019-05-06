@@ -77,15 +77,14 @@ class ComprehensionPopupManager:ScrollObserver{
     }
     
     // show popup if needed
-    func updateScrollPosition(position: CGFloat, popupToAddToView:(_ popup:ComprehensionPopup)->Void) {
+    func updateScrollPosition(position: CGFloat, popupToAddToView:@escaping (_ popup:ComprehensionPopup)->Void) {
         
         let model = getModelIfShouldShowPopup(currentYOffset: position)
         if model != nil{
             DispatchQueue.main.async {
-                self.popup.setQuestionText(question: (model?.question)!)
+                self.popup.setQuestionText(question: (model!.question))
+                popupToAddToView(self.popup)
             }
-            
-            popupToAddToView(popup)
         }
     }
 }

@@ -15,7 +15,7 @@ class ArticleManager{
         let fileURL = Bundle.main.url(forResource: category.rawValue, withExtension: "txt")
         do{
             let content = try String(contentsOf: fileURL!, encoding: String.Encoding.utf8)
-            return getArticleFromText(content: content, category: .Art, difficulty: diffculty)
+            return getArticleFromText(content: content, category: category, difficulty: diffculty)
         }
         catch{
             return []

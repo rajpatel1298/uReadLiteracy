@@ -25,7 +25,6 @@ class BrowserViewController: UIViewController{
     var currentArticle:ArticleModel!
     
     var logicController:BrowserLogicController!
-    fileprivate var questionManager: ComprehensionQuestionManager!
     var webviewManager:WebViewManager!
     var popupManager:ComprehensionPopupManager!
     fileprivate let textToVoice = TextToVoiceService()
@@ -37,7 +36,7 @@ class BrowserViewController: UIViewController{
 
     fileprivate var scrollSubject = ScrollSubject()
     
-    
+    var questionManager = ComprehensionQuestionManager()
     
     func inject(article:ArticleModel){
         currentArticle = article

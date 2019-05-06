@@ -46,10 +46,18 @@ extension BrowserViewController{
     }
     
     fileprivate func setupComprehensionPopup(){
-        let position1 = ComprehensionPopupModel(popupLocation: .Middle, question: "What is Love? Baby don't hurt me, no more!")
-        let position2 = ComprehensionPopupModel(popupLocation: .Top, question: "Test Top")
+        questionManager.populateGeneralQuestions()
+        questionManager.populateFictionBeginning()
+        questionManager.populateFictionPeriodic()
+        questionManager.populateFictionEnd()
         
-        popupManager = ComprehensionPopupManager(popupModels: [position1,position2])
+        let position1 = ComprehensionPopupModel(popupLocation: .Top, question: questionManager.selectRandomFictionBeginningQuestion())
+        let position2 = ComprehensionPopupModel(popupLocation: .MiddleTop, question: questionManager.selectRandomFictionPeriodicQuestion())
+        let position3 = ComprehensionPopupModel(popupLocation: .Middle, question: questionManager.selectRandomFictionPeriodicQuestion())
+        let position4 = ComprehensionPopupModel(popupLocation: .MiddleBottom, question: questionManager.selectRandomFictionPeriodicQuestion())
+        let position5 = ComprehensionPopupModel(popupLocation: .Bottom, question: questionManager.selectRandomFictionEndQuestion())
+        
+        popupManager = ComprehensionPopupManager(popupModels: [position1, position2, position3, position4, position5])
     }
     
     fileprivate func setupWebview(){

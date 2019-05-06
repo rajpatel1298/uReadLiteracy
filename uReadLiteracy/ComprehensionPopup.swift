@@ -20,10 +20,6 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
     fileprivate let darkBackground = CALayer()
     fileprivate var questionLabel = QuestionLabel()
     
-    private var questionsList = ["Is this fiction (made up) or non-fiction (true, facts)?",
-                                 "What’s interesting to me about this?  Why do I want to read it?",
-                                  "What do I notice about the text before I even start to read?"]
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,12 +52,11 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         darkBackground.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         
         
-        let popViewFrame = CGRect(x: XMid-popupWidth/2 + XPadding, y: topBackgroundIV.frame.origin.y + topBackgroundIV.frame.height, width: popupWidth - XPadding*2, height: popupHeight/3)
+        let popViewFrame = CGRect(x: XMid-popupWidth/2 + XPadding, y: topBackgroundIV.frame.origin.y + topBackgroundIV.frame.height, width: popupWidth - XPadding*2, height: popupHeight/2)
         
         popupView.frame = popViewFrame
         
         questionLabel.frame = CGRect(x: popupView.frame.origin.x, y: popupView.frame.origin.y, width: popupView.frame.width, height: popupView.frame.height/2)
-        questionLabel.text = "No Question Available"
         popupView.addArrangedSubview(questionLabel)
         
         let answerBtn = AnswerButton()
