@@ -97,6 +97,64 @@ class LetterAnalyzer{
         return false
     }
     
+    static func vowelConsonantVowel(word:String)->Bool{
+        if(word.count >= 3){
+            if(isVowel(letter: word[word.count-3]) ){
+                if(isConsonant(letter: word[word.count-2])){
+                    if(isVowel(letter: word[word.count-1]) ){
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
+    static func multipleConsonantsVowel(word:String, consonant:String)->Bool{
+        if(word.count < consonant.count){
+            return false
+        }
+        
+        for x in 0...(word.count-1){
+            var allMatch = true
+            
+            for y in 0...(consonant.count-1){
+                if(word[y] != consonant[y]){
+                    allMatch = false
+                }
+            }
+            
+            if(allMatch){
+                if(x+consonant.count <= (word.count-1)){
+                    if(isVowel(letter: word[x+consonant.count])){
+                        return true
+                    }
+                }
+                break
+            }
+        }
+        return false
+    }
+    
+    static func multipleConsonantsVowel(word:String)->Bool{
+        var consonantCount = 0
+        var index = 0
+        for char in word.enumerated(){
+            if(isConsonant(letter: char.element)){
+                consonantCount = consonantCount + 1
+            }
+            else{
+                if(consonantCount >= 2){
+                    if(isVowel(letter: word[index])){
+                        return true
+                    }
+                }
+            }
+            index = index + 1
+        }
+        return false
+    }
+    
     static func consonantLetterConsonant(word:String, letter:Character)->Bool{
         if(word.count >= 3){
             if(LetterAnalyzer.isConsonant(letter: word[word.count-3])){

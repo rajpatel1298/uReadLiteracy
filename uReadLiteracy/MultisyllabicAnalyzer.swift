@@ -51,24 +51,44 @@ class MultisyllabicAnalyzer{
         return wordDetails
     }
     
+    
+    
     private func multisyllabic()->Bool{
-        //calculate multisyllabic words
-        var counter = 0
+        //The words ends in -tion or -ture
+        if(LetterAnalyzer.matchEndingLetters(word: word, targets: ["tion","ture"])){
+            return true
+        }
+        //The word ends in d or t + ed
+        if(LetterAnalyzer.matchEndingLetters(word: word, targets: ["ded","ted"])){
+            return true
+        }
+        //The word ends in consonant+le
+        if(word.count > 2 && LetterAnalyzer.matchEndingLetters(word: word, targets: ["le"]) && LetterAnalyzer.isConsonant(letter: word[word.count-3])){
+            return true
+        }
+        //The word begins with be, re, de, ex and is followed by a consonant
+        if(word.count > 2 && LetterAnalyzer.matchBeginningLetters(word: word, targets: ["be", "re", "de", "ex"]) && LetterAnalyzer.isConsonant(letter: word[2])){
+            return true
+        }
+        if(LetterAnalyzer.vowelConsonantVowel(word: word)){
+            return true
+        }
         
-        for char in word.enumerated() {
-            if counter == 1 && LetterAnalyzer.isVowel(letter: char.element) {
-                return true
-            }
-            else if (counter == 1 && !LetterAnalyzer.isVowel(letter: char.element)) {
-                //continue
-            }
-            else if (counter == 0 && LetterAnalyzer.isVowel(letter: char.element)){
-                counter = 1
-            }
-            else {
-                //do nothing
+        
+        let consonantsToAvoid = ["ck", "ss", "th", "ph", "sh", "wh", "wr", "ng", "ch"]
+        var avoidedConsonant = true
+        for consonant in consonantsToAvoid{
+            if(LetterAnalyzer.multipleConsonantsVowel(word: word, consonant: consonant)){
+                avoidedConsonant = false
             }
         }
+        
+        if(avoidedConsonant){
+            if(LetterAnalyzer.multipleConsonantsVowel(word: word)){
+                return true
+            }
+        }
+        
         return false
     }
 }
