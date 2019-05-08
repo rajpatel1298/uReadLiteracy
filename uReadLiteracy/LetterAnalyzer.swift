@@ -167,4 +167,27 @@ class LetterAnalyzer{
         }
         return false
     }
+    
+    
+    static func multipleVowelsSeperateByConsonant(word:String)->Bool{
+        var vowelCount = 0
+        var lastCharIsVowel = false
+        for i in 0...(word.count-1){
+            if(isVowel(letter: word[i])){
+                vowelCount = vowelCount + 1
+                
+                if(lastCharIsVowel){
+                    return false
+                }
+                lastCharIsVowel = true
+            }
+            else{
+                lastCharIsVowel = false
+            }
+        }
+        if(vowelCount>=2){
+            return true
+        }
+        return false
+    }
 }

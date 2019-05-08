@@ -54,6 +54,31 @@ class MultisyllabicAnalyzer{
     
     
     private func multisyllabic()->Bool{
+        // There are two or more vowels in the word separated by consonants (ie. this doesn’t count if two syllables are together), unless one of them is an -e- at the end of the word.
+        if(LetterAnalyzer.multipleVowelsSeperateByConsonant(word: word)){
+            if(word[word.count-1] == "e"){
+                return false
+            }
+        }
+        else{
+            return false
+        }
+        
+        //There are two or more consonants in a row that are not ck, ss, th, ph, sh, wh, wr, ng, ch and there is another vowel after these two or more consonants
+        let consonantsToAvoid = ["ck", "ss", "th", "ph", "sh", "wh", "wr", "ng", "ch"]
+        
+        for consonant in consonantsToAvoid{
+            if(LetterAnalyzer.multipleConsonantsVowel(word: word, consonant: consonant)){
+                return false
+            }
+        }
+        
+        if(!LetterAnalyzer.multipleConsonantsVowel(word: word)){
+            return false
+        }
+        
+        // special cases
+        
         //The words ends in -tion or -ture
         if(LetterAnalyzer.matchEndingLetters(word: word, targets: ["tion","ture"])){
             return true
@@ -75,20 +100,6 @@ class MultisyllabicAnalyzer{
         }
         
         
-        let consonantsToAvoid = ["ck", "ss", "th", "ph", "sh", "wh", "wr", "ng", "ch"]
-        var avoidedConsonant = true
-        for consonant in consonantsToAvoid{
-            if(LetterAnalyzer.multipleConsonantsVowel(word: word, consonant: consonant)){
-                avoidedConsonant = false
-            }
-        }
-        
-        if(avoidedConsonant){
-            if(LetterAnalyzer.multipleConsonantsVowel(word: word)){
-                return true
-            }
-        }
-        
-        return false
+        return true
     }
 }
