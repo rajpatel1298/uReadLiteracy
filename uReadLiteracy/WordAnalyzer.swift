@@ -20,7 +20,7 @@ class WordAnalyzer{
     private static let rControlledVowelsAnalyzer = RControlledVowelsAnalyzer(title: "R Controlled Vowels")
     
     static func getDetails(helpWord:HelpWordModel)->[WordAnalysisDetail]{
-        let word = helpWord.word
+        let word = helpWord.word.lowercased()
         
         var wordDetails = [WordAnalysisDetail]()
         wordDetails.append(contentsOf: longVowelAnalyzer.getDetails(word: word))

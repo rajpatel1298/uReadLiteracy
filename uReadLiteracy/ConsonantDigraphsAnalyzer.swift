@@ -19,7 +19,8 @@ class ConsonantDigraphsAnalyzer{
     
     static func getAll()->[String]{
         let urls = ["https://www.youtube.com/watch?v=XUoRQiZqI6E",
-                    "https://www.youtube.com/watch?v=M7iSFjbAg8c"
+                    "https://www.youtube.com/watch?v=M7iSFjbAg8c",
+                    "https://www.youtube.com/watch?v=38-ioYjE1e0&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=5"
         ]
         
         var videoHtmlList = [String]()
@@ -42,11 +43,14 @@ class ConsonantDigraphsAnalyzer{
     private func addConsonantDigraphs(){
         var videoHtmlList = [String]()
         
-        if(isConsonantDigraphs()){
+        if(firstRule()){
             videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=XUoRQiZqI6E").getHtml())
-            if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["ph"])){
-                videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=M7iSFjbAg8c").getHtml())
-            }
+        }
+        if(secondRule()){
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=M7iSFjbAg8c").getHtml())
+        }
+        if(thirdRule()){
+            videoHtmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=38-ioYjE1e0&list=PL2IkMHFHWdEoN1HYS3c8oKLmxlsrJxvHr&index=5").getHtml())
         }
         
         if(videoHtmlList.count > 0){
@@ -54,15 +58,41 @@ class ConsonantDigraphsAnalyzer{
         }
     }
     
-    private func isConsonantDigraphs()->Bool{
+    
+    
+    /*
+     th, ch, sh, ph, wh, ng, ck, squ
+     also silent consonants
+     -mb (as in comb, numb, thumb, dumb
+     kn- as in knot, know, knowledge, knife, knight
+     w-as in wrist, write, wrinkle
+
+     */
+    
+    private func firstRule()->Bool{
+        
+        let list = ["comb", "numb", "thumb", "dumb","knot", "know", "knowledge", "knife", "knight","wrist", "write", "wrinkle","debt", "subtle"]
+        if(list.contains(word)){
+            return true
+        }
         let accepted = ["th", "ch", "sh", "ph", "wh", "ng", "ck", "squ"]
         if(LetterAnalyzer.matchAnyPosition(word: word, targets: accepted)){
             return true
         }
-        if(LetterAnalyzer.matchEndingLetters(word: word, targets: ["b"])){
+        return false
+    }
+    
+    // ph
+    private func secondRule()->Bool{
+        if(LetterAnalyzer.matchBeginningLetters(word: word, targets: ["ph"])){
             return true
         }
-        if(LetterAnalyzer.matchBeginningLetters(word: word, targets: ["k","w","ph"])){
+        return false
+    }
+    
+    private func thirdRule()->Bool{
+        
+        if(LetterAnalyzer.matchBeginningLetters(word: word, targets: ["k","w",])){
             return true
         }
         
