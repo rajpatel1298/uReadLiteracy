@@ -40,10 +40,13 @@ class ArticleManager{
             
             let title = titleAndLink[0]
             let link = titleAndLink[1]
-            let difficulty = Int(titleAndLink[2])
+            let diff = Int(titleAndLink[2])
             
-            articles.append(ArticleModel(name: title, url: link, category: category, difficulty:  ReadingDifficulty(level: difficulty ?? 1)))
-            
+            if(diff != nil){
+                if(ReadingDifficulty(level: diff!).rawValue == difficulty.rawValue){
+                    articles.append(ArticleModel(name: title, url: link, category: category, difficulty:  ReadingDifficulty(level: diff ?? 1)))
+                }
+            }
         }
         return articles
     }

@@ -1,320 +1,64 @@
-Bacteria: https://www.english-online.at/health_medicine/bacteria/bacteria-living-organisms.htm
-
-
-
-
-Stem Cells: https://www.english-online.at/health_medicine/stem-cell-research/stem-cells.htm
-
-
-
-
-Headaches: https://www.english-online.at/health_medicine/headache/headache-disorder-of-nervous-system.htm
-
-
-
-
-High Blood Pressure - A Silent Killer: https://www.english-online.at/health_medicine/high-blood-pressure/high-blood-pressure-silent-killer.htm
-
-
-
-
-Malnutrition - Eating Disorders: https://www.english-online.at/health_medicine/malnutrition/malnutrition-food-disorders.htm
-
-
-
-
-Epilepsy - Disorder of the Human Brain: https://www.english-online.at/health_medicine/epilepsy/epilepsy-disorder-of-the-brain.htm
-
-
-
-
-Vaccines - Antibodies That Protect Us From Diseases: https://www.english-online.at/health_medicine/vaccines/vaccines-antibodies-that-protect-us-from-diseases.html
-
-
-
-
-Asthma: https://www.english-online.at/health_medicine/asthma/asthma-disease-of-the-airways.htm
-
-
-
-
-Thalidomide - Malformed Children of the 50s and 60s: https://www.english-online.at/health_medicine/thalidomide/thalidomide-victims.htm
-
-
-
-
-Physical Fitness: https://www.english-online.at/health_medicine/physical-fitness/physical-fitness-exercising.htm
-
-
-
-
-Nutrition: https://www.english-online.at/health_medicine/nutrition/nutrition-how-the-body-uses-food.htm
-
-
-
-
-First Aid: https://www.english-online.at/health_medicine/first-aid/first-aid-treatment.htm
-
-
-
-
-Childhood Obesity: https://www.english-online.at/health_medicine/childhood-obesity/causes-and-risks-of-childhood-obesity.htm
-
-
-
-
-Blood: https://www.english-online.at/biology/blood/blood-supply-and-blood-diseases.htm
-
-
-
-
-Chocolate - History, Production and Health Value: https://www.english-online.at/health_medicine/chocolate/history-and-production-of-chocolate-and-cocoa.htm
-
-
-
-
-Vitamins: https://www.english-online.at/health_medicine/vitamins/vitamins%20and%20vitamin-supplements.htm
-
-
-
-
-AIDS - Causes and Growth of a Killer Disease: https://www.english-online.at/health_medicine/aids/growth-causes-of-aids.htm
-
-
-
-
-Caffeine - A Stimulant for Our Body: https://www.english-online.at/health_medicine/caffeine/caffeine-stimulant-for-our-body.htm
-
-
-
-
-Euthanasia - Pros and Cons of Mercy Killing: https://www.english-online.at/society/euthanasia/pros-and-cons-of-euthanasia.htm
-
-
-
-
-Cancer - A Killer Disease: https://www.english-online.at/health_medicine/cancer/cancer-introduction-and-types.htm
-
-
-
-
-Drugs Under Control in Portugal: https://www.english-online.at/health_medicine/drug-abuse/drug-control-in-portugal.htm
-
-
-
-
-Acupuncture - Old Chinese Medicine: https://www.english-online.at/health_medicine/acupuncture/acupuncture-and-chinese-medicine.htm
-
-
-
-
-Stress - Signs, Symptoms and How to Manage It: https://www.english-online.at/health_medicine/stress/coping-with-stress.htm
-
-
-
-
-The Swine Flu - Basic Facts, Symptoms and Cure: https://www.english-online.at/health_medicine/swine-flu/swine-flu.htm
-
-
-
-
-Breaking a Bone: https://www.english-online.at/health_medicine/bone/breaking-a-bone.htm
-
-
-
-
-Diabetes - Symptoms, Causes, Treatment: https://www.english-online.at/health_medicine/diabetes-causes-syptoms-treatment/diabetes.htm
-
-
-
-
-At 27, Your Brain Starts Getting Old: https://www.english-online.at/health_medicine/brain-starts-getting-old/brain-starts-getting-old.htm
-
-
-
-
-Teeth - How To Keep Them Healthy: https://www.english-online.at/health_medicine/how-to-keep-teeth-healthy/keeping-teeth-healthy.htm
-
-
-
-
-
-
-
-
-More and More Children with Food Allergies: https://www.english-online.at/news-articles/health-medicine/more-children-with-food-allergies.htm
-
-
-
-
-Obesity Around the World Continues to Rise: https://www.english-online.at/news-articles/health-medicine/obesity-around-world-continues-to-rise.htm
-
-
-
-
-New Cancer Treatment Provides Hope for Patients: https://www.english-online.at/news-articles/health-medicine/new-cancer-treatment-provides-hope-for-patients.htm
-
-
-
-
-Happiness Can Cause Heart Problems: https://www.english-online.at/news-articles/health-medicine/happiness-can-cause-heart-problems.htm
-
-
-
-
-Mexico's Tax on Sugary Drinks: https://www.english-online.at/news-articles/health-medicine/mexicos-tax-on-sugary-drinks.htm
-
-
-
-
-Air Pollution Causes Millions of Deaths Every Year: https://www.english-online.at/news-articles/health-medicine/air-pollution-causes-millions-of-deaths.htm
-
-
-
-
-British Woman Gets Bionic Eye: https://www.english-online.at/news-articles/health-medicine/british-woman-gets-bionic-eye.htm
-
-
-
-
-Zika Virus  Spreads Throughout Latin America: https://www.english-online.at/news-articles/health-medicine/zika-virus-spreads-throughout-latin-america.htm
-
-
-
-
-Blood Pressure Drugs For All Patients ?: https://www.english-online.at/news-articles/health-medicine/blood-pressure-drugs-for-all-patients.htm
-
-
-
-
-Cuban Doctors Need Permission to Leave The Country: https://www.english-online.at/news-articles/health-medicine/cuban-doctors-need-permission-to-leave-country.htm
-
-
-
-
-Obesity Threatens Women's Health in Great Britain: https://www.english-online.at/news-articles/health-medicine/obesity-threatens-womens-health-in-great-britain.htm
-
-
-
-
-Sunscreens and How to Use Them: https://www.english-online.at/news-articles/health-medicine/sunscreens-how-to-use-them.htm
-
-
-
-
-Tooth Decay Affects Billions Around the World: https://www.english-online.at/news-articles/health-medicine/tooth-decay-affects-billions.htm
-
-
-
-
-New Outbreak of Ebola Virus in western Africa: https://www.english-online.at/news-articles/health-medicine/ebola-outbreak-in-africa.htm
-
-
-
-
-Blood Tests Can Predict Alzheimer's Disease: https://www.english-online.at/news-articles/health-medicine/blood-tests-predict-alzheimers-disease.htm
-
-
-
-
-A World Without Antibiotics: https://www.english-online.at/news-articles/health-medicine/world-without-antibiotics.htm
-
-
-
-
-High Cancer Risks for Fukushima Residents: https://www.english-online.at/news-articles/health-medicine/high-cancer-risk-for-fukushima-residents.htm
-
-
-
-
-How Happiness Affects Our Health: https://www.english-online.at/news-articles/health-medicine/how-happiness-affects-our-health.htm
-
-
-
-
-How Healthy is Coffee Really?: https://www.english-online.at/news-articles/health-medicine/how-healthy-is-coffee-really.htm
-
-
-
-
-New York Bans Large-Sized Sugary Drinks: https://www.english-online.at/news-articles/health-medicine/new-york-bans-large-sized-sugary-drinks.htm
-
-
-
-
-How Long Can a Human Survive Without Food and Water?: https://www.english-online.at/news-articles/health-medicine/how-long-can-humans-survive-without-food-water.htm
-
-
-
-
-The Changing Role of Doctors and Health Care in the 21st Century: https://www.english-online.at/news-articles/health-medicine/changing-role-of-doctors-and-health-care.htm
-
-
-
-
-Experiment Suggests Two-Phase Sleep is Natural: https://www.english-online.at/news-articles/health-medicine/two-phase-sleep-is-natural.htm
-
-
-
-
-Adermatoglyphia - People Without Fingerprints: https://www.english-online.at/news-articles/health-medicine/adermatoglyphia-people-without-fingerprints.htm
-
-
-
-
-Food Allergies in Children Are Becoming More Common: https://www.english-online.at/news-articles/health-medicine/food-allergies-in-children-becoming-more-common.htm
-
-
-
-
-Denmark's Fat Tax: https://www.english-online.at/news-articles/health-medicine/denmarks-fat-tax.htm
-
-
-
-
-Anaesthesia is Causing More and More Deaths: https://www.english-online.at/news-articles/health-medicine/anaesthesia-causing-more-deaths.htm
-
-
-
-
-Cure for the Common Cold?: https://www.english-online.at/news-articles/health-medicine/cure-for-common-cold.htm
-
-
-
-
-Growing Old - More and More People Live to be 100: https://www.english-online.at/news-articles/health-medicine/growing-old-living-to-be-hundred.htm
-
-
-
-
-Passive Smoking Kills 600 000 Every Year: https://www.english-online.at/news-articles/health-medicine/passive-smoking-kills-600000-every-year.htm
-
-
-
-
-Shorter Lives for Couch Potatoes?: https://www.english-online.at/news-articles/health-medicine/shorter-lives-for-couch-potatoes.htm
-
-
-
-
-World AIDS Day: https://www.english-online.at/news-articles/health-medicine/world-aids-day.htm
-
-
-
-
-New Vaccine to Fight Polio: https://www.english-online.at/news-articles/health-medicine/new-vaccine-to-fight-polio.htm
-
-
-
-
-Free Birth Control Pills in America?: https://www.english-online.at/news-articles/health-medicine/free-birth-control-pills-in-america.htm
-
-
-
-
-Alcohol More Dangerous than Heroin: https://www.english-online.at/news-articles/health-medicine/alcohol-more-dangerous-than-cocaine.htm
-
-
-
-
-Obese Teenagers Show Signs of Heart Disease: https://www.english-online.at/news-articles/health-medicine/obese-teenagers-show-signs-of-heart-disease.htm
+Bacteria: https://www.english-online.at/health_medicine/bacteria/bacteria-living-organisms.htm: 3
+Stem Cells: https://www.english-online.at/health_medicine/stem-cell-research/stem-cells.htm: 3
+Headaches: https://www.english-online.at/health_medicine/headache/headache-disorder-of-nervous-system.htm: 3
+High Blood Pressure - A Silent Killer: https://www.english-online.at/health_medicine/high-blood-pressure/high-blood-pressure-silent-killer.htm: 3
+Malnutrition - Eating Disorders: https://www.english-online.at/health_medicine/malnutrition/malnutrition-food-disorders.htm: 3
+Epilepsy - Disorder of the Human Brain: https://www.english-online.at/health_medicine/epilepsy/epilepsy-disorder-of-the-brain.htm: 3
+Vaccines - Antibodies That Protect Us From Diseases: https://www.english-online.at/health_medicine/vaccines/vaccines-antibodies-that-protect-us-from-diseases.html: 3
+Asthma: https://www.english-online.at/health_medicine/asthma/asthma-disease-of-the-airways.htm: 3
+Thalidomide - Malformed Children of the 50s and 60s: https://www.english-online.at/health_medicine/thalidomide/thalidomide-victims.htm: 3
+Physical Fitness: https://www.english-online.at/health_medicine/physical-fitness/physical-fitness-exercising.htm: 3
+Nutrition: https://www.english-online.at/health_medicine/nutrition/nutrition-how-the-body-uses-food.htm: 3
+First Aid: https://www.english-online.at/health_medicine/first-aid/first-aid-treatment.htm: 2
+Childhood Obesity: https://www.english-online.at/health_medicine/childhood-obesity/causes-and-risks-of-childhood-obesity.htm: 3
+Blood: https://www.english-online.at/biology/blood/blood-supply-and-blood-diseases.htm: 3
+Chocolate - History, Production and Health Value: https://www.english-online.at/health_medicine/chocolate/history-and-production-of-chocolate-and-cocoa.htm: 3
+Vitamins: https://www.english-online.at/health_medicine/vitamins/vitamins%20and%20vitamin-supplements.htm: 2
+AIDS - Causes and Growth of a Killer Disease: https://www.english-online.at/health_medicine/aids/growth-causes-of-aids.htm: 3
+Caffeine - A Stimulant for Our Body: https://www.english-online.at/health_medicine/caffeine/caffeine-stimulant-for-our-body.htm: 3
+Euthanasia - Pros and Cons of Mercy Killing: https://www.english-online.at/society/euthanasia/pros-and-cons-of-euthanasia.htm: 3
+Cancer - A Killer Disease: https://www.english-online.at/health_medicine/cancer/cancer-introduction-and-types.htm: 3
+Drugs Under Control in Portugal: https://www.english-online.at/health_medicine/drug-abuse/drug-control-in-portugal.htm: 3
+Acupuncture - Old Chinese Medicine: https://www.english-online.at/health_medicine/acupuncture/acupuncture-and-chinese-medicine.htm: 3
+Stress - Signs, Symptoms and How to Manage It: https://www.english-online.at/health_medicine/stress/coping-with-stress.htm: 3
+The Swine Flu - Basic Facts, Symptoms and Cure: https://www.english-online.at/health_medicine/swine-flu/swine-flu.htm: 3
+Breaking a Bone: https://www.english-online.at/health_medicine/bone/breaking-a-bone.htm: 2
+Diabetes - Symptoms, Causes, Treatment: https://www.english-online.at/health_medicine/diabetes-causes-syptoms-treatment/diabetes.htm: 3
+At 27, Your Brain Starts Getting Old: https://www.english-online.at/health_medicine/brain-starts-getting-old/brain-starts-getting-old.htm: 2
+Teeth - How To Keep Them Healthy: https://www.english-online.at/health_medicine/how-to-keep-teeth-healthy/keeping-teeth-healthy.htm: 2
+More and More Children with Food Allergies: https://www.english-online.at/news-articles/health-medicine/more-children-with-food-allergies.htm: 3
+Obesity Around the World Continues to Rise: https://www.english-online.at/news-articles/health-medicine/obesity-around-world-continues-to-rise.htm: 3
+New Cancer Treatment Provides Hope for Patients: https://www.english-online.at/news-articles/health-medicine/new-cancer-treatment-provides-hope-for-patients.htm: 3
+Happiness Can Cause Heart Problems: https://www.english-online.at/news-articles/health-medicine/happiness-can-cause-heart-problems.htm: 3
+Mexico's Tax on Sugary Drinks: https://www.english-online.at/news-articles/health-medicine/mexicos-tax-on-sugary-drinks.htm: 3
+Air Pollution Causes Millions of Deaths Every Year: https://www.english-online.at/news-articles/health-medicine/air-pollution-causes-millions-of-deaths.htm: 3
+British Woman Gets Bionic Eye: https://www.english-online.at/news-articles/health-medicine/british-woman-gets-bionic-eye.htm: 3
+Zika Virus  Spreads Throughout Latin America: https://www.english-online.at/news-articles/health-medicine/zika-virus-spreads-throughout-latin-america.htm: 3
+Blood Pressure Drugs For All Patients ?: https://www.english-online.at/news-articles/health-medicine/blood-pressure-drugs-for-all-patients.htm: 3
+Cuban Doctors Need Permission to Leave The Country: https://www.english-online.at/news-articles/health-medicine/cuban-doctors-need-permission-to-leave-country.htm: 3
+Obesity Threatens Women's Health in Great Britain: https://www.english-online.at/news-articles/health-medicine/obesity-threatens-womens-health-in-great-britain.htm: 3
+Sunscreens and How to Use Them: https://www.english-online.at/news-articles/health-medicine/sunscreens-how-to-use-them.htm: 3
+Tooth Decay Affects Billions Around the World: https://www.english-online.at/news-articles/health-medicine/tooth-decay-affects-billions.htm: 3
+New Outbreak of Ebola Virus in western Africa: https://www.english-online.at/news-articles/health-medicine/ebola-outbreak-in-africa.htm: 3
+Blood Tests Can Predict Alzheimer's Disease: https://www.english-online.at/news-articles/health-medicine/blood-tests-predict-alzheimers-disease.htm: 3
+A World Without Antibiotics: https://www.english-online.at/news-articles/health-medicine/world-without-antibiotics.htm: 3
+High Cancer Risks for Fukushima Residents: https://www.english-online.at/news-articles/health-medicine/high-cancer-risk-for-fukushima-residents.htm: 3
+How Happiness Affects Our Health: https://www.english-online.at/news-articles/health-medicine/how-happiness-affects-our-health.htm: 2
+How Healthy is Coffee Really?: https://www.english-online.at/news-articles/health-medicine/how-healthy-is-coffee-really.htm: 3
+New York Bans Large-Sized Sugary Drinks: https://www.english-online.at/news-articles/health-medicine/new-york-bans-large-sized-sugary-drinks.htm: 3
+How Long Can a Human Survive Without Food and Water?: https://www.english-online.at/news-articles/health-medicine/how-long-can-humans-survive-without-food-water.htm: 3
+The Changing Role of Doctors and Health Care in the 21st Century: https://www.english-online.at/news-articles/health-medicine/changing-role-of-doctors-and-health-care.htm: 3
+Experiment Suggests Two-Phase Sleep is Natural: https://www.english-online.at/news-articles/health-medicine/two-phase-sleep-is-natural.htm: 3
+Adermatoglyphia - People Without Fingerprints: https://www.english-online.at/news-articles/health-medicine/adermatoglyphia-people-without-fingerprints.htm: 3
+Food Allergies in Children Are Becoming More Common: https://www.english-online.at/news-articles/health-medicine/food-allergies-in-children-becoming-more-common.htm: 3
+Denmark's Fat Tax: https://www.english-online.at/news-articles/health-medicine/denmarks-fat-tax.htm: 3
+Anaesthesia is Causing More and More Deaths: https://www.english-online.at/news-articles/health-medicine/anaesthesia-causing-more-deaths.htm: 3
+Cure for the Common Cold?: https://www.english-online.at/news-articles/health-medicine/cure-for-common-cold.htm: 3
+Growing Old - More and More People Live to be 100: https://www.english-online.at/news-articles/health-medicine/growing-old-living-to-be-hundred.htm: 3
+Passive Smoking Kills 600 000 Every Year: https://www.english-online.at/news-articles/health-medicine/passive-smoking-kills-600000-every-year.htm: 3
+Shorter Lives for Couch Potatoes?: https://www.english-online.at/news-articles/health-medicine/shorter-lives-for-couch-potatoes.htm: 3
+World AIDS Day: https://www.english-online.at/news-articles/health-medicine/world-aids-day.htm: 2
+New Vaccine to Fight Polio: https://www.english-online.at/news-articles/health-medicine/new-vaccine-to-fight-polio.htm: 3
+Free Birth Control Pills in America?: https://www.english-online.at/news-articles/health-medicine/free-birth-control-pills-in-america.htm: 3
+Alcohol More Dangerous than Heroin: https://www.english-online.at/news-articles/health-medicine/alcohol-more-dangerous-than-cocaine.htm: 3
+Obese Teenagers Show Signs of Heart Disease: https://www.english-online.at/news-articles/health-medicine/obese-teenagers-show-signs-of-heart-disease.htm: 3

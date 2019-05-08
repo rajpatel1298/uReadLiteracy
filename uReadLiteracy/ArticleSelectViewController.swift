@@ -13,11 +13,28 @@ class ArticleSelectViewController: UIViewController, UITableViewDelegate,UITable
     @IBOutlet weak var tableview: UITableView!
     private var articles = [ArticleModel]()
     private var selectedArticle = ArticleModel(name: "None", url: "None", category: .Art, difficulty: .Level1)
+    private var noResultVC:NoResultViewController!
     
     @IBAction func unwindToArticleSelectVC(segue:UIStoryboardSegue) { }
     
     func inject(category:ArticleCategory, difficulty:ReadingDifficulty){
         articles = ArticleManager.shared.getModels(category: category, diffculty: difficulty)
+        setup()
+        
+        if(articles.count == 0){
+            view.bringSubview(toFront: noResultVC.view)
+            noResultVC.view.isHidden = false
+        }
+        else{
+            view.sendSubview(toBack: noResultVC.view)
+            noResultVC.view.isHidden = true
+        }
+    }
+    
+    private func setup(){
+        noResultVC = (storyboard!.instantiateViewController(withIdentifier: "NoResultViewController") as! NoResultViewController)
+        noResultVC.inject(title: "We don't have any articles with this difficulty right now!", actionStr: "", action: {})
+        add(noResultVC)
     }
     
     override func viewDidAppear(_ animated: Bool) {
