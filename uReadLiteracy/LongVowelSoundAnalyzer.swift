@@ -42,6 +42,7 @@ class LongVowelSoundAnalyzer{
         "https://www.youtube.com/watch?v=EMdtke9HZVE",
         "https://www.youtube.com/watch?v=EtPpSYDsVZs",
         "https://www.youtube.com/watch?v=cdI7fycHg1k",
+        "https://www.youtube.com/watch?v=DBIUeqkbCgI",
         
         //
         "https://www.youtube.com/watch?v=7fb3Pdt8kxg",
@@ -424,12 +425,18 @@ class LongVowelSoundAnalyzer{
         var htmlList = [String]()
         
         if(twoVowelsNoRules1()){
-            if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["oi"])){
-                htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=EMdtke9HZVE").getHtml())
+            htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=DBIUeqkbCgI").getHtml())
+            
+            if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["au","aw"])){
+                htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=DCewkZOO_ew").getHtml())
+            }
+            if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["ow","ou"])){
+                htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=m2jAzpnT7lc").getHtml())
             }
             if(LetterAnalyzer.matchAnyPosition(word: word, targets: ["oi","oy"])){
                 htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=EtPpSYDsVZs").getHtml())
                 htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=cdI7fycHg1k").getHtml())
+                htmlList.append(YoutubeLink(url: "https://www.youtube.com/watch?v=EMdtke9HZVE").getHtml())
             }
         }
         

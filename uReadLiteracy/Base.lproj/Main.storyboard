@@ -998,42 +998,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbN-vt-sTj">
-                                                    <rect key="frame" x="15" y="13" width="84.5" height="23.5"/>
-                                                    <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbN-vt-sTj">
+                                                    <rect key="frame" x="15" y="11" width="313" height="28"/>
+                                                    <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2G-yQ-pqI">
-                                                    <rect key="frame" x="109.5" y="12.5" width="25" height="24.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="s2G-yQ-pqI" secondAttribute="height" multiplier="1:1" id="u7m-P1-cOo"/>
-                                                    </constraints>
-                                                    <state key="normal" image="snail"/>
-                                                    <connections>
-                                                        <action selector="slowSpeakerBtnPressed:" destination="m10-RK-aQ4" eventType="touchUpInside" id="HFF-HX-DdZ"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouj-oL-RXn">
-                                                    <rect key="frame" x="139.5" y="12.5" width="24.5" height="24.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Ouj-oL-RXn" secondAttribute="height" multiplier="1:1" id="HL4-YC-n4O"/>
-                                                    </constraints>
-                                                    <state key="normal" image="rabbit"/>
-                                                    <connections>
-                                                        <action selector="fastSpeakerBtnPressed:" destination="m10-RK-aQ4" eventType="touchUpInside" id="fUD-Kc-YD8"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="s2G-yQ-pqI" firstAttribute="centerY" secondItem="Sf0-ir-yBV" secondAttribute="centerY" id="38e-35-jTm"/>
-                                                <constraint firstItem="Ouj-oL-RXn" firstAttribute="height" secondItem="Sf0-ir-yBV" secondAttribute="height" multiplier="1:2" id="MNt-pd-VFc"/>
-                                                <constraint firstItem="Ouj-oL-RXn" firstAttribute="leading" secondItem="s2G-yQ-pqI" secondAttribute="trailing" constant="5" id="UBE-rW-4bl"/>
-                                                <constraint firstItem="s2G-yQ-pqI" firstAttribute="height" secondItem="Sf0-ir-yBV" secondAttribute="height" multiplier="1:2" id="Xp9-oQ-uL1"/>
-                                                <constraint firstItem="zbN-vt-sTj" firstAttribute="centerY" secondItem="Sf0-ir-yBV" secondAttribute="centerY" id="bGf-bb-HQu"/>
-                                                <constraint firstItem="s2G-yQ-pqI" firstAttribute="leading" secondItem="zbN-vt-sTj" secondAttribute="trailing" constant="10" id="c5n-ZJ-vtf"/>
-                                                <constraint firstItem="Ouj-oL-RXn" firstAttribute="centerY" secondItem="Sf0-ir-yBV" secondAttribute="centerY" id="j7w-nk-P3q"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zbN-vt-sTj" secondAttribute="bottom" id="0xD-lt-NjZ"/>
+                                                <constraint firstItem="zbN-vt-sTj" firstAttribute="top" secondItem="Sf0-ir-yBV" secondAttribute="topMargin" id="8uw-39-BkT"/>
                                                 <constraint firstItem="zbN-vt-sTj" firstAttribute="leading" secondItem="Sf0-ir-yBV" secondAttribute="leadingMargin" id="mE5-BD-UQv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zbN-vt-sTj" secondAttribute="trailing" id="p3d-hs-pvm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

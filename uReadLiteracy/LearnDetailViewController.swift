@@ -20,10 +20,11 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     private var wordDetails = [WordAnalysisDetail]()
     fileprivate var sectionExpanded:[String:Bool] = [:]
     
-    private var definition = ""
-    
-    private let DEFINITION_COUNT = 1
+    private let DEFINITION_SECTION_COUNT = 1
+    private let DEFINTION = "Definition"
     private let HEADER_HEIGHT:CGFloat = 50
+    
+    private var wordDefinitions = [String]()
     
     func inject(helpWord:HelpWordModel){
         self.helpWord = helpWord
@@ -33,6 +34,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
         super.viewDidLoad()
         tableview.separatorStyle = .none
         tableview.allowsSelection = false
+        sectionExpanded[DEFINTION] = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +56,8 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Cannot Load Help Word", message: "Sorry, Please Try Again!", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (_) in
-                        strongself.dismiss(animated: true, completion: nil)
+                        
+                        strongself.navigationController?.popViewController(animated: true)
                     }))
                     strongself.show(alert, sender: strongself)
                 }
@@ -68,14 +71,15 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
                 strongself.activityIndicator.isHidden = true
                 
                 strongself.wordDetails = WordAnalyzer.getDetails(helpWord: strongself.helpWord)
+                strongself.wordDefinitions = DictionaryManager.shared.getTitles(from: dictionaryWord)
                 
                 
                 strongself.sectionExpanded.removeAll()
+                strongself.sectionExpanded[strongself.DEFINTION] = false
                 for detail in strongself.wordDetails{
                     strongself.sectionExpanded[detail.title] = false
                 }
-               
-                strongself.definition = DictionaryManager.shared.getDefinition(from: dictionaryWord)
+                
                 
                 strongself.tableview.reloadData()
             }
@@ -84,20 +88,29 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return wordDetails.count + DEFINITION_COUNT
+        return wordDetails.count + DEFINITION_SECTION_COUNT
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if(section == 0){
-            return nil
-        }
-        
+       
+        var title = ""
+ 
         let sectionIndexWithoutDefinition = section - 1
-        let title = wordDetails[sectionIndexWithoutDefinition].title
         
-        if(sectionExpanded[title] == nil){
-            fatalError("sectionExpanded setup wrong")
+        if(section == 0){
+            if(sectionExpanded[DEFINTION] == nil){
+                fatalError("sectionExpanded setup wrong")
+            }
+            
+            title = DEFINTION
         }
+        else{
+            title = wordDetails[sectionIndexWithoutDefinition].title
+            if(sectionExpanded[title] == nil){
+                fatalError("sectionExpanded setup wrong")
+            }
+        }
+        
         
         let header = DropDownView(title: title, expanded: sectionExpanded[title]!, frame: CGRect(x: 0, y: 0, width: view.frame.width, height: HEADER_HEIGHT), delegate: self)
   
@@ -107,7 +120,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if(section == 0){
-            return 0
+            return HEADER_HEIGHT
         }
         let definitionSection = 1
         let lastSection = section - 1
@@ -124,7 +137,13 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0){
-            return 1
+            if(sectionExpanded[DEFINTION] == nil){
+                fatalError("sectionExpanded setup wrong")
+            }
+            if(sectionExpanded[DEFINTION]!){
+                return wordDefinitions.count
+            }
+            return 0
         }
                 
         let wordAnalysis = 1
@@ -173,7 +192,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         //WordWithSpeakerTableViewCell
         if(indexPath.section == 0){
-            return 50
+            return 100
         }
         else{
             //WordAnalysisTableViewCell
@@ -190,7 +209,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //WordWithSpeakerTableViewCell
         if(indexPath.section == 0){
-            return 50
+            return UITableViewAutomaticDimension
         }
         else{
             //WordAnalysisTableViewCell
@@ -217,9 +236,8 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             else{
                 cell.titleLabel.font = UIFont(name: "NokioSans-Regular", size: 20)
             }
-            
-            cell.titleLabel.text = "Definition"
-            cell.definition = definition
+        
+            cell.titleLabel.text = wordDefinitions[indexPath.row]
         }
     }
 }

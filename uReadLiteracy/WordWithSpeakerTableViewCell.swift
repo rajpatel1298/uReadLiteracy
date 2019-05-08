@@ -14,28 +14,24 @@ class WordWithSpeakerTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var titleLabel: UILabel!
-    
-    var definition:String!
-    
-    var textToVoice = TextToVoiceService()
+        
+    private var textToVoice = TextToVoiceService()
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupSpeakerAnimationView()
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        addGestureRecognizer(tapRecognizer)
     }
     
-    private func setupSpeakerAnimationView(){
-        textToVoice.setText(text: definition)
+    @objc func tapped(sender:UITapGestureRecognizer){
+        playSoundUsingTitle()
     }
     
-    @IBAction func slowSpeakerBtnPressed(_ sender: Any) {
-        textToVoice.playSlow()
-    }
-    
-    @IBAction func fastSpeakerBtnPressed(_ sender: Any) {
+    private func playSoundUsingTitle(){
+        textToVoice.setText(text: titleLabel.text ?? "")
         textToVoice.playFast()
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

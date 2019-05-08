@@ -32,7 +32,7 @@ class DictionaryManager{
         }
     }
     
-    func getDefinition(from word:DictionaryWord)->String{
+    /*func getDefinition(from word:DictionaryWord)->String{
         var definition = ""
         
         let meaning = word.meaning
@@ -77,7 +77,7 @@ class DictionaryManager{
         }
         
         return definition
-    }
+    }*/
     
     private func addDotToEndOfSetence(string:String)->String{
         var string = string
@@ -93,35 +93,20 @@ class DictionaryManager{
         let meaning = word.meaning
         
         if let nouns = meaning.noun{
-            if nouns.count == 1{
-                titles.append("Noun")
-            }
-            else{
-                for x in 1...nouns.count{
-                    titles.append("Noun \(x)")
-                }
+            for x in 0...(nouns.count-1){
+                titles.append(nouns[x].definition)
             }
         }
         
         if let verbs = meaning.verb{
-            if verbs.count == 1{
-                titles.append("Verb")
-            }
-            else{
-                for x in 1...verbs.count{
-                    titles.append("Verb \(x)")
-                }
+            for x in 0...(verbs.count-1){
+                titles.append(verbs[x].definition)
             }
         }
         
         if let adjectives = meaning.adjective{
-            if adjectives.count == 1{
-                titles.append("Adjective")
-            }
-            else{
-                for x in 1...adjectives.count{
-                    titles.append("Adjective \(x)")
-                }
+            for x in 0...(adjectives.count-1){
+                titles.append(adjectives[x].definition)
             }
         }
         
