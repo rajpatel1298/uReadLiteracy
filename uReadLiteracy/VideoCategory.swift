@@ -17,5 +17,6 @@ enum VideoCategory:String,CaseIterable{
     case ConsonantDigraphs = "Consonant Digraphs"
     case Trigraph = "Trigraph"
     case RControlledVowels = "R Controlled Vowels"
+    case SightWord = "Sight Words"
     case Exceptions = "Weird Words and Exceptions"
 }

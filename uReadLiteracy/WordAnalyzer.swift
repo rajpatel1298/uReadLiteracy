@@ -18,6 +18,7 @@ class WordAnalyzer{
     private static let consonantDigraphsAnalyzer = ConsonantDigraphsAnalyzer(title: "Consonant Digraphs")
     private static let trigraphAnalyzer = TrigraphAnalyzer(title: "Trigraph")
     private static let rControlledVowelsAnalyzer = RControlledVowelsAnalyzer(title: "R Controlled Vowels")
+    private static let sightWordAnalyzer = SightWordAnalyzer(title: "Sight Words")
     
     static func getDetails(helpWord:HelpWordModel)->[WordAnalysisDetail]{
         let word = helpWord.word.lowercased()
@@ -31,6 +32,7 @@ class WordAnalyzer{
         wordDetails.append(contentsOf: blendAnalyzer.getDetails(word: word))
         wordDetails.append(contentsOf: consonantDigraphsAnalyzer.getDetails(word: word))
         wordDetails.append(contentsOf: rControlledVowelsAnalyzer.getDetails(word: word))
+        wordDetails.append(contentsOf: sightWordAnalyzer.getDetails(word: word))
         
         return wordDetails
     }

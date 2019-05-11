@@ -160,6 +160,7 @@
 		1CAD87A9220A456C0096DD90 /* 629-empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A8220A456B0096DD90 /* 629-empty-box.json */; };
 		1CAEFACC228655BE00928203 /* LearnVideoCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFACB228655BE00928203 /* LearnVideoCategoryTableViewCell.swift */; };
 		1CAEFACF228663E100928203 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFACE228663E100928203 /* Notification.swift */; };
+		1CAEFAD122874D2A00928203 /* SightWordAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAD022874D2A00928203 /* SightWordAnalyzer.swift */; };
 		1CB9159D224EB33200358AF1 /* BlockRuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */; };
 		1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */; };
 		1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */; };
@@ -450,6 +451,7 @@
 		1CAD87A8220A456B0096DD90 /* 629-empty-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "629-empty-box.json"; sourceTree = "<group>"; };
 		1CAEFACB228655BE00928203 /* LearnVideoCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		1CAEFACE228663E100928203 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		1CAEFAD022874D2A00928203 /* SightWordAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightWordAnalyzer.swift; sourceTree = "<group>"; };
 		1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRuleExtension.swift; sourceTree = "<group>"; };
 		1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGoalsGetter.swift; sourceTree = "<group>"; };
 		1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingGoalGetter.swift; sourceTree = "<group>"; };
@@ -1051,6 +1053,7 @@
 				1CD1A270223ED65500502A67 /* DictionaryManager.swift */,
 				1C578F6C22028F5E0077E1DD /* FileHelper.swift */,
 				1CAEFACE228663E100928203 /* Notification.swift */,
+				1CAEFAD022874D2A00928203 /* SightWordAnalyzer.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -1709,6 +1712,7 @@
 				CDA6528F1FA0F5B700835624 /* AppDelegate.swift in Sources */,
 				1CD1A2AB2249C3B900502A67 /* ArticleCategoryTableViewController.swift in Sources */,
 				1CAC799621FE4995007F8704 /* UIImageExtension.swift in Sources */,
+				1CAEFAD122874D2A00928203 /* SightWordAnalyzer.swift in Sources */,
 				CDF58FB522120A85007514DC /* BrowseViewControllerTutorial.swift in Sources */,
 				1CAC791A21FB55DF007F8704 /* CommentSectionViewController.swift in Sources */,
 				1C8C352A222D7F76008FF966 /* FirebaseAuthService.swift in Sources */,

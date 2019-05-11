@@ -48,6 +48,9 @@ class LearnVideoViewController: UIViewController,UITableViewDataSource,UITableVi
         case .RControlledVowels:
             videoHtmlList = RControlledVowelsAnalyzer.getAll()
             break
+        case .SightWord:
+            videoHtmlList = SightWordAnalyzer.getAll()
+            break
         case .Exceptions:
             videoHtmlList = OtherCasesWordAnalyzer.getAll()
             break
