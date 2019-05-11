@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 import UIKit
 
-class CoreDataSaver{
-    static let shared = CoreDataSaver()
+class CoreDataUpdater{
+    static let shared = CoreDataUpdater()
     
     private var appDelegate:AppDelegate!
     private let managedContext:NSManagedObjectContext
@@ -71,9 +71,10 @@ class CoreDataSaver{
         }
         
         
-        let model:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType: goalModel.goalType)
+        var modelSameDate:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType: goalModel.goalType, returnOnlySameDate: true)
+        var modelDifferentDate:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType: goalModel.goalType, returnOnlySameDate: false)
         
-        if(model == nil){
+        if(modelSameDate == nil && modelDifferentDate == nil ){
             let entity = NSEntityDescription.entity(forEntityName: "ReadXArticlesCD", in: managedContext)!
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
             object.setValue(goalModel.name, forKeyPath: "name")
@@ -83,14 +84,16 @@ class CoreDataSaver{
             object.setValue(goalModel.numberOfArticles, forKeyPath: "numberOfArticles")
         }
         else{
-            model?.progress = Int16(goalModel.progress)
+            modelSameDate?.progress = Int16(goalModel.progress)
+            modelDifferentDate?.progress = Int16(goalModel.progress)
         }
         
         save()
     }
     
     func save(goalModel:ReadXMinutesGoalModel){
-        let model:ReadXMinutesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType:goalModel.goalType)
+        let modelSameDate:ReadXMinutesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType:goalModel.goalType, returnOnlySameDate: true)
+        let modelDifferentDate:ReadXMinutesCD? = CoreDataGetter.shared.find(name: goalModel.name, date: goalModel.date, goalType:goalModel.goalType, returnOnlySameDate: false)
         
         let entity = NSEntityDescription.entity(forEntityName: "ReadXMinutesCD", in: managedContext)!
         
@@ -98,7 +101,7 @@ class CoreDataSaver{
             goalModel.progress = 100
         }
         
-        if(model == nil){
+        if(modelSameDate == nil && modelDifferentDate == nil){
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
             object.setValue(goalModel.name, forKeyPath: "name")
             object.setValue(goalModel.progress, forKeyPath: "progress")
@@ -108,14 +111,16 @@ class CoreDataSaver{
             object.setValue(goalModel.minutesRead, forKeyPath: "minutesRead")
         }
         else{
-            model?.minutesRead = Int16(goalModel.minutesRead)
+            modelSameDate?.minutesRead = Int16(goalModel.minutesRead)
+            modelDifferentDate?.minutesRead = Int16(goalModel.minutesRead)
             
             var progress = Int(Float(goalModel.minutesRead/goalModel.totalMinutes)*100)
             if goalModel.totalMinutes == goalModel.minutesRead{
                 goalModel.progress = 100
             }
             
-            model?.progress = Int16(goalModel.progress)
+            modelSameDate?.progress = Int16(goalModel.progress)
+            modelDifferentDate?.progress = Int16(goalModel.progress)
         }
         
         save()
@@ -146,6 +151,27 @@ class CoreDataSaver{
         }
         
         save()
+    }
+    
+    func delete(helpModel:HelpWordModel){
+        let model:HelpWordCD? = CoreDataGetter.shared.find(helpWord: helpModel.word)
+        if(model != nil){
+            managedContext.delete(model!)
+        }
+        save()
+    }
+    
+    func delete(goal:GoalModel, goalType:GoalType){
+        let readXMinute:ReadXMinutesCD? = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType, returnOnlySameDate: false)
+        let readXArticle:ReadXArticlesCD? = CoreDataGetter.shared.find(name: goal.name, date: goal.date, goalType: goalType, returnOnlySameDate: false)
+        if(readXMinute != nil){
+            managedContext.delete(readXMinute!)
+            save()
+        }
+        else if(readXArticle != nil){
+            managedContext.delete(readXArticle!)
+            save()
+        }
     }
     
     private func save(){

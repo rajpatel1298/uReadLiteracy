@@ -35,8 +35,8 @@ class ReadXMinutesGoalModel:GoalModel{
         self.goalType = GoalType(rawValue: model.goalType!)
     }
     
-    func find(name:String,date:Date)->ReadXMinutesCD?{
-        let model:ReadXMinutesCD? = CoreDataGetter.shared.find(name: name, date: date, goalType: goalType)
+    func find(name:String,date:Date,returnOnlySameDate:Bool)->ReadXMinutesCD?{
+        let model:ReadXMinutesCD? = CoreDataGetter.shared.find(name: name, date: date, goalType: goalType, returnOnlySameDate: returnOnlySameDate)
         
         return model
     }

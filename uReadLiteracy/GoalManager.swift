@@ -90,7 +90,7 @@ class GoalManager{
                     if  goal.isCompleted(){
                         showGoalComplete(goal)
                     }
-                    CoreDataSaver.shared.save(goalModel: goal)
+                    CoreDataUpdater.shared.save(goalModel: goal)
                 }
             }
         }
@@ -114,7 +114,7 @@ class GoalManager{
                     showGoalComplete(goal)
                 }
                 
-                CoreDataSaver.shared.save(goalModel: goal)
+                CoreDataUpdater.shared.save(goalModel: goal)
             }
         }
 

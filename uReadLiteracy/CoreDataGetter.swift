@@ -83,17 +83,23 @@ class CoreDataGetter{
     
     // Goals
     
-    func find(name:String,date:Date, goalType:GoalType)->ReadXMinutesCD?{
+    func find(name:String,date:Date, goalType:GoalType, returnOnlySameDate:Bool)->ReadXMinutesCD?{
         let goals:[ReadXMinutesCD] = CoreDataGetter.shared.getList()
         
         for goal in goals{
             if goal.name == name{
                 if goalType == .Daily{
-                    let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
-                    
-                    if(components.year == 0 && components.month == 0 && components.day == 0){
+                    if(returnOnlySameDate){
+                        let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
+                        
+                        if(components.year == 0 && components.month == 0 && components.day == 0){
+                            return goal
+                        }
+                    }
+                    else{
                         return goal
                     }
+                    
                 }
                 else{
                     return goal
@@ -104,15 +110,22 @@ class CoreDataGetter{
         return nil
     }
     
-    func find(name:String,date:Date, goalType:GoalType)->ReadXArticlesCD?{
+    
+    
+    func find(name:String,date:Date, goalType:GoalType,returnOnlySameDate:Bool)->ReadXArticlesCD?{
         let goals:[ReadXArticlesCD] = getList()
         
         for goal in goals{
             if goal.name == name{
                 if goalType == .Daily{
-                    let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
-                    
-                    if(components.year == 0 && components.month == 0 && components.day == 0){
+                    if(returnOnlySameDate){
+                        let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
+                        
+                        if(components.year == 0 && components.month == 0 && components.day == 0){
+                            return goal
+                        }
+                    }
+                    else{
                         return goal
                     }
                 }

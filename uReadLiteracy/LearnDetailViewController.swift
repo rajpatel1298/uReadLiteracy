@@ -71,7 +71,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
                 strongself.activityIndicator.isHidden = true
                 
                 strongself.wordDetails = WordAnalyzer.getDetails(helpWord: strongself.helpWord)
-                strongself.wordDefinitions = DictionaryManager.shared.getTitles(from: dictionaryWord)
+                strongself.wordDefinitions = DictionaryManager.shared.getDefinitions(from: dictionaryWord)
                 
                 
                 strongself.sectionExpanded.removeAll()

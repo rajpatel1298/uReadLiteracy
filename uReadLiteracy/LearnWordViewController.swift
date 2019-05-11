@@ -43,9 +43,22 @@ class LearnWordViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "learnCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LearnCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WordWithDeleteBtnTableViewCell
         
         cell.wordLabel.text = helpList[indexPath.row].word
+        cell.resetDeleteBtn()
+        cell.inject(onDelete: { [weak self] in
+            guard let strongself = self else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                CoreDataUpdater.shared.delete(helpModel: strongself.helpList[indexPath.row])
+                strongself.helpList.remove(at: indexPath.row)
+                strongself.tableview.reloadData()
+                NotificationManager.shared.notifyHelpWordsUpdated()
+            }
+        })
         
         return cell
     }

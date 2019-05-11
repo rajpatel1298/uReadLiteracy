@@ -1,17 +1,18 @@
 //
-//  LearnCell.swift
+//  LearnVideoCategoryTableViewCell.swift
 //  uReadLiteracy
 //
-//  Created by Raj Patel on 3/16/18.
-//  Copyright © 2018 AdaptConsulting. All rights reserved.
+//  Created by Duy Le 2 on 5/10/19.
+//  Copyright © 2019 AdaptConsulting. All rights reserved.
 //
 
 import UIKit
 
-class LearnCell: UITableViewCell {
+class LearnVideoCategoryTableViewCell: UITableViewCell {
     
-    @IBOutlet var wordLabel: UILabel!
+    @IBOutlet weak var wordLabel: UILabel!
     
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +23,5 @@ class LearnCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

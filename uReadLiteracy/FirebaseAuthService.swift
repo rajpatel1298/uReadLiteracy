@@ -23,7 +23,7 @@ class FirebaseAuthService{
                     
                     switch(state){
                     case .Success:
-                        CoreDataSaver.shared.save(model: user)
+                        CoreDataUpdater.shared.save(model: user)
                         completionHandler(.Success)
                         break
                     case .Failure(let err):

@@ -40,8 +40,8 @@ class ReadXArticlesGoalModel:GoalModel{
     
     
     
-    func find(name:String,date:Date)->ReadXArticlesCD?{
-        let model:ReadXArticlesCD? = CoreDataGetter.shared.find(name: name, date: date, goalType: goalType)
+    func find(name:String,date:Date,returnOnlySameDate:Bool)->ReadXArticlesCD?{
+        let model:ReadXArticlesCD? = CoreDataGetter.shared.find(name: name, date: date, goalType: goalType, returnOnlySameDate: returnOnlySameDate)
         
         return model
     }

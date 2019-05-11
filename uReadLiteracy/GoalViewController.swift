@@ -49,8 +49,11 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "GoalTableViewCell") as! GoalTableViewCell
+        cell.resetDeleteBtn()
+        
         if selectedGoalType == GoalType.Daily{
             let goal = dailyGoals[indexPath.row]
+            
             cell.goalSubLabel.text = goal.getDescriptionWithProgress()
             if goal.isCompleted(){
                 cell.goalFinishAnimationView.isHidden = false
@@ -60,6 +63,16 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.goalFinishAnimationView.isHidden = true
                 cell.goalFinishAnimationView.stop()
             }
+            
+            cell.inject(onDelete: { [weak self] in
+                guard let strongself = self else{
+                    return
+                }
+                
+                CoreDataUpdater.shared.delete(goal: goal, goalType: strongself.selectedGoalType)
+                strongself.dailyGoals.remove(at: indexPath.row)
+                strongself.refreshTableView()
+            })
         }
         else{
             let goal = ongoingGoals[indexPath.row]
@@ -72,6 +85,16 @@ class GoalViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.goalFinishAnimationView.isHidden = true
                 cell.goalFinishAnimationView.stop()
             }
+            
+            cell.inject(onDelete: {[weak self] in
+                guard let strongself = self else{
+                    return
+                }
+                
+                CoreDataUpdater.shared.delete(goal: goal, goalType: strongself.selectedGoalType)
+                strongself.ongoingGoals.remove(at: indexPath.row)
+                strongself.refreshTableView()
+            })
         }
         return cell
     }

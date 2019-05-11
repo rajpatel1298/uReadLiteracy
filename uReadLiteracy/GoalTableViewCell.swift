@@ -9,17 +9,17 @@
 import UIKit
 import Lottie
 
-class GoalTableViewCell: UITableViewCell {
+class GoalTableViewCell: WordWithDeleteBtnTableViewCell {
     
     @IBOutlet weak var goalSubLabel: UILabel!
     @IBOutlet weak var goalFinishAnimationView: LOTAnimationView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         goalFinishAnimationView.animationSpeed = 0.8
         // Initialization code
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

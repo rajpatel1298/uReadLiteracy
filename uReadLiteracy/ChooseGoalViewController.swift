@@ -107,10 +107,10 @@ class ChooseGoalViewController: UIViewController,UITableViewDelegate,UITableView
         
         switch(self.goalType!){
         case .Daily:
-            CoreDataSaver.shared.save(goalModel: self.dailyGoals[indexPath.row])
+            CoreDataUpdater.shared.save(goalModel: self.dailyGoals[indexPath.row])
             break
         case .Ongoing:
-            CoreDataSaver.shared.save(goalModel: self.ongoingGoals[indexPath.row])
+            CoreDataUpdater.shared.save(goalModel: self.ongoingGoals[indexPath.row])
             break
         }
         

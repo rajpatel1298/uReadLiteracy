@@ -39,6 +39,16 @@ class LearnViewController: UIViewController{
         learnVideoCategoryController = (storyboard!.instantiateViewController(withIdentifier: "LearnVideoCategoryViewController") as! LearnVideoCategoryViewController)
         learnVideoCategoryController.inject(delegate: self)
         add(learnVideoCategoryController)
+        
+        NotificationManager.shared.observeHelpWordsUpdated(observer: self, selector: #selector(helpWordsUpdated))
+    }
+    
+    @objc private func helpWordsUpdated(){
+        setupUIBasedOnSegmentedControl()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     override func viewDidLayoutSubviews() {

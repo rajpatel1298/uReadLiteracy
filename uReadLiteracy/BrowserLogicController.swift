@@ -51,7 +51,7 @@ class BrowserLogicController{
                 helpWord.timesAsked = helpWord.timesAsked + 1
                 helpWord.askedLastArticle = true
                 
-                CoreDataSaver.shared.save(helpModel: helpWord)
+                CoreDataUpdater.shared.save(helpModel: helpWord)
                 completionHandler(.Success, nil, helpWord)
             }
             else{
@@ -90,7 +90,7 @@ class BrowserLogicController{
         
         for model in list{
             model.askedLastArticle = false
-            CoreDataSaver.shared.save(helpModel: model)
+            CoreDataUpdater.shared.save(helpModel: model)
         }
     }
     
@@ -111,7 +111,7 @@ class BrowserLogicController{
                     if result[model.word]! && !model.askedLastArticle {
                         if(model.timesAsked>0){
                             model.timesAsked = model.timesAsked - 1
-                            CoreDataSaver.shared.save(helpModel: model)
+                            CoreDataUpdater.shared.save(helpModel: model)
                         }
                     }
                 }

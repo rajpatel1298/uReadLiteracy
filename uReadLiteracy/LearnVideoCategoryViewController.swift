@@ -23,7 +23,7 @@ class LearnVideoCategoryViewController: UIViewController,UITableViewDataSource,U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "learnCell", for: indexPath) as! LearnCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LearnVideoCategoryCell", for: indexPath) as! LearnVideoCategoryTableViewCell
         
         cell.wordLabel.text = categories[indexPath.row].rawValue
         return cell

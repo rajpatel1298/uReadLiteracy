@@ -32,7 +32,7 @@ class DictionaryManager{
         }
     }
     
-    /*func getDefinition(from word:DictionaryWord)->String{
+    /*func getDefinitions(from word:DictionaryWord)->String{
         var definition = ""
         
         let meaning = word.meaning
@@ -85,7 +85,7 @@ class DictionaryManager{
         return string
     }
     
-    func getTitles(from word:DictionaryWord)->[String]{
+    func getDefinitions(from word:DictionaryWord)->[String]{
         
         var titles = [String]()
         titles.append(word.word)
