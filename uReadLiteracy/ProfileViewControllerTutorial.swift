@@ -27,15 +27,15 @@ class ProfileViewControllerTutorial:TutorialController{
     // Change based on the number of steps
     override func show(onComplete:@escaping ()->Void){
         // Change This part
-        steps.append(firstStep)
-        steps.append(secondStep)
+        //steps.append(firstStep)
+        //steps.append(secondStep)
         //
         
         super.show(onComplete: onComplete)
     }
     
     // Change based on what you want to highlight
-    private func firstStep(){
+    /*private func firstStep(){
         let currGoalsFrame = vc.view.convert(vc.currentGoalsLabel.frame, from:vc.currentGoalView)
         showHighlightFrame(frame: currGoalsFrame)
         setHandAnimationPosition(frame: currGoalsFrame)
@@ -45,5 +45,5 @@ class ProfileViewControllerTutorial:TutorialController{
         let  addNewGoalBtnFrame = vc.view.convert(vc.addNewGoalBtn.frame, from:vc.view)
         showHighlightFrame(frame: addNewGoalBtnFrame)
         setHandAnimationPosition(frame: addNewGoalBtnFrame)
-    }
+    }*/
 }

@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orangetheme" translatesAutoresizingMaskIntoConstraints="NO" id="f6S-kA-PZS">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juicyorangetheme" translatesAutoresizingMaskIntoConstraints="NO" id="8cq-wg-Bgz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="openbook" translatesAutoresizingMaskIntoConstraints="NO" id="3C5-Tb-xF4">
                                 <rect key="frame" x="85" y="140" width="150" height="120"/>
@@ -40,24 +40,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="f6S-kA-PZS" secondAttribute="trailing" id="6ed-kF-U4c"/>
-                            <constraint firstItem="f6S-kA-PZS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ICZ-X9-uo6"/>
+                            <constraint firstItem="8cq-wg-Bgz" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Hz3-GJ-Iih"/>
                             <constraint firstItem="uCo-Dn-Nge" firstAttribute="top" secondItem="3C5-Tb-xF4" secondAttribute="bottom" constant="10" id="NvK-HK-QHT"/>
+                            <constraint firstItem="8cq-wg-Bgz" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="eb7-bB-8lT"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="8cq-wg-Bgz" secondAttribute="bottom" id="fJq-sw-UQx"/>
                             <constraint firstItem="3C5-Tb-xF4" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="1:4" id="h37-h8-JjM"/>
                             <constraint firstItem="3C5-Tb-xF4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ht4-Yy-lB4"/>
                             <constraint firstItem="3C5-Tb-xF4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="jEV-wo-tJT"/>
-                            <constraint firstItem="f6S-kA-PZS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="yqV-4h-FPb"/>
+                            <constraint firstAttribute="trailing" secondItem="8cq-wg-Bgz" secondAttribute="trailing" id="kHk-pM-zKQ"/>
                             <constraint firstItem="uCo-Dn-Nge" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zNk-zf-7d9"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="f6S-kA-PZS" secondAttribute="bottom" id="zxO-Zy-cxX"/>
                         </constraints>
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.625" y="373.75"/>
         </scene>
     </scenes>
     <resources>
+        <image name="juicyorangetheme" width="1440" height="900"/>
         <image name="openbook" width="478" height="351"/>
-        <image name="orangetheme" width="1440" height="900"/>
     </resources>
 </document>
