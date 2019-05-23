@@ -161,6 +161,7 @@
 		1CAEFACC228655BE00928203 /* LearnVideoCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFACB228655BE00928203 /* LearnVideoCategoryTableViewCell.swift */; };
 		1CAEFACF228663E100928203 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFACE228663E100928203 /* Notification.swift */; };
 		1CAEFAD122874D2A00928203 /* SightWordAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAD022874D2A00928203 /* SightWordAnalyzer.swift */; };
+		1CAEFAD32296C93E00928203 /* AchivementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAD22296C93E00928203 /* AchivementManager.swift */; };
 		1CB9159D224EB33200358AF1 /* BlockRuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */; };
 		1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */; };
 		1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */; };
@@ -452,6 +453,7 @@
 		1CAEFACB228655BE00928203 /* LearnVideoCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		1CAEFACE228663E100928203 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1CAEFAD022874D2A00928203 /* SightWordAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightWordAnalyzer.swift; sourceTree = "<group>"; };
+		1CAEFAD22296C93E00928203 /* AchivementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivementManager.swift; sourceTree = "<group>"; };
 		1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRuleExtension.swift; sourceTree = "<group>"; };
 		1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGoalsGetter.swift; sourceTree = "<group>"; };
 		1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingGoalGetter.swift; sourceTree = "<group>"; };
@@ -767,6 +769,7 @@
 				1C490EA62262A3F600DC5E74 /* WordAnalysisDetail.swift */,
 				1C0186D32278AE86002C7F0C /* VideoCategory.swift */,
 				1C51DB13227F894500419E60 /* YoutubeLink.swift */,
+				1CAEFAD22296C93E00928203 /* AchivementManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1619,6 +1622,7 @@
 				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
 				1C0186D42278AE86002C7F0C /* VideoCategory.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
+				1CAEFAD32296C93E00928203 /* AchivementManager.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* CurrentUser.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
 				1CD1A2AD2249C70D00502A67 /* ArticleCategoryTableViewCell.swift in Sources */,
