@@ -41,12 +41,12 @@ class ComprehensionPopup:UIView,UITextViewDelegate{
         let XMid = frame.width/2
         let popupWidth = frame.width*5/6
         let YMid = frame.height/2
-        let popupHeight = frame.height * 4/7
+        let popupHeight = frame.height * 5/7
         
         let XPadding:CGFloat = 20
         let YPadding:CGFloat = 10
         
-        topBackgroundIV.frame = CGRect(x: XMid-popupWidth/2, y: YMid - popupHeight/2 , width: popupWidth, height: popupHeight/2)
+        topBackgroundIV.frame = CGRect(x: XMid-popupWidth/2, y: YMid - popupHeight*1/3 , width: popupWidth, height: popupHeight*1/3)
         
        // topBackgroundIV.contentMode = .scaleAspectFill
         darkBackground.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)

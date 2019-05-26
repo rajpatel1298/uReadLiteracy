@@ -9,13 +9,84 @@
 import UIKit
 import UserNotifications
 
-class ProfileViewController: BaseViewController {
+class ProfileViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
+    let achievementManager = AchievementManager()
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return achievementManager.getAllCurrentAchievements().count + 1
+    }
+    
+    var dic = [IndexPath:UICollectionViewCell]()
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AchievementCollectionViewCell", for: indexPath) as! AchievementCollectionViewCell
+        dic[indexPath] = cell
+
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let cell = cell as! AchievementCollectionViewCell
+        
+        // cell to view all achievements
+        if(indexPath.row == achievementManager.getAllCurrentAchievements().count){
+            cell.imageview.image = UIImage(named: "more")
+            cell.titleLabel.text = "See All Achievements"
+            cell.quoteLabel.text = ""
+            cell.hideSocialMedia()
+        }
+        else{
+            let achievement = achievementManager.getAllCurrentAchievements()[indexPath.row]
+            
+            cell.imageview.image = achievement.image
+            cell.titleLabel.text = achievement.title
+            cell.quoteLabel.text = achievement.quote ?? ""
+            cell.inject(achievement: achievement, viewcontroller: self)
+            cell.hideSocialMedia()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = dic[indexPath] as! AchievementCollectionViewCell
+        
+        // cell to view all achievements
+        if(indexPath.row == achievementManager.getAllCurrentAchievements().count){
+            print()
+        }
+        else{
+            if(cell.facebookBtn.isHidden == false){
+                cell.hideSocialMedia()
+            }
+            else{
+                cell.showSocialMedia()
+            }
+            cell.facebookBtn.isHidden = false
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.height/4, height: view.frame.height/4)
+    }
+    
+    
+    
+    @IBOutlet weak var achievementCollectionView: UICollectionView!
     
     @IBOutlet weak var profileIV: RoundedImageView!
  
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .horizontal
+        achievementCollectionView.collectionViewLayout = layout
+        
+        
+    
         loadUserInfo()
 
         //set up daily notifications
@@ -37,6 +108,7 @@ class ProfileViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        achievementCollectionView.reloadData()
     }
     
     

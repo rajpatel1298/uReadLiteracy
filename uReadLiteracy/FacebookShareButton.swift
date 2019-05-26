@@ -17,7 +17,6 @@ class FacebookShareButton:LOTAnimationView,FBSDKSharingDelegate{
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        content.quote = ""
         
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(facebookShareBtnPressed(_:)))
         addGestureRecognizer(facebookTap)

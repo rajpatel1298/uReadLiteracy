@@ -70,6 +70,16 @@ class AchievementManager{
         return list
     }
     
+    func getAllCurrentAchievements()->[Achievement]{
+        getCurrentStats()
+        
+        var list = [Achievement]()
+        list.append(contentsOf: getAllArticlesAchievements())
+        list.append(contentsOf: getAllMinuteAchivements())
+        list.append(contentsOf: getAllCategoryAchivements())
+        return list
+    }
+    
     private func getCurrentStats(){
         let articleList:[ArticleCD] = CoreDataGetter.shared.getList()
         var categoriesDidNotRead = [String]()
@@ -97,7 +107,9 @@ class AchievementManager{
         articlesRead = articleList.count
     }
     
-    func getAllReadXArticlesAchivements()->[Achievement]{
+    func getAllArticlesAchievements()->[Achievement]{
+        getCurrentStats()
+        
         var list = [Achievement]()
         
         if articlesRead >= 1 && articlesRead<5{
@@ -126,7 +138,7 @@ class AchievementManager{
         return list
     }
     
-    func getCurrentArticleAchievement()->ArticleAchievement?{
+    private func getCurrentArticleAchievement()->ArticleAchievement?{
         if(articlesRead < 1){
             return nil
         }
@@ -156,7 +168,9 @@ class AchievementManager{
         }
     }
     
-    func getAllReadXMinutesAchivements()->[Achievement]{
+    func getAllMinuteAchivements()->[Achievement]{
+        getCurrentStats()
+        
         var list = [Achievement]()
         
         if minutesRead >= 10 && minutesRead < 30{
@@ -192,7 +206,7 @@ class AchievementManager{
         return list
     }
     
-    func getCurrentMinutesAchievement()->MinuteAchievement?{
+    private func getCurrentMinutesAchievement()->MinuteAchievement?{
         if(minutesRead < 10){
             return nil
         }
@@ -232,6 +246,8 @@ class AchievementManager{
     }
     
     func getAllCategoryAchivements()->[Achievement]{
+        getCurrentStats()
+        
         var list = [Achievement]()
         
         if categoryRead == 1{
@@ -252,7 +268,7 @@ class AchievementManager{
         return list
     }
     
-    func getCurrentCategoryAchievement()->CategoryAchievement?{
+    private func getCurrentCategoryAchievement()->CategoryAchievement?{
         if(categoryRead == 0){
             return nil
         }
