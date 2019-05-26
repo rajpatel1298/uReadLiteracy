@@ -13,9 +13,10 @@ class ArticleModel:ReadingSource{
     
     let category:ArticleCategory
    
-    // 1 unit = 1 second
-    var timeSpent:Double = 0
+    var minutesRead:Int = 0
     let url:String
+    
+    private var startDate:Date!
 
   
     init(name:String,url:String,category:ArticleCategory, difficulty:ReadingDifficulty){
@@ -23,8 +24,18 @@ class ArticleModel:ReadingSource{
         self.url = url
         
         let cleanName = name.replacingOccurrences(of: "Text & MP3 File", with: "")
-        
+                
         super.init(name: cleanName, difficulty: difficulty)
+    }
+    
+    func startTimer(){
+        startDate = Date()
+    }
+    
+    func stopTimer(){
+        let stopDate = Date().timeIntervalSince(startDate)
+        minutesRead = minutesRead + Int(stopDate/60)
+        print()
     }
     
     func equal(article:ArticleModel)->Bool{

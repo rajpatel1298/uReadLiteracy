@@ -14,7 +14,7 @@ class QuestionLabel:UILabel{
     override func layoutSubviews() {
         font = UIFont(name: "NokioSansAlt-Medium", size: 23)
         textAlignment = .center
-        numberOfLines = 3
+        numberOfLines = 0
         
     }
 

@@ -80,64 +80,6 @@ class CoreDataGetter{
     }
     
     
-    
-    // Goals
-    
-    func find(name:String,date:Date, goalType:GoalType, returnOnlySameDate:Bool)->ReadXMinutesCD?{
-        let goals:[ReadXMinutesCD] = CoreDataGetter.shared.getList()
-        
-        for goal in goals{
-            if goal.name == name{
-                if goalType == .Daily{
-                    if(returnOnlySameDate){
-                        let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
-                        
-                        if(components.year == 0 && components.month == 0 && components.day == 0){
-                            return goal
-                        }
-                    }
-                    else{
-                        return goal
-                    }
-                    
-                }
-                else{
-                    return goal
-                }
-            }
-        }
-        
-        return nil
-    }
-    
-    
-    
-    func find(name:String,date:Date, goalType:GoalType,returnOnlySameDate:Bool)->ReadXArticlesCD?{
-        let goals:[ReadXArticlesCD] = getList()
-        
-        for goal in goals{
-            if goal.name == name{
-                if goalType == .Daily{
-                    if(returnOnlySameDate){
-                        let components = Calendar.current.dateComponents([.year,.month,.day], from: goal.date! as Date, to: Date())
-                        
-                        if(components.year == 0 && components.month == 0 && components.day == 0){
-                            return goal
-                        }
-                    }
-                    else{
-                        return goal
-                    }
-                }
-                else{
-                    return goal
-                }
-            }
-        }
-        
-        return nil
-    }
-    
     func find(helpWord:String)->HelpWordCD?{
         let words:[HelpWordCD] = getList()
         for word in words{
@@ -148,13 +90,24 @@ class CoreDataGetter{
         return nil
     }
     
-    func getList() -> [ReadXArticlesCD] {
+    func find(articleUrlToFind:String)->ArticleCD?{
+        let list:[ArticleCD] = getList()
+        for article in list{
+            if article.url == articleUrlToFind{
+                return article
+            }
+        }
+        return nil
+    }
+    
+    func getList()->[ArticleCD]{
         managedContext.refreshAllObjects()
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXArticlesCD")
-        goalFetch.shouldRefreshRefetchedObjects = true
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ArticleCD")
+        fetchRequest.shouldRefreshRefetchedObjects = true
         
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXArticlesCD]
-        return goals
+        let objects = try! managedContext.fetch(fetchRequest)
+  
+        return objects as! [ArticleCD]
     }
     
     func getList() -> [HelpWordCD] {
@@ -166,36 +119,4 @@ class CoreDataGetter{
         return words
     }
     
-    func getList()->[ReadXMinutesCD]{
-        managedContext.refreshAllObjects()
-        let goalFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ReadXMinutesCD")
-        goalFetch.shouldRefreshRefetchedObjects = true
-      
-        let goals = try! managedContext.fetch(goalFetch) as! [ReadXMinutesCD]
-        return goals
-    }
-    
-    func getList() -> [ReadXArticlesGoalModel] {
-        let goals:[ReadXArticlesCD] = getList()
-        
-        var arr = [ReadXArticlesGoalModel]()
-        
-        for goal in goals{
-            let model = ReadXArticlesGoalModel(model: goal)
-            arr.append(model)
-        }
-        return arr
-    }
-    
-    func getList() -> [ReadXMinutesGoalModel] {
-        let goals : [ReadXMinutesCD] = getList()
-        
-        var arr = [ReadXMinutesGoalModel]()
-        
-        for goal in goals{
-            let model = ReadXMinutesGoalModel(model: goal)
-            arr.append(model)
-        }
-        return arr
-    }
 }

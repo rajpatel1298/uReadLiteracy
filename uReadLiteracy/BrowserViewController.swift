@@ -27,12 +27,13 @@ class BrowserViewController: UIViewController{
     var logicController:BrowserLogicController!
     var webviewManager:WebViewManager!
     var popupManager:ComprehensionPopupManager!
+    var achievementManager = AchievementManager()
     fileprivate let textToVoice = TextToVoiceService()
     
     var recorder:Recorder!
     fileprivate var player:AVAudioPlayer!
     var alerts:BrowserAlerts!
-    fileprivate var articleReadingStopwatch:ArticleReadingStopwatch!
+    
 
     fileprivate var scrollSubject = ScrollSubject()
     
@@ -40,7 +41,7 @@ class BrowserViewController: UIViewController{
     
     func inject(article:ArticleModel){
         currentArticle = article
-        articleReadingStopwatch = ArticleReadingStopwatch(article: currentArticle)
+        
         logicController = BrowserLogicController(currentArticle: currentArticle)
         logicController.setupHelpWords()
     }
@@ -234,8 +235,7 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
             }
         }
         
-        
-        articleReadingStopwatch.start()
+        currentArticle.startTimer()
         
         webviewManager.highlightHelpWords {[weak self] (err) in
             if(err != nil){
@@ -262,7 +262,8 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
         updateScrollPositionForCommentBtn()
         
         if webviewManager.atTheEndOfArticle(){
-            logicController.updateDataWhenFinishReadingArticle( articleReadingStopwatch: articleReadingStopwatch)
+            logicController.saveArticle()
+            logicController.showAchievementIfPossible(viewcontroller: self, achievementManager: achievementManager)
             logicController.updateHelpWordsThatWereNotAsked(webManager: webviewManager)
         }
     }

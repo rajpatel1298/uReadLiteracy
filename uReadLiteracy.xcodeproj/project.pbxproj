@@ -24,9 +24,8 @@
 		1C28738221A7B77A00B790A4 /* HelpWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738121A7B77A00B790A4 /* HelpWordModel.swift */; };
 		1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738321A7CC0500B790A4 /* ArticleModel.swift */; };
 		1C28738621A855A200B790A4 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738521A855A200B790A4 /* GoalTableViewCell.swift */; };
-		1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28738821A855E600B790A4 /* GoalViewController.swift */; };
-		1C28739121AA12A500B790A4 /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28739021AA12A500B790A4 /* GoalModel.swift */; };
 		1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */; };
+		1C307E4B229A04B200A16846 /* AchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C307E4A229A04B200A16846 /* AchievementTableViewCell.swift */; };
 		1C490E8E225D801300DC5E74 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C490E8D225D801300DC5E74 /* StringExtension.swift */; };
 		1C490E90225D867200DC5E74 /* WordAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C490E8F225D867200DC5E74 /* WordAnalyzer.swift */; };
 		1C490E93225D878500DC5E74 /* LongVowelSoundAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C490E92225D878500DC5E74 /* LongVowelSoundAnalyzer.swift */; };
@@ -79,7 +78,6 @@
 		1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CF221D4352300034EB3 /* BouncingLabel.swift */; };
 		1C769CF521D44B8800034EB3 /* AnimatedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */; };
 		1C870F7A21AA46C600FF296E /* ChooseGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */; };
-		1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */; };
 		1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F7E21AA49D100FF296E /* GoalType.swift */; };
 		1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8021AA4CFA00FF296E /* ChoosingGoalAlert.swift */; };
 		1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8821B2D9E700FF296E /* LoadingCircle.swift */; };
@@ -88,21 +86,17 @@
 		1C93D7792228959D005AA563 /* FirebaseUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D7782228959D005AA563 /* FirebaseUploader.swift */; };
 		1C93D77B222896AB005AA563 /* FirebaseDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D77A222896AB005AA563 /* FirebaseDownloader.swift */; };
 		1C9C775D219A96A0002ADA76 /* DynamicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */; };
-		1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */; };
-		1CAC791821FB5590007F8704 /* ReadXMinutesGoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */; };
 		1CAC791A21FB55DF007F8704 /* CommentSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791921FB55DF007F8704 /* CommentSectionViewController.swift */; };
 		1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791C21FB5693007F8704 /* ArticleComment.swift */; };
 		1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC791E21FB56C7007F8704 /* DateExtension.swift */; };
 		1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */; };
 		1CAC792621FB5748007F8704 /* TopToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792521FB5748007F8704 /* TopToolBarViewController.swift */; };
 		1CAC792821FB5764007F8704 /* ActivityIndicatorWithDarkBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */; };
-		1CAC792A21FB57B0007F8704 /* GoalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792921FB57B0007F8704 /* GoalManager.swift */; };
-		1CAC792C21FB57D9007F8704 /* GoalCompletePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792B21FB57D9007F8704 /* GoalCompletePresenter.swift */; };
-		1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */; };
+		1CAC792C21FB57D9007F8704 /* AchievementCompletePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792B21FB57D9007F8704 /* AchievementCompletePresenter.swift */; };
+		1CAC792F21FB58A0007F8704 /* AchievementCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC792E21FB58A0007F8704 /* AchievementCompleteViewController.swift */; };
 		1CAC793121FB5907007F8704 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793021FB5906007F8704 /* AudioPlayer.swift */; };
 		1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */; };
 		1CAC793521FB594D007F8704 /* ComprehensionPopupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */; };
-		1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */; };
 		1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */; };
 		1CAC793E21FB5A54007F8704 /* TutorialAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */; };
 		1CAC794021FB5A7E007F8704 /* SocialMediaQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */; };
@@ -118,7 +112,6 @@
 		1CAC796B21FB63BA007F8704 /* favourite_app_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796621FB63BA007F8704 /* favourite_app_icon.json */; };
 		1CAC796C21FB63BA007F8704 /* facebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796721FB63BA007F8704 /* facebook.json */; };
 		1CAC796E21FB6521007F8704 /* Goal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC796D21FB651D007F8704 /* Goal.storyboard */; };
-		1CAC797021FB65AC007F8704 /* ChooseGoalTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */; };
 		1CAC797221FBAD78007F8704 /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC797121FBAD78007F8704 /* TutorialController.swift */; };
 		1CAC797821FBC7BC007F8704 /* ReadTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC797721FBC7BC007F8704 /* ReadTab.storyboard */; };
 		1CAC797921FCB287007F8704 /* NokioSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CAC794821FB5B12007F8704 /* NokioSans-Bold.ttf */; };
@@ -152,7 +145,6 @@
 		1CAC79A821FFB0E5007F8704 /* AudioSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC79A721FFB0E4007F8704 /* AudioSubject.swift */; };
 		1CAC79AA21FFB0EB007F8704 /* AudioTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC79A921FFB0EB007F8704 /* AudioTimeLabel.swift */; };
 		1CAC79AD21FFB396007F8704 /* AudioPlayerWithTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAC79AC21FFB395007F8704 /* AudioPlayerWithTimer.swift */; };
-		1CAD879F220A06D70096DD90 /* NoGoalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD879E220A06D70096DD90 /* NoGoalListViewController.swift */; };
 		1CAD87A1220A07970096DD90 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAD87A0220A07970096DD90 /* UIViewControllerExtension.swift */; };
 		1CAD87A3220A18500096DD90 /* Check Mark Success Data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A2220A18500096DD90 /* Check Mark Success Data.json */; };
 		1CAD87A5220A20DB0096DD90 /* 3227-error-404-facebook-style.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */; };
@@ -161,10 +153,14 @@
 		1CAEFACC228655BE00928203 /* LearnVideoCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFACB228655BE00928203 /* LearnVideoCategoryTableViewCell.swift */; };
 		1CAEFACF228663E100928203 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFACE228663E100928203 /* Notification.swift */; };
 		1CAEFAD122874D2A00928203 /* SightWordAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAD022874D2A00928203 /* SightWordAnalyzer.swift */; };
-		1CAEFAD32296C93E00928203 /* AchivementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAD22296C93E00928203 /* AchivementManager.swift */; };
+		1CAEFAD32296C93E00928203 /* AchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAD22296C93E00928203 /* AchievementManager.swift */; };
+		1CAEFAD822972D2200928203 /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAD622972B6B00928203 /* Achievement.swift */; };
+		1CAEFADA22999FE900928203 /* ArticleAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAD922999FE900928203 /* ArticleAchievement.swift */; };
+		1CAEFADC2299A12A00928203 /* MinuteAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFADB2299A12A00928203 /* MinuteAchievement.swift */; };
+		1CAEFADF2299A3AF00928203 /* CategoryAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFADE2299A3AF00928203 /* CategoryAchievement.swift */; };
+		1CAEFAE42299AED000928203 /* FacebookShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAE32299AED000928203 /* FacebookShareButton.swift */; };
+		1CAEFAE62299B95B00928203 /* TwitterShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAEFAE52299B95B00928203 /* TwitterShareButton.swift */; };
 		1CB9159D224EB33200358AF1 /* BlockRuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */; };
-		1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */; };
-		1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */; };
 		1CC198732217C4C70021BAFC /* CompletionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */; };
 		1CC198792217CC2F0021BAFC /* 3779-starts-transparent.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CC198782217CC2F0021BAFC /* 3779-starts-transparent.json */; };
 		1CC1987B2218795C0021BAFC /* goalAdded.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1CC1987A2218795C0021BAFC /* goalAdded.mp3 */; };
@@ -185,7 +181,6 @@
 		1CCF98AB2211E72B00C491A8 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */; };
 		1CCF98AD221204F500C491A8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AC221204F500C491A8 /* BaseViewController.swift */; };
 		1CCF98AF22120C9300C491A8 /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98AE22120C9300C491A8 /* ArticleManager.swift */; };
-		1CCF98B122120DEE00C491A8 /* ArticleReadingStopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */; };
 		1CCF98B32212211200C491A8 /* BrowserLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B22212211200C491A8 /* BrowserLogicController.swift */; };
 		1CCF98B622122A6C00C491A8 /* ScrollObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B422122A6B00C491A8 /* ScrollObserver.swift */; };
 		1CCF98B722122A6C00C491A8 /* ScrollSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF98B522122A6B00C491A8 /* ScrollSubject.swift */; };
@@ -311,9 +306,8 @@
 		1C28738121A7B77A00B790A4 /* HelpWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpWordModel.swift; sourceTree = "<group>"; };
 		1C28738321A7CC0500B790A4 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		1C28738521A855A200B790A4 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
-		1C28738821A855E600B790A4 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
-		1C28739021AA12A500B790A4 /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
 		1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHeaderCell.swift; sourceTree = "<group>"; };
+		1C307E4A229A04B200A16846 /* AchievementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementTableViewCell.swift; sourceTree = "<group>"; };
 		1C490E8D225D801300DC5E74 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		1C490E8F225D867200DC5E74 /* WordAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAnalyzer.swift; sourceTree = "<group>"; };
 		1C490E92225D878500DC5E74 /* LongVowelSoundAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongVowelSoundAnalyzer.swift; sourceTree = "<group>"; };
@@ -371,7 +365,6 @@
 		1C769CF221D4352300034EB3 /* BouncingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingLabel.swift; sourceTree = "<group>"; };
 		1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRectangle.swift; sourceTree = "<group>"; };
 		1C870F7921AA46C600FF296E /* ChooseGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalCell.swift; sourceTree = "<group>"; };
-		1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoalViewController.swift; sourceTree = "<group>"; };
 		1C870F7E21AA49D100FF296E /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
 		1C870F8021AA4CFA00FF296E /* ChoosingGoalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingGoalAlert.swift; sourceTree = "<group>"; };
 		1C870F8821B2D9E700FF296E /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
@@ -381,21 +374,17 @@
 		1C93D77A222896AB005AA563 /* FirebaseDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDownloader.swift; sourceTree = "<group>"; };
 		1C9C77552194BFBF002ADA76 /* CoreDataGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGetter.swift; sourceTree = "<group>"; };
 		1C9C775C219A96A0002ADA76 /* DynamicVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVideoTableViewCell.swift; sourceTree = "<group>"; };
-		1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadXArticlesGoalModel.swift; sourceTree = "<group>"; };
-		1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadXMinutesGoalModel.swift; sourceTree = "<group>"; };
 		1CAC791921FB55DF007F8704 /* CommentSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentSectionViewController.swift; sourceTree = "<group>"; };
 		1CAC791C21FB5693007F8704 /* ArticleComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleComment.swift; sourceTree = "<group>"; };
 		1CAC791E21FB56C7007F8704 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1CAC792021FB56ED007F8704 /* SocialMediaUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaUserCell.swift; sourceTree = "<group>"; };
 		1CAC792521FB5748007F8704 /* TopToolBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopToolBarViewController.swift; sourceTree = "<group>"; };
 		1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWithDarkBackground.swift; sourceTree = "<group>"; };
-		1CAC792921FB57B0007F8704 /* GoalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalManager.swift; sourceTree = "<group>"; };
-		1CAC792B21FB57D9007F8704 /* GoalCompletePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompletePresenter.swift; sourceTree = "<group>"; };
-		1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompleteViewController.swift; sourceTree = "<group>"; };
+		1CAC792B21FB57D9007F8704 /* AchievementCompletePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCompletePresenter.swift; sourceTree = "<group>"; };
+		1CAC792E21FB58A0007F8704 /* AchievementCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementCompleteViewController.swift; sourceTree = "<group>"; };
 		1CAC793021FB5906007F8704 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		1CAC793221FB5936007F8704 /* ComprehensionPopupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupManager.swift; sourceTree = "<group>"; };
 		1CAC793421FB594D007F8704 /* ComprehensionPopupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopupModel.swift; sourceTree = "<group>"; };
-		1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewControllerTutorial.swift; sourceTree = "<group>"; };
 		1CAC793B21FB5A01007F8704 /* ComprehensionPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComprehensionPopup.swift; sourceTree = "<group>"; };
 		1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialAudio.swift; sourceTree = "<group>"; };
 		1CAC793F21FB5A7E007F8704 /* SocialMediaQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaQuote.swift; sourceTree = "<group>"; };
@@ -431,7 +420,6 @@
 		1CAC796621FB63BA007F8704 /* favourite_app_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favourite_app_icon.json; sourceTree = "<group>"; };
 		1CAC796721FB63BA007F8704 /* facebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facebook.json; sourceTree = "<group>"; };
 		1CAC796D21FB651D007F8704 /* Goal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goal.storyboard; sourceTree = "<group>"; };
-		1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseGoalTypeViewController.swift; sourceTree = "<group>"; };
 		1CAC797121FBAD78007F8704 /* TutorialController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
 		1CAC797721FBC7BC007F8704 /* ReadTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReadTab.storyboard; sourceTree = "<group>"; };
 		1CAC798D21FCB425007F8704 /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
@@ -444,7 +432,6 @@
 		1CAC79A721FFB0E4007F8704 /* AudioSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioSubject.swift; sourceTree = "<group>"; };
 		1CAC79A921FFB0EB007F8704 /* AudioTimeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioTimeLabel.swift; sourceTree = "<group>"; };
 		1CAC79AC21FFB395007F8704 /* AudioPlayerWithTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerWithTimer.swift; sourceTree = "<group>"; };
-		1CAD879E220A06D70096DD90 /* NoGoalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoGoalListViewController.swift; sourceTree = "<group>"; };
 		1CAD87A0220A07970096DD90 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1CAD87A2220A18500096DD90 /* Check Mark Success Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Check Mark Success Data.json"; sourceTree = "<group>"; };
 		1CAD87A4220A20DB0096DD90 /* 3227-error-404-facebook-style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3227-error-404-facebook-style.json"; sourceTree = "<group>"; };
@@ -453,10 +440,14 @@
 		1CAEFACB228655BE00928203 /* LearnVideoCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVideoCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		1CAEFACE228663E100928203 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1CAEFAD022874D2A00928203 /* SightWordAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightWordAnalyzer.swift; sourceTree = "<group>"; };
-		1CAEFAD22296C93E00928203 /* AchivementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivementManager.swift; sourceTree = "<group>"; };
+		1CAEFAD22296C93E00928203 /* AchievementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementManager.swift; sourceTree = "<group>"; };
+		1CAEFAD622972B6B00928203 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		1CAEFAD922999FE900928203 /* ArticleAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAchievement.swift; sourceTree = "<group>"; };
+		1CAEFADB2299A12A00928203 /* MinuteAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinuteAchievement.swift; sourceTree = "<group>"; };
+		1CAEFADE2299A3AF00928203 /* CategoryAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAchievement.swift; sourceTree = "<group>"; };
+		1CAEFAE32299AED000928203 /* FacebookShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookShareButton.swift; sourceTree = "<group>"; };
+		1CAEFAE52299B95B00928203 /* TwitterShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterShareButton.swift; sourceTree = "<group>"; };
 		1CB9159C224EB33200358AF1 /* BlockRuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRuleExtension.swift; sourceTree = "<group>"; };
-		1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGoalsGetter.swift; sourceTree = "<group>"; };
-		1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingGoalGetter.swift; sourceTree = "<group>"; };
 		1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionAnimationView.swift; sourceTree = "<group>"; };
 		1CC198782217CC2F0021BAFC /* 3779-starts-transparent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "3779-starts-transparent.json"; sourceTree = "<group>"; };
 		1CC1987A2218795C0021BAFC /* goalAdded.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = goalAdded.mp3; sourceTree = "<group>"; };
@@ -477,7 +468,6 @@
 		1CCF98AA2211E72A00C491A8 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
 		1CCF98AC221204F500C491A8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1CCF98AE22120C9300C491A8 /* ArticleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
-		1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleReadingStopwatch.swift; sourceTree = "<group>"; };
 		1CCF98B22212211200C491A8 /* BrowserLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserLogicController.swift; sourceTree = "<group>"; };
 		1CCF98B422122A6B00C491A8 /* ScrollObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollObserver.swift; sourceTree = "<group>"; };
 		1CCF98B522122A6B00C491A8 /* ScrollSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollSubject.swift; sourceTree = "<group>"; };
@@ -612,17 +602,6 @@
 				1C490E8D225D801300DC5E74 /* StringExtension.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		1C28738721A855D200B790A4 /* Goal */ = {
-			isa = PBXGroup;
-			children = (
-				1C28738821A855E600B790A4 /* GoalViewController.swift */,
-				1CAC796F21FB65AC007F8704 /* ChooseGoalTypeViewController.swift */,
-				1C870F7B21AA478F00FF296E /* ChooseGoalViewController.swift */,
-				1CAD879E220A06D70096DD90 /* NoGoalListViewController.swift */,
-			);
-			name = Goal;
 			sourceTree = "<group>";
 		};
 		1C490E8C2259184C00DC5E74 /* Observer Patern */ = {
@@ -769,7 +748,7 @@
 				1C490EA62262A3F600DC5E74 /* WordAnalysisDetail.swift */,
 				1C0186D32278AE86002C7F0C /* VideoCategory.swift */,
 				1C51DB13227F894500419E60 /* YoutubeLink.swift */,
-				1CAEFAD22296C93E00928203 /* AchivementManager.swift */,
+				1CAEFADD2299A39400928203 /* Achievement */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -793,6 +772,7 @@
 		1C513AA3218675FA00FFDC82 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1CAEFAE22299AEB400928203 /* Social Media */,
 				1CC1987E2218D0C00021BAFC /* ComprehensionPopup */,
 				1CAC79AB21FFB1F9007F8704 /* Audio Player */,
 				1C769CE221D336E300034EB3 /* Goal Progress */,
@@ -808,6 +788,7 @@
 				1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */,
 				1C0186C122716C55002C7F0C /* DropDownView.swift */,
 				1C0186C522764445002C7F0C /* DropDownDelegate.swift */,
+				1C307E4A229A04B200A16846 /* AchievementTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -914,22 +895,11 @@
 			name = "Tableview Cells";
 			sourceTree = "<group>";
 		};
-		1CAC791B21FB5666007F8704 /* Goal */ = {
-			isa = PBXGroup;
-			children = (
-				1C28739021AA12A500B790A4 /* GoalModel.swift */,
-				1CAC791521FB558F007F8704 /* ReadXArticlesGoalModel.swift */,
-				1CAC791621FB558F007F8704 /* ReadXMinutesGoalModel.swift */,
-			);
-			name = Goal;
-			sourceTree = "<group>";
-		};
 		1CAC792421FB5733007F8704 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
 				1CAC797121FBAD78007F8704 /* TutorialController.swift */,
 				1CAC793D21FB5A54007F8704 /* TutorialAudio.swift */,
-				1CAC793921FB59D9007F8704 /* GoalViewControllerTutorial.swift */,
 				1CAC795521FB62F2007F8704 /* ProfileViewControllerTutorial.swift */,
 				CD686C6721FD1F3E000482C0 /* RecordViewControllerTutorial.swift */,
 				CDF58FB422120A85007514DC /* BrowseViewControllerTutorial.swift */,
@@ -938,13 +908,13 @@
 			name = Tutorial;
 			sourceTree = "<group>";
 		};
-		1CAC792D21FB5807007F8704 /* Goal Complete */ = {
+		1CAC792D21FB5807007F8704 /* Achivement Complete */ = {
 			isa = PBXGroup;
 			children = (
-				1CAC792B21FB57D9007F8704 /* GoalCompletePresenter.swift */,
-				1CAC792E21FB58A0007F8704 /* GoalCompleteViewController.swift */,
+				1CAC792B21FB57D9007F8704 /* AchievementCompletePresenter.swift */,
+				1CAC792E21FB58A0007F8704 /* AchievementCompleteViewController.swift */,
 			);
-			name = "Goal Complete";
+			name = "Achivement Complete";
 			sourceTree = "<group>";
 		};
 		1CAC793621FB5978007F8704 /* Comprehension Popup */ = {
@@ -1006,7 +976,6 @@
 				1C28737F21A7B42B00B790A4 /* CurrentUser.swift */,
 				1C28738121A7B77A00B790A4 /* HelpWordModel.swift */,
 				1CAC799021FE241E007F8704 /* AudioRecordModel.swift */,
-				1CAC791B21FB5666007F8704 /* Goal */,
 			);
 			name = "Core Data Model";
 			sourceTree = "<group>";
@@ -1027,6 +996,26 @@
 				1C578F6822023D390077E1DD /* PlayButton.swift */,
 			);
 			name = "Audio Player";
+			sourceTree = "<group>";
+		};
+		1CAEFADD2299A39400928203 /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				1CAEFAD622972B6B00928203 /* Achievement.swift */,
+				1CAEFAD922999FE900928203 /* ArticleAchievement.swift */,
+				1CAEFADB2299A12A00928203 /* MinuteAchievement.swift */,
+				1CAEFADE2299A3AF00928203 /* CategoryAchievement.swift */,
+			);
+			name = Achievement;
+			sourceTree = "<group>";
+		};
+		1CAEFAE22299AEB400928203 /* Social Media */ = {
+			isa = PBXGroup;
+			children = (
+				1CAEFAE32299AED000928203 /* FacebookShareButton.swift */,
+				1CAEFAE52299B95B00928203 /* TwitterShareButton.swift */,
+			);
+			name = "Social Media";
 			sourceTree = "<group>";
 		};
 		1CB9159E224EB9EE00358AF1 /* Browser */ = {
@@ -1050,13 +1039,13 @@
 				1CD1A280223EE4A900502A67 /* Article */,
 				1CD1A27F223EE49900502A67 /* CoreData */,
 				1CD1A27E223EE48000502A67 /* Firebase */,
-				1CD1A27D223EE46B00502A67 /* Goal */,
 				1CAC793621FB5978007F8704 /* Comprehension Popup */,
 				1CD1A272223ED99C00502A67 /* URLService.swift */,
 				1CD1A270223ED65500502A67 /* DictionaryManager.swift */,
 				1C578F6C22028F5E0077E1DD /* FileHelper.swift */,
 				1CAEFACE228663E100928203 /* Notification.swift */,
 				1CAEFAD022874D2A00928203 /* SightWordAnalyzer.swift */,
+				1CAEFAD22296C93E00928203 /* AchievementManager.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -1096,16 +1085,6 @@
 			name = Dictionary;
 			sourceTree = "<group>";
 		};
-		1CD1A27D223EE46B00502A67 /* Goal */ = {
-			isa = PBXGroup;
-			children = (
-				1CC19868221619B70021BAFC /* DailyGoalsGetter.swift */,
-				1CC1986C22161FE20021BAFC /* OngoingGoalGetter.swift */,
-				1CAC792921FB57B0007F8704 /* GoalManager.swift */,
-			);
-			name = Goal;
-			sourceTree = "<group>";
-		};
 		1CD1A27E223EE48000502A67 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -1129,7 +1108,6 @@
 		1CD1A280223EE4A900502A67 /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				1CCF98B022120DEE00C491A8 /* ArticleReadingStopwatch.swift */,
 				1CCF98AE22120C9300C491A8 /* ArticleManager.swift */,
 			);
 			name = Article;
@@ -1187,8 +1165,7 @@
 				1C4C67D7218BF91D00D5383D /* Read  */,
 				1CAC798F21FCB543007F8704 /* Record Page */,
 				1C9C775A219A90A5002ADA76 /* Learn More */,
-				1C28738721A855D200B790A4 /* Goal */,
-				1CAC792D21FB5807007F8704 /* Goal Complete */,
+				1CAC792D21FB5807007F8704 /* Achivement Complete */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1569,9 +1546,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CAEFAD822972D2200928203 /* Achievement.swift in Sources */,
 				1C578F6E2202A4830077E1DD /* RecordViewControllerTutorial.swift in Sources */,
 				1CAC799721FEA75D007F8704 /* CoreDataGetter.swift in Sources */,
-				1CAC792F21FB58A0007F8704 /* GoalCompleteViewController.swift in Sources */,
+				1CAC792F21FB58A0007F8704 /* AchievementCompleteViewController.swift in Sources */,
 				1CD1A2E6224D669E00502A67 /* ArticleDifficultyTableViewController.swift in Sources */,
 				CDDD7F071FF1A65F009FA71D /* GetHelpViewController.swift in Sources */,
 				1CC198842218D1BD0021BAFC /* QuestionLabel.swift in Sources */,
@@ -1593,10 +1571,10 @@
 				1C490EAB2262A96C00DC5E74 /* StringToUrlRequest.swift in Sources */,
 				1CCF98B32212211200C491A8 /* BrowserLogicController.swift in Sources */,
 				1CAC791D21FB5694007F8704 /* ArticleComment.swift in Sources */,
+				1CAEFADC2299A12A00928203 /* MinuteAchievement.swift in Sources */,
 				1C578F67220123A70077E1DD /* RecordCell.swift in Sources */,
 				1C769CF321D4352300034EB3 /* BouncingLabel.swift in Sources */,
 				1CCF98A92211E55C00C491A8 /* ProfileBackgroundImageView.swift in Sources */,
-				1CAC797021FB65AC007F8704 /* ChooseGoalTypeViewController.swift in Sources */,
 				1C0186C622764445002C7F0C /* DropDownDelegate.swift in Sources */,
 				1C769CE421D336FC00034EB3 /* CountingLabel.swift in Sources */,
 				1C578F6B22023E020077E1DD /* PlayerState.swift in Sources */,
@@ -1604,6 +1582,7 @@
 				1CAC79AD21FFB396007F8704 /* AudioPlayerWithTimer.swift in Sources */,
 				1CAD87A1220A07970096DD90 /* UIViewControllerExtension.swift in Sources */,
 				1CAC79A621FFB0DE007F8704 /* AudioSlider.swift in Sources */,
+				1C307E4B229A04B200A16846 /* AchievementTableViewCell.swift in Sources */,
 				1C4C67F0218D400500D5383D /* HelpFunctionError.swift in Sources */,
 				1C490E8E225D801300DC5E74 /* StringExtension.swift in Sources */,
 				1C490E9F226158B300DC5E74 /* ConsonantDigraphsAnalyzer.swift in Sources */,
@@ -1613,16 +1592,16 @@
 				1CCF98A72211E50100C491A8 /* RoundedButton.swift in Sources */,
 				1C0186C222716C55002C7F0C /* DropDownView.swift in Sources */,
 				1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */,
-				1CAC791721FB5590007F8704 /* ReadXArticlesGoalModel.swift in Sources */,
 				1C490E9B226154BE00DC5E74 /* MultisyllabicAnalyzer.swift in Sources */,
 				1CD1A27A223EDCB200502A67 /* DictionaryVerb.swift in Sources */,
 				1CD1A28C2245B4A000502A67 /* ArticleCategory.swift in Sources */,
 				1C0186D02277A8C7002C7F0C /* LearnVideoCategoryViewController.swift in Sources */,
+				1CAEFADA22999FE900928203 /* ArticleAchievement.swift in Sources */,
 				1C4C67F8218E5D6D00D5383D /* State.swift in Sources */,
-				1C870F7C21AA478F00FF296E /* ChooseGoalViewController.swift in Sources */,
 				1C0186D42278AE86002C7F0C /* VideoCategory.swift in Sources */,
 				1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */,
-				1CAEFAD32296C93E00928203 /* AchivementManager.swift in Sources */,
+				1CAEFAE62299B95B00928203 /* TwitterShareButton.swift in Sources */,
+				1CAEFAD32296C93E00928203 /* AchievementManager.swift in Sources */,
 				1C28738021A7B42B00B790A4 /* CurrentUser.swift in Sources */,
 				1C769CE121D3126000034EB3 /* GoalProgressCircle.swift in Sources */,
 				1CD1A2AD2249C70D00502A67 /* ArticleCategoryTableViewCell.swift in Sources */,
@@ -1632,14 +1611,13 @@
 				1C490EA32261605400DC5E74 /* RControlledVowelsAnalyzer.swift in Sources */,
 				1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */,
 				1CD1A276223EDC8F00502A67 /* DictionaryMeaning.swift in Sources */,
+				1CAEFADF2299A3AF00928203 /* CategoryAchievement.swift in Sources */,
 				1C513A5D2180209B00FFDC82 /* ChildWebPage.swift in Sources */,
 				1C93D77B222896AB005AA563 /* FirebaseDownloader.swift in Sources */,
 				1CAC792821FB5764007F8704 /* ActivityIndicatorWithDarkBackground.swift in Sources */,
 				1C769CDF21D17A7D00034EB3 /* LoadingCircleColors.swift in Sources */,
 				CD8FB2222120D41E0066F0D2 /* RecordViewController.swift in Sources */,
 				1C93D7792228959D005AA563 /* FirebaseUploader.swift in Sources */,
-				1CAC791821FB5590007F8704 /* ReadXMinutesGoalModel.swift in Sources */,
-				1C28739121AA12A500B790A4 /* GoalModel.swift in Sources */,
 				1CCF98A52211E3AC00C491A8 /* RoundedImageView.swift in Sources */,
 				CD1DCA621FF4A2D200FCDDB5 /* WalkthroughViewController.swift in Sources */,
 				1CD1A2A72248851D00502A67 /* ArticleSelectViewController.swift in Sources */,
@@ -1649,14 +1627,13 @@
 				1C513A6B2181619200FFDC82 /* AllowedPage.swift in Sources */,
 				1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */,
 				1C490EA122615F7300DC5E74 /* TrigraphAnalyzer.swift in Sources */,
-				1CC1986D22161FE20021BAFC /* OngoingGoalGetter.swift in Sources */,
 				1CCF98B922129ECC00C491A8 /* BrowserAlerts.swift in Sources */,
+				1CAEFAE42299AED000928203 /* FacebookShareButton.swift in Sources */,
 				CD704F4E2019A1B700E1E4F8 /* BrowserViewController.swift in Sources */,
 				1C870F7F21AA49D100FF296E /* GoalType.swift in Sources */,
 				1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */,
 				1C490EA72262A3F600DC5E74 /* WordAnalysisDetail.swift in Sources */,
 				1C578F6D22028F5E0077E1DD /* FileHelper.swift in Sources */,
-				1CAC792A21FB57B0007F8704 /* GoalManager.swift in Sources */,
 				1CD1A2EA224D692600502A67 /* ReadingDifficultTableViewCell.swift in Sources */,
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
 				1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */,
@@ -1665,16 +1642,14 @@
 				1CCF98AB2211E72B00C491A8 /* GoalProgressView.swift in Sources */,
 				1C490EAF2262E2ED00DC5E74 /* WordAnalysisTableViewCell.swift in Sources */,
 				1CC198732217C4C70021BAFC /* CompletionAnimationView.swift in Sources */,
-				1C28738921A855E600B790A4 /* GoalViewController.swift in Sources */,
 				CDA652911FA0F5B700835624 /* StartViewController.swift in Sources */,
 				1CD1A27C223EDCBC00502A67 /* DictionaryAdjective.swift in Sources */,
-				1CAC792C21FB57D9007F8704 /* GoalCompletePresenter.swift in Sources */,
+				1CAC792C21FB57D9007F8704 /* AchievementCompletePresenter.swift in Sources */,
 				1C0186BE22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift in Sources */,
 				1CD1A2E8224D677E00502A67 /* ReadingDifficulty.swift in Sources */,
 				1C696C912229FD440066E251 /* FirebaseObserver.swift in Sources */,
 				1C28738421A7CC0500B790A4 /* ArticleModel.swift in Sources */,
 				1C4C67E2218D27EE00D5383D /* InfoAlert.swift in Sources */,
-				1CCF98B122120DEE00C491A8 /* ArticleReadingStopwatch.swift in Sources */,
 				CD3E1E16205C5CF500AC2D1A /* WordWithDeleteBtnTableViewCell.swift in Sources */,
 				1C0186CA2277A29F002C7F0C /* LearnWordDelegate.swift in Sources */,
 				CD03CC9020F6E79A006D5D89 /* LearnDetailViewController.swift in Sources */,
@@ -1693,13 +1668,11 @@
 				1C0186D22278AD3B002C7F0C /* LearnVideoCategoryDelegate.swift in Sources */,
 				1C578F9622056D770077E1DD /* WKWebviewWithHelpMenu.swift in Sources */,
 				1C4C67E9218D321F00D5383D /* ReportAlert.swift in Sources */,
-				1CAC793A21FB59D9007F8704 /* GoalViewControllerTutorial.swift in Sources */,
 				1CCF98B622122A6C00C491A8 /* ScrollObserver.swift in Sources */,
 				1CD1A26F223ECD0900502A67 /* DictionaryWord.swift in Sources */,
 				1CC198802218D0CC0021BAFC /* AnswerButton.swift in Sources */,
 				1C4C680A21912A3000D5383D /* AddUserInfoViewController.swift in Sources */,
 				1C578F6922023D3A0077E1DD /* PlayButton.swift in Sources */,
-				1CC19869221619B70021BAFC /* DailyGoalsGetter.swift in Sources */,
 				1CAC795621FB62F2007F8704 /* ProfileViewControllerTutorial.swift in Sources */,
 				1CAC791F21FB56C7007F8704 /* DateExtension.swift in Sources */,
 				1CCC510222527B8C00FA32FC /* BrowserSetup.swift in Sources */,
@@ -1720,7 +1693,6 @@
 				CDF58FB522120A85007514DC /* BrowseViewControllerTutorial.swift in Sources */,
 				1CAC791A21FB55DF007F8704 /* CommentSectionViewController.swift in Sources */,
 				1C8C352A222D7F76008FF966 /* FirebaseAuthService.swift in Sources */,
-				1CAD879F220A06D70096DD90 /* NoGoalListViewController.swift in Sources */,
 				1C51DB14227F894500419E60 /* YoutubeLink.swift in Sources */,
 				1CAC79A221FFB0CD007F8704 /* AudioObserver.swift in Sources */,
 				1CAC793321FB5936007F8704 /* ComprehensionPopupManager.swift in Sources */,

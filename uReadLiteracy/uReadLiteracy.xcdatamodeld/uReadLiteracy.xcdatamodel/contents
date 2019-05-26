@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ArticleCD" representedClassName="ArticleCD" syncable="YES" codeGenerationType="class">
+        <attribute name="category" attributeType="String" syncable="YES"/>
+        <attribute name="minutesRead" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="url" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="AudioRecordCD" representedClassName="AudioRecordCD" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="path" attributeType="String" syncable="YES"/>
@@ -9,22 +14,6 @@
         <attribute name="askedLastArticle" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timesAsked" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="word" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="ReadXArticlesCD" representedClassName="ReadXArticlesCD" syncable="YES" codeGenerationType="class">
-        <attribute name="articles" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="goalType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numberOfArticles" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="progress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-    </entity>
-    <entity name="ReadXMinutesCD" representedClassName="ReadXMinutesCD" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="goalType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="minutesRead" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="progress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="totalMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="UserCD" representedClassName="UserCD" syncable="YES" codeGenerationType="class">
         <attribute name="email" attributeType="String" syncable="YES"/>
@@ -40,8 +29,7 @@
     <elements>
         <element name="AudioRecordCD" positionX="-54" positionY="81" width="128" height="90"/>
         <element name="HelpWordCD" positionX="-63" positionY="54" width="128" height="90"/>
-        <element name="ReadXArticlesCD" positionX="-54" positionY="63" width="128" height="135"/>
-        <element name="ReadXMinutesCD" positionX="-54" positionY="72" width="128" height="135"/>
         <element name="UserCD" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="ArticleCD" positionX="-45" positionY="63" width="128" height="90"/>
     </elements>
 </model>

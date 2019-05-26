@@ -12,6 +12,7 @@ import UIKit
 class BrowserLogicController{
     
     private let currentArticle:ArticleModel
+    private var savedData = false
     
     init(currentArticle:ArticleModel){
         self.currentArticle = currentArticle
@@ -78,11 +79,16 @@ class BrowserLogicController{
         return String(characters)
     }
     
-    func updateDataWhenFinishReadingArticle(articleReadingStopwatch:ArticleReadingStopwatch){
-        articleReadingStopwatch.stop()
-        GoalManager.shared.updateGoals(article: currentArticle) { (goal) in
-            GoalCompletePresenter.shared.show(goal: goal)
+    func showAchievementIfPossible(viewcontroller:UIViewController,achievementManager:AchievementManager){
+        let newAchievements = achievementManager.getNewAchievements()
+        if(newAchievements.count > 0){
+            AchievementCompletePresenter.shared.show(achievements: newAchievements)
         }
+    }
+    
+    func saveArticle(){
+        currentArticle.stopTimer()
+        CoreDataUpdater.shared.save(article: currentArticle)
     }
     
     func setupHelpWords(){

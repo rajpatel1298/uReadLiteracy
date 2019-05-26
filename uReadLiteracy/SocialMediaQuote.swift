@@ -9,7 +9,7 @@
 import Foundation
 
 class SocialMediaQuote{
-    static func get(goal:GoalModel)->String{
-        return "I have completed my goal, \"\(goal.getDescription())\". Join me on Uread!"
+    static func get(achievement:Achievement)->String{
+        return "I have an Achievement, \"\(achievement.title)\". Join me on Uread!"
     }
 }

@@ -111,17 +111,6 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(onTapped(_:)))
         
         switch(TopToolBarViewController.currentController){
-        case is GoalViewController:
-            let vc = TopToolBarViewController.currentController as! GoalViewController
-            
-            tutorial = GoalViewControllerTutorial(vc: vc)
-            tutorial.addGesture(gesture: gesture)
-            
-            tutorial.show() {
-                self.tutorialBtn.isEnabled = true
-            }
-            tutorialBtn.isEnabled = false
-            break
         case is ProfileViewController:
             let vc = TopToolBarViewController.currentController as! ProfileViewController
             
