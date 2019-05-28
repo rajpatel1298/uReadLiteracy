@@ -9,72 +9,24 @@
 import UIKit
 import UserNotifications
 
-class ProfileViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class ProfileViewController: BaseViewController {
     
-    let achievementManager = AchievementManager()
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return achievementManager.getAllCurrentAchievements().count + 1
-    }
-    
-    var dic = [IndexPath:UICollectionViewCell]()
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AchievementCollectionViewCell", for: indexPath) as! AchievementCollectionViewCell
-        dic[indexPath] = cell
-
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = cell as! AchievementCollectionViewCell
-        
-        // cell to view all achievements
-        if(indexPath.row == achievementManager.getAllCurrentAchievements().count){
-            cell.imageview.image = UIImage(named: "more")
-            cell.titleLabel.text = "See All Achievements"
-            cell.quoteLabel.text = ""
-            cell.hideSocialMedia()
-        }
-        else{
-            let achievement = achievementManager.getAllCurrentAchievements()[indexPath.row]
-            
-            cell.imageview.image = achievement.image
-            cell.titleLabel.text = achievement.title
-            cell.quoteLabel.text = achievement.quote ?? ""
-            cell.inject(achievement: achievement, viewcontroller: self)
-            cell.hideSocialMedia()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = dic[indexPath] as! AchievementCollectionViewCell
-        
-        // cell to view all achievements
-        if(indexPath.row == achievementManager.getAllCurrentAchievements().count){
-            print()
-        }
-        else{
-            if(cell.facebookBtn.isHidden == false){
-                cell.hideSocialMedia()
-            }
-            else{
-                cell.showSocialMedia()
-            }
-            cell.facebookBtn.isHidden = false
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.height/4, height: view.frame.height/4)
-    }
-    
-    
+    fileprivate let achievementManager = AchievementManager()
+    fileprivate var cellIndexDictionary = [IndexPath:UICollectionViewCell]()
     
     @IBOutlet weak var achievementCollectionView: UICollectionView!
-    
     @IBOutlet weak var profileIV: RoundedImageView!
- 
+    
+    @IBOutlet weak var completedAchievementLabel: UILabel!
+    
+    @IBOutlet weak var articleReadLabel: UILabel!
+    
+    @IBOutlet weak var minutesReadingLabel: UILabel!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,16 +52,28 @@ class ProfileViewController: BaseViewController,UICollectionViewDelegate,UIColle
         let request = UNNotificationRequest(identifier: "daily", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        
-        /*let temp = TextToVoiceService.init()
-        temp.setText(text: "This word has a long vowel sound made by a single vowel in the middle or end of the word,.  A long vowel sound says the name of the letter of the vowel,. Sometimes this occurs when I, or O, is followed by two consonants (for example, kind, find, pint, Christ, climb, most, post, gold, sold, comb),.  The I, or the Y, at the end of a word will sound long and say the name either of the letter I, of the letter E,. If you’re not sure which it is, try it both ways and decide which makes sense and sounds like a real word")
-        temp.playNormal()*/
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         achievementCollectionView.reloadData()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        completedAchievementLabel.text = "\(achievementManager.numberOfCompletedAchievement())"
+        let articles:[ArticleCD] = CoreDataGetter.shared.getList()
+        articleReadLabel.text = "\(articles.count)"
+        var count = 0
+        for article in articles{
+            count = count + Int(article.minutesRead)
+        }
+        minutesReadingLabel.text = "\(count)"
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     
     
     override func viewDidLayoutSubviews() {
@@ -134,14 +98,62 @@ class ProfileViewController: BaseViewController,UICollectionViewDelegate,UIColle
         }
     }
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return achievementManager.getAllCurrentAchievements().count + 1
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AchievementCollectionViewCell", for: indexPath) as! AchievementCollectionViewCell
+        cellIndexDictionary[indexPath] = cell
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let cell = cell as! AchievementCollectionViewCell
+        
+        // cell to view all achievements
+        if(indexPath.row == achievementManager.getAllCurrentAchievements().count){
+            cell.imageview.image = UIImage(named: "more")
+            cell.titleLabel.text = "See All Achievements"
+            cell.quoteLabel.text = ""
+            cell.hideSocialMedia()
+        }
+        else{
+            let achievement = achievementManager.getAllCurrentAchievements()[indexPath.row]
+            
+            cell.imageview.image = achievement.image
+            cell.titleLabel.text = achievement.title
+            cell.quoteLabel.text = achievement.quote ?? ""
+            cell.inject(achievement: achievement, viewcontroller: self)
+            cell.hideSocialMedia()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = cellIndexDictionary[indexPath] as! AchievementCollectionViewCell
+        
+        // cell to view all achievements
+        if(indexPath.row == achievementManager.getAllCurrentAchievements().count){
+            performSegue(withIdentifier: "AchievementToAllAchievementSegue", sender: self)
+        }
+        else{
+            if(cell.facebookBtn.isHidden == false){
+                cell.hideSocialMedia()
+            }
+            else{
+                cell.showSocialMedia()
+            }
+            cell.facebookBtn.isHidden = false
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.height/4, height: view.frame.height/4)
+    }
+    
 }

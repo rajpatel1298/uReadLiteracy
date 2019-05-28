@@ -27,6 +27,7 @@
 		1C28739521AA1FA700B790A4 /* GoalHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */; };
 		1C307E4B229A04B200A16846 /* AchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C307E4A229A04B200A16846 /* AchievementTableViewCell.swift */; };
 		1C307E4D229AE04800A16846 /* AchievementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C307E4C229AE04800A16846 /* AchievementCollectionViewCell.swift */; };
+		1C307E4F229C220800A16846 /* AllAchievementCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C307E4E229C220800A16846 /* AllAchievementCollectionViewController.swift */; };
 		1C490E8E225D801300DC5E74 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C490E8D225D801300DC5E74 /* StringExtension.swift */; };
 		1C490E90225D867200DC5E74 /* WordAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C490E8F225D867200DC5E74 /* WordAnalyzer.swift */; };
 		1C490E93225D878500DC5E74 /* LongVowelSoundAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C490E92225D878500DC5E74 /* LongVowelSoundAnalyzer.swift */; };
@@ -310,6 +311,7 @@
 		1C28739421AA1FA700B790A4 /* GoalHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalHeaderCell.swift; sourceTree = "<group>"; };
 		1C307E4A229A04B200A16846 /* AchievementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementTableViewCell.swift; sourceTree = "<group>"; };
 		1C307E4C229AE04800A16846 /* AchievementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCollectionViewCell.swift; sourceTree = "<group>"; };
+		1C307E4E229C220800A16846 /* AllAchievementCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAchievementCollectionViewController.swift; sourceTree = "<group>"; };
 		1C490E8D225D801300DC5E74 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		1C490E8F225D867200DC5E74 /* WordAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordAnalyzer.swift; sourceTree = "<group>"; };
 		1C490E92225D878500DC5E74 /* LongVowelSoundAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongVowelSoundAnalyzer.swift; sourceTree = "<group>"; };
@@ -916,6 +918,7 @@
 			children = (
 				1CAC792B21FB57D9007F8704 /* AchievementCompletePresenter.swift */,
 				1CAC792E21FB58A0007F8704 /* AchievementCompleteViewController.swift */,
+				1C307E4E229C220800A16846 /* AllAchievementCollectionViewController.swift */,
 			);
 			name = "Achivement Complete";
 			sourceTree = "<group>";
@@ -1682,6 +1685,7 @@
 				1CCC510222527B8C00FA32FC /* BrowserSetup.swift in Sources */,
 				1C490E95225D8AE800DC5E74 /* LetterAnalyzer.swift in Sources */,
 				1C28737821A5070400B790A4 /* HtmlStringExtension.swift in Sources */,
+				1C307E4F229C220800A16846 /* AllAchievementCollectionViewController.swift in Sources */,
 				1CD1A2E2224BA42D00502A67 /* ReadingSource.swift in Sources */,
 				1CCC51092252D45200FA32FC /* TextToVoiceService.swift in Sources */,
 				1CAC799121FE241E007F8704 /* AudioRecordModel.swift in Sources */,

@@ -13,8 +13,8 @@ import UIKit
 class CategoryAchievement:Achievement{
     var categoryRead:Int
     
-    init(title:String,quote:String?,image : UIImage,categoryRead:Int){
+    init(title:String,quote:String?,image : UIImage,categoryRead:Int, completed:Bool){
         self.categoryRead = categoryRead
-        super.init(title: title, quote: quote, image: image)
+        super.init(title: title, quote: quote, image: image, completed: completed)
     }
 }

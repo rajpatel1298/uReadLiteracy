@@ -17,7 +17,7 @@ class AchievementCompleteViewController: UIViewController, UITableViewDelegate, 
     
     @IBOutlet weak var tableview: UITableView!
     
-    var achievements = [Achievement(title: "Read 10 Articles", quote: "SuperHero", image: #imageLiteral(resourceName: "read100article"))]
+    var achievements = [Achievement(title: "?", quote: "?", image: #imageLiteral(resourceName: "read100article"), completed: true)]
     
     
   

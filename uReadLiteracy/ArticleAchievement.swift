@@ -12,8 +12,9 @@ import UIKit
 class ArticleAchievement:Achievement{
     var articlesRead:Int
     
-    init(title:String,quote:String?,image : UIImage,articlesRead:Int){
+    
+    init(title:String,quote:String?,image : UIImage,articlesRead:Int, completed:Bool){
         self.articlesRead = articlesRead
-        super.init(title: title, quote: quote, image: image)
+        super.init(title: title, quote: quote, image: image, completed: completed)
     }
 }

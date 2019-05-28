@@ -14,9 +14,12 @@ class Achievement{
     let quote:String?
     let image : UIImage
     
-    init(title:String,quote:String?,image : UIImage){
+    var completed:Bool
+    
+    init(title:String,quote:String?,image : UIImage,completed:Bool){
         self.title = title
         self.quote = quote
         self.image = image
+        self.completed = completed
     }
 }

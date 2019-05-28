@@ -18,7 +18,7 @@ class AchievementTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var quoteLabel: UILabel!
     
-    private var achievement = Achievement(title: "", quote: nil, image: UIImage())
+    private var achievement = Achievement(title: "", quote: nil, image: UIImage(), completed: false)
     private var mainVC:UIViewController?
     
     override func awakeFromNib() {

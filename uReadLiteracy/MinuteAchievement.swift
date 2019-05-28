@@ -12,8 +12,8 @@ import UIKit
 class MinuteAchievement:Achievement{
     var minutesRead:Int
     
-    init(title:String,quote:String?,image : UIImage,minutesRead:Int){
+    init(title:String,quote:String?,image : UIImage,minutesRead:Int, completed:Bool){
         self.minutesRead = minutesRead
-        super.init(title: title, quote: quote, image: image)
+        super.init(title: title, quote: quote, image: image, completed: completed)
     }
 }
