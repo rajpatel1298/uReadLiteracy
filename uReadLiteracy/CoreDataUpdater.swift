@@ -36,7 +36,7 @@ class CoreDataUpdater{
         else{
             model?.path = audioRecordModel.path
             model?.title = audioRecordModel.title
-            model?.date = audioRecordModel.date as! NSDate
+            model?.date = audioRecordModel.date
         }
         
         save()
@@ -76,7 +76,7 @@ class CoreDataUpdater{
         user.setValue(model.password, forKeyPath: "password")
         
         if model.image != nil {
-            let data = UIImagePNGRepresentation(model.image!)
+            let data = model.image!.pngData()
             user.setValue(data, forKeyPath: "image")
         }
         

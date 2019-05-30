@@ -23,8 +23,8 @@ extension BrowserViewController{
         actitvityIndicator.hidesWhenStopped = true
         
         addGestureRecognizerToCommentBtn()
-        commentBtn.autoReverseAnimation = true
-        commentBtn.loopAnimation = true
+        commentBtn.loopMode = .autoReverse
+        
         commentBtn.play()
         commentBtn.contentMode = .scaleAspectFit
     }

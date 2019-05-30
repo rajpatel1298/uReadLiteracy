@@ -16,8 +16,8 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var tutorialBtn: UIButton!
     @IBOutlet weak var previousBtn: UIButton!
-    @IBOutlet weak var recordLOTView: LOTAnimationView!
-    @IBOutlet weak var commentLOTView: LOTAnimationView!
+    @IBOutlet weak var recordLOTView: AnimationView!
+    @IBOutlet weak var commentLOTView: AnimationView!
     
     var onPreviousBtnPressed: (()->Void)!
     var onRecordBtnPressed: (()->Void)!
@@ -39,12 +39,11 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         TopToolBarViewController.shared = self
-        recordLOTView.loopAnimation = true
+        recordLOTView.loopMode = .loop
         recordLOTView.animationSpeed = 0.5
         recordLOTView.play()
         
-        commentLOTView.autoReverseAnimation = true
-        commentLOTView.loopAnimation = true
+        commentLOTView.loopMode = .autoReverse
         commentLOTView.play()
         
         let recordBtnGesture = UITapGestureRecognizer(target: self, action: #selector(recordBtnPressed))
@@ -78,8 +77,9 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
         else{
             onRecordBtnPressed()
             AudioPlayer.shared.playSound(soundName: "postrecording", audioExtension: "mp3", delegate: self)
-            recordLOTView.animation = "notRecordingMicrophone"
-            recordLOTView.loopAnimation = true
+            recordLOTView.animation = Animation.named("notRecordingMicrophone")
+            
+            recordLOTView.loopMode = .loop
             recordLOTView.play()
         }
         
@@ -90,8 +90,8 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
         if flag{
             if recording{
                 onRecordBtnPressed()
-                recordLOTView.animation = "recordingMicrophone"
-                recordLOTView.loopAnimation = true
+                recordLOTView.animation = Animation.named("recordingMicrophone")
+                recordLOTView.loopMode = .loop
                 recordLOTView.play()
             }
         }

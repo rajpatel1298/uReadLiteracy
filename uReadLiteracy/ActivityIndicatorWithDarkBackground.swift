@@ -23,7 +23,7 @@ class ActivityIndicatorWithDarkBackground:UIView{
         let activityIndicator = UIActivityIndicatorView(frame: frame)
         activityIndicator.startAnimating()
         self.addSubview(activityIndicator)
-        self.bringSubview(toFront: activityIndicator)
+        self.bringSubviewToFront(activityIndicator)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -23,6 +23,7 @@ class ProfileViewController: BaseViewController {
     
     @IBOutlet weak var minutesReadingLabel: UILabel!
     
+    @IBOutlet weak var nameLabel: UILabel!
     
     
     
@@ -45,7 +46,7 @@ class ProfileViewController: BaseViewController {
         let content = UNMutableNotificationContent()
         content.title = "URead"
         content.body = "Remember to finish your daily goals on URead!"
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         
@@ -67,6 +68,8 @@ class ProfileViewController: BaseViewController {
             count = count + Int(article.minutesRead)
         }
         minutesReadingLabel.text = "\(count)"
+        
+        nameLabel.text = CoreDataGetter.shared.getMainUser()?.nickname ?? "Welcome"
     }
     
     override func viewWillDisappear(_ animated: Bool) {

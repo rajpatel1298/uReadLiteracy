@@ -10,12 +10,18 @@ import Foundation
 import UIKit
 import Lottie
 
-class CompletionAnimationView:LOTAnimationView{
+class CompletionAnimationView:UIView{
+    private let animationView = AnimationView(animation: Animation.named("3779-starts-transparent"))
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.clear
-        animationSpeed = 1.5
-        setAnimation(named: "3779-starts-transparent")
+        
+        animationView.frame = frame
+        
+        animationView.backgroundColor = UIColor.clear
+        animationView.animationSpeed = 1.5
+        
+        addSubview(animationView)
     }
     
     required init?(coder aDecoder: NSCoder) {

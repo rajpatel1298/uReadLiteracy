@@ -24,7 +24,7 @@ class WordWithDeleteBtnTableViewCell: UITableViewCell {
     func resetDeleteBtn(){
         deleteBtn.isHidden = false
         confirmDeleteBtn.isHidden = true
-        bringSubview(toFront: deleteBtn)
+        bringSubviewToFront(deleteBtn)
     }
     
     @IBAction func deleteBtnPressed(_ sender: Any) {
@@ -35,7 +35,7 @@ class WordWithDeleteBtnTableViewCell: UITableViewCell {
     private func showConfirmDelete(){
         deleteBtn.isHidden = true
         confirmDeleteBtn.isHidden = false
-        bringSubview(toFront: confirmDeleteBtn)
+        bringSubviewToFront(confirmDeleteBtn)
     }
     
     @IBAction func confirmDeleteBtnPressed(_ sender: Any) {

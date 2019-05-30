@@ -20,8 +20,6 @@ class AchievementCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        facebookBtn.play()
-        twitterBtn.play()
     }
     
     func showSocialMedia(){

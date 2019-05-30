@@ -11,15 +11,34 @@ import Lottie
 import FBSDKShareKit
 import FacebookShare
 
-class FacebookShareButton:LOTAnimationView,FBSDKSharingDelegate{
-    private var content = FBSDKShareLinkContent()
-    private let dialog = FBSDKShareDialog()
+class FacebookShareButton:UIView,SharingDelegate{
+    func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
+        print()
+    }
+    
+    func sharer(_ sharer: Sharing, didFailWithError error: Error) {
+        print()
+    }
+    
+    func sharerDidCancel(_ sharer: Sharing) {
+        print()
+    }
+    
+    private var content = ShareLinkContent()
+    private let dialog = ShareDialog()
+    
+    private let animationView = AnimationView(animation: Animation.named("facebook"))
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         let facebookTap = UITapGestureRecognizer(target: self, action: #selector(facebookShareBtnPressed(_:)))
         addGestureRecognizer(facebookTap)
+        
+        animationView.frame = self.frame
+        addSubview(animationView)
+        animationView.play()
+        
     }
     
     func inject(achievement:Achievement, viewcontroller:UIViewController){
@@ -28,15 +47,15 @@ class FacebookShareButton:LOTAnimationView,FBSDKSharingDelegate{
     }
     
     @objc func facebookShareBtnPressed(_ sender: UITapGestureRecognizer) {
-        content.contentURL = URL(string: "https://www.google.com/")
-        content.hashtag = FBSDKHashtag(string: "#Uread #FeelsGood")
+        content.contentURL = URL(string: "https://www.google.com/")!
+        content.hashtag = Hashtag("#Uread #FeelsGood")
         
         dialog.shareContent = content
         dialog.delegate = self
-        dialog.mode = FBSDKShareDialogMode.web
+        dialog.mode = ShareDialog.Mode.web
         
         if !dialog.canShow {
-            dialog.mode = FBSDKShareDialogMode.automatic
+            dialog.mode = ShareDialog.Mode.automatic
         }
         dialog.show()
         
@@ -53,15 +72,5 @@ class FacebookShareButton:LOTAnimationView,FBSDKSharingDelegate{
          }*/
     }
     
-    func sharer(_ sharer: FBSDKSharing!, didCompleteWithResults results: [AnyHashable : Any]!) {
-        print()
-    }
-    
-    func sharer(_ sharer: FBSDKSharing!, didFailWithError error: Error!) {
-        print()
-    }
-    
-    func sharerDidCancel(_ sharer: FBSDKSharing!) {
-        print()
-    }
+   
 }

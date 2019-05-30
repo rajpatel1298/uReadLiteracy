@@ -18,7 +18,7 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var tableview: UITableView!
     
-    @IBOutlet weak var emptyAnimationView: LOTAnimationView!
+    @IBOutlet weak var emptyAnimationView: AnimationView!
     
 
     private var currentArticle:ArticleModel!
@@ -41,7 +41,7 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
         userCommentTV.text = "Type Your Comment"
         userCommentTV.textColor = UIColor.lightGray
         
-        emptyAnimationView.loopAnimation = true
+        emptyAnimationView.loopMode = .loop
     }
     
     func inject(currentArticle:ArticleModel){

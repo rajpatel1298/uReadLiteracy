@@ -105,7 +105,8 @@ class AddUserInfoViewController: UIViewController,UIImagePickerControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true)
         
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage else {
             print("No image found")
             return
         }

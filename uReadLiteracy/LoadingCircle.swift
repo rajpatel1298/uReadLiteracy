@@ -25,7 +25,7 @@ class LoadingCircle:CAShapeLayer{
         
         self.fillColor = UIColor.white.cgColor
         self.strokeColor = UIColor.white.cgColor
-        self.lineCap = kCALineCapRound
+        self.lineCap = CAShapeLayerLineCap.round
         self.lineWidth = 10
         self.strokeEnd = 0
         self.position = position
@@ -49,7 +49,7 @@ class LoadingCircle:CAShapeLayer{
         
         pathAnimation.duration = CFTimeInterval(loadingDuration)
         pathAnimation.isRemovedOnCompletion = false
-        pathAnimation.fillMode = kCAFillModeForwards
+        pathAnimation.fillMode = CAMediaTimingFillMode.forwards
         self.add(pathAnimation, forKey: nil)
     }
     private func animatePathColor(){
@@ -62,7 +62,7 @@ class LoadingCircle:CAShapeLayer{
         pathAnimationColor.duration = CFTimeInterval(loadingDuration)
         pathAnimationColor.keyTimes = (0 ... numberOfColors).map { NSNumber(value: CFTimeInterval($0) / CFTimeInterval(numberOfColors)) }
         pathAnimationColor.isRemovedOnCompletion = false
-        pathAnimationColor.fillMode = kCAFillModeForwards
+        pathAnimationColor.fillMode = CAMediaTimingFillMode.forwards
         self.add(pathAnimationColor, forKey: nil)
     }
 }

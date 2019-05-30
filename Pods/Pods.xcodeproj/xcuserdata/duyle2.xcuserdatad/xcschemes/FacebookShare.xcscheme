@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A7FEAA14E89971698ACA148F7F7202F2"
+               BlueprintIdentifier = "3E53592C6FBBF67210633DA8FA3173DE"
                BlueprintName = "FacebookShare"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "FacebookShare.framework">

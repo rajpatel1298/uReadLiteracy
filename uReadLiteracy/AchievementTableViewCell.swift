@@ -27,9 +27,6 @@ class AchievementTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        facebookView.play()
-         twitterView.play()
-         
          if mainVC != nil{
          facebookView.inject(achievement: achievement, viewcontroller: mainVC!)
          }

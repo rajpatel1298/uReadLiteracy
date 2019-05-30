@@ -48,7 +48,7 @@ class AnimatedRectangle:CAShapeLayer{
         animation.autoreverses = false
         animation.repeatCount = 0
         animation.isRemovedOnCompletion = false
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         
         // And finally add the linear animation to the shape!
         self.add(animation, forKey: "line")

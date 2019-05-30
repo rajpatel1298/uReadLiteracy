@@ -18,7 +18,7 @@ class BrowserViewController: UIViewController{
 
     
     @IBOutlet weak var webView: WKWebviewWithHelpMenu!
-    @IBOutlet weak var commentBtn: LOTAnimationView!
+    @IBOutlet weak var commentBtn: AnimationView!
     @IBOutlet weak var actitvityIndicator: UIActivityIndicatorView!
     
     var helpWordSegue:HelpWordModel!
@@ -158,14 +158,14 @@ class BrowserViewController: UIViewController{
 
 //MARK: Help Function
 extension BrowserViewController{
-    func helpFunction(){
+    @objc func helpFunction(){
         logicController.helpFunction(webView: webView) { [weak self] (state, error, helpWord) in
             guard let strongSelf = self else{
                 return
             }
             
             switch(state){
-            case .Success():
+            case .Success:
                 guard let helpWord = helpWord else{
                     fatalError("When success, need to have help word return")
                 }

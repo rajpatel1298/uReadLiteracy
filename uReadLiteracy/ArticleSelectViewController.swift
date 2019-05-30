@@ -22,11 +22,11 @@ class ArticleSelectViewController: UIViewController, UITableViewDelegate,UITable
         setup()
         
         if(articles.count == 0){
-            view.bringSubview(toFront: noResultVC.view)
+            view.bringSubviewToFront(noResultVC.view)
             noResultVC.view.isHidden = false
         }
         else{
-            view.sendSubview(toBack: noResultVC.view)
+            view.sendSubviewToBack(noResultVC.view)
             noResultVC.view.isHidden = true
         }
     }

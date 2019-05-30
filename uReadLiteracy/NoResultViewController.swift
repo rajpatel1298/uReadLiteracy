@@ -11,7 +11,7 @@ import Lottie
 
 class NoResultViewController: UIViewController {
     
-    @IBOutlet weak var animationView: LOTAnimationView!
+    @IBOutlet weak var animationView: AnimationView!
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -31,7 +31,7 @@ class NoResultViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = titleStr
         actionBtn.setTitle(actionStr, for: .normal)
-        animationView.loopAnimation = true
+        animationView.loopMode = .loop
     }
     
     override func viewWillAppear(_ animated: Bool) {

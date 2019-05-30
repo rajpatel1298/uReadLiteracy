@@ -55,7 +55,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             guard let dictionaryWord = dictionaryWord else{
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Cannot Load Help Word", message: "Sorry, Please Try Again!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (_) in
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: { (_) in
                         
                         strongself.navigationController?.popViewController(animated: true)
                     }))
@@ -209,12 +209,12 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //WordWithSpeakerTableViewCell
         if(indexPath.section == 0){
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         }
         else{
             //WordAnalysisTableViewCell
             if(indexPath.row == 0){
-                return UITableViewAutomaticDimension
+                return UITableView.automaticDimension
             }
                 // DynamicVideoTableViewCell
             else{

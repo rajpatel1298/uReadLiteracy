@@ -64,15 +64,15 @@ class LearnViewController: UIViewController{
         if segmentedControl.selectedSegmentIndex == 0{
             learnWordController.view.isHidden = false
             learnVideoCategoryController.view.isHidden = true
-            view.bringSubview(toFront: learnWordController.view)
-            view.sendSubview(toBack: learnVideoCategoryController.view)
+            view.bringSubviewToFront(learnWordController.view)
+            view.sendSubviewToBack(learnVideoCategoryController.view)
             
             let helpWords:[HelpWordModel] = CoreDataGetter.shared.getList()
             
             if(helpWords.count == 0){
                 noResultController.view.isHidden = false
-                view.bringSubview(toFront: noResultController.view)
-                view.bringSubview(toFront: segmentedControl)
+                view.bringSubviewToFront(noResultController.view)
+                view.bringSubviewToFront(segmentedControl)
                 noResultController.animationView.play()
                 learnWordController.hideTableView()
             }
@@ -86,8 +86,8 @@ class LearnViewController: UIViewController{
         else{
             learnWordController.view.isHidden = true
             learnVideoCategoryController.view.isHidden = false
-            view.bringSubview(toFront: learnVideoCategoryController.view)
-            view.sendSubview(toBack: learnWordController.view)
+            view.bringSubviewToFront(learnVideoCategoryController.view)
+            view.sendSubviewToBack(learnWordController.view)
         }
     }
     

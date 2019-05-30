@@ -12,7 +12,7 @@ import Lottie
 class GoalTableViewCell: WordWithDeleteBtnTableViewCell {
     
     @IBOutlet weak var goalSubLabel: UILabel!
-    @IBOutlet weak var goalFinishAnimationView: LOTAnimationView!
+    @IBOutlet weak var goalFinishAnimationView: AnimationView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

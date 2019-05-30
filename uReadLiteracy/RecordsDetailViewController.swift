@@ -94,11 +94,11 @@ extension RecordsDetailViewController{
         audioSlider.addTarget(self, action: #selector(sliderChanged(gestureRecognizer:)), for: .touchDown)
     }
     
-    func sliderChanged(gestureRecognizer: UIGestureRecognizer){
+    @objc func sliderChanged(gestureRecognizer: UIGestureRecognizer){
         subject.setState(state: .Pause)
     }
     
-    func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
+    @objc func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
         let pointTapped: CGPoint = gestureRecognizer.location(in: self.view)
         
         let positionOfSlider: CGPoint = audioSlider.frame.origin
