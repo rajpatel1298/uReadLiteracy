@@ -83,7 +83,7 @@ class CoreDataUpdater{
         save()
     }
     
-    func saveArticle(url:String,minutesRead:Int,category:ArticleCategory){
+    func saveArticle(name:String, url:String,minutesRead:Int,category:ArticleCategory){
         let model = CoreDataGetter.shared.find(articleUrlToFind: url)
         if(model != nil){
             model?.minutesRead = Int16(minutesRead)
@@ -93,6 +93,7 @@ class CoreDataUpdater{
             let object = NSManagedObject(entity: entity, insertInto: managedContext)
             
             object.setValue(url, forKeyPath: "url")
+            object.setValue(name, forKeyPath: "name")
             object.setValue(minutesRead, forKeyPath: "minutesRead")
             object.setValue(category.rawValue, forKeyPath: "category")
         }
@@ -100,7 +101,7 @@ class CoreDataUpdater{
     }
     
     func save(article:ArticleModel){
-        saveArticle(url: article.url, minutesRead: Int(article.minutesRead), category: article.category)
+        saveArticle(name: article.name,url: article.url, minutesRead: Int(article.minutesRead), category: article.category)
     }
     
     func delete(helpModel:HelpWordModel){
