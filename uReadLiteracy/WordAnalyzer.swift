@@ -24,15 +24,20 @@ class WordAnalyzer{
         let word = helpWord.word.lowercased()
         
         var wordDetails = [WordAnalysisDetail]()
-        wordDetails.append(contentsOf: longVowelAnalyzer.getDetails(word: word))
-        wordDetails.append(contentsOf: shortVowelAnalyzer.getDetails(word: word))
-        wordDetails.append(contentsOf: prefixsuffixAnalyzer.getDetails(word: word))
-        wordDetails.append(contentsOf: multisyllabicAnalyzer.getDetails(word: word))
-        wordDetails.append(contentsOf: otherCasesWordAnalyzer.getDetails(word: word))
-        wordDetails.append(contentsOf: blendAnalyzer.getDetails(word: word))
-        wordDetails.append(contentsOf: consonantDigraphsAnalyzer.getDetails(word: word))
-        wordDetails.append(contentsOf: rControlledVowelsAnalyzer.getDetails(word: word))
-        wordDetails.append(contentsOf: sightWordAnalyzer.getDetails(word: word))
+        
+        if(sightWordAnalyzer.getDetails(word: word).count == 0){
+            wordDetails.append(contentsOf: longVowelAnalyzer.getDetails(word: word))
+            wordDetails.append(contentsOf: shortVowelAnalyzer.getDetails(word: word))
+            wordDetails.append(contentsOf: prefixsuffixAnalyzer.getDetails(word: word))
+            wordDetails.append(contentsOf: multisyllabicAnalyzer.getDetails(word: word))
+            wordDetails.append(contentsOf: otherCasesWordAnalyzer.getDetails(word: word))
+            wordDetails.append(contentsOf: blendAnalyzer.getDetails(word: word))
+            wordDetails.append(contentsOf: consonantDigraphsAnalyzer.getDetails(word: word))
+            wordDetails.append(contentsOf: rControlledVowelsAnalyzer.getDetails(word: word))
+        }
+        else{
+            wordDetails.append(contentsOf: sightWordAnalyzer.getDetails(word: word))
+        }
         
         return wordDetails
     }

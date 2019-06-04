@@ -10,22 +10,19 @@ import Foundation
 
 class ComprehensionQuestionManager {
     
-    private var generalQuestions: [String]
-    private var fictionQuestionsBeginning: [String]
-    private var fictionQuestionsPeriodic: [String]
-    private var fictionQuestionsEnd: [String]
-    private var nonFictionQuestionsBeginning: [String]
-    private var nonFictionQuestionsPeriodic: [String]
-    private var nonFictionQuestionsEnd: [String]
+    private var generalQuestions = [String]()
+    private var fictionQuestionsBeginning = [String]()
+    private var fictionQuestionsPeriodic = [String]()
+    private var fictionQuestionsEnd = [String]()
+    private var nonFictionQuestionsBeginning = [String]()
+    private var nonFictionQuestionsPeriodic = [String]()
+    private var nonFictionQuestionsEnd = [String]()
     
     init() {
-        generalQuestions = []
-        fictionQuestionsBeginning = []
-        fictionQuestionsPeriodic = []
-        fictionQuestionsEnd = []
-        nonFictionQuestionsBeginning = []
-        nonFictionQuestionsPeriodic = []
-        nonFictionQuestionsEnd = []
+        populateGeneralQuestions()
+        populateFictionBeginning()
+        populateFictionPeriodic()
+        populateFictionEnd()
     }
     
     func getFileContents(fileName: String) -> [String] {
@@ -40,37 +37,37 @@ class ComprehensionQuestionManager {
         }
     }
     
-    func populateGeneralQuestions(){
+    private func populateGeneralQuestions(){
         generalQuestions = getFileContents(fileName: "generalQuestionsBeginning")
         generalQuestions.remove(at: generalQuestions.count-1)
     }
     
-    func populateFictionBeginning(){
+    private func populateFictionBeginning(){
         fictionQuestionsBeginning = getFileContents(fileName: "fictionQuestionsBeginning")
         fictionQuestionsBeginning.remove(at: fictionQuestionsBeginning.count-1)
     }
     
-    func populateFictionPeriodic(){
+    private func populateFictionPeriodic(){
         fictionQuestionsPeriodic = getFileContents(fileName: "fictionQuestionsPeriodic")
         fictionQuestionsPeriodic.remove(at: fictionQuestionsPeriodic.count-1)
     }
     
-    func populateFictionEnd(){
+    private func populateFictionEnd(){
         fictionQuestionsEnd = getFileContents(fileName: "fictionQuestionsEnd")
         fictionQuestionsEnd.remove(at: fictionQuestionsEnd.count-1)
     }
     
-    func populateNonFictionBeginning(){
+    private func populateNonFictionBeginning(){
         nonFictionQuestionsBeginning = getFileContents(fileName: "nonFictionQuestionsBeginning")
         nonFictionQuestionsBeginning.remove(at: nonFictionQuestionsBeginning.count-1)
     }
     
-    func populateNonFictionPeriodic(){
+    private func populateNonFictionPeriodic(){
         nonFictionQuestionsPeriodic = getFileContents(fileName: "nonFictionQuestionsPeriodic")
         nonFictionQuestionsPeriodic.remove(at: nonFictionQuestionsPeriodic.count-1)
     }
     
-    func populateNonFictionEnd() {
+    private func populateNonFictionEnd() {
         nonFictionQuestionsEnd = getFileContents(fileName: "nonFictionQuestionsEnd")
         nonFictionQuestionsEnd.remove(at: nonFictionQuestionsEnd.count-1)
     }

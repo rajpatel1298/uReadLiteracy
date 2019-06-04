@@ -12,6 +12,6 @@ struct DictionaryWord:Decodable{
     let word:String
     let phonetic:String?
     let meaning:DictionaryMeaning
-    let pronunciation:String
-    let origin:String
+    let pronunciation:String?
+    let origin:String?
 }
