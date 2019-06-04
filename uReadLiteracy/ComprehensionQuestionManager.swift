@@ -23,6 +23,9 @@ class ComprehensionQuestionManager {
         populateFictionBeginning()
         populateFictionPeriodic()
         populateFictionEnd()
+        populateNonFictionBeginning()
+        populateNonFictionPeriodic()
+        populateNonFictionEnd()
     }
     
     func getFileContents(fileName: String) -> [String] {

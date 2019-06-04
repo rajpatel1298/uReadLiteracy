@@ -37,11 +37,13 @@ class NoResultViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         animationView.play()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         animationView.stop()
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @IBAction func actionBtnPressed(_ sender: Any) {

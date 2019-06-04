@@ -255,6 +255,7 @@ extension BrowserViewController:WKNavigationDelegate,UIScrollViewDelegate{
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         actitvityIndicator.stopAnimating()
         webView.scrollView.isScrollEnabled = true
+        
         webviewManager.setMaxOffset {[weak self] (err) in
             if err == nil{
                 guard let strongself = self else{

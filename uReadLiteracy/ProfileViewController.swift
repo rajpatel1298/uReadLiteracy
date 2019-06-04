@@ -156,7 +156,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.height/5, height: view.frame.height/4)
+        return CGSize(width: view.frame.height/6, height: view.frame.height/5)
     }
     
 }

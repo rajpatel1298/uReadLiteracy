@@ -21,7 +21,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         noResultController = (storyboard!.instantiateViewController(withIdentifier: "NoResultViewController") as! NoResultViewController)
-        noResultController.inject(title: "There is no record!", actionStr: "Record You Reading Articles", action: {
+        noResultController.inject(title: "There is no record!", actionStr: "Record Your Reading Articles", action: {
             DispatchQueue.main.async {
                 self.tabBarController?.selectedIndex = 2
             }

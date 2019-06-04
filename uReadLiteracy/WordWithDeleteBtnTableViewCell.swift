@@ -12,7 +12,6 @@ class WordWithDeleteBtnTableViewCell: UITableViewCell {
 
     @IBOutlet var wordLabel: UILabel!
     @IBOutlet weak var deleteBtn: UIButton!
-    @IBOutlet weak var confirmDeleteBtn: RoundedButton!
     
     private var onDelete = {}
     
@@ -23,22 +22,10 @@ class WordWithDeleteBtnTableViewCell: UITableViewCell {
     
     func resetDeleteBtn(){
         deleteBtn.isHidden = false
-        confirmDeleteBtn.isHidden = true
         bringSubviewToFront(deleteBtn)
     }
     
     @IBAction func deleteBtnPressed(_ sender: Any) {
-        showConfirmDelete()
-    }
-    
-    
-    private func showConfirmDelete(){
-        deleteBtn.isHidden = true
-        confirmDeleteBtn.isHidden = false
-        bringSubviewToFront(confirmDeleteBtn)
-    }
-    
-    @IBAction func confirmDeleteBtnPressed(_ sender: Any) {
         onDelete()
     }
     
