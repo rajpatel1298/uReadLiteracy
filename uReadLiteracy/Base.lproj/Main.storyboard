@@ -172,11 +172,11 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fme-I9-xpo">
                                                     <rect key="frame" x="20" y="11" width="302.33333333333331" height="58"/>
-                                                    <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="18"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="NokioSansAlt-Bold" family="NokioSansAlt-Bold" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwv-yO-Fnr">
+                                                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwv-yO-Fnr">
                                                     <rect key="frame" x="332.33333333333331" y="26.666666666666671" width="26.666666666666686" height="26.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Iwv-yO-Fnr" secondAttribute="height" multiplier="1:1" id="uDW-5d-y1M"/>
