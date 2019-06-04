@@ -11,7 +11,7 @@ import Lottie
 import FBSDKShareKit
 import FacebookShare
 
-class FacebookShareButton:UIView,SharingDelegate{
+class FacebookShareButton:RoundedButton,SharingDelegate{
     func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
         print()
     }
@@ -26,20 +26,6 @@ class FacebookShareButton:UIView,SharingDelegate{
     
     private var content = ShareLinkContent()
     private let dialog = ShareDialog()
-    
-    private let animationView = AnimationView(animation: Animation.named("facebook"))
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let facebookTap = UITapGestureRecognizer(target: self, action: #selector(facebookShareBtnPressed(_:)))
-        addGestureRecognizer(facebookTap)
-        
-        animationView.frame = self.frame
-        addSubview(animationView)
-        animationView.play()
-        
-    }
     
     func inject(achievement:Achievement, viewcontroller:UIViewController){
         content.quote = SocialMediaQuote.get(achievement: achievement)

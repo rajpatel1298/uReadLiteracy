@@ -11,8 +11,10 @@ import Lottie
 
 class AchievementTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var twitterView: TwitterShareButton!
-    @IBOutlet weak var facebookView: FacebookShareButton!
+    @IBOutlet weak var facebookBtn: FacebookShareButton!
+    
+    @IBOutlet weak var twitterBtn: TwitterShareButton!
+    
     
     @IBOutlet weak var imageview: RoundedImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,10 +30,10 @@ class AchievementTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
          if mainVC != nil{
-         facebookView.inject(achievement: achievement, viewcontroller: mainVC!)
+            facebookBtn.inject(achievement: achievement, viewcontroller: mainVC!)
          }
          
-         twitterView.inject(achievement: achievement)
+         twitterBtn.inject(achievement: achievement)
     }
     
     

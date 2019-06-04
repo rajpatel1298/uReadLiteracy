@@ -69,9 +69,7 @@ class AchievementCompleteViewController: UIViewController, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AchievementWithQuoteTableViewCell") as! AchievementTableViewCell
-        cell.facebookView.contentMode = .scaleAspectFit
-        cell.twitterView.contentMode = .scaleAspectFit
-        
+      
         return cell
     }
     

@@ -748,7 +748,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="548"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitecircle" translatesAutoresizingMaskIntoConstraints="NO" id="z7z-LK-70G">
-                                <rect key="frame" x="0.0" y="184.33333333333334" width="414.00000000000023" height="427.66666666666674"/>
+                                <rect key="frame" x="0.0" y="184.33333333333334" width="414" height="427.66666666666663"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyProfile" translatesAutoresizingMaskIntoConstraints="NO" id="vbz-e1-XFA" customClass="RoundedImageView" customModule="uReadLiteracy" customModuleProvider="target">
                                 <rect key="frame" x="152" y="74" width="110" height="110.33333333333331"/>
@@ -757,13 +757,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duy Le" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCG-el-MaQ">
-                                <rect key="frame" x="30" y="194.33333333333334" width="354" height="25"/>
+                                <rect key="frame" x="30" y="194.33333333333334" width="354" height="29.333333333333343"/>
                                 <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="25"/>
                                 <color key="textColor" red="0.96862745098039216" green="0.46666666666666667" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7we-lR-CMf">
-                                <rect key="frame" x="20" y="239.33333333333337" width="374" height="60"/>
+                                <rect key="frame" x="20" y="243.66666666666663" width="374" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GtJ-OV-O3O">
                                         <rect key="frame" x="0.0" y="0.0" width="124.66666666666667" height="60"/>
@@ -781,7 +781,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed Achievement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbD-m2-QIa">
-                                                        <rect key="frame" x="0.0" y="29.999999999999972" width="124.66666666666667" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30.000000000000028" width="124.66666666666667" height="30"/>
                                                         <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -820,7 +820,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articles Read" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QlD-qs-DWx">
-                                                        <rect key="frame" x="0.0" y="29.999999999999972" width="124.66666666666667" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30.000000000000028" width="124.66666666666667" height="30"/>
                                                         <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -859,7 +859,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes Reading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONt-RX-niG">
-                                                        <rect key="frame" x="0.0" y="29.999999999999972" width="124.66666666666667" height="30"/>
+                                                        <rect key="frame" x="0.0" y="30.000000000000028" width="124.66666666666667" height="30"/>
                                                         <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -878,13 +878,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OG5-d7-J1s">
-                                <rect key="frame" x="20.000000000000007" y="319.33333333333331" width="102.66666666666669" height="15"/>
+                                <rect key="frame" x="20.000000000000007" y="323.66666666666669" width="94.666666666666686" height="17.666666666666686"/>
                                 <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="15"/>
                                 <color key="textColor" red="0.96896811549999995" green="0.46539507120000001" blue="0.4744671426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dam-RF-Cgg">
-                                <rect key="frame" x="10" y="354.33333333333331" width="394" height="164.99999999999994"/>
+                                <rect key="frame" x="10" y="361.33333333333331" width="394" height="164.99999999999994"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="549-CA-BMb">
                                     <size key="itemSize" width="164" height="164"/>
@@ -1233,17 +1233,6 @@
                                     <action selector="tutorialBtnPressed:" destination="lza-cG-iOU" eventType="touchUpInside" id="YET-kl-212"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6n-8E-sgE" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="264.66666666666669" y="-5" width="55" height="55"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="u6n-8E-sgE" secondAttribute="height" multiplier="1:1" id="0PR-17-4Nn"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="notRecordingMicrophone"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="notRecordingMicrophone"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOO-Qm-gqd">
                                 <rect key="frame" x="5" y="8.3333333333333321" width="33.333333333333336" height="33.333333333333343"/>
                                 <constraints>
@@ -1254,38 +1243,47 @@
                                     <action selector="previousBtnPressed:" destination="lza-cG-iOU" eventType="touchUpInside" id="Hi6-3Z-c5x"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssx-Vv-NQ6" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="209.66666666666666" y="0.0" width="49.999999999999972" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOE-i3-qeX">
+                                <rect key="frame" x="218" y="8.3333333333333321" width="33.333333333333343" height="33.333333333333343"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ssx-Vv-NQ6" secondAttribute="height" multiplier="1:1" id="JVy-xU-1T0"/>
+                                    <constraint firstAttribute="width" secondItem="TOE-i3-qeX" secondAttribute="height" multiplier="1:1" id="bw4-oP-ox9"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="comment_speech_bubble"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="comment_speech_bubble"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                                <state key="normal" image="messagebubble"/>
+                                <connections>
+                                    <action selector="commentBtnPressed:" destination="lza-cG-iOU" eventType="touchUpInside" id="ngt-DA-l20"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD4-Wz-ixl">
+                                <rect key="frame" x="271.33333333333331" y="8.3333333333333321" width="33.333333333333314" height="33.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hD4-Wz-ixl" secondAttribute="height" multiplier="1:1" id="POA-zv-GUl"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="microphone"/>
+                                <connections>
+                                    <action selector="recordBtnPressed:" destination="lza-cG-iOU" eventType="touchUpInside" id="sqh-b1-Cgf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ssx-Vv-NQ6" secondAttribute="bottom" id="2hy-9Q-fqh"/>
-                            <constraint firstItem="NFy-so-KrA" firstAttribute="leading" secondItem="u6n-8E-sgE" secondAttribute="trailing" constant="5" id="4o5-hG-qMS"/>
-                            <constraint firstAttribute="bottom" secondItem="u6n-8E-sgE" secondAttribute="bottom" id="GwR-as-fmS"/>
+                            <constraint firstItem="TOE-i3-qeX" firstAttribute="height" secondItem="RqM-OD-n2u" secondAttribute="height" multiplier="2:3" id="8bv-Li-pwy"/>
+                            <constraint firstItem="hD4-Wz-ixl" firstAttribute="leading" secondItem="TOE-i3-qeX" secondAttribute="trailing" constant="20" id="CKa-f5-ege"/>
                             <constraint firstItem="NFy-so-KrA" firstAttribute="height" secondItem="RqM-OD-n2u" secondAttribute="height" multiplier="1:1.5" id="Kji-i8-Qx1"/>
                             <constraint firstItem="AOO-Qm-gqd" firstAttribute="leading" secondItem="RqM-OD-n2u" secondAttribute="leading" constant="5" id="RzK-tg-udO"/>
+                            <constraint firstItem="TOE-i3-qeX" firstAttribute="centerY" secondItem="RqM-OD-n2u" secondAttribute="centerY" id="TRj-yK-MzK"/>
+                            <constraint firstItem="hD4-Wz-ixl" firstAttribute="centerY" secondItem="RqM-OD-n2u" secondAttribute="centerY" id="XYt-Yw-nws"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NFy-so-KrA" secondAttribute="trailing" id="aE1-F2-LJU"/>
-                            <constraint firstItem="u6n-8E-sgE" firstAttribute="top" secondItem="RqM-OD-n2u" secondAttribute="top" constant="-5" id="cWh-51-uqd"/>
-                            <constraint firstItem="u6n-8E-sgE" firstAttribute="leading" secondItem="ssx-Vv-NQ6" secondAttribute="trailing" constant="5" id="cX3-Nd-GQV"/>
                             <constraint firstItem="NFy-so-KrA" firstAttribute="centerY" secondItem="RqM-OD-n2u" secondAttribute="centerY" id="e2N-oo-n0n"/>
                             <constraint firstItem="AOO-Qm-gqd" firstAttribute="height" secondItem="RqM-OD-n2u" secondAttribute="height" multiplier="1:1.5" id="j4G-pw-TI8"/>
-                            <constraint firstItem="ssx-Vv-NQ6" firstAttribute="top" secondItem="RqM-OD-n2u" secondAttribute="top" id="nGH-UQ-69J"/>
+                            <constraint firstItem="hD4-Wz-ixl" firstAttribute="height" secondItem="RqM-OD-n2u" secondAttribute="height" multiplier="2:3" id="ri0-BL-uQN"/>
+                            <constraint firstItem="NFy-so-KrA" firstAttribute="leading" secondItem="hD4-Wz-ixl" secondAttribute="trailing" constant="20" id="uhw-BK-B21"/>
                             <constraint firstItem="AOO-Qm-gqd" firstAttribute="centerY" secondItem="RqM-OD-n2u" secondAttribute="centerY" id="x3t-na-dlW"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="commentLOTView" destination="ssx-Vv-NQ6" id="45y-N0-Mhq"/>
+                        <outlet property="commentBtn" destination="TOE-i3-qeX" id="pUU-rq-pZU"/>
                         <outlet property="previousBtn" destination="AOO-Qm-gqd" id="PlF-Cz-4I3"/>
-                        <outlet property="recordLOTView" destination="u6n-8E-sgE" id="5Ww-K7-dPo"/>
+                        <outlet property="recordBtn" destination="hD4-Wz-ixl" id="rK2-4x-Lh4"/>
                         <outlet property="tutorialBtn" destination="NFy-so-KrA" id="mye-aX-pME"/>
                     </connections>
                 </viewController>
@@ -1815,17 +1813,18 @@
         <image name="internet" width="25" height="25"/>
         <image name="juicyorangetheme" width="1440" height="900"/>
         <image name="mangotheme" width="1440" height="900"/>
+        <image name="messagebubble" width="512" height="512"/>
         <image name="microphone" width="25" height="25"/>
         <image name="play" width="64" height="64"/>
         <image name="previousIcon" width="512" height="512"/>
         <image name="profile" width="25" height="25"/>
-        <image name="question" width="512" height="512"/>
+        <image name="question" width="400" height="400"/>
         <image name="removeicon" width="512" height="512"/>
         <image name="speaker" width="420" height="420"/>
         <image name="teacher" width="25" height="25"/>
         <image name="whitecircle" width="1018" height="506"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tp4-jx-0Ub"/>
+        <segue reference="Zwh-ea-g0c"/>
     </inferredMetricsTieBreakers>
 </document>

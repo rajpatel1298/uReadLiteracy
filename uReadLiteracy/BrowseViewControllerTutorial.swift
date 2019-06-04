@@ -53,7 +53,7 @@ class BrowseViewControllerTutorial:TutorialController{
     
     private func thirdStep(){
         setHandAnimationColorWhite()
-        let recordFrame = TopToolBarViewController.shared.recordLOTView.frame
+        let recordFrame = TopToolBarViewController.shared.recordBtn.frame
         showHighlightFrame(frame: recordFrame)
         setHandAnimationPosition(frame: recordFrame)
         

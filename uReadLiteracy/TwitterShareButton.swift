@@ -10,19 +10,9 @@ import Foundation
 import UIKit
 import Lottie
 
-class TwitterShareButton:UIView{
+class TwitterShareButton:RoundedButton{
     private var tweetText = ""
-    private let animationView = AnimationView(animation: Animation.named("twitter_icon"))
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        let twitterTap = UITapGestureRecognizer(target: self, action: #selector(twitterShareBtnPressed(_:)))
-        addGestureRecognizer(twitterTap)
-        
-        animationView.frame = self.frame
-        addSubview(animationView)
-        animationView.play()
-    }
     
     @objc func twitterShareBtnPressed(_ sender: UITapGestureRecognizer) {
         let tweetUrl = "https://www.google.com/"

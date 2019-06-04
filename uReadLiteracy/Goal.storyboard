@@ -50,36 +50,33 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ijr-Gd-W6v">
                                                     <rect key="frame" x="320" y="11" width="40" height="78"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySA-pO-bcs" customClass="FacebookShareButton" customModule="uReadLiteracy" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="ySA-pO-bcs" secondAttribute="height" multiplier="1:1" id="eM1-od-eM9"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="facebook"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4r6-gd-SGO" customClass="TwitterShareButton" customModule="uReadLiteracy" customModuleProvider="target">
-                                                            <rect key="frame" x="-8" y="32" width="56" height="56"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="4r6-gd-SGO" secondAttribute="height" multiplier="1:1" id="VAP-UH-QaV"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="twitter_icon"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </view>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yb9-zd-z1u">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="78"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ow-Ca-ABR" customClass="FacebookShareButton" customModule="uReadLiteracy" customModuleProvider="target">
+                                                                    <rect key="frame" x="3" y="0.0" width="34" height="34"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="9ow-Ca-ABR" secondAttribute="height" multiplier="1:1" id="c86-5w-33w"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="facebook"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIN-9x-Q1b" customClass="TwitterShareButton" customModule="uReadLiteracy" customModuleProvider="target">
+                                                                    <rect key="frame" x="3" y="44" width="34" height="34"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="CIN-9x-Q1b" secondAttribute="height" multiplier="1:1" id="B5U-zi-JVz"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button" image="twitter"/>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="4r6-gd-SGO" firstAttribute="width" secondItem="ySA-pO-bcs" secondAttribute="width" multiplier="1.4:1" id="7mj-bQ-YD7"/>
-                                                        <constraint firstItem="ySA-pO-bcs" firstAttribute="leading" secondItem="Ijr-Gd-W6v" secondAttribute="leading" id="AdX-Xz-p6g"/>
-                                                        <constraint firstItem="ySA-pO-bcs" firstAttribute="top" secondItem="Ijr-Gd-W6v" secondAttribute="top" id="Fqt-2K-Qbt"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yb9-zd-z1u" secondAttribute="bottom" id="0O6-Td-8MT"/>
+                                                        <constraint firstItem="yb9-zd-z1u" firstAttribute="top" secondItem="Ijr-Gd-W6v" secondAttribute="top" id="2WX-bB-0d3"/>
+                                                        <constraint firstItem="yb9-zd-z1u" firstAttribute="leading" secondItem="Ijr-Gd-W6v" secondAttribute="leading" id="EvH-Lz-ezE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="yb9-zd-z1u" secondAttribute="trailing" id="IPO-tn-qto"/>
                                                         <constraint firstAttribute="width" constant="40" id="VeQ-oc-RF1"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ySA-pO-bcs" secondAttribute="trailing" id="apf-Xn-62q"/>
-                                                        <constraint firstAttribute="bottom" secondItem="4r6-gd-SGO" secondAttribute="bottom" constant="-10" id="qiM-se-umb"/>
-                                                        <constraint firstItem="4r6-gd-SGO" firstAttribute="centerX" secondItem="Ijr-Gd-W6v" secondAttribute="centerX" id="vIZ-sd-mgS"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rfc-2H-uJy">
@@ -115,11 +112,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="facebookView" destination="ySA-pO-bcs" id="ElB-D0-MYD"/>
+                                            <outlet property="facebookBtn" destination="9ow-Ca-ABR" id="xFR-wc-eZQ"/>
                                             <outlet property="imageview" destination="xFP-nh-Wfu" id="iS2-wS-hqw"/>
                                             <outlet property="quoteLabel" destination="r1a-Dc-fG0" id="4Vk-6w-xq9"/>
                                             <outlet property="titleLabel" destination="gZk-el-bQ3" id="y9v-DS-68q"/>
-                                            <outlet property="twitterView" destination="4r6-gd-SGO" id="j9m-j5-iAh"/>
+                                            <outlet property="twitterBtn" destination="CIN-9x-Q1b" id="ljF-gn-Il5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -130,7 +127,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPe-Fb-iSr" customClass="RoundedButton" customModule="uReadLiteracy" customModuleProvider="target">
                                 <rect key="frame" x="20" y="607" width="335" height="40"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.46666666670000001" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.61960784310000006" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Jda-cn-niz"/>
                                 </constraints>
@@ -166,4 +163,8 @@
             <point key="canvasLocation" x="-396" y="26.53673163418291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebook" width="225" height="225"/>
+        <image name="twitter" width="225" height="225"/>
+    </resources>
 </document>

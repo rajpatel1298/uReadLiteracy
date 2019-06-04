@@ -16,8 +16,11 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var tutorialBtn: UIButton!
     @IBOutlet weak var previousBtn: UIButton!
-    @IBOutlet weak var recordLOTView: AnimationView!
-    @IBOutlet weak var commentLOTView: AnimationView!
+    
+    @IBOutlet weak var commentBtn: UIButton!
+    
+    @IBOutlet weak var recordBtn: UIButton!
+    
     
     var onPreviousBtnPressed: (()->Void)!
     var onRecordBtnPressed: (()->Void)!
@@ -39,60 +42,46 @@ class TopToolBarViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         TopToolBarViewController.shared = self
-        recordLOTView.loopMode = .loop
-        recordLOTView.animationSpeed = 0.5
-        recordLOTView.play()
-        
-        commentLOTView.loopMode = .autoReverse
-        commentLOTView.play()
-        
-        let recordBtnGesture = UITapGestureRecognizer(target: self, action: #selector(recordBtnPressed))
-        recordLOTView.addGestureRecognizer(recordBtnGesture)
-        
-        let commentBtnGesture = UITapGestureRecognizer(target: self, action: #selector(commentBtnPressed))
-        commentLOTView.addGestureRecognizer(commentBtnGesture)
-    }
-    
-    func showPreviousCommentRecordBtn(){
-        recordLOTView.isHidden = false
-        commentLOTView.isHidden = false
-        previousBtn.isHidden = false
-    }
-    
-    func hidePreviousCommentRecordBtn(){
-        recordLOTView.isHidden = true
-        commentLOTView.isHidden = true
-        previousBtn.isHidden = true
-    }
-    
-    @objc private func commentBtnPressed() {
-        onCommentBtnPressed()
     }
     
     
-    @objc private func recordBtnPressed() {
+    @IBAction func recordBtnPressed(_ sender: Any) {
         if !recording{
             AudioPlayer.shared.playSound(soundName: "prerecording", audioExtension: "mp3", delegate: self)
         }
         else{
             onRecordBtnPressed()
             AudioPlayer.shared.playSound(soundName: "postrecording", audioExtension: "mp3", delegate: self)
-            recordLOTView.animation = Animation.named("notRecordingMicrophone")
-            
-            recordLOTView.loopMode = .loop
-            recordLOTView.play()
         }
         
         recording = !recording
     }
     
+    @IBAction func commentBtnPressed(_ sender: Any) {
+        onCommentBtnPressed()
+    }
+    
+    func showPreviousCommentRecordBtn(){
+        recordBtn.isHidden = false
+        commentBtn.isHidden = false
+        previousBtn.isHidden = false
+    }
+    
+    func hidePreviousCommentRecordBtn(){
+        recordBtn.isHidden = true
+        commentBtn.isHidden = true
+        previousBtn.isHidden = true
+    }
+    
+    @objc private func commentBtnPressed() {
+        
+    }
+
+    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag{
             if recording{
                 onRecordBtnPressed()
-                recordLOTView.animation = Animation.named("recordingMicrophone")
-                recordLOTView.loopMode = .loop
-                recordLOTView.play()
             }
         }
     }
