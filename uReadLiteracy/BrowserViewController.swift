@@ -60,6 +60,7 @@ class BrowserViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        logicController.achievementShowed = false 
         webviewManager.injectJS()
         loadWebPage()
         hideCommentBtn()
