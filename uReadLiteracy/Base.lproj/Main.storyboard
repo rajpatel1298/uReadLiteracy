@@ -739,7 +739,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="548"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitecircle" translatesAutoresizingMaskIntoConstraints="NO" id="z7z-LK-70G">
-                                <rect key="frame" x="0.0" y="184.33333333333334" width="414" height="427.66666666666663"/>
+                                <rect key="frame" x="0.0" y="184.33333333333334" width="414.00000000000023" height="427.66666666666674"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyProfile" translatesAutoresizingMaskIntoConstraints="NO" id="vbz-e1-XFA" customClass="RoundedImageView" customModule="uReadLiteracy" customModuleProvider="target">
                                 <rect key="frame" x="152" y="74" width="110" height="110.33333333333331"/>
@@ -748,13 +748,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duy Le" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCG-el-MaQ">
-                                <rect key="frame" x="30" y="194.33333333333334" width="354" height="29.333333333333343"/>
+                                <rect key="frame" x="30" y="194.33333333333334" width="354" height="25"/>
                                 <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="25"/>
                                 <color key="textColor" red="0.96862745098039216" green="0.46666666666666667" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7we-lR-CMf">
-                                <rect key="frame" x="20" y="243.66666666666663" width="374" height="60"/>
+                                <rect key="frame" x="20" y="239.33333333333337" width="374" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GtJ-OV-O3O">
                                         <rect key="frame" x="0.0" y="0.0" width="124.66666666666667" height="60"/>
@@ -772,7 +772,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed Achievement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbD-m2-QIa">
-                                                        <rect key="frame" x="0.0" y="30.000000000000028" width="124.66666666666667" height="30"/>
+                                                        <rect key="frame" x="0.0" y="29.999999999999972" width="124.66666666666667" height="30"/>
                                                         <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -811,7 +811,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articles Read" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QlD-qs-DWx">
-                                                        <rect key="frame" x="0.0" y="30.000000000000028" width="124.66666666666667" height="30"/>
+                                                        <rect key="frame" x="0.0" y="29.999999999999972" width="124.66666666666667" height="30"/>
                                                         <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -850,7 +850,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes Reading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONt-RX-niG">
-                                                        <rect key="frame" x="0.0" y="30.000000000000028" width="124.66666666666667" height="30"/>
+                                                        <rect key="frame" x="0.0" y="29.999999999999972" width="124.66666666666667" height="30"/>
                                                         <fontDescription key="fontDescription" name="NokioSans-Regular" family="NokioSans-Regular" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -869,13 +869,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OG5-d7-J1s">
-                                <rect key="frame" x="20.000000000000007" y="323.66666666666669" width="94.666666666666686" height="17.666666666666686"/>
+                                <rect key="frame" x="20.000000000000007" y="319.33333333333331" width="102.66666666666669" height="15"/>
                                 <fontDescription key="fontDescription" name="NokioSans-Bold" family="NokioSans-Bold" pointSize="15"/>
                                 <color key="textColor" red="0.96896811549999995" green="0.46539507120000001" blue="0.4744671426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dam-RF-Cgg">
-                                <rect key="frame" x="10" y="361.33333333333331" width="394" height="164.99999999999994"/>
+                                <rect key="frame" x="10" y="354.33333333333331" width="394" height="164.99999999999994"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="549-CA-BMb">
                                     <size key="itemSize" width="164" height="164"/>
@@ -1579,7 +1579,7 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="38"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="NokioSansAlt-Medium" family="NokioSansAlt-Medium" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Aw-mq-xnh">
@@ -1648,7 +1648,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ezm-0g-VIZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LearnVideoCategoryCell" id="N70-LJ-nn5" customClass="LearnVideoCategoryTableViewCell" customModule="uReadLiteracy" customModuleProvider="target">
@@ -1661,15 +1661,17 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB4-pf-yBU">
                                                     <rect key="frame" x="183.66666666666666" y="20" width="47" height="20"/>
                                                     <fontDescription key="fontDescription" name="NokioSansAlt-Medium" family="NokioSansAlt-Medium" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="TB4-pf-yBU" firstAttribute="centerY" secondItem="GiS-HT-4bM" secondAttribute="centerY" id="6D2-4Y-5Oo"/>
                                                 <constraint firstItem="TB4-pf-yBU" firstAttribute="centerX" secondItem="GiS-HT-4bM" secondAttribute="centerX" id="XoJ-x0-bHc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="wordLabel" destination="TB4-pf-yBU" id="fim-UF-2z7"/>
                                         </connections>
@@ -1681,7 +1683,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ezm-0g-VIZ" secondAttribute="bottom" id="9Md-J3-jsI"/>
                             <constraint firstItem="ezm-0g-VIZ" firstAttribute="top" secondItem="hbh-Hl-rJJ" secondAttribute="top" id="dIC-VP-GH7"/>
@@ -1689,6 +1691,9 @@
                             <constraint firstItem="ezm-0g-VIZ" firstAttribute="leading" secondItem="hbh-Hl-rJJ" secondAttribute="leading" id="rLc-PH-F52"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableview" destination="ezm-0g-VIZ" id="9Mq-rP-ZFo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyb-Sp-1ot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1706,9 +1711,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="661"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="juicyorangetheme" translatesAutoresizingMaskIntoConstraints="NO" id="plD-2r-pS8">
+                                <rect key="frame" x="0.0" y="64" width="414" height="548"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dde-Bp-Bq4">
                                 <rect key="frame" x="20" y="64" width="374" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DynamicVideoTableViewCell" rowHeight="100" id="rxT-SP-snI" customClass="DynamicVideoTableViewCell" customModule="uReadLiteracy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="100"/>
@@ -1725,15 +1733,23 @@
                                                         <wkPreferences key="preferences"/>
                                                     </wkWebViewConfiguration>
                                                 </wkWebView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GLz-IC-wJE">
+                                                    <rect key="frame" x="177" y="40" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="k5D-f8-bZb" secondAttribute="bottom" id="BSa-dK-SIM"/>
+                                                <constraint firstItem="GLz-IC-wJE" firstAttribute="centerY" secondItem="z2z-Rx-FOD" secondAttribute="centerY" id="Iju-8G-4wa"/>
                                                 <constraint firstItem="k5D-f8-bZb" firstAttribute="top" secondItem="z2z-Rx-FOD" secondAttribute="topMargin" id="eVi-48-LRt"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="k5D-f8-bZb" secondAttribute="trailing" id="i5C-xq-klb"/>
+                                                <constraint firstItem="GLz-IC-wJE" firstAttribute="centerX" secondItem="z2z-Rx-FOD" secondAttribute="centerX" id="qQT-NH-h3B"/>
                                                 <constraint firstItem="k5D-f8-bZb" firstAttribute="leading" secondItem="z2z-Rx-FOD" secondAttribute="leadingMargin" id="v56-5M-Ger"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="GLz-IC-wJE" id="xum-Vc-ezf"/>
                                             <outlet property="webview" destination="k5D-f8-bZb" id="9BX-Xn-fCR"/>
                                         </connections>
                                     </tableViewCell>
@@ -1746,10 +1762,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="plD-2r-pS8" secondAttribute="trailing" id="Gxu-9J-2M8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dde-Bp-Bq4" secondAttribute="trailing" id="KD6-HZ-EmZ"/>
                             <constraint firstItem="dde-Bp-Bq4" firstAttribute="leading" secondItem="TYf-Ta-lAf" secondAttribute="leadingMargin" id="UAb-HO-DWf"/>
                             <constraint firstItem="ISP-ci-GHm" firstAttribute="top" secondItem="dde-Bp-Bq4" secondAttribute="bottom" id="ZpZ-2X-NXM"/>
+                            <constraint firstItem="ISP-ci-GHm" firstAttribute="top" secondItem="plD-2r-pS8" secondAttribute="bottom" id="jWp-GH-lAo"/>
                             <constraint firstItem="dde-Bp-Bq4" firstAttribute="top" secondItem="H4B-El-Sgb" secondAttribute="bottom" id="qzl-Qw-LWT"/>
+                            <constraint firstItem="plD-2r-pS8" firstAttribute="top" secondItem="H4B-El-Sgb" secondAttribute="bottom" id="wVt-cw-5w2"/>
+                            <constraint firstItem="plD-2r-pS8" firstAttribute="leading" secondItem="TYf-Ta-lAf" secondAttribute="leading" id="ysQ-6L-fDm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1758,7 +1778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByD-8Y-n0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6204" y="1530"/>
+            <point key="canvasLocation" x="6202.898550724638" y="1529.7554347826087"/>
         </scene>
     </scenes>
     <resources>

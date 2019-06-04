@@ -18,7 +18,7 @@ class LearnWordViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         helpList = CoreDataGetter.shared.getList()
-        tableview.separatorColor = UIColor.clear
+        tableview.separatorColor = UIColor.white
     }
     
     func inject(helpList: [HelpWordModel], delegate:LearnWordDelegate){

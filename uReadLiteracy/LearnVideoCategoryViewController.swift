@@ -10,6 +10,9 @@ import UIKit
 
 class LearnVideoCategoryViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
+    @IBOutlet weak var tableview: UITableView!
+    
+    
     private let categories = VideoCategory.allCases
     private var delegate:LearnVideoCategoryDelegate?
     
@@ -36,8 +39,7 @@ class LearnVideoCategoryViewController: UIViewController,UITableViewDataSource,U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableview.separatorColor = UIColor.white
     }
     
 

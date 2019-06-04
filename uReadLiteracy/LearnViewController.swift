@@ -84,6 +84,7 @@ class LearnViewController: UIViewController{
             }
         }
         else{
+            noResultController.view.isHidden = true
             learnWordController.view.isHidden = true
             learnVideoCategoryController.view.isHidden = false
             view.bringSubviewToFront(learnVideoCategoryController.view)
