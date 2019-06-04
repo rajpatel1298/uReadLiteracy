@@ -12,7 +12,7 @@ enum VideoCategory:String,CaseIterable{
     case LongVowels = "Long Vowel Sounds"
     case ShortVowels = "Short Vowel Sounds"
     case PrefixSuffix = "Prefixes and Suffixes"
-    case Multisyllabic = "Multisyllabic Words"
+    case Multisyllabic = "It's a Long Word"
     case ConsonantBlends = "Consonant Blends"
     case ConsonantDigraphs = "Consonant Digraphs"
     case Trigraph = "Trigraph"

@@ -1,5 +1,5 @@
 //
-//  WordWithSpeakerTableViewCell.swift
+//  WordWithNumberTableViewCell.swift
 //  uReadLiteracy
 //
 //  Created by Duy Le 2 on 3/17/19.
@@ -10,7 +10,7 @@ import UIKit
 import Lottie
 import AVKit
 
-class WordWithSpeakerTableViewCell: UITableViewCell {
+class WordWithNumberTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,7 +34,8 @@ class WordWithSpeakerTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        sizeToFit()
+        layoutIfNeeded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

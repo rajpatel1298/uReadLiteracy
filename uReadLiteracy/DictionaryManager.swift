@@ -21,8 +21,9 @@ class DictionaryManager{
                 return
             }
             do{
-                let result = try JSONDecoder().decode(DictionaryWord.self, from: data)
-                completion(result)
+                let result = try JSONDecoder().decode([DictionaryWord].self, from: data)
+                
+                completion(result[0])
             }
             catch{
                 print(error)

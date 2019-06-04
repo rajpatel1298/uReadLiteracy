@@ -60,6 +60,7 @@ class BrowserLogicController{
             }
         })
     }
+    
     private func onlyOneWordIsSelected(word:String)->Bool{
         if(word.isEmpty){
             return false

@@ -34,7 +34,9 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
         super.viewDidLoad()
         tableview.separatorStyle = .none
         tableview.allowsSelection = false
-        sectionExpanded[DEFINTION] = false
+        sectionExpanded[DEFINTION] = true
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,15 +77,18 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
                 
                 
                 strongself.sectionExpanded.removeAll()
-                strongself.sectionExpanded[strongself.DEFINTION] = false
+                strongself.sectionExpanded[strongself.DEFINTION] = true
                 for detail in strongself.wordDetails{
                     strongself.sectionExpanded[detail.title] = false
                 }
                 
-                
                 strongself.tableview.reloadData()
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     
@@ -167,7 +172,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if(indexPath.section == 0){
-            let cell = tableview.dequeueReusableCell(withIdentifier: "WordWithSpeakerTableViewCell") as! WordWithSpeakerTableViewCell
+            let cell = tableview.dequeueReusableCell(withIdentifier: "WordWithNumberTableViewCell") as! WordWithNumberTableViewCell
             return cell
         }
         else{
@@ -190,14 +195,14 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        //WordWithSpeakerTableViewCell
+        //WordWithNumberTableViewCell
         if(indexPath.section == 0){
-            return 100
+            return UITableView.automaticDimension
         }
         else{
             //WordAnalysisTableViewCell
             if(indexPath.row == 0){
-                return 100
+                return UITableView.automaticDimension
             }
             // DynamicVideoTableViewCell
             else{
@@ -207,7 +212,7 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //WordWithSpeakerTableViewCell
+        //WordWithNumberTableViewCell
         if(indexPath.section == 0){
             return UITableView.automaticDimension
         }
@@ -229,15 +234,17 @@ class LearnDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             cell.webview.loadHTMLString(cell.html, baseURL: nil)
             cell.webview.scrollView.isScrollEnabled = false
         }
-        if let cell = cell as? WordWithSpeakerTableViewCell{
+        if let cell = cell as? WordWithNumberTableViewCell{
             if(indexPath.row == 0){
                 cell.titleLabel.font = UIFont(name: "NokioSans-Bold", size: 20)
+                cell.titleLabel.text = wordDefinitions[indexPath.row]
             }
             else{
                 cell.titleLabel.font = UIFont(name: "NokioSans-Regular", size: 20)
+                cell.titleLabel.text = "\(indexPath.row). \(wordDefinitions[indexPath.row])"
             }
         
-            cell.titleLabel.text = wordDefinitions[indexPath.row]
+            
         }
     }
 }

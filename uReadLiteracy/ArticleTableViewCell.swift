@@ -11,21 +11,13 @@ import Lottie
 
 class ArticleTableViewCell: UITableViewCell {
     
-    
-    @IBOutlet weak var slowSpeakerView: UIButton!
-    
-    @IBOutlet weak var fastSpeakerView: UIButton!
+    @IBOutlet weak var speakerView: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
     private var textToVoice = TextToVoiceService()
     
     override func layoutSubviews() {
         textToVoice.setText(text: titleLabel.text ?? "")
-        
-    }
-    
-    @IBAction func slowBtnPressed(_ sender: Any) {
-        textToVoice.playSlow()
     }
     
     @IBAction func fastBtnPressed(_ sender: Any) {

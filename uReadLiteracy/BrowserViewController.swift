@@ -190,6 +190,35 @@ extension BrowserViewController{
         }
     }
     
+    @objc func learnMoreFunction(){
+        logicController.helpFunction(webView: webView) { [weak self] (state, error, helpWord) in
+            guard let strongSelf = self else{
+                return
+            }
+            
+            switch(state){
+            case .Success:
+                guard let helpWord = helpWord else{
+                    fatalError("When success, need to have help word return")
+                }
+                strongSelf.helpWordSegue = helpWord
+                
+                DispatchQueue.main.async {
+                    strongSelf.performSegue(withIdentifier: "BrowserToLearnDetailSegue", sender: self)
+                }
+                
+                break
+            case .Failure( _):
+                guard let helpFunctionError = error else{
+                    return
+                }
+                strongSelf.handleHelpError(helpFunctionError: helpFunctionError)
+            default:
+                break
+            }
+        }
+    }
+    
     func handleHelpError(helpFunctionError: HelpFunctionError){
         switch(helpFunctionError){
         case .MoreThanOneWord:

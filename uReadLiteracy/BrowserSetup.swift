@@ -40,7 +40,8 @@ extension BrowserViewController{
     
     private func setupHelpFunctionInMenuBar(){
         let helpItem = UIMenuItem.init(title: "Help", action: #selector(helpFunction))
-        UIMenuController.shared.menuItems = [helpItem]
+        let learnMoreItem = UIMenuItem.init(title: "Learn More", action: #selector(learnMoreFunction))
+        UIMenuController.shared.menuItems = [helpItem,learnMoreItem]
         UIMenuController.shared.update()
         UIMenuController.shared.setMenuVisible(true, animated: true)
     }
