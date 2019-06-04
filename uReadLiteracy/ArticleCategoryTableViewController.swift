@@ -42,7 +42,7 @@ class ArticleCategoryTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ArticleDifficultyTableViewController{
+        if let destination = segue.destination as? ArticleDifficultyViewController{
             destination.inject(category: selectedCategory)
         }
     }
