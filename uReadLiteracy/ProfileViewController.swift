@@ -25,6 +25,7 @@ class ProfileViewController: BaseViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var initialLabel: UILabel!
     
     
     
@@ -33,7 +34,7 @@ class ProfileViewController: BaseViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.minimumInteritemSpacing = 0
+        layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
         achievementCollectionView.collectionViewLayout = layout
@@ -93,10 +94,20 @@ class ProfileViewController: BaseViewController {
         let user = CurrentUser.shared
 
         if user.getImage() == nil{
-            profileIV.image = #imageLiteral(resourceName: "emptyProfile")
-            profileIV.backgroundColor = UIColor.white
+            profileIV.image = #imageLiteral(resourceName: "pinkcircle")
+            initialLabel.isHidden = false
+            
+            let nameParts = user.nickname.split(separator: " ")
+            var initial = ""
+            for name in nameParts{
+                initial = initial + (String(name.first ?? Character(""))  )
+            }
+            
+            initialLabel.text = initial
+            
         }
         else{
+            initialLabel.isHidden = true
             profileIV.image = user.getImage()
         }
     }

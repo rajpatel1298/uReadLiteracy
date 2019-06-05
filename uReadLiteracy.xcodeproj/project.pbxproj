@@ -84,6 +84,8 @@
 		1C870F8121AA4CFA00FF296E /* ChoosingGoalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8021AA4CFA00FF296E /* ChoosingGoalAlert.swift */; };
 		1C870F8921B2D9E700FF296E /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C870F8821B2D9E700FF296E /* LoadingCircle.swift */; };
 		1C88C3B422A624D500F05775 /* ArticleDifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88C3B322A624D500F05775 /* ArticleDifficultyViewController.swift */; };
+		1C88C3B622A730A900F05775 /* AddUserImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88C3B522A730A900F05775 /* AddUserImageViewController.swift */; };
+		1C88C3B822A736D300F05775 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C88C3B722A736D300F05775 /* RoundedView.swift */; };
 		1C8C352A222D7F76008FF966 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C3529222D7F76008FF966 /* FirebaseAuthService.swift */; };
 		1C93D7772226FE1E005AA563 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D7762226FE1E005AA563 /* OptionView.swift */; };
 		1C93D7792228959D005AA563 /* FirebaseUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D7782228959D005AA563 /* FirebaseUploader.swift */; };
@@ -372,6 +374,8 @@
 		1C870F8021AA4CFA00FF296E /* ChoosingGoalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingGoalAlert.swift; sourceTree = "<group>"; };
 		1C870F8821B2D9E700FF296E /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
 		1C88C3B322A624D500F05775 /* ArticleDifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDifficultyViewController.swift; sourceTree = "<group>"; };
+		1C88C3B522A730A900F05775 /* AddUserImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserImageViewController.swift; sourceTree = "<group>"; };
+		1C88C3B722A736D300F05775 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		1C8C3529222D7F76008FF966 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		1C93D7762226FE1E005AA563 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		1C93D7782228959D005AA563 /* FirebaseUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUploader.swift; sourceTree = "<group>"; };
@@ -726,6 +730,7 @@
 			isa = PBXGroup;
 			children = (
 				1C4C680921912A3000D5383D /* AddUserInfoViewController.swift */,
+				1C88C3B522A730A900F05775 /* AddUserImageViewController.swift */,
 				1C4C6807218FBE9C00D5383D /* Walkthrough */,
 			);
 			name = "First Time Launch";
@@ -774,6 +779,7 @@
 		1C513AA3218675FA00FFDC82 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1C88C3B922A736EC00F05775 /* Rounded */,
 				1CAEFAE22299AEB400928203 /* Social Media */,
 				1CC1987E2218D0C00021BAFC /* ComprehensionPopup */,
 				1CAC79AB21FFB1F9007F8704 /* Audio Player */,
@@ -783,15 +789,11 @@
 				1C769CF221D4352300034EB3 /* BouncingLabel.swift */,
 				1C769CF421D44B8800034EB3 /* AnimatedRectangle.swift */,
 				1CAC792721FB5763007F8704 /* ActivityIndicatorWithDarkBackground.swift */,
-				1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */,
-				1CCF98A62211E50100C491A8 /* RoundedButton.swift */,
 				1CCF98A82211E55C00C491A8 /* ProfileBackgroundImageView.swift */,
 				1C578F9522056D770077E1DD /* WKWebviewWithHelpMenu.swift */,
 				1CC198722217C4C70021BAFC /* CompletionAnimationView.swift */,
 				1C0186C122716C55002C7F0C /* DropDownView.swift */,
 				1C0186C522764445002C7F0C /* DropDownDelegate.swift */,
-				1C307E4A229A04B200A16846 /* AchievementTableViewCell.swift */,
-				1C307E4C229AE04800A16846 /* AchievementCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -864,6 +866,16 @@
 			name = Enum;
 			sourceTree = "<group>";
 		};
+		1C88C3B922A736EC00F05775 /* Rounded */ = {
+			isa = PBXGroup;
+			children = (
+				1C88C3B722A736D300F05775 /* RoundedView.swift */,
+				1CCF98A62211E50100C491A8 /* RoundedButton.swift */,
+				1CCF98A42211E3AB00C491A8 /* RoundedImageView.swift */,
+			);
+			name = Rounded;
+			sourceTree = "<group>";
+		};
 		1C9C775A219A90A5002ADA76 /* Learn More */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,6 +905,8 @@
 				CD3E1E15205C5CF500AC2D1A /* WordWithDeleteBtnTableViewCell.swift */,
 				1C0186BD22714913002C7F0C /* LearnDetailHeaderTableViewCell.swift */,
 				1CAEFACB228655BE00928203 /* LearnVideoCategoryTableViewCell.swift */,
+				1C307E4A229A04B200A16846 /* AchievementTableViewCell.swift */,
+				1C307E4C229AE04800A16846 /* AchievementCollectionViewCell.swift */,
 			);
 			name = "Tableview Cells";
 			sourceTree = "<group>";
@@ -1593,6 +1607,7 @@
 				1CCF98A72211E50100C491A8 /* RoundedButton.swift in Sources */,
 				1C0186C222716C55002C7F0C /* DropDownView.swift in Sources */,
 				1CAC793C21FB5A01007F8704 /* ComprehensionPopup.swift in Sources */,
+				1C88C3B622A730A900F05775 /* AddUserImageViewController.swift in Sources */,
 				1C490E9B226154BE00DC5E74 /* MultisyllabicAnalyzer.swift in Sources */,
 				1CD1A27A223EDCB200502A67 /* DictionaryVerb.swift in Sources */,
 				1CD1A28C2245B4A000502A67 /* ArticleCategory.swift in Sources */,
@@ -1635,6 +1650,7 @@
 				1CD1A284223F0F1E00502A67 /* WebViewManager.swift in Sources */,
 				1C490EA72262A3F600DC5E74 /* WordAnalysisDetail.swift in Sources */,
 				1C578F6D22028F5E0077E1DD /* FileHelper.swift in Sources */,
+				1C88C3B822A736D300F05775 /* RoundedView.swift in Sources */,
 				CD1DCA5E1FF3564800FCDDB5 /* WalkthroughContentViewController.swift in Sources */,
 				1CAC792121FB56ED007F8704 /* SocialMediaUserCell.swift in Sources */,
 				CD3E1E14205C5AC200AC2D1A /* LearnViewController.swift in Sources */,

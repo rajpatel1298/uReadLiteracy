@@ -22,17 +22,12 @@ class StartViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough"){
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController")
-            self.show(vc, sender: self)
-        }
-        else{
+        if UserDefaults.standard.bool(forKey: "firstTime"){
             performSegue(withIdentifier: "StartToFirstTimeSegue", sender: self)
         }
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarViewController")
-        self.show(vc, sender: self)
+        else{
+            performSegue(withIdentifier: "StartToMainSegue", sender: self)
+        }
     }
 }
 
