@@ -13,9 +13,9 @@ import Lottie
 
 class CommentSectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
-    @IBOutlet weak var userIV: UIImageView!
-    @IBOutlet weak var userCommentTV: UITextView!
-    @IBOutlet weak var postBtn: UIButton!
+   
+    @IBOutlet weak var userCommentTV: RoundedTextView!
+    @IBOutlet weak var postBtn: RoundedButton!
     @IBOutlet weak var tableview: UITableView!
     
     @IBOutlet weak var emptyAnimationView: AnimationView!
@@ -94,14 +94,8 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupUserCommentTV()
-        setupUserIV()
     }
     
-    private func setupUserIV(){
-        userIV.layer.cornerRadius = userIV.frame.width/2
-        userIV.layer.masksToBounds = false
-        userIV.clipsToBounds = true
-    }
     
     private func setupUserCommentTV(){
         userCommentTV.layer.cornerRadius = 10
@@ -111,12 +105,6 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if(currentUser.getImage() == nil){
-            userIV.image = #imageLiteral(resourceName: "profile_hd")
-        }
-        else{
-            userIV.image =  currentUser.getImage()
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -147,7 +135,7 @@ class CommentSectionViewController: UIViewController, UITableViewDelegate, UITab
                 comment.userImage = image
                 DispatchQueue.main.async {
                     if(image == nil){
-                        cell.imageview.image = #imageLiteral(resourceName: "profile_hd")
+                        cell.imageview.image = #imageLiteral(resourceName: "bluecircle")
                     }
                     else{
                         cell.imageview.image = image

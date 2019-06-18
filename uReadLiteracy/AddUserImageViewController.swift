@@ -14,9 +14,7 @@ class AddUserImageViewController: UIViewController,UIImagePickerControllerDelega
     
     @IBOutlet weak var imageview: RoundedImageView!
     @IBOutlet weak var initialLabel: UILabel!
-    
     @IBOutlet weak var skipBtn: RoundedButton!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     

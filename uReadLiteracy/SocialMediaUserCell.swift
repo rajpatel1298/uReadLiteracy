@@ -10,7 +10,7 @@ import UIKit
 
 class SocialMediaUserCell: UITableViewCell {
     
-    @IBOutlet weak var imageview: UIImageView!
+    @IBOutlet weak var imageview: RoundedImageView!
     
     @IBOutlet weak var commentLabel: UILabel!
     

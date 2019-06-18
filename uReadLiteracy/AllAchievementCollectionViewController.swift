@@ -96,7 +96,7 @@ class AllAchievementCollectionViewController: UICollectionViewController , UICol
         cell.hideSocialMedia()
         
         if(!achievement.completed){
-            cell.imageview.alpha = 0.5
+            cell.imageview.alpha = 0.3
         }
     }
     

@@ -33,7 +33,7 @@ class ArticleManager{
         
         for line in content.components(separatedBy: "\n"){
             let line = line.replacingOccurrences(of: "\r", with: "")
-            let titleAndLink = line.components(separatedBy: ": ")
+            let titleAndLink = line.components(separatedBy: "\|")
             if(titleAndLink.count < 3){
                 continue
             }
